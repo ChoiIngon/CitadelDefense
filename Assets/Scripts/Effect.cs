@@ -4,7 +4,7 @@ using System.Collections;
 [RequireComponent (typeof (SpriteRenderer))]
 [RequireComponent (typeof (Animator))]
 public class Effect : MonoBehaviour {
-	Animator animator;
+	protected Animator animator;
 	public string stateName;
 	public string animationControllerPath;
 	// Use this for initialization

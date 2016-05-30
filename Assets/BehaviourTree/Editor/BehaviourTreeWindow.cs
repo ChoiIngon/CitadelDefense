@@ -41,7 +41,7 @@ namespace BehaviourTree
 
         private void OnGUI()
         {
-            if (null == nodeSkin)
+            if (null == NodeEditor.nodeSkin)
             {
                 InitGUI();
             }
@@ -51,8 +51,8 @@ namespace BehaviourTree
 
             GUILayout.BeginArea(sideWindowRect, GUI.skin.box);
 
-            defaultSkin = GUI.skin;
-            GUI.skin = nodeSkin;
+			NodeEditor.defaultSkin = GUI.skin;
+			GUI.skin = NodeEditor.nodeSkin;
 
             foreach (Node node in NodeEditor.nodes)
             {
@@ -60,7 +60,7 @@ namespace BehaviourTree
             }
             DrawSideWindow();
             
-            GUI.skin = defaultSkin;
+			GUI.skin = NodeEditor.defaultSkin;
             GUILayout.EndArea();
         }
 

@@ -14,4 +14,13 @@ public class Effect_Damage : Effect {
 		TextMesh text = GetComponent<TextMesh> ();
 		text.text = damage.ToString ();
 	}
+
+	protected void Update () {
+		AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo (0);
+		if (state.IsName(stateName) && state.normalizedTime >= 1.0f)
+		{
+			DestroyImmediate (transform.parent.gameObject, true);
+			//DestroyImmediate (gameObject, true);
+		}
+	}
 }

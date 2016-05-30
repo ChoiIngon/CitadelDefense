@@ -52,8 +52,11 @@ public class Enemy : MonoBehaviour {
 	public void Damage(int damage)
 	{
 		damage = Mathf.Max (damage - defense, 1);
+		GameObject go = new GameObject ();
+		go.name = "Effect_Damage";
+		go.transform.position = transform.position;
 		Effect_Damage damageEffect = GameObject.Instantiate<Effect_Damage> (Resources.Load<Effect_Damage> ("Prefabs/Effect_Damage"));
-		damageEffect.transform.localPosition = transform.localPosition;
+		damageEffect.transform.SetParent (go.transform);
 		damageEffect.Init (damage);
 		hp = hp - damage;
 		if (0 >= hp) {

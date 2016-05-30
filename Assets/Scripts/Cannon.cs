@@ -13,7 +13,9 @@ public class Cannon : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (elapsedTime >= attackSpeed) {
+			
 			GameObject go = GameObject.Instantiate (cannonball);
+			go.transform.position = transform.position;
 			Attack_RangeCurve attack = go.GetComponent<Attack_RangeCurve> ();
 			attack.startPosition = transform.localPosition;
 			attack.targetPosition = attack.startPosition;

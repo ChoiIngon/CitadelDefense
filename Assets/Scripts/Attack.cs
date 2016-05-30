@@ -29,7 +29,7 @@ public class Attack : MonoBehaviour {
 	public int damage;
 	public Rect size;
 	public AttackElementType attackType = AttackElementType.None;
-	private BoxCollider2D attackBox;
+	protected BoxCollider2D attackBox;
 	// Use this for initialization
 	protected void Start () {
 		attackBox = GetComponent<BoxCollider2D> ();
@@ -38,7 +38,6 @@ public class Attack : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D(Collider2D col) {
-		Debug.Log ("crash");
 		if ("Enemy" == col.gameObject.tag) {
 			Enemy enemy = col.gameObject.GetComponent<Enemy> ();
 			enemy.Damage (damage);
