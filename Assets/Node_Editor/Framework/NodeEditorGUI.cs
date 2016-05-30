@@ -100,11 +100,13 @@ namespace NodeEditorFramework
 		/// </summary>
 		public static void DrawConnection (Vector2 startPos, Vector2 startDir, Vector2 endPos, Vector2 endDir, Color col) 
 		{
-			#if NODE_EDITOR_LINE_CONNECTION
+			//#if NODE_EDITOR_LINE_CONNECTION
 			DrawConnection (startPos, startDir, endPos, endDir, ConnectionDrawMethod.StraightLine, col);
+            /*
 			#else
 			DrawConnection (startPos, startDir, endPos, endDir, ConnectionDrawMethod.Bezier, col);
 			#endif
+            */
 		}
 		/// <summary>
 		/// Draws a node connection from start to end with specified vectors
