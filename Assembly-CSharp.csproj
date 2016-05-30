@@ -71,7 +71,7 @@
      <Compile Include="Assets\Node_Editor\Utilities\OverlayGUI.cs" />
      <Compile Include="Assets\Node_Editor\Utilities\RTEditorGUI.cs" />
      <Compile Include="Assets\Node_Editor\Utilities\ResourceManager.cs" />
-     <Compile Include="Assets\Scripts\Attack.cs" />
+     <Compile Include="Assets\Scripts\AttackBox.cs" />
      <Compile Include="Assets\Scripts\Attack_Melee.cs" />
      <Compile Include="Assets\Scripts\Attack_RangeCurve.cs" />
      <Compile Include="Assets\Scripts\Attack_RangeStright.cs" />

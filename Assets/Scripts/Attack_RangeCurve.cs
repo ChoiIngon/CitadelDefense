@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Attack_RangeCurve : Attack {
+public class Attack_RangeCurve : MonoBehaviour {
 	public float moveSpeed;
 	public Vector3 startPosition;
 	public Vector3 targetPosition;
@@ -9,7 +9,6 @@ public class Attack_RangeCurve : Attack {
 
 	private float startTime;
 	void Start() {
-		base.Start ();
 		startTime = Time.time;
 	}
 
