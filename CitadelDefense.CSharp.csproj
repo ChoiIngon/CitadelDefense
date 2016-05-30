@@ -62,12 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BehaviourTree\Source\Node.cs" />
-    <Compile Include="Assets\BehaviourTree\Source\NodeCanvas.cs" />
-    <Compile Include="Assets\BehaviourTree\Source\NodeEditor.cs" />
-    <Compile Include="Assets\BehaviourTree\Source\NodeEditorGUI.cs" />
-    <Compile Include="Assets\BehaviourTree\Source\NodeEditorState.cs" />
-    <Compile Include="Assets\BehaviourTree\Source\ResourceManager.cs" />
     <Compile Include="Assets\Node_Editor\Framework\ConnectionTypes.cs" />
     <Compile Include="Assets\Node_Editor\Framework\Node.cs" />
     <Compile Include="Assets\Node_Editor\Framework\NodeCanvas.cs" />
@@ -91,6 +85,14 @@
     <Compile Include="Assets\Node_Editor\Utilities\OverlayGUI.cs" />
     <Compile Include="Assets\Node_Editor\Utilities\RTEditorGUI.cs" />
     <Compile Include="Assets\Node_Editor\Utilities\ResourceManager.cs" />
+    <Compile Include="Assets\Scripts\Attack.cs" />
+    <Compile Include="Assets\Scripts\Attack_Melee.cs" />
+    <Compile Include="Assets\Scripts\Attack_RangeCurve.cs" />
+    <Compile Include="Assets\Scripts\Attack_RangeStright.cs" />
+    <Compile Include="Assets\Scripts\Cannon.cs" />
+    <Compile Include="Assets\Scripts\Effect.cs" />
+    <Compile Include="Assets\Scripts\Effect_Damage.cs" />
+    <Compile Include="Assets\Scripts\Enemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Node_Editor\Resources\LineShader.shader" />
