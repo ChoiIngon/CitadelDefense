@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Linq;
+
 namespace AIEditor
 {
     public abstract class Node : ScriptableObject
     {
+		public int id;
         public Rect rect;
         public Node parent;
         public string title;
@@ -42,29 +47,48 @@ namespace AIEditor
     public class NodeManager : ScriptableObject
     {
         public delegate Node CreateNodeDelegate();
+		public static int nodeID;
         public static Dictionary<string, CreateNodeDelegate> creator;
         public static List<Node> nodes;
         public static bool isInit = false;
         public static void Init()
         {
+			nodeID = 0;
             nodes = new List<Node>();
             creator = new Dictionary<string, CreateNodeDelegate>();
-
-            creator.Add("Selector", () => { 
-                Selector node = new Selector();
-                node.title = "Selector";
-                node.rect = new Rect(0, 0, 150, 100);
-                return node;
-            });
-
-            creator.Add("Sequence", () => { 
-                Sequence node = new Sequence();
-                node.title = "Sequence";
-                node.rect = new Rect(0, 0, 150, 100);
-                return node;
-            });
-
             isInit = true;
+
+			List<Assembly> scriptAssemblies = AppDomain.CurrentDomain.GetAssemblies ().Where ((Assembly assembly) => assembly.FullName.Contains ("Assembly")).ToList ();
+			if (!scriptAssemblies.Contains (Assembly.GetExecutingAssembly ())) {
+				scriptAssemblies.Add (Assembly.GetExecutingAssembly ());
+			}
+				
+			foreach (Assembly assembly in scriptAssemblies) 
+			{
+				foreach (Type type in assembly.GetTypes ().Where (T => T.IsClass && !T.IsAbstract && T.IsSubclassOf (typeof (Node)))) 
+				{
+					object[] nodeAttributes = type.GetCustomAttributes (typeof (NodeAttribute), false);
+					NodeAttribute attr = nodeAttributes [0] as NodeAttribute;
+					if (attr != null)
+					{
+						string typeName = type.Name;
+						creator.Add (attr.contextText, () => {
+							Node node = ScriptableObject.CreateInstance(typeName) as Node;
+							return node;
+						});
+					}
+				}
+			}
         }
     }
+
+	public class NodeAttribute : Attribute 
+	{
+		public string contextText { get; private set; }
+
+		public NodeAttribute (string ReplacedContextText) 
+		{
+			contextText = ReplacedContextText;
+		}
+	}
 }

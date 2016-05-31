@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -16,6 +17,7 @@ namespace AIEditor
         private Node selectedNode;
         private EditorState editorState = EditorState.Default;
         private Vector2 mousePos;
+		private float zoom = 1.0f;
 
         [MenuItem("Window/AI Editor")]
         static void ShowEditor()
@@ -42,7 +44,7 @@ namespace AIEditor
             bool mouseDown = EventType.MouseDown == e.type;
             bool mouseUp = EventType.MouseUp == e.type;
 			bool mouseDrag = EventType.MouseDrag == e.type;
-
+			bool scrollWheel = EventType.ScrollWheel == e.type;
             if (rightClick && mouseDown && EditorState.MakeTransition != editorState)
             {
                 GenericMenu menu = new GenericMenu();
@@ -92,6 +94,12 @@ namespace AIEditor
 					Repaint ();
 				}
 			}
+
+			if (scrollWheel) {
+				zoom = (float)Math.Round (Math.Min (2.0f, Math.Max (0.6f, zoom + e.delta.y / 15)), 2);
+				Repaint ();
+			}
+
             if (EditorState.MakeTransition == editorState && null != selectedNode)
             {
                 Rect mouseRect = new Rect(e.mousePosition.x, e.mousePosition.y, 10, 10);
@@ -114,15 +122,19 @@ namespace AIEditor
 
         void DrawNode(int id)
         {
+			//NodeManager.nodes [id].rect.position *= zoom;
             NodeManager.nodes[id].DrawNode();
+
             GUI.DragWindow();
         }
         void CreateNode(object obj)
         {
             string nodeType = obj.ToString();
             Node node = NodeManager.creator[nodeType]();
+			node.id = NodeManager.nodeID;
             node.rect.x = mousePos.x;
             node.rect.y = mousePos.y;
+			NodeManager.nodeID++;
             NodeManager.nodes.Add(node);
 
             if(null != selectedNode)
