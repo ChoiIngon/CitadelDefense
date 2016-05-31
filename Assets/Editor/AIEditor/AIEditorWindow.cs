@@ -41,6 +41,7 @@ namespace AIEditor
             bool rightClick = 1 == e.button;
             bool mouseDown = EventType.MouseDown == e.type;
             bool mouseUp = EventType.MouseUp == e.type;
+			bool mouseDrag = EventType.MouseDrag == e.type;
 
             if (rightClick && mouseDown && EditorState.MakeTransition != editorState)
             {
@@ -82,7 +83,15 @@ namespace AIEditor
 
                 e.Use();
             }
-            
+			if (mouseDrag) {
+				int selectedIndex = GetSelectedIndex ();
+				if (-1 == selectedIndex) {
+					foreach (Node node in NodeManager.nodes) {
+						node.rect.position += e.delta;
+					}
+					Repaint ();
+				}
+			}
             if (EditorState.MakeTransition == editorState && null != selectedNode)
             {
                 Rect mouseRect = new Rect(e.mousePosition.x, e.mousePosition.y, 10, 10);
