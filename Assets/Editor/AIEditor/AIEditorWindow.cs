@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AIEditor
 {
-    public class AIEditor : EditorWindow
+    public class AIEditorWindow : EditorWindow
     {
         public enum EditorState
         {
@@ -13,7 +13,6 @@ namespace AIEditor
             MakeTransition
         }
 
-        private List<Node> nodes = new List<Node>();
         private Node selectedNode;
         private EditorState editorState = EditorState.Default;
         private Vector2 mousePos;
@@ -21,17 +20,20 @@ namespace AIEditor
         [MenuItem("Window/AI Editor")]
         static void ShowEditor()
         {
-            AIEditor editor = EditorWindow.GetWindow<AIEditor>();
-            editor.InitNode();
+            AIEditorWindow window = EditorWindow.GetWindow<AIEditorWindow>();
+            window.minSize = new Vector2(800, 600);
+            window.titleContent = new GUIContent("AI Editor");
         }
 
-        void InitNode()
-        {
-            NodeCreator.Init();
-        }
+        public void OnDestory() {}
 
         void OnGUI()
         {
+            if (false == NodeManager.isInit)
+            {
+                NodeManager.Init();
+            }
+
             Event e = Event.current;
             mousePos = e.mousePosition;
 
@@ -45,9 +47,9 @@ namespace AIEditor
                 GenericMenu menu = new GenericMenu();
                 int selectedIndex = GetSelectedIndex();
 
-                if (null != NodeCreator.creator)
+                if (null != NodeManager.creator)
                 {
-                    foreach (var v in NodeCreator.creator)
+                    foreach (var v in NodeManager.creator)
                     {
                         menu.AddItem(new GUIContent("Add " + v.Key), false, CreateNode, v.Key);
                     }
@@ -56,7 +58,7 @@ namespace AIEditor
                 if (-1 != selectedIndex)
                 {
                     menu.AddSeparator("");
-                    selectedNode = nodes[selectedIndex];
+                    selectedNode = NodeManager.nodes[selectedIndex];
                     menu.AddItem(new GUIContent("Make Transition"), false, MakeTransition, null);
                     menu.AddItem(new GUIContent("Delete Node"), false, DeleteNode, null);
                 }
@@ -67,10 +69,10 @@ namespace AIEditor
             else if (leftClick && mouseDown && EditorState.MakeTransition == editorState)
             {
                 int selectedIndex = GetSelectedIndex();
-                
-                if (-1 != selectedIndex && !nodes[selectedIndex].Equals(selectedNode))
+
+                if (-1 != selectedIndex && !NodeManager.nodes[selectedIndex].Equals(selectedNode))
                 {
-                    Node node = nodes[selectedIndex];
+                    Node node = NodeManager.nodes[selectedIndex];
                     node.parent = selectedNode;
                     selectedNode.children.Add(node);
                 }
@@ -88,31 +90,31 @@ namespace AIEditor
                 Repaint();
             }
 
-            for (int i = 0; i < nodes.Count; i++)
+            for (int i = 0; i < NodeManager.nodes.Count; i++)
             {
-                nodes[i].DrawConnection();
+                NodeManager.nodes[i].DrawConnection();
             }
 
             BeginWindows();
-            for(int i=0; i<nodes.Count; i++)
+            for (int i = 0; i < NodeManager.nodes.Count; i++)
             {
-                nodes[i].rect = GUI.Window(i, nodes[i].rect, DrawNode, nodes[i].title);
+                NodeManager.nodes[i].rect = GUI.Window(i, NodeManager.nodes[i].rect, DrawNode, NodeManager.nodes[i].title);
             }
             EndWindows();
         }
 
         void DrawNode(int id)
         {
-            nodes[id].DrawNode();
+            NodeManager.nodes[id].DrawNode();
             GUI.DragWindow();
         }
         void CreateNode(object obj)
         {
             string nodeType = obj.ToString();
-            Node node = NodeCreator.CreateInstance(nodeType);
+            Node node = NodeManager.creator[nodeType]();
             node.rect.x = mousePos.x;
             node.rect.y = mousePos.y;
-            nodes.Add(node);
+            NodeManager.nodes.Add(node);
 
             if(null != selectedNode)
             {
@@ -126,7 +128,7 @@ namespace AIEditor
             int selectedIndex = GetSelectedIndex();
             if (-1 != selectedIndex)
             {
-                selectedNode = nodes[selectedIndex];
+                selectedNode = NodeManager.nodes[selectedIndex];
                 editorState = EditorState.MakeTransition;
             }
         }
@@ -135,9 +137,9 @@ namespace AIEditor
             int selectedIndex = GetSelectedIndex();
             if (-1 != selectedIndex)
             {
-                selectedNode = nodes[selectedIndex];
+                selectedNode = NodeManager.nodes[selectedIndex];
                 selectedNode.parent.children.Remove(selectedNode);
-                nodes.RemoveAt(selectedIndex);
+                NodeManager.nodes.RemoveAt(selectedIndex);
             }
         }
 
@@ -145,9 +147,9 @@ namespace AIEditor
         {
             int selectedIndex = -1;
 
-            for (int i = 0; i < nodes.Count; i++)
+            for (int i = 0; i < NodeManager.nodes.Count; i++)
             {
-                if (nodes[i].rect.Contains(mousePos))
+                if (NodeManager.nodes[i].rect.Contains(mousePos))
                 {
                     selectedIndex = i;
                     break;

@@ -98,7 +98,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Editor\AIEditor\AIEditor.cs" />
+    <Compile Include="Assets\Editor\AIEditor\AIEditorWindow.cs" />
     <Compile Include="Assets\Editor\AIEditor\Nodes\Node.cs" />
     <Compile Include="Assets\Editor\AIEditor\Nodes\Selector.cs" />
     <Compile Include="Assets\Editor\AIEditor\Nodes\Sequence.cs" />

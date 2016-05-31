@@ -39,49 +39,32 @@ namespace AIEditor
         }
     }
 
-    public static class NodeCreator
+    public class NodeManager : ScriptableObject
     {
         public delegate Node CreateNodeDelegate();
         public static Dictionary<string, CreateNodeDelegate> creator;
-
+        public static List<Node> nodes;
+        public static bool isInit = false;
         public static void Init()
         {
+            nodes = new List<Node>();
             creator = new Dictionary<string, CreateNodeDelegate>();
 
-            Register("Selector", () => { 
+            creator.Add("Selector", () => { 
                 Selector node = new Selector();
                 node.title = "Selector";
                 node.rect = new Rect(0, 0, 150, 100);
                 return node;
             });
 
-            Register("Sequence", () =>
-            {
+            creator.Add("Sequence", () => { 
                 Sequence node = new Sequence();
                 node.title = "Sequence";
                 node.rect = new Rect(0, 0, 150, 100);
                 return node;
             });
-        }
 
-        public static void Register(string nodeType, CreateNodeDelegate dele)
-        {
-            if(creator.ContainsKey(nodeType))
-            {
-                throw new System.Exception(nodeType + " is already registered");
-            }
-
-            creator.Add(nodeType, dele);
-        }
-
-        public static Node CreateInstance(string nodeType)
-        {
-            if (false == creator.ContainsKey(nodeType))
-            {
-                throw new System.Exception(nodeType + " is not node type");
-            }
-
-            return creator[nodeType]();
+            isInit = true;
         }
     }
 }
