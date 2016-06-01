@@ -225,15 +225,23 @@ namespace AIEditor
 
         void Save()
         {
-            string path = UnityEditor.EditorUtility.SaveFilePanelInProject("Save Node Canvas", "Node Canvas", "asset", "", "Assets/Resources/Saves/");
+			string path = UnityEditor.EditorUtility.SaveFilePanelInProject("Save Node Canvas", "AIBehaviourTree", "asset", "", "Assets/Resources/Saves/");
+			if ("" == path) {
+				return;
+			}
             AssetDatabase.CreateAsset(NodeManager.Instance, path);
+			foreach (Node node in NodeManager.Instance.nodes) {
+				UnityEditor.AssetDatabase.AddObjectToAsset (node, NodeManager.Instance);
+				node.hideFlags = HideFlags.HideInHierarchy;
+			}
+
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
 
         void Load()
         {
-            string path = UnityEditor.EditorUtility.OpenFilePanel("Load Node Canvas", "Assets/Resources/Saves/", "asset");
+			string path = UnityEditor.EditorUtility.OpenFilePanel("Load Node Canvas", "Assets/Resources/Saves/", "asset");
             path = path.Replace(Application.dataPath, "Assets");
             NodeManager.Instance = AssetDatabase.LoadAssetAtPath(path, typeof(NodeManager)) as NodeManager;
         }

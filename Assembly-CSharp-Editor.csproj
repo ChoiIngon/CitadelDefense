@@ -51,6 +51,7 @@
      <Compile Include="Assets\Editor\AIEditor\Nodes\Selector.cs" />
      <Compile Include="Assets\Editor\AIEditor\Nodes\Sequence.cs" />
      <Compile Include="Assets\Editor\Node_Editor\NodeEditorWindow.cs" />
+     <Compile Include="Assets\Editor\Node_Editor\NodeManager.cs" />
      <Compile Include="Assets\Editor\Node_Editor\RTNE_InspectorGUI.cs" />
      <None Include="Assets\Node_Editor\Resources\LineShader.shader" />
      <None Include="Assets\Node_Editor\Utilities\link.xml" />
