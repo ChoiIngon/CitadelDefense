@@ -46,7 +46,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\AIEditor\AIEditorWindow.cs" />
+     <Compile Include="Assets\Editor\AIEditor\Nodes\Action_Attack.cs" />
      <Compile Include="Assets\Editor\AIEditor\Nodes\Action_Idle.cs" />
+     <Compile Include="Assets\Editor\AIEditor\Nodes\Action_Move.cs" />
+     <Compile Include="Assets\Editor\AIEditor\Nodes\Condition_IsInAttackRange.cs" />
      <Compile Include="Assets\Editor\AIEditor\Nodes\Node.cs" />
      <Compile Include="Assets\Editor\AIEditor\Nodes\Selector.cs" />
      <Compile Include="Assets\Editor\AIEditor\Nodes\Sequence.cs" />

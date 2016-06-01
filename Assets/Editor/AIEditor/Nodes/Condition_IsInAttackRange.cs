@@ -4,12 +4,12 @@ using System.Collections;
 
 namespace AIEditor 
 {
-	[Node("Action/Idle")]
-	public class Action_Idle : Node {
-		public Action_Idle()
+	[Node("Condition/IsInAttackRange")]
+	public class Condition_IsInAttackRange : Node {
+		public Condition_IsInAttackRange()
 		{
-			title = "Idle";
-			rect = new Rect (0, 0, 80, 50);
+			title = "IsInAttackRange";
+			rect = new Rect (0, 0, 150, 50);
 		}
 		public override void DrawNode()
 		{
@@ -18,7 +18,7 @@ namespace AIEditor
         {
             return
                 "{" +
-                    "\"type\":" + "\"Action_Idle\"" + "," +
+					"\"type\":" + "\"Condition_IsInAttackRange\"" + "," +
                     "\"id\":" + id +
                 "}";
         }

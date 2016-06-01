@@ -2,27 +2,26 @@
 using UnityEditor;
 using System.Collections;
 
-namespace AIEditor
+namespace AIEditor 
 {
-	[Node("Composite/Selector")]
-    public class Selector : Node
-    {
-		public Selector()
+	[Node("Action/Move")]
+	public class Action_Move : Node {
+		public Action_Move()
 		{
-			title = "Selector";
+			title = "Move";
 			rect = new Rect (0, 0, 100, 50);
 		}
-        public override void DrawNode()
-        {
-        }
-
+		public override void DrawNode()
+		{
+		}
         public override string ToString()
         {
             return
                 "{" +
-                    "\"type\":" + "\"Selector\"" + "," +
+					"\"type\":" + "\"Action_Move\"" + "," +
                     "\"id\":" + id +
                 "}";
         }
-    }
+	}
+
 }

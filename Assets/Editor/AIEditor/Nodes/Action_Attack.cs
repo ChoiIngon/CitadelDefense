@@ -4,11 +4,11 @@ using System.Collections;
 
 namespace AIEditor 
 {
-	[Node("Action/Idle")]
-	public class Action_Idle : Node {
-		public Action_Idle()
+	[Node("Action/Attack")]
+	public class Action_Attack : Node {
+		public Action_Attack()
 		{
-			title = "Idle";
+			title = "Attack";
 			rect = new Rect (0, 0, 80, 50);
 		}
 		public override void DrawNode()
@@ -18,7 +18,7 @@ namespace AIEditor
         {
             return
                 "{" +
-                    "\"type\":" + "\"Action_Idle\"" + "," +
+					"\"type\":" + "\"Action_Attack\"" + "," +
                     "\"id\":" + id +
                 "}";
         }
