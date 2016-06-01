@@ -12,7 +12,7 @@ namespace AIEditor
 		public int id;
         [HideInInspector]
         public Node parent;
-		[SerializeField, HideInInspector]
+		[SerializeField]
         public List<Node> children = new List<Node>();
 
         public string title;

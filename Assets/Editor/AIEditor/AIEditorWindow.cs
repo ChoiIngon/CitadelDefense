@@ -103,11 +103,29 @@ namespace AIEditor
 			if (mouseDrag) {
 				int selectedIndex = GetSelectedIndex ();
 				if (-1 == selectedIndex) {
-                    foreach (Node node in NodeManager.Instance.nodes)
-                    {
+					foreach (Node node in NodeManager.Instance.nodes) {
 						node.rect.position += e.delta;
 					}
 					Repaint ();
+				} else {
+					Node node = NodeManager.Instance.nodes [selectedIndex];
+					Node parent = node.parent;
+					if (null != parent) {
+						parent.children.Sort ((Node lhs, Node rhs) => {
+							if(lhs.rect.position.x < rhs.rect.position.x)
+							{
+								return -1;
+							}
+							/*
+							else if(lhs.rect.position.x == rhs.rect.position.x)
+							{
+								rhs.rect.position = new Vector2(rhs.rect.position.x + 1, rhs.rect.position.y);
+								return -1;
+							}
+							*/
+							return 1;
+						});
+					}
 				}
 			}
 

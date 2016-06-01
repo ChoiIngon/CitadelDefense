@@ -23,12 +23,20 @@ namespace AIEditor {
 				}
 				return self;
 			}
-			set { self = value; }
+			set { 
+				self = value; 
+				self.InitCreator ();
+			}
 		}
 		void Init()
 		{
 			nodeID = 0;
 			nodes = new List<Node>();
+			InitCreator ();
+		}
+
+		void InitCreator()
+		{
 			creator = new Dictionary<string, CreateNodeDelegate>();
 
 			List<Assembly> scriptAssemblies = AppDomain.CurrentDomain.GetAssemblies ().Where ((Assembly assembly) => assembly.FullName.Contains ("Assembly")).ToList ();
