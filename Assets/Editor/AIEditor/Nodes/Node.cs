@@ -65,7 +65,7 @@ namespace AIEditor
                 }
                 return self;
             }
-            private set {}
+            set { self = value; }
         }
         void Init()
         {

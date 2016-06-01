@@ -18,13 +18,15 @@ namespace AIEditor
         private EditorState editorState = EditorState.Default;
         private Vector2 mousePos;
 		private float zoom = 1.0f;
-        private static Rect windowRect = new Rect(0, 0, 800, 600);
+        private static AIEditorWindow window;
+        
         private static string windowTitle = "AI Editor";
+
         [MenuItem("Window/AI Editor")]
         static void ShowEditor()
         {
-            AIEditorWindow window = EditorWindow.GetWindow<AIEditorWindow>();
-            window.minSize = new Vector2(windowRect.width, windowRect.height);
+            window = EditorWindow.GetWindow<AIEditorWindow>();
+            window.minSize = new Vector2(800, 600);
             window.titleContent = new GUIContent(windowTitle);
         }
 
@@ -34,12 +36,11 @@ namespace AIEditor
 
         void OnGUI()
         {
-            Matrix4x4 oldMatrix = GUI.matrix;
-
-            Matrix4x4 matTrans = Matrix4x4.TRS(vanishingPoint, Quaternion.identity, Vector3.one);
-            Matrix4x4 matScale = Matrix4x4.Scale(new Vector3(zoom, zoom, 1.0f));
-            GUI.matrix = matTrans * matScale * matTrans.inverse;
-
+            if (null == window)
+            {
+                return;
+            }
+            
             Event e = Event.current;
             mousePos = e.mousePosition;
 
@@ -49,6 +50,16 @@ namespace AIEditor
             bool mouseUp = EventType.MouseUp == e.type;
 			bool mouseDrag = EventType.MouseDrag == e.type;
 			bool scrollWheel = EventType.ScrollWheel == e.type;
+
+            if (mouseDown)
+            {
+                int selectedIndex = GetSelectedIndex();
+                if(-1 != selectedIndex)
+                {
+                    UnityEditor.Selection.activeObject = NodeManager.Instance.nodes[selectedIndex];
+                }
+            }
+
             if (rightClick && mouseDown && EditorState.MakeTransition != editorState)
             {
                 GenericMenu menu = new GenericMenu();
@@ -105,6 +116,11 @@ namespace AIEditor
 				Repaint ();
 			}
 
+            Matrix4x4 oldMatrix = GUI.matrix;
+
+            Matrix4x4 matTrans = Matrix4x4.TRS(vanishingPoint, Quaternion.identity, Vector3.one);
+            Matrix4x4 matScale = Matrix4x4.Scale(new Vector3(zoom, zoom, 1.0f));
+            GUI.matrix = matTrans * matScale * matTrans.inverse;
             if (EditorState.MakeTransition == editorState && null != selectedNode)
             {
                 Rect mouseRect = new Rect(e.mousePosition.x, e.mousePosition.y, 10, 10);
@@ -131,20 +147,16 @@ namespace AIEditor
 
         void DrawSideGUI()
         {
-            GUILayout.BeginArea(new Rect(windowRect.x + windowRect.width, windowRect.y, 200, windowRect.height));
+            GUILayout.BeginArea(new Rect(window.position.width - 200, 0, 200, window.position.height));
             if (GUILayout.Button(new GUIContent("Save Canvas", "Saves the Canvas to a Canvas Save File in the Assets Folder")))
             {
-                string path = UnityEditor.EditorUtility.SaveFilePanelInProject("Save Node Canvas", "Node Canvas", "asset", "", "Assets/Resources/Saves/");
-                AssetDatabase.CreateAsset(NodeManager.Instance, path);
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
+                Save();
             }
 
             if (GUILayout.Button(new GUIContent("Load Canvas", "Loads the Canvas from a Canvas Save File in the Assets Folder")))
             {
-            
+                Load();
             }
-
 
             if (GUILayout.Button(new GUIContent("New Canvas", "Loads an empty Canvas")))
             {
@@ -209,6 +221,21 @@ namespace AIEditor
                 }
             }
             return selectedIndex;
+        }
+
+        void Save()
+        {
+            string path = UnityEditor.EditorUtility.SaveFilePanelInProject("Save Node Canvas", "Node Canvas", "asset", "", "Assets/Resources/Saves/");
+            AssetDatabase.CreateAsset(NodeManager.Instance, path);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+
+        void Load()
+        {
+            string path = UnityEditor.EditorUtility.OpenFilePanel("Load Node Canvas", "Assets/Resources/Saves/", "asset");
+            path = path.Replace(Application.dataPath, "Assets");
+            NodeManager.Instance = (NodeManager)AssetDatabase.LoadAssetAtPath(path, typeof(NodeManager));
         }
     }
 
