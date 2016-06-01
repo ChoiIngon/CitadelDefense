@@ -60,7 +60,7 @@ namespace AIEditor
             get {
                 if(null == self)
                 {
-                    self = new NodeManager();
+                    self = ScriptableObject.CreateInstance<NodeManager>();
                     self.Init();
                 }
                 return self;

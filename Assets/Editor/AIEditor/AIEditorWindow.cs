@@ -235,7 +235,7 @@ namespace AIEditor
         {
             string path = UnityEditor.EditorUtility.OpenFilePanel("Load Node Canvas", "Assets/Resources/Saves/", "asset");
             path = path.Replace(Application.dataPath, "Assets");
-            NodeManager.Instance = (NodeManager)AssetDatabase.LoadAssetAtPath(path, typeof(NodeManager));
+            NodeManager.Instance = AssetDatabase.LoadAssetAtPath(path, typeof(NodeManager)) as NodeManager;
         }
     }
 
