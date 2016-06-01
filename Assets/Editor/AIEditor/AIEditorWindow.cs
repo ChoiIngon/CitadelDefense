@@ -29,12 +29,20 @@ namespace AIEditor
 
         public void OnDestory() {}
 
+        Vector2 vanishingPoint = new Vector2(0, 21);
+
         void OnGUI()
         {
             if (false == NodeManager.isInit)
             {
                 NodeManager.Init();
             }
+
+            Matrix4x4 oldMatrix = GUI.matrix;
+
+            Matrix4x4 matTrans = Matrix4x4.TRS(vanishingPoint, Quaternion.identity, Vector3.one);
+            Matrix4x4 matScale = Matrix4x4.Scale(new Vector3(zoom, zoom, 1.0f));
+            GUI.matrix = matTrans * matScale * matTrans.inverse;
 
             Event e = Event.current;
             mousePos = e.mousePosition;
@@ -118,6 +126,8 @@ namespace AIEditor
                 NodeManager.nodes[i].rect = GUI.Window(i, NodeManager.nodes[i].rect, DrawNode, NodeManager.nodes[i].title);
             }
             EndWindows();
+
+            GUI.matrix = oldMatrix;
         }
 
         void DrawNode(int id)
