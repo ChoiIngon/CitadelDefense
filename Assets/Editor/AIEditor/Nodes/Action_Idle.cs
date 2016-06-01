@@ -16,6 +16,14 @@ namespace AIEditor
 		{
 			animName = EditorGUILayout.TextField ("animation name", animName);
 		}
+        public override string ToString()
+        {
+            return
+                "{" +
+                    "\"type\":" + "\"Action_Idle\"" + "," +
+                    "\"id\":" + id +
+                "}";
+        }
 	}
 
 }

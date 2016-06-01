@@ -10,14 +10,18 @@ namespace AIEditor
 {
     public abstract class Node : ScriptableObject
     {
+        [HideInInspector]
 		public int id;
-        public Rect rect;
+        [HideInInspector]
         public Node parent;
-        public string title;
+        [HideInInspector]
         public List<Node> children = new List<Node>();
-        // Use this for initialization
+
+        public string title;
+        public Rect rect;
 
         public abstract void DrawNode();
+        public abstract string ToString();
 
         public void DrawConnection()
         {
@@ -47,16 +51,27 @@ namespace AIEditor
     public class NodeManager : ScriptableObject
     {
         public delegate Node CreateNodeDelegate();
-		public static int nodeID;
-        public static Dictionary<string, CreateNodeDelegate> creator;
-        public static List<Node> nodes;
-        public static bool isInit = false;
-        public static void Init()
+		public int nodeID;
+        public Dictionary<string, CreateNodeDelegate> creator;
+        public List<Node> nodes;
+
+        private static NodeManager self;
+        public static NodeManager Instance {
+            get {
+                if(null == self)
+                {
+                    self = new NodeManager();
+                    self.Init();
+                }
+                return self;
+            }
+            private set {}
+        }
+        void Init()
         {
-			nodeID = 0;
+            nodeID = 0;
             nodes = new List<Node>();
             creator = new Dictionary<string, CreateNodeDelegate>();
-            isInit = true;
 
 			List<Assembly> scriptAssemblies = AppDomain.CurrentDomain.GetAssemblies ().Where ((Assembly assembly) => assembly.FullName.Contains ("Assembly")).ToList ();
 			if (!scriptAssemblies.Contains (Assembly.GetExecutingAssembly ())) {
@@ -72,7 +87,8 @@ namespace AIEditor
 					if (attr != null)
 					{
 						string typeName = type.Name;
-						creator.Add (attr.contextText, () => {
+                        Instance.creator.Add(attr.contextText, () =>
+                        {
 							Node node = ScriptableObject.CreateInstance(typeName) as Node;
 							return node;
 						});

@@ -13,5 +13,14 @@ namespace AIEditor
         public override void DrawNode()
         {
         }
+
+        public override string ToString()
+        {
+            return 
+                "{" +
+                    "\"type\":" + "\"Sequence\"" + "," +
+                    "\"id\":" + id +
+                "}";
+        }
     }
 }

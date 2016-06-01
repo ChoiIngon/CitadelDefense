@@ -17,5 +17,14 @@ namespace AIEditor
         {
             windowTitle = EditorGUILayout.TextField("Title", windowTitle);
         }
+
+        public override string ToString()
+        {
+            return
+                "{" +
+                    "\"type\":" + "\"Selector\"" + "," +
+                    "\"id\":" + id +
+                "}";
+        }
     }
 }
