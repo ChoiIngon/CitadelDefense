@@ -14,6 +14,7 @@ namespace AIEditor
             MakeTransition
         }
 
+        public const string defaultAssetPath = "Assets/Resources/AI";
         private Node selectedNode;
         private EditorState editorState = EditorState.Default;
         private Vector2 mousePos;
@@ -183,12 +184,18 @@ namespace AIEditor
             GUILayout.BeginArea(new Rect(window.position.width - 200, 0, 200, window.position.height));
             if (GUILayout.Button(new GUIContent("Save Canvas", "Saves the Canvas to a Canvas Save File in the Assets Folder")))
             {
-                Save();
+                string path = UnityEditor.EditorUtility.SaveFilePanelInProject("Save AI Asset", "AIBehaviourTree", "asset", "", defaultAssetPath);
+                if ("" == path)
+                {
+                    return;
+                }
+            
+                Save(path);
             }
 
             if (GUILayout.Button(new GUIContent("Load Canvas", "Loads the Canvas from a Canvas Save File in the Assets Folder")))
             {
-                string path = UnityEditor.EditorUtility.OpenFilePanel("Load Node Canvas", "Assets/Resources/Saves/", "asset");
+                string path = UnityEditor.EditorUtility.OpenFilePanel("Load AI Asset", defaultAssetPath, "asset");
                 path = path.Replace(Application.dataPath, "Assets");
             
                 Load(path);
@@ -260,13 +267,9 @@ namespace AIEditor
             return selectedIndex;
         }
 
-        void Save()
+        void Save(string path)
         {
-			string path = UnityEditor.EditorUtility.SaveFilePanelInProject("Save Node Canvas", "AIBehaviourTree", "asset", "", "Assets/Resources/Saves/");
-			if ("" == path) {
-				return;
-			}
-            AssetDatabase.CreateAsset(NodeManager.Instance, path);
+			AssetDatabase.CreateAsset(NodeManager.Instance, path);
 			foreach (Node node in NodeManager.Instance.nodes) {
 				UnityEditor.AssetDatabase.AddObjectToAsset (node, NodeManager.Instance);
 				node.hideFlags = HideFlags.HideInHierarchy;
