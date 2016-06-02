@@ -6,7 +6,7 @@ namespace AIEditor
 {
 	[Node("Action/Attack")]
 	public class Action_Attack : Node {
-        public RuntimeAnimatorController animator;
+        public AnimationClip animationClip;
 		public Action_Attack()
 		{
 			title = "Attack";
@@ -14,8 +14,10 @@ namespace AIEditor
 		}
 		public override void DrawNode()
 		{
-            EditorGUILayout.LabelField("Animator");
-            animator = (RuntimeAnimatorController)EditorGUILayout.ObjectField(animator, typeof(RuntimeAnimatorController));
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Animation Clip", GUILayout.Width(90));
+            animationClip = (AnimationClip)EditorGUILayout.ObjectField(animationClip, typeof(AnimationClip), GUILayout.Width(130));
+            EditorGUILayout.EndHorizontal();
 		}
         public override string ToString()
         {
