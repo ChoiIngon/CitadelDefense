@@ -28,6 +28,21 @@ namespace AIEditor
             window = EditorWindow.GetWindow<AIEditorWindow>();
             window.minSize = new Vector2(800, 600);
             window.titleContent = new GUIContent(windowTitle);
+
+            NodeManager.Instance.Init();
+        }
+
+        [UnityEditor.Callbacks.OnOpenAsset(1)]
+        public static bool AutoOpen(int instanceID, int line)
+        {
+            if (Selection.activeObject != null && Selection.activeObject.GetType() == typeof(NodeManager))
+            {
+                string path = AssetDatabase.GetAssetPath(instanceID);
+                AIEditorWindow.ShowEditor();
+                window.Load(path);
+                return true;
+            }
+            return false;
         }
 
         public void OnDestory() {}
@@ -151,7 +166,7 @@ namespace AIEditor
                 NodeManager.Instance.nodes[i].DrawConnection();
             }
 
-            BeginWindows();
+            BeginWindows(); 
             for (int i = 0; i < NodeManager.Instance.nodes.Count; i++)
             {
                 NodeManager.Instance.nodes[i].rect = GUI.Window(i, NodeManager.Instance.nodes[i].rect, DrawNode, NodeManager.Instance.nodes[i].title);
@@ -173,11 +188,15 @@ namespace AIEditor
 
             if (GUILayout.Button(new GUIContent("Load Canvas", "Loads the Canvas from a Canvas Save File in the Assets Folder")))
             {
-                Load();
+                string path = UnityEditor.EditorUtility.OpenFilePanel("Load Node Canvas", "Assets/Resources/Saves/", "asset");
+                path = path.Replace(Application.dataPath, "Assets");
+            
+                Load(path);
             }
 
             if (GUILayout.Button(new GUIContent("New Canvas", "Loads an empty Canvas")))
             {
+                Init();
             }
 
             GUILayout.EndArea();
@@ -257,11 +276,22 @@ namespace AIEditor
             AssetDatabase.Refresh();
         }
 
-        void Load()
+        void Load(string path)
         {
-			string path = UnityEditor.EditorUtility.OpenFilePanel("Load Node Canvas", "Assets/Resources/Saves/", "asset");
-            path = path.Replace(Application.dataPath, "Assets");
-            NodeManager.Instance = AssetDatabase.LoadAssetAtPath(path, typeof(NodeManager)) as NodeManager;
+			NodeManager.Instance = AssetDatabase.LoadAssetAtPath(path, typeof(NodeManager)) as NodeManager;
+        }
+
+        void Init()
+        {
+            NodeManager.Instance.Init();
+        }
+
+        private static T Clone<T>(T so) where T : ScriptableObject
+        {
+            string soName = so.name;
+            so = UnityEngine.Object.Instantiate<T>(so);
+            so.name = soName;
+            return so;
         }
     }
 

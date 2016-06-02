@@ -24,11 +24,20 @@ namespace AIEditor {
 				return self;
 			}
 			set { 
-				self = value; 
+				self = NodeManager.Clone<NodeManager>(value); 
 				self.InitCreator ();
 			}
 		}
-		void Init()
+
+        private static T Clone<T>(T so) where T : ScriptableObject
+        {
+            string soName = so.name;
+            so = UnityEngine.Object.Instantiate<T>(so);
+            so.name = soName;
+            return so;
+        }
+
+		public void Init()
 		{
 			nodeID = 0;
 			nodes = new List<Node>();
