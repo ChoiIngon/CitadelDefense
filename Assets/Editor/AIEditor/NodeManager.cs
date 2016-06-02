@@ -96,6 +96,7 @@ namespace AIEditor {
         {
             NodeManager clone = new NodeManager();
             clone.Init();
+            clone.nodeID = self.nodeID;
             foreach(Node node in self.nodes)
             {
                 clone.nodes.Add(NodeManager.Clone<Node>(node));
