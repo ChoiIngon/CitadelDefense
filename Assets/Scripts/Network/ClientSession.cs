@@ -12,7 +12,7 @@ public class ClientSession : Gamnet.StreamSession
     public float elapsedTime;
     public float minResponseTime;
     public float maxResponseTime;
-    private float lastSendTime;
+    
 	public delegate void OnNetworkEvent();
     public delegate void OnErrorEvent(System.Exception e);
 
@@ -27,12 +27,10 @@ public class ClientSession : Gamnet.StreamSession
         msgSEQ = 0;
         slowCount = 0;
         slowTime = 0.1f;
-        lastSendTime = 0.0f;
         elapsedTime = 0.0f;
         minResponseTime = float.MaxValue;
         maxResponseTime = 0.0f;
         Connect(host, port);
-
 
         RegisterHandler(MsgSvrCli_Field_StressTest_Ans.MSG_ID, (Gamnet.Buffer buf) =>
         {

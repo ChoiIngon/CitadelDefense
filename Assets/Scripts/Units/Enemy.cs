@@ -7,6 +7,7 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
 	public Vector3 direction;
 	public float moveSpeed;
+    public GameObject attack;
 	public float attackSpeed;
 	public float attackRange;
 	public Rect size;
@@ -16,6 +17,7 @@ public class Enemy : MonoBehaviour {
 	public int rewardGold;
 	public int rewardExp;
 
+    
 	//public string animationControllerPath;
 	private Animator animator;
 	// Use this for initialization
@@ -36,19 +38,29 @@ public class Enemy : MonoBehaviour {
 		if (state.IsName ("move")) {
 			transform.Translate (direction * moveSpeed * Time.deltaTime);
 		}
+
+        if(state.IsName("attack"))
+        {
+
+        }
+
 		if (state.IsName ("dead") && state.normalizedTime >= 1.0f)
 		{
 			DestroyImmediate (gameObject, true);
 		}
 	}
 
-	void FixedUpdate() {
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, attackRange);
-		if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Citadel")) {
-			animator.SetBool("isInAttackRange", true);
-		}
-	}
+    void FixedUpdate()
+    {
+        Debug.DrawRay(transform.position, Vector3.left * attackRange, Color.red);
 
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, attackRange, 1 << LayerMask.NameToLayer("Citadel"));
+        if (hit.collider != null)
+        {
+            moveSpeed = 0.0f;
+            animator.SetBool("isInAttackRange", true);
+        }
+    }
 	public void Damage(int damage)
 	{
 		damage = Mathf.Max (damage - defense, 1);
