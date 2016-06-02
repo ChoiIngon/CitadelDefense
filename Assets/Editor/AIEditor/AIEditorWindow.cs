@@ -247,7 +247,10 @@ namespace AIEditor
             if (-1 != selectedIndex)
             {
                 selectedNode = NodeManager.Instance.nodes[selectedIndex];
-                selectedNode.parent.children.Remove(selectedNode);
+                if (null != selectedNode.parent)
+                {
+                    selectedNode.parent.children.Remove(selectedNode);
+                }
                 NodeManager.Instance.nodes.RemoveAt(selectedIndex);
             }
         }
