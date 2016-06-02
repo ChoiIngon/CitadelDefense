@@ -203,7 +203,7 @@ namespace AIEditor
 
             if (GUILayout.Button(new GUIContent("New Canvas", "Loads an empty Canvas")))
             {
-                Init();
+                NodeManager.Instance.Init();
             }
 
             GUILayout.EndArea();
@@ -269,9 +269,15 @@ namespace AIEditor
 
         void Save(string path)
         {
-			AssetDatabase.CreateAsset(NodeManager.Instance, path);
-			foreach (Node node in NodeManager.Instance.nodes) {
-				UnityEditor.AssetDatabase.AddObjectToAsset (node, NodeManager.Instance);
+            string assetName = System.IO.Path.GetFileName(path);
+            assetName = assetName.Replace(".asset", "");
+
+            NodeManager clone = NodeManager.Instance.Clone();
+            clone.name = assetName;
+            
+			AssetDatabase.CreateAsset(clone, path);
+			foreach (Node node in clone.nodes) {
+                UnityEditor.AssetDatabase.AddObjectToAsset(node, clone);
 				node.hideFlags = HideFlags.HideInHierarchy;
 			}
 
@@ -282,19 +288,6 @@ namespace AIEditor
         void Load(string path)
         {
 			NodeManager.Instance = AssetDatabase.LoadAssetAtPath(path, typeof(NodeManager)) as NodeManager;
-        }
-
-        void Init()
-        {
-            NodeManager.Instance.Init();
-        }
-
-        private static T Clone<T>(T so) where T : ScriptableObject
-        {
-            string soName = so.name;
-            so = UnityEngine.Object.Instantiate<T>(so);
-            so.name = soName;
-            return so;
         }
     }
 

@@ -23,9 +23,29 @@ namespace AIEditor {
 				}
 				return self;
 			}
-			set { 
-				self = NodeManager.Clone<NodeManager>(value); 
-				self.InitCreator ();
+			set {
+                NodeManager manager = NodeManager.Clone<NodeManager>(value);
+                self = manager;
+                for (int i = 0; i < manager.nodes.Count; i++)
+                {
+                    self.nodes[i] = NodeManager.Clone<Node>(manager.nodes[i]);
+                }
+
+                for (int i = 0; i < manager.nodes.Count; i++)
+                {
+                    Node node = manager.nodes[i];
+                    if(null != node.parent)
+                    {
+                        self.nodes[i].parent = self.FindNode(node.parent.id);
+                    }
+
+                    for (int j = 0; j < node.children.Count; j++)
+                    {
+                        Node child = node.children[j];
+                        self.nodes[i].children[j] = self.FindNode(child.id);
+                    }
+                }
+                self.InitCreator();
 			}
 		}
 
@@ -62,14 +82,51 @@ namespace AIEditor {
 					if (attr != null)
 					{
 						string typeName = type.Name;
-						Instance.creator.Add(attr.contextText, () =>
-							{
-								Node node = ScriptableObject.CreateInstance(typeName) as Node;
-								return node;
-							});
+						creator.Add(attr.contextText, () =>
+						{
+							Node node = ScriptableObject.CreateInstance(typeName) as Node;
+							return node;
+						});
 					}
 				}
 			}
 		}
+
+        public NodeManager Clone()
+        {
+            NodeManager clone = new NodeManager();
+            clone.Init();
+            foreach(Node node in self.nodes)
+            {
+                clone.nodes.Add(NodeManager.Clone<Node>(node));
+            }
+
+            foreach (Node node in clone.nodes)
+            {
+                if (null != node.parent)
+                {
+                    node.parent = clone.FindNode(node.parent.id);
+                }
+
+                for (int i = 0; i < node.children.Count; i++)
+                {
+                    Node child = node.children[i];
+                    node.children[i] = clone.FindNode(child.id);
+                }
+            }
+            return clone;
+        }
+
+        Node FindNode(int id)
+        {
+            foreach(Node node in nodes)
+            {
+                if(node.id == id)
+                {
+                    return node;
+                }
+            }
+            return null;
+        }
 	}
 }
