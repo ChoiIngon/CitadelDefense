@@ -68,15 +68,28 @@
      <Compile Include="Assets\Node_Editor\Utilities\OverlayGUI.cs" />
      <Compile Include="Assets\Node_Editor\Utilities\RTEditorGUI.cs" />
      <Compile Include="Assets\Node_Editor\Utilities\ResourceManager.cs" />
+     <Compile Include="Assets\Scripts\Attack.cs" />
      <Compile Include="Assets\Scripts\AttackBox.cs" />
      <Compile Include="Assets\Scripts\Attack_Melee.cs" />
+     <Compile Include="Assets\Scripts\Attack_Meteorite.cs" />
      <Compile Include="Assets\Scripts\Attack_RangeCurve.cs" />
      <Compile Include="Assets\Scripts\Attack_RangeStright.cs" />
-     <Compile Include="Assets\Scripts\Cannon.cs" />
      <Compile Include="Assets\Scripts\Effect.cs" />
      <Compile Include="Assets\Scripts\Effect_Damage.cs" />
-     <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\EnemyManager.cs" />
+     <Compile Include="Assets\Scripts\Movement.cs" />
+     <Compile Include="Assets\Scripts\MovementSinCurve.cs" />
+     <Compile Include="Assets\Scripts\Network\Buffer.cs" />
+     <Compile Include="Assets\Scripts\Network\ClientSession.cs" />
+     <Compile Include="Assets\Scripts\Network\Session.cs" />
+     <Compile Include="Assets\Scripts\Network\StreamSession.cs" />
+     <Compile Include="Assets\Scripts\Test.cs" />
+     <Compile Include="Assets\Scripts\Units\Cannon.cs" />
+     <Compile Include="Assets\Scripts\Units\Citadel.cs" />
+     <Compile Include="Assets\Scripts\Units\Enemy.cs" />
+     <Compile Include="Assets\Scripts\XXField.cs" />
      <None Include="Assets\Node_Editor\Resources\LineShader.shader" />
+     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\Node_Editor\Utilities\link.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
@@ -84,6 +97,10 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{AF3827AB-8B7D-D8F4-8ABC-4071D1503AF9}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

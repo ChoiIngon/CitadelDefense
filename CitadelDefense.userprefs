@@ -1,20 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Node_Editor/Framework/NodeEditorSaveManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Attack_RangeCurve.cs">
     <Files>
-      <File FileName="Assets/Node_Editor/Nodes/FloatCalc/CalcNode.cs" Line="6" Column="22" />
-      <File FileName="Assets/Node_Editor/Framework/NodeEditor.cs" Line="109" Column="1" />
-      <File FileName="Assets/Editor/AIEditor/Nodes/Node.cs" Line="11" Column="23" />
-      <File FileName="Assets/Editor/AIEditor/Nodes/Selector.cs" Line="10" Column="17" />
-      <File FileName="Assets/Editor/AIEditor/Nodes/Sequence.cs" Line="6" Column="23" />
-      <File FileName="Assets/Editor/AIEditor/Nodes/Action_Idle.cs" Line="17" Column="19" />
-      <File FileName="Assets/Editor/AIEditor/AIEditorWindow.cs" Line="132" Column="1" />
-      <File FileName="Assets/Node_Editor/Framework/NodeEditorSaveManager.cs" Line="90" Column="3" />
+      <File FileName="../ProjectD/trunk/Thor/Assets/Scripts/Character/Base/CharacterMove.cs" Line="249" Column="3" />
+      <File FileName="Assets/Scripts/Movement.cs" Line="10" Column="4" />
+      <File FileName="Assets/Scripts/Attack_Melee.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Attack_RangeCurve.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Units/Enemy.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Attack.cs" Line="4" Column="36" />
+      <File FileName="Assets/Plugins/Pixelplacement/iTween/Sample/MoveSample.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/AttackBox.cs" line="40" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Editor/AIEditor/AIEditorWindow.cs" line="291" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
