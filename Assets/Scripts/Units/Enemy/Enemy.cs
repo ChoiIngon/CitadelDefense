@@ -65,11 +65,14 @@ public class Enemy : MonoBehaviour {
         if (hit.collider != null)
         {
             moveSpeed = 0.0f;
-            animator.SetBool("isInAttackRange", true);
+			animator.SetTrigger ("attack");
         }
     }
 	public void Damage(int damage)
 	{
+		if (0 >= health) {
+			return;
+		}
 		damage = Mathf.Max (damage - defense, 1);
 		GameObject go = new GameObject ();
 		go.name = "Effect_Damage";
@@ -79,7 +82,7 @@ public class Enemy : MonoBehaviour {
 		damageEffect.Init (damage);
 		health = health - damage;
 		if (0 >= health) {
-			animator.SetTrigger ("isDead");
+			animator.SetTrigger ("dead");
 		}
 	}
     public virtual void Attack()

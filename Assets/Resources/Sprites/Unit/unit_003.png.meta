@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fc585f9a85ab24cbcbce97456123b3a4
-timeCreated: 1464425756
+timeCreated: 1464974659
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,23 +8,23 @@ TextureImporter:
     21300002: character_003_idle_1
     21300004: character_003_idle_2
     21300006: character_003_idle_3
-    21300008: character_003_move_2
-    21300010: character_003_move_3
+    21300008: unit_003_move_2
+    21300010: unit_003_move_3
     21300012: mon2_sprite_base_10
     21300014: mon2_sprite_base_11
-    21300016: character_003_attack_0
-    21300018: character_003_attack_1
-    21300020: character_003_attack_2
-    21300022: character_003_attack_3
+    21300016: unit_003_attack_0
+    21300018: unit_003_attack_1
+    21300020: unit_003_attack_2
+    21300022: unit_003_attack_3
     21300024: mon2_sprite_base_16
     21300026: mon2_sprite_base_17
-    21300028: character_003_dead_0
-    21300030: character_003_dead_1
-    21300032: character_003_dead_2
-    21300034: character_003_dead_3
-    21300036: character_003_dead_4
-    21300038: character_003_dead_5
-    21300040: character_003_dead_6
+    21300028: unit_003_dead_0
+    21300030: unit_003_dead_1
+    21300032: unit_003_dead_2
+    21300034: unit_003_dead_3
+    21300036: unit_003_dead_4
+    21300038: unit_003_dead_5
+    21300040: unit_003_dead_6
     21300042: mon2_sprite_base_25
     21300044: mon2_sprite_base_26
     21300046: mon2_sprite_base_27
@@ -115,8 +115,8 @@ TextureImporter:
     21300216: mon2_sprite_base_112
     21300218: mon2_sprite_base_113
     21300220: mon2_sprite_base_114
-    21300222: character_003_move_0
-    21300224: character_003_move_1
+    21300222: unit_003_move_0
+    21300224: unit_003_move_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -130,7 +130,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -155,7 +155,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
@@ -163,7 +163,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: character_003_move_0
+    - name: unit_003_move_0
       rect:
         serializedVersion: 2
         x: 0
@@ -171,9 +171,18 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_003_move_1
+      outline:
+      - - {x: -11, y: 14}
+        - {x: -12, y: 10}
+        - {x: -12, y: -22}
+        - {x: -10, y: -31}
+        - {x: 12, y: -31}
+        - {x: 18, y: -26}
+        - {x: 18, y: -2}
+        - {x: 15, y: 14}
+    - name: unit_003_move_1
       rect:
         serializedVersion: 2
         x: 64
@@ -181,9 +190,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_003_move_2
+      outline:
+      - - {x: 16, y: 13}
+        - {x: 12, y: 14}
+        - {x: -7, y: 14}
+        - {x: -9, y: 6}
+        - {x: -9, y: -30}
+        - {x: -7, y: -31}
+        - {x: 3, y: -31}
+        - {x: 12, y: -27}
+        - {x: 19, y: -17}
+        - {x: 19, y: -1}
+    - name: unit_003_move_2
       rect:
         serializedVersion: 2
         x: 128
@@ -191,9 +211,17 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_003_move_3
+      outline:
+      - - {x: 8, y: 13}
+        - {x: -10, y: 13}
+        - {x: -10, y: -31}
+        - {x: 9, y: -31}
+        - {x: 19, y: -19}
+        - {x: 19, y: -8}
+        - {x: 14, y: 12}
+    - name: unit_003_move_3
       rect:
         serializedVersion: 2
         x: 192
@@ -201,9 +229,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_003_attack_0
+      outline:
+      - - {x: -14, y: 14}
+        - {x: -14, y: -31}
+        - {x: 16, y: -31}
+        - {x: 16, y: 14}
+    - name: unit_003_attack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -211,9 +244,18 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_003_attack_1
+      outline:
+      - - {x: -11, y: 14}
+        - {x: -12, y: 10}
+        - {x: -12, y: -22}
+        - {x: -10, y: -31}
+        - {x: 12, y: -31}
+        - {x: 18, y: -26}
+        - {x: 18, y: -2}
+        - {x: 15, y: 14}
+    - name: unit_003_attack_1
       rect:
         serializedVersion: 2
         x: 64
@@ -221,9 +263,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_003_attack_2
+      outline:
+      - - {x: -10, y: 15}
+        - {x: -12, y: 14}
+        - {x: -12, y: -19}
+        - {x: -11, y: -30}
+        - {x: -8, y: -31}
+        - {x: 11, y: -31}
+        - {x: 16, y: -23}
+        - {x: 16, y: 9}
+        - {x: 11, y: 15}
+    - name: unit_003_attack_2
       rect:
         serializedVersion: 2
         x: 128
@@ -231,9 +283,18 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_003_attack_3
+      outline:
+      - - {x: -16, y: 17}
+        - {x: -17, y: 15}
+        - {x: -17, y: -12}
+        - {x: -10, y: -29}
+        - {x: -8, y: -31}
+        - {x: 4, y: -31}
+        - {x: 14, y: -23}
+        - {x: 14, y: 17}
+    - name: unit_003_attack_3
       rect:
         serializedVersion: 2
         x: 192
@@ -241,9 +302,15 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_003_dead_0
+      outline:
+      - - {x: -11, y: 12}
+        - {x: -11, y: -31}
+        - {x: 20, y: -31}
+        - {x: 22, y: -27}
+        - {x: 22, y: 12}
+    - name: unit_003_dead_0
       rect:
         serializedVersion: 2
         x: 0
@@ -251,9 +318,18 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_003_dead_1
+      outline:
+      - - {x: -11, y: 14}
+        - {x: -12, y: 10}
+        - {x: -12, y: -22}
+        - {x: -10, y: -31}
+        - {x: 12, y: -31}
+        - {x: 18, y: -26}
+        - {x: 18, y: -2}
+        - {x: 15, y: 14}
+    - name: unit_003_dead_1
       rect:
         serializedVersion: 2
         x: 64
@@ -261,9 +337,34 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_003_dead_2
+      outline:
+      - - {x: 14, y: -3}
+        - {x: 13, y: -3}
+        - {x: 10, y: -6}
+        - {x: 10, y: -7}
+        - {x: 10, y: -4}
+        - {x: 14, y: 1}
+        - {x: 14, y: 2}
+        - {x: 11, y: 5}
+        - {x: 6, y: 5}
+        - {x: 8, y: 5}
+        - {x: 11, y: 6}
+        - {x: 14, y: 3}
+        - {x: 16, y: 2}
+        - {x: 19, y: 5}
+        - {x: 19, y: 13}
+        - {x: 13, y: 18}
+        - {x: -7, y: 18}
+        - {x: -16, y: 13}
+        - {x: -16, y: -7}
+        - {x: -9, y: -31}
+        - {x: 7, y: -31}
+        - {x: 17, y: -19}
+        - {x: 17, y: -17}
+        - {x: 18, y: -5}
+    - name: unit_003_dead_2
       rect:
         serializedVersion: 2
         x: 128
@@ -271,9 +372,35 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_003_dead_3
+      outline:
+      - - {x: 2, y: 17}
+        - {x: -20, y: 17}
+        - {x: -22, y: 16}
+        - {x: -22, y: -6}
+        - {x: -16, y: -31}
+        - {x: 10, y: -31}
+        - {x: 16, y: -26}
+        - {x: 16, y: -11}
+        - {x: 4, y: 16}
+      - - {x: 11, y: 1}
+        - {x: 10, y: -1}
+        - {x: 10, y: -6}
+        - {x: 12, y: -7}
+        - {x: 17, y: -7}
+        - {x: 18, y: -5}
+        - {x: 18, y: 0}
+        - {x: 15, y: 1}
+      - - {x: 5, y: 10}
+        - {x: 2, y: 7}
+        - {x: 2, y: 5}
+        - {x: 5, y: 2}
+        - {x: 6, y: 2}
+        - {x: 9, y: 5}
+        - {x: 9, y: 7}
+        - {x: 6, y: 10}
+    - name: unit_003_dead_3
       rect:
         serializedVersion: 2
         x: 192
@@ -281,9 +408,50 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_003_dead_4
+      outline:
+      - - {x: -25, y: 13}
+        - {x: -25, y: -4}
+        - {x: -16, y: -31}
+        - {x: 17, y: -31}
+        - {x: 17, y: -2}
+        - {x: 10, y: 20}
+        - {x: -20, y: 20}
+        - {x: -24, y: 18}
+      - - {x: 13, y: -5}
+        - {x: 10, y: -8}
+        - {x: 10, y: -10}
+        - {x: 13, y: -12}
+        - {x: 16, y: -12}
+        - {x: 17, y: -10}
+        - {x: 17, y: -6}
+        - {x: 14, y: -5}
+      - - {x: 6, y: 5}
+        - {x: 5, y: 3}
+        - {x: 5, y: -2}
+        - {x: 7, y: -3}
+        - {x: 12, y: -3}
+        - {x: 13, y: -1}
+        - {x: 13, y: 4}
+        - {x: 10, y: 5}
+      - - {x: -1, y: 10}
+        - {x: -3, y: 9}
+        - {x: -3, y: 3}
+        - {x: 0, y: 2}
+        - {x: 3, y: 2}
+        - {x: 4, y: 3}
+        - {x: 4, y: 7}
+        - {x: 3, y: 10}
+      - - {x: 6, y: 16}
+        - {x: 3, y: 13}
+        - {x: 3, y: 11}
+        - {x: 6, y: 8}
+        - {x: 8, y: 8}
+        - {x: 11, y: 11}
+        - {x: 11, y: 13}
+        - {x: 8, y: 16}
+    - name: unit_003_dead_4
       rect:
         serializedVersion: 2
         x: 256
@@ -291,9 +459,28 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_003_dead_5
+      outline:
+      - - {x: 2, y: 5}
+        - {x: 1, y: 6}
+        - {x: -4, y: 6}
+        - {x: -7, y: 4}
+        - {x: -4, y: 7}
+        - {x: 1, y: 7}
+        - {x: 3, y: 5}
+        - {x: 5, y: 5}
+        - {x: 10, y: 7}
+        - {x: 6, y: 15}
+        - {x: -8, y: 15}
+        - {x: -21, y: 10}
+        - {x: -21, y: -22}
+        - {x: -17, y: -31}
+        - {x: 15, y: -31}
+        - {x: 20, y: -26}
+        - {x: 20, y: -8}
+        - {x: 8, y: 5}
+    - name: unit_003_dead_5
       rect:
         serializedVersion: 2
         x: 320
@@ -301,9 +488,23 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: character_003_dead_6
+      outline:
+      - - {x: -13, y: -9}
+        - {x: -13, y: -23}
+        - {x: -6, y: -26}
+        - {x: 9, y: -26}
+        - {x: 15, y: -19}
+        - {x: 15, y: -9}
+      - - {x: -12, y: 11}
+        - {x: -15, y: 8}
+        - {x: -15, y: -15}
+        - {x: 10, y: -15}
+        - {x: 15, y: -6}
+        - {x: 15, y: 9}
+        - {x: 8, y: 11}
+    - name: unit_003_dead_6
       rect:
         serializedVersion: 2
         x: 384
@@ -311,8 +512,19 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 3}
+        - {x: -1, y: 3}
+        - {x: -6, y: 2}
+        - {x: -7, y: -1}
+        - {x: -7, y: -12}
+        - {x: -4, y: -18}
+        - {x: 3, y: -18}
+        - {x: 9, y: -13}
+        - {x: 9, y: -2}
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

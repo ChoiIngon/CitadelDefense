@@ -26,14 +26,15 @@ public class AttackBox : MonoBehaviour {
 	}
 		
 	public int damage;
-	public Rect attackBoxSize;
+
 	public AttackElementType attackType = AttackElementType.None;
-	protected BoxCollider2D attackBox;
 	// Use this for initialization
 	protected void Start () {
-		attackBox = GetComponent<BoxCollider2D> ();
-		attackBox.size = new Vector2(attackBoxSize.width, attackBoxSize.height);
-		attackBox.offset = new Vector2(attackBoxSize.x, attackBoxSize.y);
+		Rigidbody2D rigidbody = GetComponent<Rigidbody2D> ();
+		rigidbody.isKinematic = true;
+
+		BoxCollider2D boxCollider = GetComponent<BoxCollider2D> ();
+		boxCollider.isTrigger = true;
 	}
 	
 	void OnTriggerEnter2D(Collider2D col) {

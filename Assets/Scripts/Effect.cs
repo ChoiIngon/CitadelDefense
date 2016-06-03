@@ -6,14 +6,10 @@ using System.Collections;
 public class Effect : MonoBehaviour {
 	protected Animator animator;
 	public string stateName;
-	public string animationControllerPath;
+
 	// Use this for initialization
 	protected void Start () {
-		gameObject.layer = LayerMask.NameToLayer ("Effect");
 		animator = GetComponent<Animator> ();
-		animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> (animationControllerPath);
-		GetComponent<Renderer> ().sortingLayerName = "Effect";
-		GetComponent<Renderer> ().sortingOrder = 0;
 	}
 
 	protected void Update () {
