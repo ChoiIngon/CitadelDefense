@@ -108,6 +108,7 @@
     <Compile Include="Assets\Scripts\Network\ClientSession.cs" />
     <Compile Include="Assets\Scripts\Network\Session.cs" />
     <Compile Include="Assets\Scripts\Network\StreamSession.cs" />
+    <Compile Include="Assets\Scripts\ProgressBar.cs" />
     <Compile Include="Assets\Scripts\Test.cs" />
     <Compile Include="Assets\Scripts\Units\Cannon.cs" />
     <Compile Include="Assets\Scripts\Units\Citadel.cs" />

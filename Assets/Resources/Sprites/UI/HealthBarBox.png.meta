@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: eb8582df9ecc52145a8287736555d93e
-timeCreated: 1464931462
+timeCreated: 1464933457
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -59,33 +59,33 @@ TextureImporter:
         y: 43
         width: 467
         height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -233.5, y: 22}
-        - {x: -233.5, y: -22}
-        - {x: 233.5, y: -22}
-        - {x: 233.5, y: 22}
-      - - {x: -225.5, y: 14}
-        - {x: 225.5, y: 14}
-        - {x: 225.5, y: -14}
-        - {x: -225.5, y: -14}
+      - - {x: 0, y: 22}
+        - {x: 0, y: -22}
+        - {x: 467, y: -22}
+        - {x: 467, y: 22}
+      - - {x: 8, y: 14}
+        - {x: 459, y: 14}
+        - {x: 459, y: -14}
+        - {x: 8, y: -14}
     - name: HealthBar
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 1
         width: 467
         height: 38
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -233.5, y: 19}
-        - {x: -233.5, y: -19}
-        - {x: 233.5, y: -19}
-        - {x: 233.5, y: 19}
+      - - {x: 0, y: 19}
+        - {x: 0, y: -19}
+        - {x: 467, y: -19}
+        - {x: 467, y: 19}
     outline: []
   spritePackingTag: 
   userData: 

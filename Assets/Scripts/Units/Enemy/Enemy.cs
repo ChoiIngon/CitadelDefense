@@ -12,7 +12,10 @@ public class Enemy : MonoBehaviour {
 	public float attackRange;
     public float lastAttackTime;
 	public Rect size;
-	public int hp;
+	public int health;
+    public int maxHealth;
+    public ProgressBar healthBar;
+
 	public int defense;
 
 	public int rewardGold;
@@ -32,10 +35,13 @@ public class Enemy : MonoBehaviour {
 		BoxCollider2D damageBox = GetComponent<BoxCollider2D> ();
 		damageBox.offset = new Vector2(size.x, size.y);
 		damageBox.size = new Vector2(size.width, size.height);
+
+        healthBar = transform.FindChild("ProgressBar").GetComponent<ProgressBar>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        healthBar.progress = (float)health / (float)maxHealth;
 		AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
 		if (state.IsName ("move")) {
 			transform.Translate (direction * moveSpeed * Time.deltaTime);
@@ -76,8 +82,8 @@ public class Enemy : MonoBehaviour {
 		Effect_Damage damageEffect = GameObject.Instantiate<Effect_Damage> (Resources.Load<Effect_Damage> ("Prefabs/Effect_Damage"));
 		damageEffect.transform.SetParent (go.transform);
 		damageEffect.Init (damage);
-		hp = hp - damage;
-		if (0 >= hp) {
+		health = health - damage;
+		if (0 >= health) {
 			animator.SetTrigger ("isDead");
 		}
 	}
