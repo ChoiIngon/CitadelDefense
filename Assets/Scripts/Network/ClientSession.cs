@@ -7,6 +7,7 @@ public class ClientSession : Gamnet.StreamSession
     public string host;
     public int port;
     public uint msgSEQ;
+    public float msgSendInterval;
     public int slowCount;
     public float slowTime;
     public float elapsedTime;
@@ -24,9 +25,9 @@ public class ClientSession : Gamnet.StreamSession
     // Use this for initialization
     void Start()
     {
+        Application.runInBackground = true;
         msgSEQ = 0;
         slowCount = 0;
-        slowTime = 0.1f;
         elapsedTime = 0.0f;
         minResponseTime = float.MaxValue;
         maxResponseTime = 0.0f;
@@ -70,17 +71,22 @@ public class ClientSession : Gamnet.StreamSession
             return;
         }
 
+        stopTime += Time.deltaTime;    
         if (false == stopSend)
         {
+            if(msgSendInterval > stopTime)
+            {
+                return;
+            }
             MsgCliSvr_Field_StressTest_Req req = new MsgCliSvr_Field_StressTest_Req();
             req.MsgSEQ = msgSEQ++;
             req.SendTime = Time.realtimeSinceStartup;
 
             SendMsg(req);
+            stopTime = 0.0f;
         }
         else
         {
-            stopTime += Time.deltaTime;
             if(1.0f < stopTime)
             {
                 stopSend = false;
@@ -89,6 +95,34 @@ public class ClientSession : Gamnet.StreamSession
         }
     }
         
+    void OnGUI()
+    {
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(new GUIContent("Msg SEQ"), GUILayout.Width(150));
+        GUILayout.Label(new GUIContent(msgSEQ.ToString()));
+        GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(new GUIContent("Slow Count"), GUILayout.Width(150));
+        GUILayout.Label(new GUIContent(slowCount.ToString()));
+        GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(new GUIContent("Elapsed Time"), GUILayout.Width(150));
+        GUILayout.Label(new GUIContent(elapsedTime.ToString()));
+        GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(new GUIContent("Min Response Time"), GUILayout.Width(150));
+        GUILayout.Label(new GUIContent(minResponseTime.ToString()));
+        GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(new GUIContent("Max Response Time"), GUILayout.Width(150));
+        GUILayout.Label(new GUIContent(maxResponseTime.ToString()));
+        GUILayout.EndHorizontal();
+    }
+
     public override void OnConnect()
     {
     }

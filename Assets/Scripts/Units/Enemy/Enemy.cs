@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour {
     public GameObject attack;
 	public float attackSpeed;
 	public float attackRange;
+    public float lastAttackTime;
 	public Rect size;
 	public int hp;
 	public int defense;
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 
 	void Start () {
+        lastAttackTime = 0.0f;
 		direction = Vector3.left;
 		animator = GetComponent<Animator> ();
 		//animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> (animationControllerPath);
@@ -41,7 +43,11 @@ public class Enemy : MonoBehaviour {
 
         if(state.IsName("attack"))
         {
-
+            if (attackSpeed < Time.realtimeSinceStartup - lastAttackTime)
+            {
+                Attack();
+                lastAttackTime = Time.realtimeSinceStartup;
+            }
         }
 
 		if (state.IsName ("dead") && state.normalizedTime >= 1.0f)
@@ -75,4 +81,8 @@ public class Enemy : MonoBehaviour {
 			animator.SetTrigger ("isDead");
 		}
 	}
+    public virtual void Attack()
+    {
+
+    }
 }
