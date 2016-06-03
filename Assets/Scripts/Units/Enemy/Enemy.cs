@@ -2,19 +2,18 @@
 using System.Collections;
 
 [RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(SpriteRenderer))]
 public class Enemy : MonoBehaviour {
+    public Citadel citadel;
 	public Vector3 direction;
 	public float moveSpeed;
-    public GameObject attack;
+    
 	public float attackSpeed;
 	public float attackRange;
-    public float lastAttackTime;
-	public Rect size;
+    float lastAttackTime;
+	
 	public int health;
     public int maxHealth;
-    public ProgressBar healthBar;
+    ProgressBar healthBar;
 
 	public int defense;
 
@@ -29,14 +28,10 @@ public class Enemy : MonoBehaviour {
 	void Start () {
         lastAttackTime = 0.0f;
 		direction = Vector3.left;
-		animator = GetComponent<Animator> ();
+		animator = transform.FindChild("UnitSprite").GetComponent<Animator> ();
 		//animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> (animationControllerPath);
-
-		BoxCollider2D damageBox = GetComponent<BoxCollider2D> ();
-		damageBox.offset = new Vector2(size.x, size.y);
-		damageBox.size = new Vector2(size.width, size.height);
-
-        healthBar = transform.FindChild("ProgressBar").GetComponent<ProgressBar>();
+        		
+        healthBar = transform.FindChild("HealthBar").GetComponent<ProgressBar>();
 	}
 	
 	// Update is called once per frame

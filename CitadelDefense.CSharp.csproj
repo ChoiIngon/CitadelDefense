@@ -113,7 +113,7 @@
     <Compile Include="Assets\Scripts\Units\Cannon.cs" />
     <Compile Include="Assets\Scripts\Units\Citadel.cs" />
     <Compile Include="Assets\Scripts\Units\Enemy\Enemy.cs" />
-    <Compile Include="Assets\Scripts\Units\Enemy\EnemySlime.cs" />
+    <Compile Include="Assets\Scripts\Units\Enemy\EnemySkeleton.cs" />
     <Compile Include="Assets\Scripts\XXField.cs" />
   </ItemGroup>
   <ItemGroup>

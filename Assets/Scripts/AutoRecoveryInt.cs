@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 
+[System.Serializable]
 public class AutoRecoveryInt
 {
     public int max;
