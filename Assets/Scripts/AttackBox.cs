@@ -42,6 +42,8 @@ public class AttackBox : MonoBehaviour {
 			Enemy enemy = col.gameObject.GetComponent<Enemy> ();
 			enemy.Damage (damage);
 		} else if("Citadel" == col.gameObject.tag) {
+			Unit unit = col.gameObject.GetComponent<Unit> ();
+			unit.Damage (damage);
 		}
 	}
 }

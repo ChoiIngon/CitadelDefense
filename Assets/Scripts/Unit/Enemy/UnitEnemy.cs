@@ -22,7 +22,7 @@ public class UnitEnemy : Unit {
 	private Enemy target;
 	void Start () {
 		healthBar = transform.FindChild("HealthBar").GetComponent<ProgressBar>();
-		unitAttack = GetComponent<UnitAttack> ();
+		unitAttack = transform.FindChild("Attack").GetComponent<UnitAttack> ();
 		if (null == unitAttack) {
 			throw new System.Exception ("UnitAttack Component should be attached");
 		}

@@ -83,6 +83,7 @@
      <Compile Include="Assets\Scripts\Unit\Citadel\TurretSlot.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\UnitCitadel.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\UnitTurret.cs" />
+     <Compile Include="Assets\Scripts\Unit\DamageBox.cs" />
      <Compile Include="Assets\Scripts\Unit\Enemy\Enemy.cs" />
      <Compile Include="Assets\Scripts\Unit\Enemy\EnemySkeleton.cs" />
      <Compile Include="Assets\Scripts\Unit\Enemy\UnitEnemy.cs" />
