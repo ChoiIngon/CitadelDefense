@@ -17,7 +17,7 @@ public class Effect_Damage : Effect {
 
 	protected void Update () {
 		AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo (0);
-		if (state.IsName(stateName) && state.normalizedTime >= 1.0f)
+		if (state.normalizedTime >= 1.0f)
 		{
 			DestroyImmediate (transform.parent.gameObject, true);
 			//DestroyImmediate (gameObject, true);

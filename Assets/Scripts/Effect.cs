@@ -5,7 +5,6 @@ using System.Collections;
 [RequireComponent (typeof (Animator))]
 public class Effect : MonoBehaviour {
 	protected Animator animator;
-	public string stateName;
 
 	// Use this for initialization
 	protected void Start () {
@@ -14,7 +13,7 @@ public class Effect : MonoBehaviour {
 
 	protected void Update () {
 		AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo (0);
-		if (state.IsName(stateName) && state.normalizedTime >= 1.0f)
+		if (state.normalizedTime >= 1.0f)
 		{
 			DestroyImmediate (gameObject, true);
 		}

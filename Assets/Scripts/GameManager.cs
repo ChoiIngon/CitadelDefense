@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Attack : MonoBehaviour {
-	public Vector2 targetPosition;
-	public Vector2 selfPosition;
+public class GameManager : MonoBehaviour {
+	public enum State {
+		Setting,
+		Play
+	}
+	public State state;
 	// Use this for initialization
 	void Start () {
-	
+		state = State.Setting;
 	}
 	
 	// Update is called once per frame

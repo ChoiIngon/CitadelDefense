@@ -2,8 +2,8 @@
 using System.Collections;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class Enemy : MonoBehaviour {
-    public Citadel citadel;
+public class Enemy : Unit {
+    public UnitCitadel citadel;
 	public Vector3 direction;
 	public float moveSpeed;
     
@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour {
 			animator.SetTrigger ("attack");
         }
     }
-	public void Damage(int damage)
+	public override void Damage(int damage)
 	{
 		if (0 >= health) {
 			return;

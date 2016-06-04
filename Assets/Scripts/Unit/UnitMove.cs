@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movement {
+public class UnitMove : MonoBehaviour {
 	
 }
 
-public class Movement_Jump : Movement
+public class Movement_Jump : UnitMove
 {
 	/*
 	float elapsedTime;
