@@ -9,10 +9,7 @@ public class UnitCitadel : Unit {
     public ProgressBar healthBar;
 
 	public Transform [] turretSlot;
-	// Use this for initialization
-	void Start () {
-	}
-	
+
 	// Update is called once per frame
 	void Update () {
         healthBar.progress = (float)hp.value / (float)hp.max;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[System.Serializable]
+
 public abstract class UnitAttack : MonoBehaviour {
 	public Vector3 	target;
 	public Vector3 	start;

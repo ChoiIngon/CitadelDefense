@@ -4,7 +4,7 @@ using System.Collections;
 public class UnitEnemy : Unit {
 	public Vector3 direction;
 	public float moveSpeed;
-
+	public UnitCitadel citadel;
 	public int health;
 	public int maxHealth;
 	[HideInInspector]
@@ -15,25 +15,17 @@ public class UnitEnemy : Unit {
 	public int rewardGold;
 	public int rewardExp;
 
-
-	private UnitAttack unitAttack;
-	private UnitAnimation unitAnimation;
-
-	private Enemy target;
 	void Start () {
+		base.Start ();
 		healthBar = transform.FindChild("HealthBar").GetComponent<ProgressBar>();
-		unitAttack = transform.FindChild("Attack").GetComponent<UnitAttack> ();
-		if (null == unitAttack) {
-			throw new System.Exception ("UnitAttack Component should be attached");
-		}
-		unitAnimation = GetComponent<UnitAnimation> ();
-
-		unitAnimation.Init ();
 		unitAnimation.animationEvents.Add ("attack", unitAttack.Attack);
 	}
 
 	void Update () {
-		healthBar.progress = (float)health / (float)maxHealth;
+		if (0 < maxHealth) {
+			healthBar.progress = (float)health / (float)maxHealth;
+		}
+
 		AnimatorStateInfo state = unitAnimation.animator.GetCurrentAnimatorStateInfo(0);
 		if (state.IsName ("move")) {
 			transform.Translate (direction * moveSpeed * Time.deltaTime);
@@ -55,6 +47,7 @@ public class UnitEnemy : Unit {
 		{
 			moveSpeed = 0.0f;
 			unitAnimation.animator.SetTrigger ("attack");
+			unitAnimation.animator.speed = unitAttack.speed;
 		}
 	}
 

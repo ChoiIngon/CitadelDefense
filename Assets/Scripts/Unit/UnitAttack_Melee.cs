@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(BoxCollider2D))]
+
+[RequireComponent(typeof(UnitColliderAttack))]
 public class UnitAttack_Melee : UnitAttack {
-	Unit unit;
+	private UnitColliderAttack unitColliderAttack;
 	public override void Attack()
 	{
-		
+		unitColliderAttack.enabled = true;
 	}
 
 	protected void Start () {
@@ -16,9 +16,13 @@ public class UnitAttack_Melee : UnitAttack {
 
 		BoxCollider2D boxCollider = GetComponent<BoxCollider2D> ();
 		boxCollider.isTrigger = true;
+
+		unitColliderAttack = GetComponent<UnitColliderAttack> ();
+		unitColliderAttack.enabled = false;
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		unit = col.gameObject.GetComponent<Unit> ();
+		Unit unit = col.gameObject.GetComponent<Unit> ();
+		//unit.Damage (unitColliderAttack.attackPower);
 	}
 }

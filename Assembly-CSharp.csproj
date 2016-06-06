@@ -68,9 +68,6 @@
      <Compile Include="Assets\Node_Editor\Utilities\OverlayGUI.cs" />
      <Compile Include="Assets\Node_Editor\Utilities\RTEditorGUI.cs" />
      <Compile Include="Assets\Node_Editor\Utilities\ResourceManager.cs" />
-     <Compile Include="Assets\Scripts\AttackBox.cs" />
-     <Compile Include="Assets\Scripts\Attack_Meteorite.cs" />
-     <Compile Include="Assets\Scripts\Attack_RangeStright.cs" />
      <Compile Include="Assets\Scripts\Effect.cs" />
      <Compile Include="Assets\Scripts\Effect_Damage.cs" />
      <Compile Include="Assets\Scripts\EnemyManager.cs" />
@@ -83,9 +80,6 @@
      <Compile Include="Assets\Scripts\Unit\Citadel\TurretSlot.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\UnitCitadel.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\UnitTurret.cs" />
-     <Compile Include="Assets\Scripts\Unit\DamageBox.cs" />
-     <Compile Include="Assets\Scripts\Unit\Enemy\Enemy.cs" />
-     <Compile Include="Assets\Scripts\Unit\Enemy\EnemySkeleton.cs" />
      <Compile Include="Assets\Scripts\Unit\Enemy\UnitEnemy.cs" />
      <Compile Include="Assets\Scripts\Unit\Unit.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAnimation.cs" />
@@ -93,6 +87,8 @@
      <Compile Include="Assets\Scripts\Unit\UnitAttack_Bullet.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack_Cannonball.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack_Melee.cs" />
+     <Compile Include="Assets\Scripts\Unit\UnitColliderAttack.cs" />
+     <Compile Include="Assets\Scripts\Unit\UnitColliderDamage.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitMove.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitMove_SinCurve.cs" />
      <Compile Include="Assets\Scripts\UserInputManager.cs" />
