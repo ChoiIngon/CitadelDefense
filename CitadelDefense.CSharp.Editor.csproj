@@ -118,6 +118,7 @@
     <None Include="Assets\Node_Editor\Resources\LineShader.shader" />
     <None Include="Assets\Node_Editor\Utilities\link.xml" />
     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
+    <None Include="Assets\Resources\Sprites\Unit\animations.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>

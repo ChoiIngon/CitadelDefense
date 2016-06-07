@@ -2,22 +2,20 @@
 using System.Collections;
 
 public class ProgressBar : MonoBehaviour {
-    [SerializeField]
     public float progress
     {
         set
         {
-            Vector3 scale = _progress.localScale;
-            scale.x = value;
-            if(0.0f > scale.x)
+            float scale = value;
+            if(0.0f > scale)
             {
-                scale.x = 0.0f;
+                scale = 0.0f;
             }
-            if(1.0f < scale.x)
+            if(1.0f < scale)
             {
-                scale.x = 1.0f;
+                scale = 1.0f;
             }
-            _progress.localScale = scale;
+            _progress.localScale = new Vector3(scale, _progress.localScale.y, _progress.localScale.z);
         }
     }
     Transform _progress;

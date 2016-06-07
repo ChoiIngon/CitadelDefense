@@ -15,20 +15,23 @@ public class GameManager : MonoBehaviour {
             return self;
         }
     }
+
+    public enum State
+    {
+        Setting,
+        Play
+    }
+
     public GameObject failPopup;
-	public enum State {
-		Setting,
-		Play
-	}
-	public State state;
+
+    public State state;
+    public UnitCitadel citadel;
+    public GameObject enemyManager;
+    public GameObject ui;	
+    
 	// Use this for initialization
 	void Start () {
 		state = State.Setting;
         failPopup.SetActive(false);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }
