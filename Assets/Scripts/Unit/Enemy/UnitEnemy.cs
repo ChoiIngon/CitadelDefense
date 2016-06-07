@@ -4,7 +4,6 @@ using System.Collections;
 public class UnitEnemy : Unit {
 	public Vector3 direction;
 	public float moveSpeed;
-	public UnitCitadel citadel;
 	public int health;
 	public int maxHealth;
 	[HideInInspector]

@@ -4,10 +4,14 @@ using System.Collections;
 
 [RequireComponent(typeof(UnitColliderAttack))]
 public class UnitAttack_Melee : UnitAttack {
+    private Unit targetUnit;
 	private UnitColliderAttack unitColliderAttack;
 	public override void Attack()
 	{
-		unitColliderAttack.enabled = true;
+        if (null != targetUnit)
+        {
+            targetUnit.Damage(power);
+        }
 	}
 
 	protected void Start () {
@@ -18,11 +22,25 @@ public class UnitAttack_Melee : UnitAttack {
 		boxCollider.isTrigger = true;
 
 		unitColliderAttack = GetComponent<UnitColliderAttack> ();
-		unitColliderAttack.enabled = false;
 	}
 
-	void OnTriggerEnter2D(Collider2D col) {
-		Unit unit = col.gameObject.GetComponent<Unit> ();
-		//unit.Damage (unitColliderAttack.attackPower);
-	}
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (unitColliderAttack.targetUnitTag == col.gameObject.tag)
+        {
+            UnitColliderDamage colliderDamage = col.gameObject.GetComponent<UnitColliderDamage>();
+            if (null != colliderDamage)
+            {
+                targetUnit = colliderDamage.unit;
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (unitColliderAttack.targetUnitTag == col.gameObject.tag)
+        {
+            targetUnit = null;
+        }
+    }
 }
