@@ -18,5 +18,9 @@ public class UnitCitadel : Unit {
 	public override void Damage(int damage)
 	{
 		hp -= damage;
+        if(0 >= hp)
+        {
+            GameManager.Instance.failPopup.SetActive(true);
+        }
 	}
 }
