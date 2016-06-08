@@ -3,7 +3,7 @@ using System.Collections;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class Unit : MonoBehaviour {
-	protected SpriteRenderer unitSprite;
+	public SpriteRenderer unitSprite;
 	protected UnitAnimation unitAnimation;
 	protected UnitAttack unitAttack;
 	protected UnitColliderDamage unitCollderDamage;

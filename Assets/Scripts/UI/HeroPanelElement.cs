@@ -20,6 +20,7 @@ public class HeroPanelElement : MonoBehaviour {
 		{
 			Transform t = transform.FindChild ("Portrait");
 			Image portrait = t.GetComponent<Image> ();
+			portrait.sprite = hero.unitSprite.sprite;
 		}
 		{
 			Transform t = transform.FindChild ("Skill");
