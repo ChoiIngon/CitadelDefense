@@ -102,7 +102,6 @@
     <Compile Include="Assets\Scripts\Network\ClientSession.cs" />
     <Compile Include="Assets\Scripts\Network\Session.cs" />
     <Compile Include="Assets\Scripts\Network\StreamSession.cs" />
-    <Compile Include="Assets\Scripts\TestAnimationChange.cs" />
     <Compile Include="Assets\Scripts\UI\ProgressBar.cs" />
     <Compile Include="Assets\Scripts\Unit\Citadel\TurretSlot.cs" />
     <Compile Include="Assets\Scripts\Unit\Citadel\UnitCitadel.cs" />
@@ -118,6 +117,7 @@
     <Compile Include="Assets\Scripts\Unit\UnitColliderDamage.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitMove.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitMove_SinCurve.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitSlot.cs" />
     <Compile Include="Assets\Scripts\UserInputManager.cs" />
     <Compile Include="Assets\Scripts\Util\AutoRecoveryInt.cs" />
     <Compile Include="Assets\Scripts\Util\FPSDisplay.cs" />

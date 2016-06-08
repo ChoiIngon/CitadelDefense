@@ -3,6 +3,8 @@ using System.Collections;
 
 [RequireComponent(typeof(UnitAnimation))]
 public class UnitTurret : Unit {
+    public int level;
+
 	public Transform enemyManager;
 
 	private UnitEnemy target;

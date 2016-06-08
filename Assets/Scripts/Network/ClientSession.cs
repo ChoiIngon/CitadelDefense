@@ -57,6 +57,9 @@ public class ClientSession : Gamnet.StreamSession
                 slowCount++;
             }
         });
+
+
+        StartCoroutine(Send_CreateField_Req("test"));
     }
 
     bool stopSend = false;
@@ -136,5 +139,61 @@ public class ClientSession : Gamnet.StreamSession
     }
     public override void OnError(System.Exception e)
     {
+    }
+
+    public IEnumerator Send_CreateField_Req(string sAccountID)
+    {
+        MsgCliSvr_Field_CreateField_Req req = new MsgCliSvr_Field_CreateField_Req();
+        MsgSvrCli_Field_CreateField_Ans ans = null;
+        req.AccountID = sAccountID;
+
+        SendMsg<MsgSvrCli_Field_CreateField_Ans>(req, (Gamnet.Buffer buf) => {
+            ans = new MsgSvrCli_Field_CreateField_Ans();
+            if (false == ans.Load(buf))
+            {
+                throw new System.Exception("MsgSvrCli_Field_CreateField_Ans() load fail");
+            }
+
+            if (XX_ERROR_CODE.XX_ERROR_SUCCESS != ans.ErrorCode)
+            {
+                return;
+            }
+        }, 300);
+        while (null == ans)
+        {
+            yield return null;
+        }
+        Debug.Log("MsgSvrCli_Field_CreateField_Ans");
+        MsgCliSvr_Field_ReadyGame_Ntf ntf = new MsgCliSvr_Field_ReadyGame_Ntf();
+        SendMsg(ntf);
+    }
+
+    public IEnumerator Send_JoinField_Req(string sAccountID, uint fieldSEQ)
+    {
+        MsgCliSvr_Field_JoinField_Req req = new MsgCliSvr_Field_JoinField_Req();
+        MsgSvrCli_Field_JoinField_Ans ans = null;
+        req.AccountID = sAccountID;
+        req.FieldSEQ = fieldSEQ;
+
+        SendMsg<MsgSvrCli_Field_JoinField_Ans>(req, (Gamnet.Buffer buf) =>
+        {
+            ans = new MsgSvrCli_Field_JoinField_Ans();
+            if (false == ans.Load(buf))
+            {
+                throw new System.Exception("MsgSvrCli_Raid_JoinRoom_Ans() load fail");
+            }
+
+            if (XX_ERROR_CODE.XX_ERROR_SUCCESS != ans.ErrorCode)
+            {
+                return;
+            }
+
+        }, 300);
+        while (null == ans)
+        {
+            yield return null;
+        }
+        MsgCliSvr_Field_ReadyGame_Ntf ntf = new MsgCliSvr_Field_ReadyGame_Ntf();
+        SendMsg(ntf);
     }
 }

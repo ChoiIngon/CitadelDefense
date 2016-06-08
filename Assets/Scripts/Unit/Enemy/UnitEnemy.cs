@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(UnitAnimation))]
 public class UnitEnemy : Unit {
 	public Vector3 direction;
 	public float moveSpeed;

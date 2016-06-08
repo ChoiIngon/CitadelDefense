@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
 
     public enum State
     {
-        Setting,
+        Lobby,
         Play
     }
 
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
-		state = State.Setting;
+		state = State.Lobby;
         failPopup.SetActive(false);
 	}
 }
