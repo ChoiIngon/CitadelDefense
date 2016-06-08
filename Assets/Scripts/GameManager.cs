@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour {
     public GameObject enemyManager;
     public GameObject ui;
     public LobbyPanel lobbyPanel;
+	public UnitHero[] heros;
 	// Use this for initialization
 	void Start () {
 		state = State.Lobby;

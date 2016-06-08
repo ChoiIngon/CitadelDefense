@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class HeroSlot : MonoBehaviour {
-	[HideInInspector]
     public UnitHero hero;
     public GameObject heroPanel;
 	// Use this for initialization
