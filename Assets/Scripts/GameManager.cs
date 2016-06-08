@@ -27,11 +27,17 @@ public class GameManager : MonoBehaviour {
     public State state;
     public UnitCitadel citadel;
     public GameObject enemyManager;
-    public GameObject ui;	
-    
+    public GameObject ui;
+    public LobbyPanel lobbyPanel;
 	// Use this for initialization
 	void Start () {
 		state = State.Lobby;
         failPopup.SetActive(false);
 	}
+
+    public void WaveStart()
+    {
+        Debug.Log("Wave Started");
+        lobbyPanel.gameObject.SetActive(false);
+    }
 }

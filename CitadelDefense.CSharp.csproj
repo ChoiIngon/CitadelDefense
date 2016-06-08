@@ -102,7 +102,9 @@
     <Compile Include="Assets\Scripts\Network\ClientSession.cs" />
     <Compile Include="Assets\Scripts\Network\Session.cs" />
     <Compile Include="Assets\Scripts\Network\StreamSession.cs" />
+    <Compile Include="Assets\Scripts\UI\LobbyPanel.cs" />
     <Compile Include="Assets\Scripts\UI\ProgressBar.cs" />
+    <Compile Include="Assets\Scripts\Unit\Citadel\Slot\HeroSlot.cs" />
     <Compile Include="Assets\Scripts\Unit\Citadel\TurretSlot.cs" />
     <Compile Include="Assets\Scripts\Unit\Citadel\UnitCitadel.cs" />
     <Compile Include="Assets\Scripts\Unit\Citadel\UnitTurret.cs" />
@@ -117,16 +119,29 @@
     <Compile Include="Assets\Scripts\Unit\UnitColliderDamage.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitMove.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitMove_SinCurve.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitSlot.cs" />
     <Compile Include="Assets\Scripts\UserInputManager.cs" />
     <Compile Include="Assets\Scripts\Util\AutoRecoveryInt.cs" />
     <Compile Include="Assets\Scripts\Util\FPSDisplay.cs" />
     <Compile Include="Assets\Scripts\Util\Test.cs" />
+    <Compile Include="Assets\Scripts\Util\TouchEvent.cs" />
     <Compile Include="Assets\Scripts\XXField.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Node_Editor\Resources\LineShader.shader" />
     <None Include="Assets\Node_Editor\Utilities\link.xml" />
+    <None Include="Assets\Plugins\Android\unityads\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\unityads\build.xml" />
+    <None Include="Assets\Plugins\Android\unityads\proguard-project.txt" />
+    <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_background_button_pause.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_icon_play.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_icon_speaker_base.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_icon_speaker_triangle.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_icon_speaker_waves.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_button_audio_toggle.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_button_pause.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_view_video_paused.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_view_video_play.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\values\strings.xml" />
     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
     <None Include="Assets\Resources\Sprites\Unit\animations.txt" />
   </ItemGroup>

@@ -100,6 +100,10 @@
       <Project>{C4EF5C3F-9BD7-7EF5-62B4-BDD2DCAEED9A}</Project>
       <Name>CitadelDefense.CSharp</Name>
     </ProjectReference>
+    <ProjectReference Include="CitadelDefense.CSharp.Editor.Plugins.csproj">
+      <Project>{C476837E-1183-AA42-6FC6-54459E574660}</Project>
+      <Name>CitadelDefense.CSharp.Editor.Plugins</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\AIEditor\AIEditorWindow.cs" />
@@ -111,12 +115,26 @@
     <Compile Include="Assets\Editor\AIEditor\Nodes\Node.cs" />
     <Compile Include="Assets\Editor\AIEditor\Nodes\Selector.cs" />
     <Compile Include="Assets\Editor\AIEditor\Nodes\Sequence.cs" />
+    <Compile Include="Assets\Editor\ClientSessionEditor.cs" />
     <Compile Include="Assets\Editor\Node_Editor\NodeEditorWindow.cs" />
     <Compile Include="Assets\Editor\Node_Editor\RTNE_InspectorGUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Node_Editor\Resources\LineShader.shader" />
     <None Include="Assets\Node_Editor\Utilities\link.xml" />
+    <None Include="Assets\Plugins\Android\unityads\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\unityads\build.xml" />
+    <None Include="Assets\Plugins\Android\unityads\proguard-project.txt" />
+    <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_background_button_pause.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_icon_play.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_icon_speaker_base.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_icon_speaker_triangle.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_icon_speaker_waves.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_button_audio_toggle.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_button_pause.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_view_video_paused.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_view_video_play.xml" />
+    <None Include="Assets\Plugins\Android\unityads\res\values\strings.xml" />
     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
     <None Include="Assets\Resources\Sprites\Unit\animations.txt" />
   </ItemGroup>

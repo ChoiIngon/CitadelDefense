@@ -13,7 +13,8 @@ public class ClientSession : Gamnet.StreamSession
     public float elapsedTime;
     public float minResponseTime;
     public float maxResponseTime;
-    
+    public uint fieldSEQ;
+
 	public delegate void OnNetworkEvent();
     public delegate void OnErrorEvent(System.Exception e);
 
@@ -21,6 +22,19 @@ public class ClientSession : Gamnet.StreamSession
     public OnNetworkEvent onReconnect;
     public OnNetworkEvent onClose;
     public OnErrorEvent onError;
+
+    public XXAccountInfo accountInfo;
+    public XXFieldInfo fieldInfo;
+    public XXFieldData fieldData;
+    public XXPlayerStatData playerStatData;
+    public XXRoomData roomData;
+
+    public enum ClientType
+    {
+        Host,
+        Guest
+    }
+    public ClientType clientType;
 
     // Use this for initialization
     void Start()
@@ -31,35 +45,82 @@ public class ClientSession : Gamnet.StreamSession
         elapsedTime = 0.0f;
         minResponseTime = float.MaxValue;
         maxResponseTime = 0.0f;
-        Connect(host, port);
 
-        RegisterHandler(MsgSvrCli_Field_StressTest_Ans.MSG_ID, (Gamnet.Buffer buf) =>
+        RegisterHandler(MsgSvrCli_Field_PlayerStatData_Ntf.MSG_ID, (Gamnet.Buffer buf) =>
         {
-            MsgSvrCli_Field_StressTest_Ans ans = new MsgSvrCli_Field_StressTest_Ans();
-            if(false == ans.Load(buf))
+            Debug.Log("MsgSvrCli_Field_PlayerStatData_Ntf()");
+            MsgSvrCli_Field_PlayerStatData_Ntf ntf = new MsgSvrCli_Field_PlayerStatData_Ntf();
+            if (false == ntf.Load(buf))
             {
-                throw new System.Exception("MsgSvrCli_Field_StressTest_Ans() load fail");
+                throw new System.Exception("MsgSvrCli_Field_PlayerStatData_Ntf() load fail");
             }
-
-            float responseTime = Time.realtimeSinceStartup - ans.SendTime;
-            if(minResponseTime > responseTime)
+            for (int i = 0; i < fieldData.PlayerStatDatas.Count; i++)
             {
-                minResponseTime = responseTime;
-            }
-
-            if(maxResponseTime < responseTime)
-            {
-                maxResponseTime = responseTime;
-            }
-
-            if(slowTime < responseTime)
-            {
-                slowCount++;
+                XXPlayerStatData statData = fieldData.PlayerStatDatas[i];
+                if (ntf.PlayerStatData.UserSEQ == statData.UserSEQ)
+                {
+                    fieldData.PlayerStatDatas[i] = ntf.PlayerStatData;
+                    break;
+                }
             }
         });
 
+        RegisterHandler(MsgSvrCli_Field_PlayerStatDatas_Ntf.MSG_ID, (Gamnet.Buffer buf) =>
+        {
+            Debug.Log("MsgSvrCli_Field_PlayerStatDatas_Ntf()");
+            MsgSvrCli_Field_PlayerStatDatas_Ntf ntf = new MsgSvrCli_Field_PlayerStatDatas_Ntf();
+            if (false == ntf.Load(buf))
+            {
+                throw new System.Exception("MsgSvrCli_Field_PlayerStatDatas_Ntf() load fail");
+            }
+            fieldData.PlayerStatDatas = ntf.PlayerStatDatas;
+        });
 
-        StartCoroutine(Send_CreateField_Req("test"));
+        RegisterHandler(MsgSvrCli_Field_InitRoomData_Ntf.MSG_ID, (Gamnet.Buffer buf) =>
+        {
+            Debug.Log("MsgSvrCli_Field_InitRoomData_Ntf()");
+            MsgSvrCli_Field_InitRoomData_Ntf ntf = new MsgSvrCli_Field_InitRoomData_Ntf();
+            if (false == ntf.Load(buf))
+            {
+                throw new System.Exception("MsgSvrCli_Field_InitRoomData_Ntf() load fail");
+            }
+
+            roomData = ntf.RoomData;
+
+            MsgCliSvr_Field_CompleteRoomData_Ntf ntfToSvr = new MsgCliSvr_Field_CompleteRoomData_Ntf();
+            SendMsg(ntfToSvr);
+        });
+
+        RegisterHandler(MsgSvrCli_Field_RoomData_Ntf.MSG_ID, (Gamnet.Buffer buf) =>
+        {
+            MsgSvrCli_Field_RoomData_Ntf ntf = new MsgSvrCli_Field_RoomData_Ntf();
+            if (false == ntf.Load(buf))
+            {
+                throw new System.Exception("load fail");
+            }
+            roomData = ntf.RoomData;
+        });
+
+        RegisterHandler(MsgSvrCli_Field_StartGame_Ntf.MSG_ID, (Gamnet.Buffer buf) =>
+        {
+            Debug.Log("MsgSvrCli_Field_StartGame_Ntf()");
+            MsgSvrCli_Field_StartGame_Ntf ntf = new MsgSvrCli_Field_StartGame_Ntf();
+            if (false == ntf.Load(buf))
+            {
+                throw new System.Exception("MsgSvrCli_Raid_StartGame_Ntf() load fail");
+            }
+        });
+
+        RegisterHandler(MsgSvrCli_Field_Kickout_Ntf.MSG_ID, (Gamnet.Buffer buf) =>
+        {
+            Debug.Log("MsgSvrCli_Field_Kickout_Ntf()");
+            MsgSvrCli_Field_Kickout_Ntf ntf = new MsgSvrCli_Field_Kickout_Ntf();
+            if (false == ntf.Load(buf))
+            {
+                throw new System.Exception("MsgSvrCli_Raid_StartGame_Ntf() load fail");
+            }
+            Close();
+        });
     }
 
     bool stopSend = false;
@@ -67,34 +128,62 @@ public class ClientSession : Gamnet.StreamSession
     void Update()
     {
         base.Update();
-        elapsedTime += Time.deltaTime;
-        if(0 == Random.Range(0, 300))
+        if (State.Connected == state)
         {
-            stopSend = true;
-            return;
-        }
-
-        stopTime += Time.deltaTime;    
-        if (false == stopSend)
-        {
-            if(msgSendInterval > stopTime)
+            /*
+            elapsedTime += Time.deltaTime;
+            if (0 == Random.Range(0, 300))
             {
+                stopSend = true;
                 return;
             }
-            MsgCliSvr_Field_StressTest_Req req = new MsgCliSvr_Field_StressTest_Req();
-            req.MsgSEQ = msgSEQ++;
-            req.SendTime = Time.realtimeSinceStartup;
 
-            SendMsg(req);
-            stopTime = 0.0f;
-        }
-        else
-        {
-            if(1.0f < stopTime)
+            stopTime += Time.deltaTime;
+            if (false == stopSend)
             {
-                stopSend = false;
+                if (msgSendInterval > stopTime)
+                {
+                    return;
+                }
+                MsgCliSvr_Field_StressTest_Req req = new MsgCliSvr_Field_StressTest_Req();
+                req.MsgSEQ = msgSEQ++;
+                req.SendTime = Time.realtimeSinceStartup;
+
+                SendMsg < MsgSvrCli_Field_StressTest_Ans>(req, (Gamnet.Buffer buf) =>
+                {
+                    MsgSvrCli_Field_StressTest_Ans ans = new MsgSvrCli_Field_StressTest_Ans();
+                    if (false == ans.Load(buf))
+                    {
+                        throw new System.Exception("MsgSvrCli_Field_StressTest_Ans() load fail");
+                    }
+
+                    float responseTime = Time.realtimeSinceStartup - ans.SendTime;
+                    if (minResponseTime > responseTime)
+                    {
+                        minResponseTime = responseTime;
+                    }
+
+                    if (maxResponseTime < responseTime)
+                    {
+                        maxResponseTime = responseTime;
+                    }
+
+                    if (slowTime < responseTime)
+                    {
+                        slowCount++;
+                    }
+                });
                 stopTime = 0.0f;
             }
+            else
+            {
+                if (1.0f < stopTime)
+                {
+                    stopSend = false;
+                    stopTime = 0.0f;
+                }
+            }
+            */
         }
     }
         
@@ -128,6 +217,14 @@ public class ClientSession : Gamnet.StreamSession
 
     public override void OnConnect()
     {
+        if (ClientType.Host == clientType)
+        {
+            StartCoroutine(Send_CreateField_Req(accountInfo.AccountID));
+        }
+        else
+        {
+            StartCoroutine(Send_JoinField_Req(accountInfo.AccountID, fieldSEQ));
+        }
     }
     public override void OnReconnect()
     {
@@ -158,6 +255,10 @@ public class ClientSession : Gamnet.StreamSession
             {
                 return;
             }
+            accountInfo = ans.AccountInfo;
+            fieldInfo = ans.FieldInfo;
+            fieldData = ans.FieldData;
+            playerStatData = ans.PlayerStatData;
         }, 300);
         while (null == ans)
         {
@@ -187,6 +288,11 @@ public class ClientSession : Gamnet.StreamSession
             {
                 return;
             }
+
+            accountInfo = ans.AccountInfo;
+            fieldInfo = ans.FieldInfo;
+            fieldData = ans.FieldData;
+            playerStatData = ans.PlayerStatData;
 
         }, 300);
         while (null == ans)

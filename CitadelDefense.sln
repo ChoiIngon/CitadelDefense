@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitadelDefense.CSharp.Plugi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitadelDefense.CSharp", "CitadelDefense.CSharp.csproj", "{C4EF5C3F-9BD7-7EF5-62B4-BDD2DCAEED9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitadelDefense.CSharp.Editor.Plugins", "CitadelDefense.CSharp.Editor.Plugins.csproj", "{C476837E-1183-AA42-6FC6-54459E574660}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitadelDefense.CSharp.Editor", "CitadelDefense.CSharp.Editor.csproj", "{49E089FF-051C-65A9-2335-FE250D8C257C}"
 EndProject
 Global
@@ -21,6 +23,10 @@ Global
 		{C4EF5C3F-9BD7-7EF5-62B4-BDD2DCAEED9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4EF5C3F-9BD7-7EF5-62B4-BDD2DCAEED9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4EF5C3F-9BD7-7EF5-62B4-BDD2DCAEED9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C476837E-1183-AA42-6FC6-54459E574660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C476837E-1183-AA42-6FC6-54459E574660}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C476837E-1183-AA42-6FC6-54459E574660}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C476837E-1183-AA42-6FC6-54459E574660}.Release|Any CPU.Build.0 = Release|Any CPU
 		{49E089FF-051C-65A9-2335-FE250D8C257C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{49E089FF-051C-65A9-2335-FE250D8C257C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49E089FF-051C-65A9-2335-FE250D8C257C}.Release|Any CPU.ActiveCfg = Release|Any CPU

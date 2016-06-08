@@ -14,7 +14,7 @@ public class Unit : MonoBehaviour {
 		if (null == unitSprite) {
 			throw new System.Exception ("fail to load \'SpriteRenderer\'");
 		}
-		unitSprite.sortingLayerName = "Unit";
+		//unitSprite.sortingLayerName = "Unit";
 		unitAnimation = GetComponent<UnitAnimation> ();
 		if (null != unitAnimation) {
 			unitAnimation.Init ();
