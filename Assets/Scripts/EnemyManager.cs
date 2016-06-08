@@ -15,7 +15,7 @@ public class EnemyManager : MonoBehaviour {
 	void Update () {
 		if (1.0f <= deltaTime) {
             UnitEnemy unitEnemy = (UnitEnemy)GameObject.Instantiate<UnitEnemy> (enemys[Random.Range(0, enemys.Length)]);
-			unitEnemy.transform.position = new Vector3 (30.0f, Random.Range (3.0f, 6.0f), 0.0f);
+			unitEnemy.transform.position = new Vector3 (15.0f, Random.Range (3.0f, 6.0f), 0.0f);
 			deltaTime = 0.0f;
 
 			unitEnemy.transform.SetParent (transform);

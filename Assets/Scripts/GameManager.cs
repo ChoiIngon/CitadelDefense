@@ -39,5 +39,6 @@ public class GameManager : MonoBehaviour {
     {
         Debug.Log("Wave Started");
         lobbyPanel.gameObject.SetActive(false);
+		state = State.Play;
     }
 }

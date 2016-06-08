@@ -2,20 +2,18 @@
 using System.Collections;
 
 public class HeroSlot : MonoBehaviour {
-    public UnitTurret turret;
+	[HideInInspector]
+    public UnitHero hero;
     public GameObject heroPanel;
 	// Use this for initialization
 	void Start () {
         transform.FindChild("TouchEvent").GetComponent<TouchEvent>().onEvent += () =>
         {
-            Debug.Log(name + " is touched");
+			if(GameManager.State.Lobby != GameManager.Instance.state)
+			{
+				return;
+			}
+			heroPanel.SetActive(true);
         };
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-
 }

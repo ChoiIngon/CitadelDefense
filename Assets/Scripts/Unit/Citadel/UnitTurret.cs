@@ -3,15 +3,19 @@ using System.Collections;
 
 [RequireComponent(typeof(UnitAnimation))]
 public class UnitTurret : Unit {
-    public int level;
-
+	public class TurretInfo
+	{
+		public int price;
+	}
+	public int level;
+	public bool equip;
 	public Transform enemyManager;
 
 	private UnitEnemy target;
 
     public AnimationClip idleAnimationClip;
     public AnimationClip attackAnimationClip;
-	void Start () {
+	protected void Start () {
 		base.Start ();
         if (null != idleAnimationClip)
         {

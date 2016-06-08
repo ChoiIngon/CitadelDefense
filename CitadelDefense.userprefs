@@ -1,17 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Units/Enemy/EnemySkeleton.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Unit/Citadel/Slot/HeroSlot.cs">
     <Files>
-      <File FileName="../ProjectD/trunk/Thor/Assets/Scripts/Character/Base/CharacterMove.cs" Line="249" Column="3" />
-      <File FileName="Assets/Scripts/Movement.cs" Line="10" Column="4" />
-      <File FileName="Assets/Scripts/Attack_Melee.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Attack_RangeCurve.cs" Line="23" Column="1" />
-      <File FileName="Assets/Scripts/Attack.cs" Line="4" Column="36" />
-      <File FileName="Assets/Plugins/Pixelplacement/iTween/Sample/MoveSample.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Test.cs" Line="10" Column="40" />
-      <File FileName="Assets/Scripts/MovementSinCurve.cs" Line="30" Column="11" />
-      <File FileName="Assets/Scripts/Attack_Meteorite.cs" Line="19" Column="1" />
-      <File FileName="Assets/Scripts/Units/Enemy/EnemySkeleton.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Unit/UnitAttack.cs" Line="5" Column="1" />
+      <File FileName="Assets/Scripts/Unit/UnitColliderDamage.cs" Line="5" Column="32" />
+      <File FileName="Assets/Scripts/Unit/UnitAttack_Cannonball.cs" Line="25" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="23" Column="6" />
+      <File FileName="Assets/Scripts/Unit/UnitAnimation.cs" Line="22" Column="33" />
+      <File FileName="Assets/Scripts/Unit/Unit.cs" Line="18" Column="1" />
+      <File FileName="Assets/Scripts/Unit/Citadel/UnitTurret.cs" Line="16" Column="1" />
+      <File FileName="Assets/Scripts/Effect.cs" Line="15" Column="46" />
+      <File FileName="Assets/Scripts/Unit/Citadel/Slot/HeroSlot.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
