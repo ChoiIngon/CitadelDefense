@@ -14,10 +14,29 @@ public class UnitEnemy : Unit {
 	public int rewardGold;
 	public int rewardExp;
 
+    public AnimationClip moveAnimationClip;
+    public AnimationClip attackAnimationClip;
+    public AnimationClip deadAnimationClip;
 	void Start () {
 		base.Start ();
 		healthBar = transform.FindChild("HealthBar").GetComponent<ProgressBar>();
-		unitAnimation.animationEvents.Add ("attack", unitAttack.Attack);
+
+        if(null != moveAnimationClip)
+        {
+            unitAnimation.ChangeAnimationClip("move", moveAnimationClip);
+        }
+
+        if(null != attackAnimationClip)
+        {
+            unitAnimation.ChangeAnimationClip("attack", attackAnimationClip);
+        }
+
+        unitAnimation.animationEvents.Add("attack", unitAttack.Attack);
+
+        if(null != deadAnimationClip)
+        {
+            unitAnimation.ChangeAnimationClip("dead", deadAnimationClip);
+        }
 	}
 
 	void Update () {

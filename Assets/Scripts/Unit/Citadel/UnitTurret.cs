@@ -6,8 +6,20 @@ public class UnitTurret : Unit {
 	public Transform enemyManager;
 
 	private UnitEnemy target;
+
+    public AnimationClip idleAnimationClip;
+    public AnimationClip attackAnimationClip;
 	void Start () {
 		base.Start ();
+        if (null != idleAnimationClip)
+        {
+            unitAnimation.ChangeAnimationClip("idle", idleAnimationClip);
+        }
+        if (null != attackAnimationClip)
+        {
+            unitAnimation.ChangeAnimationClip("attack", attackAnimationClip);
+        }
+
 		unitAnimation.animationEvents.Add ("attack", unitAttack.Attack);
 	}
 	

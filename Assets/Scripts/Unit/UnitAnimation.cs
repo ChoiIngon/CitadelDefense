@@ -9,9 +9,10 @@ public class UnitAnimation : MonoBehaviour {
 	public Animator animator;
 	[HideInInspector]
 	public SpriteRenderer spriteRenderer;
-
+    
 	public delegate void AnimationEventDelegate();
 	public Dictionary<string, AnimationEventDelegate> animationEvents;
+
 	// Use this for initialization
 	public void Init () {
 		animationEvents = new Dictionary<string, AnimationEventDelegate> ();
@@ -25,4 +26,12 @@ public class UnitAnimation : MonoBehaviour {
 			animationEvents [evt] ();
 		}
 	}
+
+    public void ChangeAnimationClip(string name, AnimationClip clip)
+    {
+        AnimatorOverrideController overrideController = new AnimatorOverrideController();
+        overrideController.runtimeAnimatorController = animator.runtimeAnimatorController;
+        overrideController[name] = clip;
+        animator.runtimeAnimatorController = overrideController;
+    }
 }

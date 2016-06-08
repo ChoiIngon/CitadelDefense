@@ -102,6 +102,7 @@
     <Compile Include="Assets\Scripts\Network\ClientSession.cs" />
     <Compile Include="Assets\Scripts\Network\Session.cs" />
     <Compile Include="Assets\Scripts\Network\StreamSession.cs" />
+    <Compile Include="Assets\Scripts\TestAnimationChange.cs" />
     <Compile Include="Assets\Scripts\UI\ProgressBar.cs" />
     <Compile Include="Assets\Scripts\Unit\Citadel\TurretSlot.cs" />
     <Compile Include="Assets\Scripts\Unit\Citadel\UnitCitadel.cs" />
