@@ -8,7 +8,7 @@ public class HeroSlot : MonoBehaviour {
 	void Start () {
         transform.FindChild("TouchEvent").GetComponent<TouchEvent>().onEvent += () =>
         {
-			if(GameManager.State.Lobby != GameManager.Instance.state)
+            if (GameManager.GameState.Lobby != GameManager.Instance.state)
 			{
 				return;
 			}

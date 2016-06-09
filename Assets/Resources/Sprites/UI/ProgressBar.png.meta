@@ -1,11 +1,11 @@
 fileFormatVersion: 2
 guid: eb8582df9ecc52145a8287736555d93e
-timeCreated: 1464933457
+timeCreated: 1465452435
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: HealthBarBox
-    21300002: HealthBar
+    21300000: ProgressBarBox
+    21300002: ProgressBar
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -52,7 +52,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: HealthBarBox
+    - name: ProgressBarBox
       rect:
         serializedVersion: 2
         x: 0
@@ -71,7 +71,7 @@ TextureImporter:
         - {x: 459, y: 14}
         - {x: 459, y: -14}
         - {x: 8, y: -14}
-    - name: HealthBar
+    - name: ProgressBar
       rect:
         serializedVersion: 2
         x: 0

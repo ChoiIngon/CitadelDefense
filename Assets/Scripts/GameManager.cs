@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public enum State
+    public enum GameState
     {
         Lobby,
         Play
@@ -24,15 +24,19 @@ public class GameManager : MonoBehaviour {
 
     public GameObject failPopup;
 
-    public State state;
-    public UnitCitadel citadel;
-    public GameObject enemyManager;
-    public GameObject ui;
+    public GameState state;
+    
+    public EnemyManager enemyManager;
     public LobbyPanel lobbyPanel;
+
+    public UnitCitadel citadel;
 	public UnitHero[] heros;
+    public UnitBuilding[] buildings;
+    public UnitTurret[] turrets;
+
 	// Use this for initialization
 	void Start () {
-		state = State.Lobby;
+        state = GameState.Lobby;
         failPopup.SetActive(false);
 	}
 
@@ -40,6 +44,18 @@ public class GameManager : MonoBehaviour {
     {
         Debug.Log("Wave Started");
         lobbyPanel.gameObject.SetActive(false);
-		state = State.Play;
+        state = GameState.Play;
+    }
+
+    public void PurchaseHero(int index)
+    {
+        UnitHero hero = heros[index];
+        if(hero.price > citadel.gold)
+        {
+            // not enough gold message
+            return;
+        }
+
+        hero.purchased = true;
     }
 }
