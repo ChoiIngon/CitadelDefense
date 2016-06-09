@@ -79,12 +79,13 @@
      <Compile Include="Assets\Scripts\Network\ClientSession.cs" />
      <Compile Include="Assets\Scripts\Network\Session.cs" />
      <Compile Include="Assets\Scripts\Network\StreamSession.cs" />
+     <Compile Include="Assets\Scripts\UI\HeroInfoPanel.cs" />
      <Compile Include="Assets\Scripts\UI\HeroPanel.cs" />
      <Compile Include="Assets\Scripts\UI\HeroPanelElement.cs" />
      <Compile Include="Assets\Scripts\UI\LobbyPanel.cs" />
      <Compile Include="Assets\Scripts\UI\ProgressBar.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\Slot\HeroSlot.cs" />
-     <Compile Include="Assets\Scripts\Unit\Citadel\TurretSlot.cs" />
+     <Compile Include="Assets\Scripts\Unit\Citadel\Slot\TurretSlot.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\UnitBuilding.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\UnitCitadel.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\UnitHero.cs" />

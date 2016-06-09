@@ -3,13 +3,14 @@ using System.Collections;
 using UnityEngine.UI;
 public class HeroPanelElement : MonoBehaviour {
 	public UnitHero hero;
-
+	public HeroInfoPanel heroInfoPanel;
 	// Use this for initialization
 	void Start () {
         Button button = GetComponent<Button>();
         button.onClick.AddListener(() =>
         {
-
+			GameManager.Instance.heroInfoPanel.gameObject.SetActive(true);
+			GameManager.Instance.heroInfoPanel.SetHeroUnit(hero);
         });
 	}
 	
@@ -22,12 +23,12 @@ public class HeroPanelElement : MonoBehaviour {
 	{
 		this.hero = hero;
 		{
-			Transform t = transform.FindChild ("Portrait");
-			Image portrait = t.GetComponent<Image> ();
+			//Transform t = transform.FindChild ("Portrait");
+			//Image portrait = t.GetComponent<Image> ();
 			//portrait.sprite = hero.unitSprite.sprite;
 		}
 		{
-			Transform t = transform.FindChild ("Skill");
+			//Transform t = transform.FindChild ("Skill");
 		}
 		{
 			Transform t = transform.FindChild ("Name");
@@ -36,7 +37,7 @@ public class HeroPanelElement : MonoBehaviour {
 		}
 		{
 			Transform t = transform.FindChild ("Equip");
-            if(true == hero.equiped)
+			if(0 != hero.slotIndex)
             {
                 t.gameObject.SetActive(true);
             }

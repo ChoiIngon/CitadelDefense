@@ -28,11 +28,12 @@ public class GameManager : MonoBehaviour {
     
     public EnemyManager enemyManager;
     public LobbyPanel lobbyPanel;
-
+	public HeroInfoPanel heroInfoPanel;
     public UnitCitadel citadel;
 	public UnitHero[] heros;
     public UnitBuilding[] buildings;
     public UnitTurret[] turrets;
+
 
 	// Use this for initialization
 	void Start () {

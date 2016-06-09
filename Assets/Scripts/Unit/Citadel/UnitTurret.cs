@@ -8,8 +8,8 @@ public class UnitTurret : Unit {
 		public int price;
 	}
 	public int level;
-	public bool equiped;
     public bool purchased;
+	public int slotIndex;
 	public Transform enemyManager;
 
 	private UnitEnemy target;

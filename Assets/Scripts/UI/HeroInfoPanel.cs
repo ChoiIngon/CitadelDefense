@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class HeroInfoPanel : MonoBehaviour {
+	[HideInInspector]
     public UnitHero unit;
 	// Use this for initialization
     private Button buyButton { get { return transform.FindChild("BuyButton").GetComponent<Button>(); }}
@@ -24,6 +25,20 @@ public class HeroInfoPanel : MonoBehaviour {
 
 	public void SetHeroUnit(UnitHero unit)
     {
+		closeButton.onClick.AddListener (() => {
+			gameObject.SetActive(false);
+		});
+		heroName.text = unit.name;
+		heroLevel.text = unit.level.ToString ();
 
+		buyButton.gameObject.SetActive (false);
+		equipButton.gameObject.SetActive (false);
+		levelUpButton.gameObject.SetActive (false);
+		if (false == unit.purchased) {
+			buyButton.gameObject.SetActive (true);
+			buyButton.onClick.AddListener (() => {
+			});
+		} else {
+		}
     }
 }

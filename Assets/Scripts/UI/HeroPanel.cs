@@ -4,7 +4,8 @@ using System.Collections;
 public class HeroPanel : MonoBehaviour {
     public HeroPanelElement element;
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
         Init();
 	}
 
@@ -12,11 +13,13 @@ public class HeroPanel : MonoBehaviour {
     {
         Init();
     }
+
     void Init()
     {
-        while(0 < transform.childCount)
+		Transform content = transform.FindChild ("Viewport/Content");
+        while(0 < content.childCount)
         {
-            Transform child = transform.GetChild(0);
+            Transform child = content.GetChild(0);
             child.SetParent(null);
             DestroyObject(child.gameObject);
         }
@@ -24,11 +27,7 @@ public class HeroPanel : MonoBehaviour {
         {
             HeroPanelElement element = (HeroPanelElement)GameObject.Instantiate<HeroPanelElement>(this.element);
             element.SetUnitHero(hero);
-            element.transform.SetParent(transform);
+            element.transform.SetParent(content);
         }
     }
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
