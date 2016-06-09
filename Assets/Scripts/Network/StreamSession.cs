@@ -43,7 +43,7 @@ namespace Gamnet
 		public override void OnReceive(Gamnet.Buffer buf)
 		{
             recvBuffer += buf;
-			while (recvBuffer.Size() >= PACKET_HEADER_SIZE) {
+            while (recvBuffer.Size() >= PACKET_HEADER_SIZE) {
 				ushort packetLength = BitConverter.ToUInt16 (recvBuffer.buffer, recvBuffer.readIndex + PACKET_SIZE_OFFSET);
 				if (packetLength > Gamnet.Buffer.BUFFER_SIZE) {					
 					throw new Exception (string.Format ("The packet length is greater than the buffer max length."));
@@ -57,6 +57,7 @@ namespace Gamnet
                 int msgID = BitConverter.ToInt32(tmpBuffer.buffer, tmpBuffer.readIndex + MSGID_OFFSET);
 				if(false == _dictHandler.ContainsKey(msgID))
 				{
+                    UnityEngine.Debug.Log("msg_id:" + msgID + " is not registered");
 					ErrorEvent evt = new ErrorEvent();
 					evt.session = this;
 					evt.error = new System.Collections.Generic.KeyNotFoundException();

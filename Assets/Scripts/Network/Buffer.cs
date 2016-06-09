@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Gamnet {
 	public class Buffer
 	{
-		public static int BUFFER_SIZE = 8192;
+        public static int BUFFER_SIZE = 65535;
 		public byte[] buffer = null;
 		
 		public int readIndex = 0;

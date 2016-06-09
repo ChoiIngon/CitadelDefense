@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections;
+using XXField;
 
 [CustomEditor(typeof(ClientSession))]
 public class ClientSessionEditor : Editor {
@@ -26,6 +27,15 @@ public class ClientSessionEditor : Editor {
                     session.Close();
                 }
             }
+            /*
+            if (XX_FIELD_STATE_TYPE.XX_FIELD_STATE_WAIT == session.fieldData.State)
+            {
+                if (GUILayout.Button("Ready"))
+                {
+                    session.Send_ReadyGame_Ntf();
+                }
+            }
+            */
         }
 	}
 	

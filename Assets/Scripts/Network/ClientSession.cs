@@ -109,6 +109,7 @@ public class ClientSession : Gamnet.StreamSession
             {
                 throw new System.Exception("MsgSvrCli_Raid_StartGame_Ntf() load fail");
             }
+            fieldData.State = XX_FIELD_STATE_TYPE.XX_FIELD_STATE_PLAY;
         });
 
         RegisterHandler(MsgSvrCli_Field_Kickout_Ntf.MSG_ID, (Gamnet.Buffer buf) =>
@@ -121,6 +122,16 @@ public class ClientSession : Gamnet.StreamSession
             }
             Close();
         });
+
+        RegisterHandler(MsgSvrCli_Field_PlayerData_Ntf.MSG_ID, (Gamnet.Buffer buf) =>
+        {
+            Debug.Log("MsgSvrCli_Field_MoveButtonDown_Ntf()");
+            MsgSvrCli_Field_PlayerData_Ntf ntf = new MsgSvrCli_Field_PlayerData_Ntf();
+            if (false == ntf.Load(buf))
+            {
+                throw new System.Exception("MsgSvrCli_Raid_StartGame_Ntf() load fail");
+            }
+        });
     }
 
     bool stopSend = false;
@@ -128,9 +139,8 @@ public class ClientSession : Gamnet.StreamSession
     void Update()
     {
         base.Update();
-        if (State.Connected == state)
+        if (XX_FIELD_STATE_TYPE.XX_FIELD_STATE_PLAY == fieldData.State)
         {
-            /*
             elapsedTime += Time.deltaTime;
             if (0 == Random.Range(0, 300))
             {
@@ -145,34 +155,8 @@ public class ClientSession : Gamnet.StreamSession
                 {
                     return;
                 }
-                MsgCliSvr_Field_StressTest_Req req = new MsgCliSvr_Field_StressTest_Req();
-                req.MsgSEQ = msgSEQ++;
-                req.SendTime = Time.realtimeSinceStartup;
-
-                SendMsg < MsgSvrCli_Field_StressTest_Ans>(req, (Gamnet.Buffer buf) =>
-                {
-                    MsgSvrCli_Field_StressTest_Ans ans = new MsgSvrCli_Field_StressTest_Ans();
-                    if (false == ans.Load(buf))
-                    {
-                        throw new System.Exception("MsgSvrCli_Field_StressTest_Ans() load fail");
-                    }
-
-                    float responseTime = Time.realtimeSinceStartup - ans.SendTime;
-                    if (minResponseTime > responseTime)
-                    {
-                        minResponseTime = responseTime;
-                    }
-
-                    if (maxResponseTime < responseTime)
-                    {
-                        maxResponseTime = responseTime;
-                    }
-
-                    if (slowTime < responseTime)
-                    {
-                        slowCount++;
-                    }
-                });
+                MsgCliSvr_Field_MoveButtonDown_Ntf ntf = new MsgCliSvr_Field_MoveButtonDown_Ntf();
+                SendMsg(ntf);
                 stopTime = 0.0f;
             }
             else
@@ -183,7 +167,6 @@ public class ClientSession : Gamnet.StreamSession
                     stopTime = 0.0f;
                 }
             }
-            */
         }
     }
         

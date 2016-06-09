@@ -9,6 +9,7 @@ public class UnitEnemy : Unit {
 	public int maxHealth;
 	[HideInInspector]
 	ProgressBar healthBar;
+    public Effect_Damage effectDamage;
 
 	public int defense;
 
@@ -79,9 +80,9 @@ public class UnitEnemy : Unit {
 		GameObject go = new GameObject ();
 		go.name = "Effect_Damage";
 		go.transform.position = transform.position;
-		Effect_Damage damageEffect = GameObject.Instantiate<Effect_Damage> (Resources.Load<Effect_Damage> ("Prefabs/Effect_Damage"));
-		damageEffect.transform.SetParent (go.transform);
-		damageEffect.Init (damage);
+        Effect_Damage effect = (Effect_Damage)GameObject.Instantiate<Effect_Damage>(effectDamage);
+		effect.transform.SetParent (go.transform);
+        effect.Init(damage);
 		health = health - damage;
 		if (0 >= health) {
 			unitAnimation.animator.SetTrigger ("dead");
