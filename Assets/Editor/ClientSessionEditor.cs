@@ -27,15 +27,18 @@ public class ClientSessionEditor : Editor {
                     session.Close();
                 }
             }
-            /*
-            if (XX_FIELD_STATE_TYPE.XX_FIELD_STATE_WAIT == session.fieldData.State)
+            
+            if (XX_FIELD_STATE_TYPE.XX_FIELD_STATE_PLAY == session.fieldData.State)
             {
-                if (GUILayout.Button("Ready"))
+                if (GUILayout.Button("Move"))
                 {
-                    session.Send_ReadyGame_Ntf();
+         
+                }
+
+                if (GUILayout.Button("Jump"))
+                {
                 }
             }
-            */
         }
 	}
 	
