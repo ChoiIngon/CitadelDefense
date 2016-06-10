@@ -141,6 +141,7 @@ public class ClientSession : Gamnet.StreamSession
         base.Update();
         if (XX_FIELD_STATE_TYPE.XX_FIELD_STATE_PLAY == fieldData.State)
         {
+            /*
             elapsedTime += Time.deltaTime;
             if (0 == Random.Range(0, 300))
             {
@@ -167,6 +168,7 @@ public class ClientSession : Gamnet.StreamSession
                     stopTime = 0.0f;
                 }
             }
+            */
         }
     }
         
@@ -282,6 +284,7 @@ public class ClientSession : Gamnet.StreamSession
         {
             yield return null;
         }
+        Debug.Log("MsgSvrCli_Field_JoinField_Ans");
         MsgCliSvr_Field_ReadyGame_Ntf ntf = new MsgCliSvr_Field_ReadyGame_Ntf();
         SendMsg(ntf);
     }

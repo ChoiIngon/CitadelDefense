@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace AIEditor
 {
-	[Node("Composite/Selector")]
+	[Node("Decorator/Selector")]
     public class Selector : Node
     {
 		public Selector()

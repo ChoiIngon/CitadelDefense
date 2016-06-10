@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace AIEditor
 {
-	[Node("Composite/Sequence")]
+    [Node("Decorator/Sequence")]
     public class Sequence : Node {
 		public Sequence()
 		{

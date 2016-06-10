@@ -87,9 +87,6 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>Library\UnityAssemblies\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
-      <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="CitadelDefense.CSharp.Plugins.csproj">
@@ -108,10 +105,13 @@
   <ItemGroup>
     <Compile Include="Assets\Editor\AIEditor\AIEditorWindow.cs" />
     <Compile Include="Assets\Editor\AIEditor\NodeManager.cs" />
+    <Compile Include="Assets\Editor\AIEditor\Nodes\Action_Approach.cs" />
     <Compile Include="Assets\Editor\AIEditor\Nodes\Action_Attack.cs" />
     <Compile Include="Assets\Editor\AIEditor\Nodes\Action_Idle.cs" />
     <Compile Include="Assets\Editor\AIEditor\Nodes\Action_Move.cs" />
     <Compile Include="Assets\Editor\AIEditor\Nodes\Condition_IsInAttackRange.cs" />
+    <Compile Include="Assets\Editor\AIEditor\Nodes\Condition_IsInSightRange.cs" />
+    <Compile Include="Assets\Editor\AIEditor\Nodes\Inverter.cs" />
     <Compile Include="Assets\Editor\AIEditor\Nodes\Node.cs" />
     <Compile Include="Assets\Editor\AIEditor\Nodes\Selector.cs" />
     <Compile Include="Assets\Editor\AIEditor\Nodes\Sequence.cs" />

@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class HeroPanel : MonoBehaviour {
     public HeroPanelElement element;
+    private Button closeButton { get { return transform.FindChild("CloseButton").GetComponent<Button>(); } }
 	// Use this for initialization
 	void Start () 
 	{
+        closeButton.onClick.AddListener(() => {
+            gameObject.SetActive(false);
+        });
         Init();
 	}
 
