@@ -2,9 +2,8 @@
 using System.Collections;
 
 public class HeroSlot : MonoBehaviour {
-    public UnitHero hero;
-    public GameObject heroPanel;
 	public int slotIndex;
+	public UnitHero unit;
 	// Use this for initialization
 	void Start () {
         transform.FindChild("TouchEvent").GetComponent<TouchEvent>().onEvent += () =>
@@ -13,7 +12,8 @@ public class HeroSlot : MonoBehaviour {
 			{
 				return;
 			}
-			heroPanel.SetActive(true);
+			GameManager.Instance.heroPanel.gameObject.SetActive(true);
+			GameManager.Instance.selectedSlot = this;
         };
 	}
 }

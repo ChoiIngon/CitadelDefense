@@ -3,7 +3,6 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
     private static GameManager self;
-
     public static GameManager Instance
     {
         get
@@ -16,29 +15,38 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public enum GameState
+	public enum GameState
     {
         Lobby,
         Play
     }
-
-    public GameObject failPopup;
-
+    
+	public enum WaveResult
+	{
+		Win,
+		Lose
+	}
     public GameState state;
     
-    public EnemyManager enemyManager;
+	public EnemyManager enemyManager;
     public LobbyPanel lobbyPanel;
-	public HeroInfoPanel heroInfoPanel;
+
     public UnitCitadel citadel;
-	public UnitHero[] heros;
+
     public UnitBuilding[] buildings;
     public UnitTurret[] turrets;
 
 
+	public UnitHero[] 	 heros;
+	public HeroSlot[] 	 heroSlots { get { return citadel.transform.GetComponentsInChildren<HeroSlot> (); } }
+	public HeroPanel 	 heroPanel;
+	public HeroInfoPanel heroInfoPanel;
+
+	public HeroSlot selectedSlot;
+	public UnitHero selectedHero;
 	// Use this for initialization
 	void Start () {
         state = GameState.Lobby;
-        failPopup.SetActive(false);
 	}
 
     public void WaveStart()
@@ -48,15 +56,9 @@ public class GameManager : MonoBehaviour {
         state = GameState.Play;
     }
 
-    public void PurchaseHero(int index)
-    {
-        UnitHero hero = heros[index];
-        if(hero.price > citadel.gold)
-        {
-            // not enough gold message
-            return;
-        }
-
-        hero.purchased = true;
-    }
+	public void WaveEnd(WaveResult result)
+	{
+		lobbyPanel.gameObject.SetActive (true);
+		state = GameState.Lobby;
+	}
 }

@@ -26,7 +26,7 @@ public class UnitCitadel : Unit {
 		hp -= damage;
         if(0 >= hp)
         {
-            GameManager.Instance.failPopup.SetActive(true);
+			GameManager.Instance.WaveEnd (GameManager.WaveResult.Lose);
         }
 	}
 }

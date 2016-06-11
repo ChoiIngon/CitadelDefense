@@ -9,7 +9,7 @@ public class UnitTurret : Unit {
 	}
 	public int level;
     public bool purchased;
-	public int slotIndex;
+	public int slotIndex = -1;
 	public Transform enemyManager;
 
 	private UnitEnemy target;
