@@ -10,7 +10,6 @@ public class HeroInfoPanel : MonoBehaviour {
     private Button buyButton { get { return transform.FindChild(defaultChildPath + "BuyButton").GetComponent<Button>(); }}
 	private Button equipButton { get { return transform.FindChild(defaultChildPath + "EquipButton").GetComponent<Button>(); } }
 	private Button levelUpButton { get { return transform.FindChild(defaultChildPath + "LevelUpButton").GetComponent<Button>(); } }
-	private Button closeButton { get { return transform.FindChild(defaultChildPath + "CloseButton").GetComponent<Button>(); } }
 	private Text heroName { get { return transform.FindChild(defaultChildPath + "HeroName").GetComponent<Text>(); } }
 	private Text heroLevel { get { return transform.FindChild(defaultChildPath + "HeroLevel").GetComponent<Text>(); } }
 
@@ -74,9 +73,6 @@ public class HeroInfoPanel : MonoBehaviour {
     {
 		GameManager.Instance.selectedHero = unit;
 		this.unit = unit;
-		closeButton.onClick.AddListener (() => {
-			gameObject.SetActive(false);
-		});
 		heroName.text = unit.name;
 		heroLevel.text = unit.level.ToString ();
 

@@ -5,12 +5,7 @@ public class UnitCitadel : Unit {
     
     public AutoRecoveryInt hp;
 	public AutoRecoveryInt mp;
-    private int _level;
-	public int level;
-    private int _exp;
-	public int exp;
-    private int _gold;
-    public int gold;
+    public int level;
     public ProgressBar hpBar;
     public ProgressBar mpBar;
 	public Transform [] turretSlot;

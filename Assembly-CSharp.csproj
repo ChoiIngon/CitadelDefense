@@ -79,6 +79,8 @@
      <Compile Include="Assets\Scripts\Network\ClientSession.cs" />
      <Compile Include="Assets\Scripts\Network\Session.cs" />
      <Compile Include="Assets\Scripts\Network\StreamSession.cs" />
+     <Compile Include="Assets\Scripts\UI\ButtonAdvertisement.cs" />
+     <Compile Include="Assets\Scripts\UI\ButtonClose.cs" />
      <Compile Include="Assets\Scripts\UI\HeroInfoPanel.cs" />
      <Compile Include="Assets\Scripts\UI\HeroPanel.cs" />
      <Compile Include="Assets\Scripts\UI\HeroPanelElement.cs" />
