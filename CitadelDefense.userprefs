@@ -1,27 +1,48 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/HeroInfoPanel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Unit/Citadel/UnitHero.cs">
     <Files>
-      <File FileName="Assets/Scripts/Unit/UnitAttack.cs" Line="5" Column="1" />
-      <File FileName="Assets/Scripts/Unit/UnitColliderDamage.cs" Line="5" Column="32" />
-      <File FileName="Assets/Scripts/Unit/UnitAttack_Cannonball.cs" Line="25" Column="1" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="32" Column="26" />
-      <File FileName="Assets/Scripts/Unit/UnitAnimation.cs" Line="23" Column="28" />
-      <File FileName="Assets/Scripts/Unit/Unit.cs" Line="7" Column="11" />
-      <File FileName="Assets/Scripts/Unit/Citadel/UnitTurret.cs" Line="35" Column="1" />
-      <File FileName="Assets/Scripts/Effect.cs" Line="15" Column="46" />
-      <File FileName="Assets/Scripts/Unit/Citadel/Slot/HeroSlot.cs" Line="4" Column="40" />
-      <File FileName="Assets/Scripts/Unit/Citadel/UnitHero.cs" Line="4" Column="30" />
-      <File FileName="Assets/Scripts/EnemyManager.cs" Line="18" Column="50" />
-      <File FileName="Assets/Scripts/UI/HeroPanel.cs" Line="5" Column="26" />
-      <File FileName="Assets/Scripts/UI/HeroPanelRow.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/HeroPanelElement.cs" Line="29" Column="47" />
-      <File FileName="Assets/Scripts/UI/HeroInfoPanel.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UI/ButtonClose.cs" Line="14" Column="5" />
+      <File FileName="Assets/Scripts/UI/HeroPanel.cs" Line="10" Column="5" />
+      <File FileName="Assets/Scripts/UI/HeroInfoPanel.cs" Line="36" Column="1" />
+      <File FileName="Assets/Scripts/Unit/Citadel/UnitHero.cs" Line="5" Column="1" />
+      <File FileName="Assets/Scripts/Unit/Citadel/UnitTurret.cs" Line="26" Column="71" />
+      <File FileName="Assets/Scripts/Unit/Citadel/UnitBuilding.cs" Line="9" Column="1" />
+      <File FileName="Assets/Scripts/Unit/Citadel/UnitCitadel.cs" Line="4" Column="30" />
+      <File FileName="Assets/Scripts/Unit/Unit.cs" Line="48" Column="1" />
+      <File FileName="Assets/Scripts/Unit/UnitAttack_Bullet.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UI/HeroPanelElement.cs" Line="7" Column="2" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CitadelDefense" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="UI" expanded="True" />
+                <Node name="Unit" expanded="True">
+                  <Node name="Citadel" expanded="True">
+                    <Node name="UnitHero.cs" selected="True" />
+                  </Node>
+                  <Node name="Enemy" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="CitadelDefense" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Editor/AIEditor/AIEditorWindow.cs" line="291" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/Citadel/UnitHero.cs" line="43" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/Citadel/UnitHero.cs" line="31" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class HeroPanelElement : MonoBehaviour {
 	public UnitHero hero;
 	public HeroInfoPanel heroInfoPanel;
+
 	// Use this for initialization
 	void Start () {
         Button button = GetComponent<Button>();

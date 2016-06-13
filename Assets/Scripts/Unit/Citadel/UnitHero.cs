@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class UnitHero : UnitTurret {
-	
 	public UnitAttack.Info normalAttackInfo;
 	public UnitAttack.Info specialAttackInfo;
 
