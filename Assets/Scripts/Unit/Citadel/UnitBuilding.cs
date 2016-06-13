@@ -1,15 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UnitBuilding : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+public class UnitBuilding : Unit {
+	public int level;
+	public int price;
+	public int slotIndex = -1;
+	public bool purchased;
 }

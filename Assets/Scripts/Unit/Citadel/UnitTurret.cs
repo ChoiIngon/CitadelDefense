@@ -2,18 +2,8 @@
 using System.Collections;
 
 [RequireComponent(typeof(UnitAnimation))]
-public class UnitTurret : Unit {
-	public class TurretInfo
-	{
-		public int price;
-	}
-	public int level;
-    public bool purchased;
-	public int slotIndex = -1;
-	public Transform enemyManager;
-
+public class UnitTurret : UnitBuilding {
 	private UnitEnemy target;
-
     public AnimationClip idleAnimationClip;
     public AnimationClip attackAnimationClip;
 	protected void Start () {
@@ -33,6 +23,7 @@ public class UnitTurret : Unit {
 	// Update is called once per frame
 	void Update () {
 		target = null;
+		Transform enemyManager = GameManager.Instance.enemyManager.transform;
 		for (int i = 0; i < enemyManager.childCount; i++) {
 			UnitEnemy enemy = enemyManager.GetChild (i).GetComponent<UnitEnemy>();
 			float distance = Vector3.Distance (transform.position, enemy.transform.position);

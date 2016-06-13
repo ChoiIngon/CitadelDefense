@@ -9,16 +9,12 @@ public class HeroPanelElement : MonoBehaviour {
         Button button = GetComponent<Button>();
         button.onClick.AddListener(() =>
         {
+			GameManager.Instance.heroInfoPanel.unit = hero;
+			hero.ShowInfo(GameManager.Instance.heroInfoPanel);
 			GameManager.Instance.heroInfoPanel.gameObject.SetActive(true);
-			GameManager.Instance.heroInfoPanel.SetHeroUnit(hero);
         });
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-    
+
 	public void SetUnitHero(UnitHero hero)
 	{
 		this.hero = hero;

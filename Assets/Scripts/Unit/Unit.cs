@@ -3,17 +3,18 @@ using System.Collections;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class Unit : MonoBehaviour {
-	public SpriteRenderer unitSprite;
+	public Sprite sprite;
 	protected UnitAnimation unitAnimation;
 	protected UnitAttack unitAttack;
 	protected UnitColliderDamage unitCollderDamage;
 
 	protected void Start()
 	{
-		unitSprite = GetComponent<SpriteRenderer> ();
-		if (null == unitSprite) {
+		SpriteRenderer renderer = GetComponent<SpriteRenderer> ();
+		if (null == renderer) {
 			throw new System.Exception ("fail to load \'SpriteRenderer\'");
 		}
+		sprite = renderer.sprite;
 		//unitSprite.sortingLayerName = "Unit";
 		unitAnimation = GetComponent<UnitAnimation> ();
 		if (null != unitAnimation) {
@@ -43,4 +44,5 @@ public class Unit : MonoBehaviour {
 		}
 	}
 	public virtual void Damage(int damage) {}
+	public virtual void ShowInfo(HeroInfoPanel panel) {}
 }

@@ -7,27 +7,25 @@ public class HeroInfoPanel : MonoBehaviour {
     public UnitHero unit;
 	const string defaultChildPath = "Background/";
 	// Use this for initialization
-    private Button buyButton { get { return transform.FindChild(defaultChildPath + "BuyButton").GetComponent<Button>(); }}
-	private Button equipButton { get { return transform.FindChild(defaultChildPath + "EquipButton").GetComponent<Button>(); } }
-	private Button levelUpButton { get { return transform.FindChild(defaultChildPath + "LevelUpButton").GetComponent<Button>(); } }
-	private Text heroName { get { return transform.FindChild(defaultChildPath + "HeroName").GetComponent<Text>(); } }
-	private Text heroLevel { get { return transform.FindChild(defaultChildPath + "HeroLevel").GetComponent<Text>(); } }
+	public Button buyButton { get { return transform.FindChild(defaultChildPath + "BuyButton").GetComponent<Button>(); }}
+	public Button equipButton { get { return transform.FindChild(defaultChildPath + "EquipButton").GetComponent<Button>(); } }
+	public Button levelUpButton { get { return transform.FindChild(defaultChildPath + "LevelUpButton").GetComponent<Button>(); } }
+	public Text heroName { get { return transform.FindChild(defaultChildPath + "HeroName").GetComponent<Text>(); } }
+	public Text heroLevel { get { return transform.FindChild(defaultChildPath + "HeroLevel").GetComponent<Text>(); } }
 
-	private Image attackPowerImage { get { return transform.FindChild(defaultChildPath + "AttackPowerImage").GetComponent<Image>(); } }
-	private Text attackPowerText { get { return transform.FindChild(defaultChildPath + "AttackPowerText").GetComponent<Text>(); } }
+	public Image attackPowerImage { get { return transform.FindChild(defaultChildPath + "AttackPowerImage").GetComponent<Image>(); } }
+	public Text attackPowerText { get { return transform.FindChild(defaultChildPath + "AttackPowerText").GetComponent<Text>(); } }
 
-	private Image specialAttackImage { get { return transform.FindChild(defaultChildPath + "SpecialAttackImage").GetComponent<Image>(); } }
-	private Text specialAttackText { get { return transform.FindChild(defaultChildPath + "SpecialAttackText").GetComponent<Text>(); } }
+	public Image specialAttackImage { get { return transform.FindChild(defaultChildPath + "SpecialAttackImage").GetComponent<Image>(); } }
+	public Text specialAttackText { get { return transform.FindChild(defaultChildPath + "SpecialAttackText").GetComponent<Text>(); } }
 
-	private Image skillImage { get { return transform.FindChild(defaultChildPath + "SkillPanel/SkillImage").GetComponent<Image>(); } }
-	private Text skillName { get { return transform.FindChild(defaultChildPath + "SkillPanel/SkillName").GetComponent<Text>(); } }
-	private Text skillDescription { get { return transform.FindChild(defaultChildPath + "SkillPanel/SkillDescription").GetComponent<Text>(); } }
+	public Image skillImage { get { return transform.FindChild(defaultChildPath + "SkillPanel/SkillImage").GetComponent<Image>(); } }
+	public Text skillName { get { return transform.FindChild(defaultChildPath + "SkillPanel/SkillName").GetComponent<Text>(); } }
+	public Text skillDescription { get { return transform.FindChild(defaultChildPath + "SkillPanel/SkillDescription").GetComponent<Text>(); } }
 
 	public void Start()
 	{
 		buyButton.onClick.AddListener (() => {
-			unit.purchased = true;
-
 			if(null != GameManager.Instance.selectedSlot.unit)
 			{
 				GameManager.Instance.selectedSlot.unit.slotIndex = -1;
