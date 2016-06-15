@@ -21,7 +21,8 @@ namespace AIEditor
             return
                 "{" +
                     "\"type\":" + "\"Selector\"" + "," +
-                    "\"id\":" + id +
+                    "\"id\":" + id + "," +
+                    "\"parent\":" + (null != parent ? parent.id.ToString() : "\"\"") +
                 "}";
         }
     }

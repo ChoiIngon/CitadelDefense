@@ -120,7 +120,7 @@ namespace AIEditor
 				int selectedIndex = GetSelectedIndex ();
 				if (-1 == selectedIndex) {
 					foreach (Node node in NodeManager.Instance.nodes) {
-						node.rect.position += e.delta;
+                        node.rect.position += e.delta;
 					}
 					Repaint ();
 				} else {
@@ -132,13 +132,6 @@ namespace AIEditor
 							{
 								return -1;
 							}
-							/*
-							else if(lhs.rect.position.x == rhs.rect.position.x)
-							{
-								rhs.rect.position = new Vector2(rhs.rect.position.x + 1, rhs.rect.position.y);
-								return -1;
-							}
-							*/
 							return 1;
 						});
 					}
@@ -206,6 +199,16 @@ namespace AIEditor
                 NodeManager.Instance.Init();
             }
 
+            if (GUILayout.Button(new GUIContent("Export JSON", "")))
+            {
+                string path = UnityEditor.EditorUtility.SaveFilePanelInProject("Export", "AIBehaviourTree", "json", "", defaultAssetPath);
+                if ("" == path)
+                {
+                    return;
+                }
+
+                Export(path);
+            }
             GUILayout.EndArea();
         }
         void DrawNode(int id)
@@ -286,6 +289,27 @@ namespace AIEditor
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+        }
+
+        void Export(string path)
+        {
+            string[] json = new string[1];
+
+            json[0] += "{\n";
+            json[0] += "\t\"nodes\":[\n";
+            foreach(Node node in NodeManager.Instance.nodes)
+            {
+                json[0] += "\t\t" + node.ToString();
+                if(node != NodeManager.Instance.nodes[NodeManager.Instance.nodes.Count-1])
+                {
+                    json[0] += ",";
+                }
+                json[0] += "\n";
+            }
+            json[0] += "\t]\n";
+            json[0] += "}\n";
+            
+            System.IO.File.WriteAllLines(path, json);
         }
 
         void Load(string path)

@@ -20,7 +20,8 @@ namespace AIEditor
             return 
                 "{" +
                     "\"type\":" + "\"Inverter\"" + "," +
-                    "\"id\":" + id +
+                    "\"id\":" + id + "," +
+                    "\"parent\":" + (null != parent ? parent.id.ToString() : "\"\"") +
                 "}";
         }
     }

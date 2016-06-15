@@ -19,7 +19,8 @@ namespace AIEditor
             return
                 "{" +
 					"\"type\":" + "\"Action_Move\"" + "," +
-                    "\"id\":" + id +
+                    "\"id\":" + id + "," +
+                    "\"parent\":" + (null != parent ? parent.id.ToString() : "\"\"") +
                 "}";
         }
 	}

@@ -20,7 +20,8 @@ namespace AIEditor
             return
                 "{" +
                     "\"type\":" + "\"Action_Approch\"" + "," +
-                    "\"id\":" + id +
+                    "\"id\":" + id + "," +
+                    "\"parent\":" + (null != parent ? parent.id.ToString() : "\"\"") +
                 "}";
         }
 	}

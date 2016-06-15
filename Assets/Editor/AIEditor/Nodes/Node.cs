@@ -19,6 +19,17 @@ namespace AIEditor
 		[SerializeField]
         public Rect rect;
 
+        /*
+        public enum NodeType
+        {
+            Condition,
+            Action,
+            Decorator,
+            Max
+        }
+        protected NodeType type;
+        static Color[] NODE_COLOR = new Color[(int)NodeType.Max];
+        */
         public abstract void DrawNode();
         public abstract string ToString();
 

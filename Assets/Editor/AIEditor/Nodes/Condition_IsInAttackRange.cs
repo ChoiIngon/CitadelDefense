@@ -19,7 +19,8 @@ namespace AIEditor
             return
                 "{" +
 					"\"type\":" + "\"Condition_IsInAttackRange\"" + "," +
-                    "\"id\":" + id +
+                    "\"id\":" + id + "," +
+                    "\"parent\":" + (null != parent ? parent.id.ToString() : "\"\"") +
                 "}";
         }
 	}
