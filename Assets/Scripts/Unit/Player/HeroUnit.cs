@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UnitHero : UnitTurret {
+public class HeroUnit : BasePlayerUnit {
 	public UnitAttack.Info normalAttackInfo;
 	public UnitAttack.Info specialAttackInfo;
-
+	public ProgressBar coolTimeBar;
+	protected UnitAttack normalAttack;
 	protected UnitAttack specialAttack;
 	// Use this for initialization
 	void Start () {

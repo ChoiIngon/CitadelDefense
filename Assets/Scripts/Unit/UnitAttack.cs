@@ -7,13 +7,8 @@ public abstract class UnitAttack : MonoBehaviour {
 	public Vector3 	start;
 	public Effect 	effect;
 
-	public float 	range;
-	public int 		power;
-	public float 	speed;
-	public float 	interval;
-
 	[System.Serializable]
-	public class Info
+	public class AttackInfo
 	{
 		public string 	name;
 		public string 	description;
@@ -21,11 +16,12 @@ public abstract class UnitAttack : MonoBehaviour {
 		public float 	range;
 		public int 		power;
 		public float 	speed;
-		public float 	interval;
+		public float 	cooltime;
 		public float	mana;
 		public float	time;
 		public Effect 	effect;
 	}
-	public Info info;
+
+	public AttackInfo info;
 	public abstract void Attack ();
 }

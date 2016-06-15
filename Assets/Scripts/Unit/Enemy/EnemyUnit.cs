@@ -2,7 +2,7 @@
 using System.Collections;
 
 [RequireComponent(typeof(UnitAnimation))]
-public class UnitEnemy : Unit {
+public class EnemyUnit : Unit {
 	public Vector3 direction;
 	public float moveSpeed;
 	public int health;
@@ -71,7 +71,7 @@ public class UnitEnemy : Unit {
 		}
 	}
 
-	public override void Damage(int damage)
+	public void Damage(int damage)
 	{
 		if (0 >= health) {
 			return;

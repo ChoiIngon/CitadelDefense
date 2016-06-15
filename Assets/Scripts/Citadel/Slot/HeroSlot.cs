@@ -12,7 +12,7 @@ public class HeroSlot : MonoBehaviour {
 			{
 				return;
 			}
-			GameManager.Instance.heroPanel.gameObject.SetActive(true);
+			GameManager.Instance.shop.gameObject.SetActive(true);
 			GameManager.Instance.selectedSlot = this;
         };
 	}

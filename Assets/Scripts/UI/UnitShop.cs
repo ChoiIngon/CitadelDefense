@@ -2,8 +2,15 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class HeroPanel : MonoBehaviour {
+public class UnitShop : MonoBehaviour {
+	public enum ShopType
+	{
+		Hero,
+		Tower,
+		Building
+	}
     public HeroPanelElement element;
+	public ShopType type;
 	// Use this for initialization
 	void Start () 
 	{

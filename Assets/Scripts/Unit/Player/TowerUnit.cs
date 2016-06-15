@@ -2,7 +2,7 @@
 using System.Collections;
 
 [RequireComponent(typeof(UnitAnimation))]
-public class UnitTurret : UnitBuilding {
+public class TowerUnit : BasePlayerUnit {
 	private UnitEnemy target;
     public AnimationClip idleAnimationClip;
     public AnimationClip attackAnimationClip;

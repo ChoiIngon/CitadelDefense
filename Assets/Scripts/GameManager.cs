@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour {
 
 	public UnitHero[] 	 heros;
 	public HeroSlot[] 	 heroSlots { get { return citadel.transform.GetComponentsInChildren<HeroSlot> (); } }
-	public HeroPanel 	 heroPanel;
+	public UnitShop 	 shop;
 	public HeroInfoPanel heroInfoPanel;
 
 	public HeroSlot selectedSlot;

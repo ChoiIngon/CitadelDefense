@@ -2,9 +2,9 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class HeroInfoPanel : MonoBehaviour {
+public class UnitInfo : MonoBehaviour {
 	[HideInInspector]
-    public UnitHero unit;
+	public BasePlayerUnit unit;
 	const string defaultChildPath = "Background/";
 	// Use this for initialization
 	public Button buyButton { get { return transform.FindChild(defaultChildPath + "BuyButton").GetComponent<Button>(); }}
@@ -38,7 +38,7 @@ public class HeroInfoPanel : MonoBehaviour {
 			unit.gameObject.SetActive(true);
 			GameManager.Instance.selectedSlot.unit = unit;
 			GameManager.Instance.heroInfoPanel.gameObject.SetActive(false);
-			GameManager.Instance.heroPanel.gameObject.SetActive(false);
+			GameManager.Instance.shop.gameObject.SetActive(false);
 		});
 
 		equipButton.onClick.AddListener (() => {
@@ -59,7 +59,7 @@ public class HeroInfoPanel : MonoBehaviour {
 			unit.gameObject.SetActive(true);
 			GameManager.Instance.selectedSlot.unit = unit;
 			GameManager.Instance.heroInfoPanel.gameObject.SetActive(false);
-			GameManager.Instance.heroPanel.gameObject.SetActive(false);
+			GameManager.Instance.shop.gameObject.SetActive(false);
 		});
 
 		levelUpButton.onClick.AddListener (() => {
