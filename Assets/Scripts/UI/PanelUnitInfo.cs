@@ -19,6 +19,8 @@ public class PanelUnitInfo : MonoBehaviour {
 	public Text 	textSkillName { get { return transform.FindChild(defaultChildPath + "SkillInfoPanel/TextSkillName").GetComponent<Text>(); } }
 	public Text 	textSkillDescription { get { return transform.FindChild(defaultChildPath + "SkillInfoPanel/TextSkillDescription").GetComponent<Text>(); } }
 
+	[HideInInspector]
+	public PanelUnitShopElement element;
 	public void OnEnable()
 	{
 		Init ();
@@ -86,6 +88,8 @@ public class PanelUnitInfo : MonoBehaviour {
 			}
 			BasePlayerUnit unit = GameManager.Instance.selectedUnit;
 			unit.state.level += 1;
+			Init();
+			element.SetUnit(unit);
 			Debug.Log("hero unit level:" + unit.state.level);
 		});
 	}
@@ -97,6 +101,17 @@ public class PanelUnitInfo : MonoBehaviour {
 		}
 		textUnitName.text = unit.name;
 		textUnitLevel.text = unit.state.level.ToString ();
+
+		imageUnitIcon.sprite = unit.sprite;
+		imageAttackIcon.gameObject.SetActive (false);
+		textAttackPower.gameObject.SetActive (false);
+
+		if (unit is TowerUnit) {
+			imageAttackIcon.gameObject.SetActive (true);
+			textAttackPower.gameObject.SetActive (true);
+			TowerUnit tower = (TowerUnit)unit;
+			textAttackPower.text = tower.attackInfo.power.ToString();
+		}
 		/*
 		attackPowerImage.sprite = unit.normalAttackInfo.sprite;
 		specialAttackImage.sprite = unit.specialAttackInfo.sprite;
@@ -112,7 +127,7 @@ public class PanelUnitInfo : MonoBehaviour {
 			buttonBuy.gameObject.SetActive (true);
 		}
 
-		if (unit.state.index != GameManager.Instance.selectedSlot.slotIndex) {
+		if (true == unit.state.purchased && unit.state.index != GameManager.Instance.selectedSlot.slotIndex) {
 			buttonEquip.gameObject.SetActive (true);
 		}
     }

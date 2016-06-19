@@ -71,9 +71,6 @@
      <Compile Include="Assets\Node_Editor\Utilities\OverlayGUI.cs" />
      <Compile Include="Assets\Node_Editor\Utilities\RTEditorGUI.cs" />
      <Compile Include="Assets\Node_Editor\Utilities\ResourceManager.cs" />
-     <Compile Include="Assets\Scripts\Citadel\Citadel.cs" />
-     <Compile Include="Assets\Scripts\Citadel\Slot\TurretSlot.cs" />
-     <Compile Include="Assets\Scripts\Citadel\Slot\UnitSlot.cs" />
      <Compile Include="Assets\Scripts\Effect\Effect.cs" />
      <Compile Include="Assets\Scripts\Effect\Effect_Damage.cs" />
      <Compile Include="Assets\Scripts\Effect\Effect_Smoke.cs" />
@@ -85,11 +82,13 @@
      <Compile Include="Assets\Scripts\Network\StreamSession.cs" />
      <Compile Include="Assets\Scripts\UI\ButtonAdvertisement.cs" />
      <Compile Include="Assets\Scripts\UI\ButtonClose.cs" />
-     <Compile Include="Assets\Scripts\UI\PanelCitadel.cs" />
+     <Compile Include="Assets\Scripts\UI\PanelLobby.cs" />
      <Compile Include="Assets\Scripts\UI\PanelUnitInfo.cs" />
      <Compile Include="Assets\Scripts\UI\PanelUnitShop.cs" />
      <Compile Include="Assets\Scripts\UI\PanelUnitShopElement.cs" />
      <Compile Include="Assets\Scripts\UI\ProgressBar.cs" />
+     <Compile Include="Assets\Scripts\Unit\Citadel\CitadelUnit.cs" />
+     <Compile Include="Assets\Scripts\Unit\Citadel\UnitSlot.cs" />
      <Compile Include="Assets\Scripts\Unit\Enemy\EnemyUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Player\BasePlayerUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Player\BuildingUnit.cs" />

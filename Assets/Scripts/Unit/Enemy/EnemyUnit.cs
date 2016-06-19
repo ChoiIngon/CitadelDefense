@@ -19,6 +19,7 @@ public class EnemyUnit : Unit {
     public AnimationClip moveAnimationClip;
     public AnimationClip attackAnimationClip;
     public AnimationClip deadAnimationClip;
+	public UnitAttack.AttackInfo attackInfo;
 	void Start () {
 		base.Start ();
 		healthBar = transform.FindChild("HealthBar").GetComponent<ProgressBar>();
@@ -39,6 +40,8 @@ public class EnemyUnit : Unit {
         {
             unitAnimation.ChangeAnimationClip("dead", deadAnimationClip);
         }
+
+		unitAttack.info = attackInfo;
 	}
 
 	void Update () {
@@ -71,7 +74,7 @@ public class EnemyUnit : Unit {
 		}
 	}
 
-	public void Damage(int damage)
+	public override void Damage(int damage)
 	{
 		if (0 >= health) {
 			return;

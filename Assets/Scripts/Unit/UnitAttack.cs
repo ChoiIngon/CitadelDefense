@@ -3,16 +3,17 @@ using System.Collections;
 
 
 public abstract class UnitAttack : MonoBehaviour {
-	public Vector3 	target;
-	public Vector3 	start;
-	public Effect 	effect;
+	[HideInInspector]
+	public Unit 	self;
+	[HideInInspector]
+	public Unit 	target;
 
 	[System.Serializable]
 	public class AttackInfo
 	{
 		public string 	name;
 		public string 	description;
-		public Sprite 	sprite;
+		public Sprite 	icon;
 		public float 	range;
 		public int 		power;
 		public float 	speed;
@@ -22,6 +23,7 @@ public abstract class UnitAttack : MonoBehaviour {
 		public Effect 	effect;
 	}
 
+	[HideInInspector]
 	public AttackInfo info;
 	public abstract void Attack ();
 }

@@ -29,24 +29,23 @@ public class GameManager : MonoBehaviour {
     public GameState state;
     
 	public EnemyManager enemyManager;
-    public LobbyPanel lobbyPanel;
 
-    public UnitCitadel citadel;
-
-	public BuildingUnit[] buildings;
-	public TowerUnit[] towers;
-	public HeroUnit[] heros;
-    
+    public PanelLobby 		lobbyPanel;
 	public PanelUnitShop 	unitShopPanel;
 	public PanelUnitInfo	unitInfoPanel;
 
+    public BuildingUnit[] buildings;
+	public TowerUnit[] towers;
+	public HeroUnit[] heros;
+    
 	[HideInInspector]
 	public UnitSlot selectedSlot;
 	[HideInInspector]
 	public BasePlayerUnit selectedUnit;
-	// Use this for initialization
+
 	void Start () {
         state = GameState.Lobby;
+		selectedSlot = null;
 		selectedUnit = null;
 	}
 

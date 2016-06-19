@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UnitCitadel : MonoBehaviour {
-    
+public class CitadelUnit : Unit {
     public AutoRecoveryInt hp;
 	public AutoRecoveryInt mp;
     public int level;
@@ -14,8 +13,7 @@ public class UnitCitadel : MonoBehaviour {
     public ProgressBar hpBar;
     public ProgressBar mpBar;
 	public ProgressBar expBar;
-	public ProgressBar waveBar; // show wave progress
-	public UnitSlot [] heroSlots;
+	public ProgressBar timeBar; // show wave progress
 
 	public void Init()
 	{
@@ -35,7 +33,7 @@ public class UnitCitadel : MonoBehaviour {
         mpBar.progress = (float)mp.value / (float)mp.max;
 	}
 
-	public void Damage(int damage)
+	public override void Damage(int damage)
 	{
 		hp -= damage;
         if(0 >= hp)

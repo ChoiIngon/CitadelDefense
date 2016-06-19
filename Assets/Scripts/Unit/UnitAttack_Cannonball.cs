@@ -8,11 +8,11 @@ public class UnitAttack_Cannonball : UnitAttack {
 
 	public override void Attack()
 	{
-		float distance = Vector3.Distance (start, target);
+		float distance = Vector3.Distance (self.transform.position, target.transform.position);
 
 		GameObject go = GameObject.Instantiate<GameObject> (cannonball);
 		UnitMove_SinCurve unitMove = go.GetComponent<UnitMove_SinCurve> ();
-		unitMove.Init (start, target, distance / 4, 9.0f);
+		unitMove.Init (self.transform.position, target.transform.position, distance / 4, 9.0f);
 
 		unitMoves.Add (unitMove);
 	}
@@ -22,7 +22,7 @@ public class UnitAttack_Cannonball : UnitAttack {
 		foreach (UnitMove_SinCurve unitMove in unitMoves) {
 			if (1.0f <= unitMove.interpolate) {
 				completeMove.Add (unitMove);
-				Effect go = GameObject.Instantiate<Effect> (effect);
+				Effect go = GameObject.Instantiate<Effect> (info.effect);
 				go.transform.position = unitMove.end;
 			}
 		}

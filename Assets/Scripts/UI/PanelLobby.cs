@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class LobbyPanel : MonoBehaviour {
+public class PanelLobby : MonoBehaviour {
     public Button advertisement;
     public Button waveStart;
 	// Use this for initialization

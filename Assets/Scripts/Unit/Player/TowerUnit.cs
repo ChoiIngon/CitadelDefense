@@ -6,6 +6,7 @@ public class TowerUnit : BasePlayerUnit {
 	private EnemyUnit target;
     public AnimationClip idleAnimationClip;
     public AnimationClip attackAnimationClip;
+	public UnitAttack.AttackInfo attackInfo;
 	protected void Start () {
 		base.Start ();
         if (null != idleAnimationClip)
@@ -18,6 +19,9 @@ public class TowerUnit : BasePlayerUnit {
         }
 
 		unitAnimation.animationEvents.Add ("attack", unitAttack.Attack);
+
+		unitAttack.info = attackInfo;
+		unitAttack.self = this;
 	}
 	
 	// Update is called once per frame
@@ -29,8 +33,7 @@ public class TowerUnit : BasePlayerUnit {
 			float distance = Vector3.Distance (transform.position, enemy.transform.position);
 			if (distance < unitAttack.info.range) {
 				target = enemy;
-				unitAttack.start = transform.position;
-				unitAttack.target = target.transform.position;
+				unitAttack.target = target;
 				break;
 			}
 		}

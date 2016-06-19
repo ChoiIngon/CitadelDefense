@@ -18,6 +18,7 @@ public class PanelUnitShopElement : MonoBehaviour {
         button.onClick.AddListener(() =>
         {
 			GameManager.Instance.selectedUnit = unit;
+			GameManager.Instance.unitInfoPanel.element = this;
 			GameManager.Instance.unitInfoPanel.gameObject.SetActive(true);
         });
 	}
@@ -37,10 +38,12 @@ public class PanelUnitShopElement : MonoBehaviour {
 			unitEquip.gameObject.SetActive (false);
 		}
 		unitLevel.text = unit.state.level.ToString ();
+
 		if (true == unit.state.purchased) {
-			unitPrice.gameObject.SetActive (true);
-		} else {
 			unitPrice.gameObject.SetActive (false);
+		} else {
+			unitPrice.text = unit.price.ToString();
+			unitPrice.gameObject.SetActive (true);
 		}
 	}
 }

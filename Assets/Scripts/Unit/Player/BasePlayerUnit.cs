@@ -8,9 +8,10 @@ public class BasePlayerUnit : Unit {
 		public int	index; 
 		public bool	purchased;
 		public bool	equiped;
-		public int level;
+		public int  level;
 	}
 
 	public int price;
+	public int maxLevel;
 	public UnitState state;
 }

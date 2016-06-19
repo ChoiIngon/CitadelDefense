@@ -4,6 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Unit : MonoBehaviour {
 	public Sprite sprite;
+
 	protected UnitAnimation unitAnimation;
 	protected UnitAttack unitAttack;
 	protected UnitColliderDamage unitCollderDamage;
@@ -44,5 +45,4 @@ public class Unit : MonoBehaviour {
 		}
 	}
 	public virtual void Damage(int damage) {}
-	public virtual void ShowInfo(PanelUnitInfo panel) {}
 }
