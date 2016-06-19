@@ -33,20 +33,21 @@ public class GameManager : MonoBehaviour {
 
     public UnitCitadel citadel;
 
-    public UnitBuilding[] buildings;
-    public UnitTurret[] turrets;
+	public BuildingUnit[] buildings;
+	public TowerUnit[] towers;
+	public HeroUnit[] heros;
+    
+	public PanelUnitShop 	unitShopPanel;
+	public PanelUnitInfo	unitInfoPanel;
 
-
-	public UnitHero[] 	 heros;
-	public HeroSlot[] 	 heroSlots { get { return citadel.transform.GetComponentsInChildren<HeroSlot> (); } }
-	public UnitShop 	 shop;
-	public HeroInfoPanel heroInfoPanel;
-
-	public HeroSlot selectedSlot;
-	public UnitHero selectedHero;
+	[HideInInspector]
+	public UnitSlot selectedSlot;
+	[HideInInspector]
+	public BasePlayerUnit selectedUnit;
 	// Use this for initialization
 	void Start () {
         state = GameState.Lobby;
+		selectedUnit = null;
 	}
 
     public void WaveStart()

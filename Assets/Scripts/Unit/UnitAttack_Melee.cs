@@ -10,7 +10,7 @@ public class UnitAttack_Melee : UnitAttack {
 	{
         if (null != targetUnit)
         {
-            targetUnit.Damage(power);
+            targetUnit.Damage(info.power);
         }
 	}
 

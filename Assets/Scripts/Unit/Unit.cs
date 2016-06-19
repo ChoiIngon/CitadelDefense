@@ -44,5 +44,5 @@ public class Unit : MonoBehaviour {
 		}
 	}
 	public virtual void Damage(int damage) {}
-	public virtual void ShowInfo(HeroInfoPanel panel) {}
+	public virtual void ShowInfo(PanelUnitInfo panel) {}
 }

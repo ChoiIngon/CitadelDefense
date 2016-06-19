@@ -15,7 +15,7 @@ public class UnitCitadel : MonoBehaviour {
     public ProgressBar mpBar;
 	public ProgressBar expBar;
 	public ProgressBar waveBar; // show wave progress
-	public HeroSlot [] heroSlots;
+	public UnitSlot [] heroSlots;
 
 	public void Init()
 	{

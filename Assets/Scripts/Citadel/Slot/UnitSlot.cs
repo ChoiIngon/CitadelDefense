@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HeroSlot : MonoBehaviour {
+public class UnitSlot : MonoBehaviour {
 	public int slotIndex;
-	public UnitHero unit;
+	[HideInInspector]
+	public BasePlayerUnit unit;
 	// Use this for initialization
 	void Start () {
         transform.FindChild("TouchEvent").GetComponent<TouchEvent>().onEvent += () =>
@@ -12,7 +13,7 @@ public class HeroSlot : MonoBehaviour {
 			{
 				return;
 			}
-			GameManager.Instance.shop.gameObject.SetActive(true);
+			GameManager.Instance.unitShopPanel.gameObject.SetActive(true);
 			GameManager.Instance.selectedSlot = this;
         };
 	}

@@ -3,7 +3,7 @@ using System.Collections;
 
 [RequireComponent(typeof(UnitAnimation))]
 public class TowerUnit : BasePlayerUnit {
-	private UnitEnemy target;
+	private EnemyUnit target;
     public AnimationClip idleAnimationClip;
     public AnimationClip attackAnimationClip;
 	protected void Start () {
@@ -25,9 +25,9 @@ public class TowerUnit : BasePlayerUnit {
 		target = null;
 		Transform enemyManager = GameManager.Instance.enemyManager.transform;
 		for (int i = 0; i < enemyManager.childCount; i++) {
-			UnitEnemy enemy = enemyManager.GetChild (i).GetComponent<UnitEnemy>();
+			EnemyUnit enemy = enemyManager.GetChild (i).GetComponent<EnemyUnit>();
 			float distance = Vector3.Distance (transform.position, enemy.transform.position);
-			if (distance < unitAttack.range) {
+			if (distance < unitAttack.info.range) {
 				target = enemy;
 				unitAttack.start = transform.position;
 				unitAttack.target = target.transform.position;
@@ -37,7 +37,7 @@ public class TowerUnit : BasePlayerUnit {
 
 		if (null != target) {
 			unitAnimation.animator.SetTrigger ("attack");
-			unitAnimation.animator.speed = unitAttack.speed;
+			unitAnimation.animator.speed = unitAttack.info.speed;
 		} else {
 			unitAnimation.animator.SetTrigger ("idle");
 			unitAnimation.animator.speed = 1.0f;

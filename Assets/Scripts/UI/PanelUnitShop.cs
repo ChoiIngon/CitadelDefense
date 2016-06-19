@@ -2,14 +2,15 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class UnitShop : MonoBehaviour {
+public class PanelUnitShop : MonoBehaviour {
 	public enum ShopType
 	{
 		Hero,
 		Tower,
 		Building
 	}
-    public HeroPanelElement element;
+
+	public PanelUnitShopElement element;
 	public ShopType type;
 	// Use this for initialization
 	void Start () 
@@ -31,10 +32,10 @@ public class UnitShop : MonoBehaviour {
             child.SetParent(null);
             DestroyObject(child.gameObject);
         }
-        foreach(UnitHero hero in GameManager.Instance.heros)
+        foreach(HeroUnit unit in GameManager.Instance.heros)
         {
-            HeroPanelElement element = (HeroPanelElement)GameObject.Instantiate<HeroPanelElement>(this.element);
-            element.SetUnitHero(hero);
+			PanelUnitShopElement element = (PanelUnitShopElement)GameObject.Instantiate<PanelUnitShopElement>(this.element);
+			element.SetUnit(unit);
             element.transform.SetParent(content);
         }
     }

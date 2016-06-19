@@ -60,14 +60,14 @@ public class EnemyUnit : Unit {
 
 	void FixedUpdate()
 	{
-		Debug.DrawRay(transform.position, Vector3.left * unitAttack.range, Color.red);
+		Debug.DrawRay(transform.position, Vector3.left * unitAttack.info.range, Color.red);
 
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, unitAttack.range, 1 << LayerMask.NameToLayer("Citadel"));
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, unitAttack.info.range, 1 << LayerMask.NameToLayer("Citadel"));
 		if (hit.collider != null)
 		{
 			moveSpeed = 0.0f;
 			unitAnimation.animator.SetTrigger ("attack");
-			unitAnimation.animator.speed = unitAttack.speed;
+			unitAnimation.animator.speed = unitAttack.info.speed;
 		}
 	}
 
