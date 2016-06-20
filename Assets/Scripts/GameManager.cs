@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour {
 	public PanelUnitShop 	unitShopPanel;
 	public PanelUnitInfo	unitInfoPanel;
 
+	public CitadelUnit citadel;
     public BuildingUnit[] buildings;
 	public TowerUnit[] towers;
 	public HeroUnit[] heros;
@@ -54,6 +55,11 @@ public class GameManager : MonoBehaviour {
         Debug.Log("Wave Started");
         lobbyPanel.gameObject.SetActive(false);
         state = GameState.Play;
+
+		citadel.hp.max = 1000 + citadel.level * 100;
+		citadel.hp.value = citadel.hp.max;
+		citadel.mp.max = 500 + citadel.level * 10;
+		citadel.mp.value = citadel.mp.max;
     }
 
 	public void WaveEnd(WaveResult result)
