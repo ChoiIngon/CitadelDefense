@@ -3,18 +3,30 @@ using System.Collections;
 
 [RequireComponent(typeof(UnitAnimation))]
 public class EnemyUnit : Unit {
+	public int baseHealth;
+	public int baseAttackPower;
+	public int firstWave;
+	public float upgradeHealth;
+	public float upgradeAttackPower;
+	public int baseRewardGold;
+	public int baseRewardExp;
+	public float upgradeRewardGold;
+	public float upgradeRewardExp;
+
 	public Vector3 direction;
 	public float moveSpeed;
+
 	public int health;
 	public int maxHealth;
+
+
 	[HideInInspector]
 	ProgressBar healthBar;
     public Effect_Damage effectDamage;
 
 	public int defense;
 
-	public int rewardGold;
-	public int rewardExp;
+
 
     public AnimationClip moveAnimationClip;
     public AnimationClip attackAnimationClip;

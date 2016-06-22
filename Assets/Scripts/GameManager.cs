@@ -34,10 +34,12 @@ public class GameManager : MonoBehaviour {
 	public PanelUnitShop 	unitShopPanel;
 	public PanelUnitInfo	unitInfoPanel;
 
+	public int wave;
 	public CitadelUnit citadel;
     public BuildingUnit[] buildings;
 	public TowerUnit[] towers;
 	public HeroUnit[] heros;
+	public EnemyUnit[] enemies;
     
 	[HideInInspector]
 	public UnitSlot selectedSlot;
