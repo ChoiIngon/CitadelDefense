@@ -85,8 +85,9 @@
      <Compile Include="Assets\Scripts\UI\PanelLobby.cs" />
      <Compile Include="Assets\Scripts\UI\PanelUnitInfo.cs" />
      <Compile Include="Assets\Scripts\UI\PanelUnitShop.cs" />
-     <Compile Include="Assets\Scripts\UI\PanelUnitShopElement.cs" />
      <Compile Include="Assets\Scripts\UI\ProgressBar.cs" />
+     <Compile Include="Assets\Scripts\UI\UIPopupDialog.cs" />
+     <Compile Include="Assets\Scripts\UI\UIShopUnitInfo.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\CitadelUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\UnitSlot.cs" />
      <Compile Include="Assets\Scripts\Unit\Enemy\EnemyUnit.cs" />

@@ -20,7 +20,7 @@ public class PanelUnitInfo : MonoBehaviour {
 	public Text 	textSkillDescription { get { return transform.FindChild(defaultChildPath + "SkillInfoPanel/TextSkillDescription").GetComponent<Text>(); } }
 
 	[HideInInspector]
-	public PanelUnitShopElement element;
+	public UIShopUnitInfo element;
 	public void OnEnable()
 	{
 		Init ();

@@ -10,7 +10,7 @@ public class PanelUnitShop : MonoBehaviour {
 		Building
 	}
 
-	public PanelUnitShopElement element;
+	public UIShopUnitInfo prefab;
 	public ShopType type;
 	// Use this for initialization
 	void Start () 
@@ -34,9 +34,9 @@ public class PanelUnitShop : MonoBehaviour {
         }
         foreach(HeroUnit unit in GameManager.Instance.heros)
         {
-			PanelUnitShopElement element = (PanelUnitShopElement)GameObject.Instantiate<PanelUnitShopElement>(this.element);
-			element.SetUnit(unit);
-            element.transform.SetParent(content);
+			UIShopUnitInfo shopUnitInfo = (UIShopUnitInfo)GameObject.Instantiate<UIShopUnitInfo>(prefab);
+			shopUnitInfo.SetUnit(unit);
+			shopUnitInfo.transform.SetParent(content);
         }
     }
 }
