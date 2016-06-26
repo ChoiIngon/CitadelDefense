@@ -45,4 +45,8 @@ public class EnemyManager : MonoBehaviour {
 		}
 		deltaTime += Time.deltaTime;
 	}
+
+	public void Clear()
+	{
+	}
 }

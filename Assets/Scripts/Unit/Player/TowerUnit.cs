@@ -30,6 +30,9 @@ public class TowerUnit : BasePlayerUnit {
 		Transform enemyManager = GameManager.Instance.enemyManager.transform;
 		for (int i = 0; i < enemyManager.childCount; i++) {
 			EnemyUnit enemy = enemyManager.GetChild (i).GetComponent<EnemyUnit>();
+			if (null == enemy) {
+				continue;
+			}
 			float distance = Vector3.Distance (transform.position, enemy.transform.position);
 			if (distance < unitAttack.info.range) {
 				target = enemy;

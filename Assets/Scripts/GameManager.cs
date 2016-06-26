@@ -39,8 +39,7 @@ public class GameManager : MonoBehaviour {
     public BuildingUnit[] buildings;
 	public TowerUnit[] towers;
 	public HeroUnit[] heros;
-	public EnemyUnit[] enemies;
-    
+
 	[HideInInspector]
 	public UnitSlot selectedSlot;
 	[HideInInspector]
@@ -67,6 +66,7 @@ public class GameManager : MonoBehaviour {
 	public void WaveEnd(WaveResult result)
 	{
 		lobbyPanel.gameObject.SetActive (true);
+
 		state = GameState.Lobby;
 	}
 }

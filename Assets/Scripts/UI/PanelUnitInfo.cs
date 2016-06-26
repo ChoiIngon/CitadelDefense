@@ -3,21 +3,16 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class PanelUnitInfo : MonoBehaviour {
-	const string defaultChildPath = "Background/";
 	// Use this for initialization
-	public Button 	buttonBuy { get { return transform.FindChild(defaultChildPath + "ButtonBuy").GetComponent<Button>(); }}
-	public Button 	buttonEquip { get { return transform.FindChild(defaultChildPath + "ButtonEquip").GetComponent<Button>(); } }
-	public Button 	buttonLevelup { get { return transform.FindChild(defaultChildPath + "ButtonLevelup").GetComponent<Button>(); } }
-	public Image  	imageUnitIcon { get { return transform.FindChild(defaultChildPath + "ImageUnitIcon").GetComponent<Image>(); }}
-	public Text 	textUnitName { get { return transform.FindChild(defaultChildPath + "TextUnitName").GetComponent<Text>(); } }
-	public Text 	textUnitLevel { get { return transform.FindChild(defaultChildPath + "TextUnitLevel").GetComponent<Text>(); } }
-
-	public Image 	imageAttackIcon { get { return transform.FindChild(defaultChildPath + "ImageAttackIcon").GetComponent<Image>(); } }
-	public Text 	textAttackPower { get { return transform.FindChild(defaultChildPath + "TextAttackPower").GetComponent<Text>(); } }
-
-	public Image 	imageSkillIcon { get { return transform.FindChild(defaultChildPath + "SkillInfoPanel/ImageSkillIcon").GetComponent<Image>(); } }
-	public Text 	textSkillName { get { return transform.FindChild(defaultChildPath + "SkillInfoPanel/TextSkillName").GetComponent<Text>(); } }
-	public Text 	textSkillDescription { get { return transform.FindChild(defaultChildPath + "SkillInfoPanel/TextSkillDescription").GetComponent<Text>(); } }
+	public Button buttonBuy;
+	public Button buttonEquip;
+	public Button buttonLevelup;
+	public Image imageUnit;
+	public Text textName;
+	public Text textLevel;
+	public Text textAttackPower;
+	public Text textAttackSpeed;
+	public Text textCritical;
 
 	[HideInInspector]
 	public UIShopUnitInfo element;
@@ -25,6 +20,7 @@ public class PanelUnitInfo : MonoBehaviour {
 	{
 		Init ();
 	}
+
 	public void Start()
 	{
 		buttonBuy.onClick.AddListener (() => {
@@ -99,16 +95,18 @@ public class PanelUnitInfo : MonoBehaviour {
 		if (null == unit) {
 			return;
 		}
-		textUnitName.text = unit.name;
-		textUnitLevel.text = unit.state.level.ToString ();
+		textName.text = unit.name;
+		textLevel.text = unit.state.level.ToString ();
 
-		imageUnitIcon.sprite = unit.sprite;
-		imageAttackIcon.gameObject.SetActive (false);
+		imageUnit.sprite = unit.sprite;
 		textAttackPower.gameObject.SetActive (false);
-
+		textAttackSpeed.gameObject.SetActive (false);
+		textCritical.gameObject.SetActive (false);
 		if (unit is TowerUnit) {
-			imageAttackIcon.gameObject.SetActive (true);
+			imageUnit.gameObject.SetActive (true);
 			textAttackPower.gameObject.SetActive (true);
+			textAttackSpeed.gameObject.SetActive(true);
+			textCritical.gameObject.SetActive (true);	
 			TowerUnit tower = (TowerUnit)unit;
 			textAttackPower.text = tower.attackInfo.power.ToString();
 		}
