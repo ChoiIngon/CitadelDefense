@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour {
 	public PanelUnitInfo	unitInfoPanel;
 
 	public int wave;
+	public const int WAVE_TIME = 40;
 	public CitadelUnit citadel;
     public BuildingUnit[] buildings;
 	public TowerUnit[] towers;
@@ -57,16 +58,19 @@ public class GameManager : MonoBehaviour {
         lobbyPanel.gameObject.SetActive(false);
         state = GameState.Play;
 
-		citadel.hp.max = 1000 + citadel.level * 100;
+		citadel.hp.max = 100 + citadel.level * 100;
 		citadel.hp.value = citadel.hp.max;
 		citadel.mp.max = 500 + citadel.level * 10;
 		citadel.mp.value = citadel.mp.max;
+
+		enemyManager.gameObject.SetActive (true);
     }
 
 	public void WaveEnd(WaveResult result)
 	{
 		lobbyPanel.gameObject.SetActive (true);
-
 		state = GameState.Lobby;
+		enemyManager.Clear ();
+		enemyManager.gameObject.SetActive (false);
 	}
 }

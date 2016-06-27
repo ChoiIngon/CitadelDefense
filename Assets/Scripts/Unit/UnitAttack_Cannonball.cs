@@ -9,11 +9,9 @@ public class UnitAttack_Cannonball : UnitAttack {
 	public override void Attack()
 	{
 		float distance = Vector3.Distance (self.transform.position, target.transform.position);
-
 		GameObject go = GameObject.Instantiate<GameObject> (cannonball);
 		UnitMove_SinCurve unitMove = go.GetComponent<UnitMove_SinCurve> ();
 		unitMove.Init (self.transform.position, target.transform.position, distance / 4, 5.0f);
-
 		unitMoves.Add (unitMove);
 	}
 

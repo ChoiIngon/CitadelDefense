@@ -6,7 +6,7 @@ public class TowerUnit : BasePlayerUnit {
 	private EnemyUnit target;
 
     [System.Serializable]
-    public class UpgradeInfo
+    public class LevelupInfo
     {
         public float attackRange;
         public float attackPower;
@@ -16,7 +16,7 @@ public class TowerUnit : BasePlayerUnit {
     public AnimationClip idleAnimationClip;
     public AnimationClip attackAnimationClip;
 	public UnitAttack.AttackInfo attackInfo;
-    public UpgradeInfo upgradeInfo;
+	public LevelupInfo levelupInfo;
 	protected void Start () {
 		base.Start ();
         if (null != idleAnimationClip)
