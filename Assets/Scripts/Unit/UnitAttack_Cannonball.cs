@@ -12,7 +12,7 @@ public class UnitAttack_Cannonball : UnitAttack {
 
 		GameObject go = GameObject.Instantiate<GameObject> (cannonball);
 		UnitMove_SinCurve unitMove = go.GetComponent<UnitMove_SinCurve> ();
-		unitMove.Init (self.transform.position, target.transform.position, distance / 4, 9.0f);
+		unitMove.Init (self.transform.position, target.transform.position, distance / 4, 5.0f);
 
 		unitMoves.Add (unitMove);
 	}

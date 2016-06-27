@@ -11,7 +11,7 @@ public class UnitMove_SinCurve : MonoBehaviour {
 	}
 	[SerializeField]
 	private float _interpolate;
-	private float distance = 4.0f;
+	private float distance = 0.0f;
 
 	public void Init(Vector3 start, Vector3 end, float height, float speed)
 	{
@@ -31,6 +31,9 @@ public class UnitMove_SinCurve : MonoBehaviour {
 		_interpolate += Time.deltaTime * speed / distance;
 		Vector3 curPos = Vector3.Lerp (start, end, interpolate);
 		curPos.y += Mathf.Sin (Mathf.PI * _interpolate) * height;
+        float degree = 90.0f * Mathf.Cos(Mathf.PI * _interpolate) / Mathf.Max(height, 2.0f);
+        transform.rotation = Quaternion.Euler(0, 0, degree);
+        Debug.Log(degree);
 		transform.position = curPos;
 	}
 }
