@@ -4,9 +4,19 @@ using System.Collections;
 [RequireComponent(typeof(UnitAnimation))]
 public class TowerUnit : BasePlayerUnit {
 	private EnemyUnit target;
+
+    [System.Serializable]
+    public class UpgradeInfo
+    {
+        public float attackRange;
+        public float attackPower;
+        public float attackSpeed;
+        public float attackCooltime;
+    }
     public AnimationClip idleAnimationClip;
     public AnimationClip attackAnimationClip;
 	public UnitAttack.AttackInfo attackInfo;
+    public UpgradeInfo upgradeInfo;
 	protected void Start () {
 		base.Start ();
         if (null != idleAnimationClip)

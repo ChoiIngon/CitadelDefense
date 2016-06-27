@@ -109,6 +109,7 @@ public class PanelUnitInfo : MonoBehaviour {
 			textCritical.gameObject.SetActive (true);	
 			TowerUnit tower = (TowerUnit)unit;
 			textAttackPower.text = tower.attackInfo.power.ToString();
+            textAttackSpeed.text = tower.attackInfo.speed.ToString();
 		}
 		/*
 		attackPowerImage.sprite = unit.normalAttackInfo.sprite;

@@ -23,6 +23,8 @@ public class UnitAttack_Cannonball : UnitAttack {
 			if (1.0f <= unitMove.interpolate) {
 				completeMove.Add (unitMove);
 				Effect go = GameObject.Instantiate<Effect> (info.effect);
+                UnitColliderAttack col = go.GetComponent<UnitColliderAttack>();
+                col.attackPower = info.power;
 				go.transform.position = unitMove.end;
 			}
 		}
