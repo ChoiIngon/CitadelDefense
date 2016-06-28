@@ -14,16 +14,20 @@ public abstract class UnitAttack : MonoBehaviour {
 		public string 	name;
 		public string 	description;
 		public Sprite 	icon;
+		public Effect 	effect;
+	}
+
+	[System.Serializable]
+	public class AttackData {
 		public float 	range;
-		public int 		power;
+		public float 	power;
 		public float 	speed;
 		public float 	cooltime;
 		public float	mana;
 		public float	time;
-		public Effect 	effect;
 	}
 
-	[HideInInspector]
 	public AttackInfo info;
+	public AttackData data;
 	public abstract void Attack ();
 }

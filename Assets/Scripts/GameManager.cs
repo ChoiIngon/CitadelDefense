@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
@@ -35,6 +36,15 @@ public class GameManager : MonoBehaviour {
 	public PanelUnitInfo	unitInfoPanel;
 
 	public int wave;
+	public int gold {
+		get { return _gold; }
+		set { 
+			_gold = value;
+			textGold.text = string.Format ("{0:N}", _gold);
+		}
+	}
+	private int _gold;
+	public Text textGold;
 	public const int WAVE_TIME = 40;
 	public CitadelUnit citadel;
     public BuildingUnit[] buildings;
@@ -47,6 +57,7 @@ public class GameManager : MonoBehaviour {
 	public BasePlayerUnit selectedUnit;
 
 	void Start () {
+		gold = 9999999;
         state = GameState.Lobby;
 		selectedSlot = null;
 		selectedUnit = null;
