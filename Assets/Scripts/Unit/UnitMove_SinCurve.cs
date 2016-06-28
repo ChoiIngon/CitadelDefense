@@ -1,19 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UnitMove_SinCurve : MonoBehaviour {
+public class UnitMove_SinCurve : UnitMove {
+    /*
 	public float speed;
 	public Vector3 start;
 	public Vector3 end;
-	public float height;
 	public float interpolate {
 		get { return _interpolate; }
 	}
 	[SerializeField]
 	private float _interpolate;
 	private float distance = 0.0f;
+    */
 
-	public void Init(Vector3 start, Vector3 end, float height, float speed)
+    public float height;
+    public void Init(Vector3 start, Vector3 end, float height, float speed)
 	{
 		_interpolate = 0.0f;
 		transform.position = start;

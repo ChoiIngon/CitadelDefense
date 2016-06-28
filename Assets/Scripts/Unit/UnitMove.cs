@@ -2,12 +2,22 @@
 using System.Collections;
 
 public class UnitMove : MonoBehaviour {
-	
+    public float speed;
+    public Vector3 start;
+    public Vector3 end;
+    public float interpolate
+    {
+        get { return _interpolate; }
+    }
+
+    protected float _interpolate;
+    protected float distance = 0.0f;
 }
 
+/*
 public class Movement_Jump : UnitMove
 {
-	/*
+	
 	float elapsedTime;
 	float startY;
 	float timeScale;
@@ -69,5 +79,5 @@ public class Movement_Jump : UnitMove
 			move.movement = next;
 		}
 	}
-	*/
 }
+	*/

@@ -121,12 +121,13 @@
     <Compile Include="Assets\Scripts\Unit\UnitAnimation.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitAttack.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitAttack_Bullet.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitAttack_Cannonball.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitAttack_Melee.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack_Range.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitColliderAttack.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitColliderDamage.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitMove.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitMove_SinCurve.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitMove_Stright.cs" />
     <Compile Include="Assets\Scripts\UserInputManager.cs" />
     <Compile Include="Assets\Scripts\Util\AutoRecoveryInt.cs" />
     <Compile Include="Assets\Scripts\Util\FPSDisplay.cs" />

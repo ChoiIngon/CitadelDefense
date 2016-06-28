@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c8f56eeedd81d4dc08d874c014ef7014
-timeCreated: 1467047688
+timeCreated: 1467089534
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -14,6 +14,7 @@ TextureImporter:
     21300014: firemagician_attack_3
     21300016: firemagician_attack_4
     21300018: firemagician_attack_5
+    21300020: fireball_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -195,6 +196,17 @@ TextureImporter:
         - {x: -32.5, y: -38.5}
         - {x: 32.5, y: -38.5}
         - {x: 32.5, y: 38.5}
+    - name: fireball_0
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 28
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     outline: []
   spritePackingTag: 
   userData: 
