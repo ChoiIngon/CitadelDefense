@@ -6,6 +6,6 @@ public class UnitAttack_Bullet : UnitAttack {
 	{
 		Effect go = GameObject.Instantiate<Effect> (info.effect);
 		go.transform.position = target.transform.position;
-		target.Damage (info.power);
+		target.Damage ((int)data.power);
 	}
 }

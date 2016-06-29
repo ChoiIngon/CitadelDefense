@@ -6,10 +6,10 @@ public class Unit : MonoBehaviour {
 	public Sprite sprite;
 
 	protected UnitAnimation unitAnimation;
-	protected UnitAttack unitAttack;
+	public UnitAttack unitAttack;
 	protected UnitColliderDamage unitCollderDamage;
 
-	protected void Start()
+	public virtual void Init()
 	{
 		SpriteRenderer renderer = GetComponent<SpriteRenderer> ();
 		if (null == renderer) {

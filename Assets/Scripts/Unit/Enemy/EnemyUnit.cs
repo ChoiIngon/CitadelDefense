@@ -32,8 +32,8 @@ public class EnemyUnit : Unit {
     public AnimationClip attackAnimationClip;
     public AnimationClip deadAnimationClip;
 	public UnitAttack.AttackInfo attackInfo;
-	void Start () {
-		base.Start ();
+	public override void Init () {
+		base.Init ();
 		healthBar = transform.FindChild("HealthBar").GetComponent<ProgressBar>();
 
         if(null != moveAnimationClip)

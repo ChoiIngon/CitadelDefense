@@ -3,6 +3,7 @@ using System.Collections;
 
 [RequireComponent(typeof(UnitAnimation))]
 public class TowerUnit : BasePlayerUnit {
+    [System.Serializable]
 	public class LevelupInfo : UnitAttack.AttackData 
 	{
 		public int baseNeedGold;
@@ -13,11 +14,10 @@ public class TowerUnit : BasePlayerUnit {
     public AnimationClip idleAnimationClip;
     public AnimationClip attackAnimationClip;
 	public UnitAttack.AttackInfo attackInfo;
-	public UnitAttack.AttackData baseAttackData;
 	public LevelupInfo levelupInfo;
 
-	protected void Start () {
-		base.Start ();
+	public override void Init () {
+		base.Init();
         if (null != idleAnimationClip)
         {
             unitAnimation.ChangeAnimationClip("idle", idleAnimationClip);
@@ -31,8 +31,15 @@ public class TowerUnit : BasePlayerUnit {
 
 		unitAttack.info = attackInfo;
 		unitAttack.self = this;
+        InitAttackData();
 	}
-	
+
+    void InitAttackData()
+    {
+        unitAttack.data.power = unitAttack.info.power + (unitAttack.info.power * levelupInfo.power * state.level);
+        unitAttack.data.range = unitAttack.info.range + (unitAttack.info.range * levelupInfo.range * state.level);
+        unitAttack.data.speed = unitAttack.info.speed + (unitAttack.info.speed * levelupInfo.speed * state.level);
+    }
 	// Update is called once per frame
 	void Update () {
 		target = null;
@@ -59,12 +66,15 @@ public class TowerUnit : BasePlayerUnit {
 		}
 	}
 
-	public void Levelup()
+	public override void Levelup()
 	{
-		if (levelupInfo.baseNeedGold + (state.level * levelupInfo.baseNeedGold * levelupInfo.needGoldIncreaseRate) >= GameManager.Instance.gold) {
+        int needGold = levelupInfo.baseNeedGold + (int)((state.level - 1) * levelupInfo.baseNeedGold * levelupInfo.needGoldIncreaseRate);
+        if (needGold >= GameManager.Instance.gold) {
 			throw new System.Exception ("not enough gold");
 		}
 
-		unitAttack.data.power = baseAttackData.power + (baseAttackData.power * levelupInfo.power);
+        state.level += 1;
+        GameManager.Instance.gold -= needGold;
+        InitAttackData();
 	}
 }

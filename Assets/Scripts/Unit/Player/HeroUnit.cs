@@ -5,8 +5,8 @@ public class HeroUnit : TowerUnit {
 	public ProgressBar coolTimeBar;
 
 	// Use this for initialization
-	void Start () {
-		base.Start ();
+	public override void Init() {
+		base.Init ();
 		/*
 		transform.FindChild("TouchEvent").GetComponent<TouchEvent>().onEvent += () =>
 		{

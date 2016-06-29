@@ -19,7 +19,7 @@ public class UIShopUnitInfo : MonoBehaviour {
         button.onClick.AddListener(() =>
         {
 			GameManager.Instance.selectedUnit = unit;
-			GameManager.Instance.unitInfoPanel.element = this;
+			GameManager.Instance.unitInfoPanel.unitInfo = this;
 			GameManager.Instance.unitInfoPanel.gameObject.SetActive(true);
         });
 	}

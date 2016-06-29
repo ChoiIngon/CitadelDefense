@@ -43,6 +43,7 @@ public class EnemyManager : MonoBehaviour {
 				}
 				foreach (Vector3 position in formation.positions) {
 					EnemyUnit unitEnemy = (EnemyUnit)GameObject.Instantiate<EnemyUnit> (formation.enemy);
+                    unitEnemy.Init();
 					unitEnemy.transform.position = spawnPoint + position;
 					unitEnemy.transform.SetParent (transform);
 				}

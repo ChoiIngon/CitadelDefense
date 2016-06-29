@@ -61,6 +61,10 @@ public class GameManager : MonoBehaviour {
         state = GameState.Lobby;
 		selectedSlot = null;
 		selectedUnit = null;
+        for(int i=0; i<heros.Length; i++)
+        {
+            heros[i].Init();
+        }
 	}
 
     public void WaveStart()

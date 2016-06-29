@@ -15,7 +15,7 @@ public class PanelUnitInfo : MonoBehaviour {
 	public Text textCritical;
 
 	[HideInInspector]
-	public UIShopUnitInfo element;
+	public UIShopUnitInfo unitInfo;
 	public void OnEnable()
 	{
 		Init ();
@@ -76,16 +76,15 @@ public class PanelUnitInfo : MonoBehaviour {
 			GameManager.Instance.unitShopPanel.gameObject.SetActive(false);
 		});
 
-
-		buttonLevelup.onClick.AddListener (() => {
+        buttonLevelup.onClick.AddListener (() => {
 			if(null == GameManager.Instance.selectedUnit)
 			{
 				return;
 			}
 			BasePlayerUnit unit = GameManager.Instance.selectedUnit;
-			unit.state.level += 1;
+            unit.Levelup();
 			Init();
-			element.SetUnit(unit);
+			unitInfo.SetUnit(unit);
 			Debug.Log("hero unit level:" + unit.state.level);
 		});
 	}
@@ -108,8 +107,8 @@ public class PanelUnitInfo : MonoBehaviour {
 			textAttackSpeed.gameObject.SetActive(true);
 			textCritical.gameObject.SetActive (true);	
 			TowerUnit tower = (TowerUnit)unit;
-			textAttackPower.text = tower.attackInfo.power.ToString();
-            textAttackSpeed.text = tower.attackInfo.speed.ToString();
+			textAttackPower.text = tower.unitAttack.data.power.ToString();
+            textAttackSpeed.text = tower.unitAttack.data.speed.ToString();
 		}
 		/*
 		attackPowerImage.sprite = unit.normalAttackInfo.sprite;

@@ -50,7 +50,7 @@ public class UnitAttack_Range : UnitAttack
                 completeMove.Add(unitMove);
                 Effect go = GameObject.Instantiate<Effect>(info.effect);
                 UnitColliderAttack col = go.GetComponent<UnitColliderAttack>();
-                col.attackPower = info.power;
+                col.attackPower = data.power;
                 go.transform.position = unitMove.end;
             }
         }

@@ -9,15 +9,6 @@ public abstract class UnitAttack : MonoBehaviour {
 	public Unit 	target;
 
 	[System.Serializable]
-	public class AttackInfo
-	{
-		public string 	name;
-		public string 	description;
-		public Sprite 	icon;
-		public Effect 	effect;
-	}
-
-	[System.Serializable]
 	public class AttackData {
 		public float 	range;
 		public float 	power;
@@ -27,7 +18,16 @@ public abstract class UnitAttack : MonoBehaviour {
 		public float	time;
 	}
 
-	public AttackInfo info;
+    [System.Serializable]
+    public class AttackInfo : AttackData
+    {
+        public string name;
+        public string description;
+        public Sprite icon;
+        public Effect effect;
+    }
+
+    public AttackInfo info;
 	public AttackData data;
 	public abstract void Attack ();
 }

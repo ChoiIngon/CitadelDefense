@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent (typeof (BoxCollider2D))]
 public class UnitColliderAttack : MonoBehaviour {
 	public string targetUnitTag;
-	public int attackPower;
+	public float attackPower;
 	// Use this for initialization
 	protected void Start () {
 		Rigidbody2D rigidbody = GetComponent<Rigidbody2D> ();
@@ -19,7 +19,7 @@ public class UnitColliderAttack : MonoBehaviour {
 		if (targetUnitTag == col.gameObject.tag) {
 			UnitColliderDamage colliderDamage = col.gameObject.GetComponent<UnitColliderDamage> ();
 			if (null != colliderDamage) {
-				colliderDamage.unit.Damage (attackPower);
+				colliderDamage.unit.Damage ((int)attackPower);
 			}
 		}
 	}
