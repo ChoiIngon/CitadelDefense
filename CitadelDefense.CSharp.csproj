@@ -95,7 +95,6 @@
     <Compile Include="Assets\Node_Editor\Utilities\ResourceManager.cs" />
     <Compile Include="Assets\Scripts\Effect\Effect.cs" />
     <Compile Include="Assets\Scripts\Effect\Effect_Damage.cs" />
-    <Compile Include="Assets\Scripts\Effect\Effect_Smoke.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Network\Buffer.cs" />

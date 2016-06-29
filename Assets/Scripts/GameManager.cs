@@ -85,7 +85,9 @@ public class GameManager : MonoBehaviour {
 	{
 		lobbyPanel.gameObject.SetActive (true);
 		state = GameState.Lobby;
-		enemyManager.Clear ();
-		enemyManager.gameObject.SetActive (false);
+        if(WaveResult.Win == result)
+        {
+            wave += 1;
+        }
 	}
 }

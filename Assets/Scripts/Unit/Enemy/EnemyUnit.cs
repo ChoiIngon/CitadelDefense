@@ -3,35 +3,33 @@ using System.Collections;
 
 [RequireComponent(typeof(UnitAnimation))]
 public class EnemyUnit : Unit {
-	public int baseHealth;
-	public int baseAttackPower;
-	public int firstWave;
-	public float upgradeHealth;
-	public float upgradeAttackPower;
-	public int baseRewardGold;
-	public int baseRewardExp;
-	public float upgradeRewardGold;
-	public float upgradeRewardExp;
+    [System.Serializable]
+    public class LevelupInfo : UnitAttack.AttackData
+    {
+        public float health;
+        public float gold;
+        public float exp;
+    }
+    public int firstWave;
 
-	public Vector3 direction;
-	public float moveSpeed;
+	public float health;
+	public float maxHealth;
+    public float rewardGold;
+    public float rewardExp;
+    public float moveSpeed;
+    public Vector3 direction;
 
-	public int health;
-	public int maxHealth;
-
-
-	[HideInInspector]
+    [HideInInspector]
 	ProgressBar healthBar;
     public Effect_Damage effectDamage;
 
-	public int defense;
-
-
+	public int defense;    
 
     public AnimationClip moveAnimationClip;
     public AnimationClip attackAnimationClip;
     public AnimationClip deadAnimationClip;
 	public UnitAttack.AttackInfo attackInfo;
+    public LevelupInfo levelupInfo;
 	public override void Init () {
 		base.Init ();
 		healthBar = transform.FindChild("HealthBar").GetComponent<ProgressBar>();
@@ -54,7 +52,12 @@ public class EnemyUnit : Unit {
         }
 
 		unitAttack.info = attackInfo;
-	}
+        unitAttack.self = this;
+
+        unitAttack.data.power = unitAttack.info.power + (unitAttack.info.power * levelupInfo.power * (GameManager.Instance.wave - 1));
+        unitAttack.data.range = unitAttack.info.range + (unitAttack.info.range * levelupInfo.range * (GameManager.Instance.wave - 1));
+        unitAttack.data.speed = unitAttack.info.speed + (unitAttack.info.speed * levelupInfo.speed * (GameManager.Instance.wave - 1));
+    }
 
 	void Update () {
 		if (0 < maxHealth) {

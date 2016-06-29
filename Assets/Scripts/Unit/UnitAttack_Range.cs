@@ -10,7 +10,7 @@ public class UnitAttack_Range : UnitAttack
         Stright
     }
 
-    public Sprite bulletSprite;
+    public GameObject bulletPrefab;
     public BulletMoveType bulletMove;
     
     [HideInInspector]
@@ -19,11 +19,7 @@ public class UnitAttack_Range : UnitAttack
     public override void Attack()
     {
         float distance = Vector3.Distance(self.transform.position, target.transform.position);
-        GameObject bullet = new GameObject();
-        SpriteRenderer spriteRenderder = bullet.AddComponent<SpriteRenderer>();
-        spriteRenderder.sortingLayerName = "Unit";
-        spriteRenderder.sprite = bulletSprite;
-
+        GameObject bullet = GameObject.Instantiate<GameObject>(bulletPrefab);
         UnitMove unitMove = null;
         if(BulletMoveType.Curve == bulletMove)
         {
@@ -34,7 +30,7 @@ public class UnitAttack_Range : UnitAttack
         else if(BulletMoveType.Stright == bulletMove)
         {
             UnitMove_Stright strightMove = bullet.AddComponent<UnitMove_Stright>();
-            strightMove.Init(self.transform.position, target.transform.position, 5.0f);
+            strightMove.Init(self.transform.position, target.transform.position, 8.0f);
             unitMove = strightMove;
         }
         unitMoves.Add(unitMove);

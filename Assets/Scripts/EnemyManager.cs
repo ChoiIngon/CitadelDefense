@@ -25,6 +25,10 @@ public class EnemyManager : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
+        if(GameManager.GameState.Play != GameManager.Instance.state)
+        {
+            return;
+        }
 		if (1.0f <= deltaTime) {
 			remainTime -= 1;
 			if (0 == remainTime) {

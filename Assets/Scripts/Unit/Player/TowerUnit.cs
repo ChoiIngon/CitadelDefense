@@ -36,9 +36,9 @@ public class TowerUnit : BasePlayerUnit {
 
     void InitAttackData()
     {
-        unitAttack.data.power = unitAttack.info.power + (unitAttack.info.power * levelupInfo.power * state.level);
-        unitAttack.data.range = unitAttack.info.range + (unitAttack.info.range * levelupInfo.range * state.level);
-        unitAttack.data.speed = unitAttack.info.speed + (unitAttack.info.speed * levelupInfo.speed * state.level);
+        unitAttack.data.power = unitAttack.info.power + (unitAttack.info.power * levelupInfo.power * (state.level-1));
+        unitAttack.data.range = unitAttack.info.range + (unitAttack.info.range * levelupInfo.range * (state.level-1));
+        unitAttack.data.speed = unitAttack.info.speed + (unitAttack.info.speed * levelupInfo.speed * (state.level-1));
     }
 	// Update is called once per frame
 	void Update () {
