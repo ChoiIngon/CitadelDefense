@@ -1,0 +1,260 @@
+fileFormatVersion: 2
+guid: d8befce436a75054d8025261265ad9bb
+timeCreated: 1467281451
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: darkmage@idle_0
+    21300002: darkmage@idle_1
+    21300004: darkmage@idle_2
+    21300006: darkmage@idle_3
+    21300008: darkmage@attack_0
+    21300010: darkmage@attack_1
+    21300012: darkmage@attack_2
+    21300014: darkmage@attack_3
+    21300016: darkmage@attack_4
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: darkmage@idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 188
+        width: 74
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5081351, y: 0.38142443}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 36.398003, y: 7.825989}
+        - {x: 34.398003, y: 13.825989}
+        - {x: 25.398003, y: 15.825989}
+        - {x: 20.398003, y: 14.825989}
+        - {x: 17.398003, y: 13.825989}
+        - {x: 22.398003, y: 16.825989}
+        - {x: 22.398003, y: 19.825989}
+        - {x: 1.3980026, y: 40.82599}
+        - {x: -22.601997, y: 40.82599}
+        - {x: -37.601997, y: 27.825989}
+        - {x: -37.601997, y: -12.174011}
+        - {x: -14.601997, y: -24.174011}
+        - {x: -4.6019974, y: -25.174011}
+        - {x: 14.398003, y: -25.174011}
+        - {x: 16.398003, y: -22.174011}
+        - {x: 26.398003, y: -18.174011}
+        - {x: 36.398003, y: -11.174011}
+    - name: darkmage@idle_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 188
+        width: 76
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5118815, y: 0.3831942}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.902992, y: 41.32599}
+        - {x: -30.902992, y: 30.325989}
+        - {x: -38.902992, y: 12.325989}
+        - {x: -38.902992, y: -14.674011}
+        - {x: -30.902992, y: -25.674011}
+        - {x: 37.097008, y: -25.674011}
+        - {x: 37.097008, y: 20.325989}
+        - {x: 8.097008, y: 41.32599}
+    - name: darkmage@idle_2
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 189
+        width: 76
+        height: 67
+      alignment: 9
+      pivot: {x: 0.50396043, y: 0.40116426}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26.699005, y: 22.121994}
+        - {x: 3.6990051, y: 40.121994}
+        - {x: -20.300995, y: 40.121994}
+        - {x: -38.300995, y: 14.121994}
+        - {x: -38.300995, y: -14.878006}
+        - {x: -34.300995, y: -16.878006}
+        - {x: 0.6990051, y: -26.878006}
+        - {x: 14.699005, y: -26.878006}
+        - {x: 37.699005, y: -8.878006}
+        - {x: 37.699005, y: 3.121994}
+        - {x: 26.699005, y: 13.121994}
+    - name: darkmage@idle_3
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 188
+        width: 74
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.39217934}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 40.723984}
+        - {x: -33, y: 30.723984}
+        - {x: -37, y: 12.723984}
+        - {x: -37, y: -12.276016}
+        - {x: -7, y: -26.276016}
+        - {x: 24, y: -26.276016}
+        - {x: 37, y: -8.276016}
+        - {x: 37, y: 16.723984}
+        - {x: -1, y: 40.723984}
+    - name: darkmage@attack_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 117
+        width: 58
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5363275, y: 0.38142443}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31.106995, y: 40.82599}
+        - {x: -31.106995, y: -15.174011}
+        - {x: -14.106995, y: -25.174011}
+        - {x: 22.893005, y: -25.174011}
+        - {x: 26.893005, y: -17.174011}
+        - {x: 26.893005, y: 14.825989}
+        - {x: -0.10699463, y: 40.82599}
+    - name: darkmage@attack_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 119
+        width: 60
+        height: 66
+      alignment: 9
+      pivot: {x: 0.6805996, y: 0.38598517}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.835976, y: 40.52498}
+        - {x: -34.835976, y: 31.524979}
+        - {x: -40.835976, y: 22.524979}
+        - {x: -40.835976, y: -13.475021}
+        - {x: -8.835976, y: -25.475021}
+        - {x: 19.164024, y: -25.475021}
+        - {x: 19.164024, y: 30.524979}
+        - {x: 3.1640244, y: 40.52498}
+    - name: darkmage@attack_2
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 116
+        width: 67
+        height: 64
+      alignment: 9
+      pivot: {x: 0.6662235, y: 0.41064072}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19.636978, y: 37.718994}
+        - {x: -44.63698, y: 18.718994}
+        - {x: -44.63698, y: 4.718994}
+        - {x: -24.636978, y: -22.281006}
+        - {x: -16.636978, y: -26.281006}
+        - {x: 8.363022, y: -26.281006}
+        - {x: 22.363022, y: -13.281006}
+        - {x: 22.363022, y: 19.718994}
+        - {x: 0.36302185, y: 37.718994}
+    - name: darkmage@attack_3
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 107
+        width: 82
+        height: 71
+      alignment: 9
+      pivot: {x: 0.30178088, y: 0.45760572}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 38.253967, y: 12.5099945}
+        - {x: 15.253967, y: 38.509995}
+        - {x: -21.746033, y: 38.509995}
+        - {x: -24.746033, y: 35.509995}
+        - {x: -24.746033, y: -26.490005}
+        - {x: -11.746033, y: -32.490005}
+        - {x: 54.253967, y: -32.490005}
+        - {x: 57.253967, y: -28.490005}
+        - {x: 57.253967, y: -8.4900055}
+    - name: darkmage@attack_4
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 105
+        width: 88
+        height: 73
+      alignment: 9
+      pivot: {x: 0.32555702, y: 0.4752603}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 33.350983, y: -9.694}
+        - {x: 19.350983, y: -13.694}
+        - {x: 13.350983, y: -19.694}
+        - {x: 13.350983, y: -32.694}
+        - {x: 14.350983, y: -34.694}
+        - {x: 57.350983, y: -34.694}
+        - {x: 59.350983, y: -29.694}
+        - {x: 59.350983, y: -12.694}
+        - {x: 55.350983, y: -9.694}
+      - - {x: -13.649017, y: 38.306}
+        - {x: -28.649017, y: 33.306}
+        - {x: -28.649017, y: -20.694}
+        - {x: -15.649017, y: -28.694}
+        - {x: 13.350983, y: -28.694}
+        - {x: 22.350983, y: 1.3059998}
+        - {x: 22.350983, y: 17.306}
+        - {x: -2.6490173, y: 38.306}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

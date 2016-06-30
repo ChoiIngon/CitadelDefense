@@ -50,7 +50,7 @@ public class TowerUnit : BasePlayerUnit {
 				continue;
 			}
 			float distance = Vector3.Distance (transform.position, enemy.transform.position);
-			if (distance < unitAttack.data.range) {
+			if (distance < unitAttack.data.range && 0 < enemy.health) {
 				target = enemy;
 				unitAttack.target = target;
 				break;
