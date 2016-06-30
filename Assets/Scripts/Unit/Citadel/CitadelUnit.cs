@@ -15,17 +15,22 @@ public class CitadelUnit : Unit {
 	public ProgressBar expBar;
 	public ProgressBar timeBar; // show wave progress
 
-	public void Init()
+    void Start()
+    {
+        Init();
+    }
+    public override void Init()
 	{
+        base.Init();
 		hp.max = 1000 + level * 50;
 		hp.value = hp.max;
 		hp.interval = 1.0f;
-		hp.recovery = hp.max / 30;
+		hp.recovery = 5;
 	
 		mp.max = 500 + level * 10;
 		mp.value = mp.max;
 		mp.interval = 1.0f;
-		mp.recovery = hp.max / 30;
+		mp.recovery = 5;
 	}
 	// Update is called once per frame
 	void Update () {
