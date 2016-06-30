@@ -22,12 +22,12 @@ public class CitadelUnit : Unit {
     public override void Init()
 	{
         base.Init();
-		hp.max = 1000 + level * 50;
+		hp.max = 1000 + (level - 1) * 50;
 		hp.value = hp.max;
 		hp.interval = 1.0f;
-		hp.recovery = 5;
+		hp.recovery = 2;
 	
-		mp.max = 500 + level * 10;
+		mp.max = 500 + (level -1) * 10;
 		mp.value = mp.max;
 		mp.interval = 1.0f;
 		mp.recovery = 5;

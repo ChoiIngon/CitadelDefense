@@ -54,9 +54,11 @@ public class EnemyUnit : Unit {
 		unitAttack.info = attackInfo;
         unitAttack.self = this;
 
-        unitAttack.data.power = unitAttack.info.power + (unitAttack.info.power * levelupInfo.power * (GameManager.Instance.wave - 1));
-        unitAttack.data.range = unitAttack.info.range + (unitAttack.info.range * levelupInfo.range * (GameManager.Instance.wave - 1));
-        unitAttack.data.speed = unitAttack.info.speed + (unitAttack.info.speed * levelupInfo.speed * (GameManager.Instance.wave - 1));
+		maxHealth = maxHealth + (maxHealth * levelupInfo.health * (GameManager.Instance.waveLevel - 1));
+		health = maxHealth;
+        unitAttack.data.power = unitAttack.info.power + (unitAttack.info.power * levelupInfo.power * (GameManager.Instance.waveLevel - 1));
+        unitAttack.data.range = unitAttack.info.range + (unitAttack.info.range * levelupInfo.range * (GameManager.Instance.waveLevel - 1));
+        unitAttack.data.speed = unitAttack.info.speed + (unitAttack.info.speed * levelupInfo.speed * (GameManager.Instance.waveLevel - 1));
     }
 
 	void Update () {

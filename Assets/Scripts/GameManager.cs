@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
 	public PanelUnitShop 	unitShopPanel;
 	public PanelUnitInfo	unitInfoPanel;
 
-	public int wave;
+	public int waveLevel;
 	public int gold {
 		get { return _gold; }
 		set { 
@@ -71,23 +71,69 @@ public class GameManager : MonoBehaviour {
     {
         Debug.Log("Wave Started");
         lobbyPanel.gameObject.SetActive(false);
+		wave = new Wave ();
         state = GameState.Play;
 
 		citadel.hp.max = 100 + citadel.level * 100;
 		citadel.hp.value = citadel.hp.max;
 		citadel.mp.max = 500 + citadel.level * 10;
 		citadel.mp.value = citadel.mp.max;
-
-		enemyManager.gameObject.SetActive (true);
     }
 
 	public void WaveEnd(WaveResult result)
 	{
 		lobbyPanel.gameObject.SetActive (true);
 		state = GameState.Lobby;
-        if(WaveResult.Win == result)
-        {
-            wave += 1;
-        }
+		if (WaveResult.Win == result) {
+			waveLevel += 1;
+		} else {
+			enemyManager.Clear ();
+		}
+		wave = null;
+	}
+
+	public class Wave
+	{
+		public int remainTime = GameManager.WAVE_TIME;
+		private float deltaTime = 0.0f;
+
+		public void Update()
+		{
+			if (1.0f <= deltaTime) {
+				remainTime -= 1;
+				remainTime = Mathf.Max (0, remainTime);
+				if (0 == remainTime) {
+					if (0 == GameManager.Instance.enemyManager.transform.childCount) {
+						GameManager.Instance.WaveEnd (GameManager.WaveResult.Win);
+					}
+					return;
+				}
+				deltaTime = 0.0f;
+				for(int i=0; i<GameManager.Instance.enemyManager.formations.Length; i++)
+				{
+					int index = Random.Range (0, GameManager.Instance.enemyManager.formations.Length);
+					EnemyManager.EnemyFormation formation = GameManager.Instance.enemyManager.formations [index];
+					if (formation.firstWave > GameManager.Instance.waveLevel) {
+						return;
+					}
+					foreach (Vector3 position in formation.positions) {
+						EnemyUnit unitEnemy = (EnemyUnit)GameObject.Instantiate<EnemyUnit> (formation.enemy);
+						unitEnemy.Init();
+						unitEnemy.transform.position = GameManager.Instance.enemyManager.transform.position + position;
+						unitEnemy.transform.SetParent (GameManager.Instance.enemyManager.transform);
+					}
+					break;
+				}
+			}
+			deltaTime += Time.deltaTime;
+		}
+	}
+	private Wave wave = null;
+	void Update()
+	{
+		if (GameState.Lobby == state) {
+		} else if (GameState.Play == state) {
+			wave.Update ();
+		}
 	}
 }
