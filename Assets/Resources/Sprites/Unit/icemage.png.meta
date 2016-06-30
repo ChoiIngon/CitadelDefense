@@ -1,9 +1,24 @@
 fileFormatVersion: 2
 guid: 8fcbe7427933744de9a4f146a8f75a9b
-timeCreated: 1467046289
+timeCreated: 1467295127
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: icemage_0
+    21300002: icemage_1
+    21300004: icemage_2
+    21300006: icemage_3
+    21300008: icemage_4
+    21300010: icemage_5
+    21300012: icemage_6
+    21300014: icemage_7
+    21300016: icemage_8
+    21300018: icemage_9
+    21300020: icemage_11
+    21300022: icemage_12
+    21300024: icemage_13
+    21300026: icemage_14
+    21300028: icemage_15
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -49,7 +64,244 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: icemage_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 582
+        width: 46
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 6.5}
+        - {x: 9, y: 0.5}
+        - {x: 14, y: 8.5}
+        - {x: 14, y: 13.5}
+        - {x: 3, y: 27.5}
+        - {x: -6, y: 34.5}
+        - {x: -17, y: 34.5}
+        - {x: -23, y: 19.5}
+        - {x: -23, y: -31.5}
+        - {x: -21, y: -34.5}
+        - {x: 14, y: -34.5}
+        - {x: 23, y: -14.5}
+        - {x: 23, y: 6.5}
+        - {x: 22, y: 9.5}
+    - name: icemage_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 582
+        width: 46
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: -33.5}
+        - {x: 6, y: -34.5}
+        - {x: 14, y: -34.5}
+        - {x: 23, y: -7.5}
+        - {x: 23, y: 3.5}
+        - {x: 20, y: 6.5}
+        - {x: 14, y: 7.5}
+        - {x: 9, y: 0.5}
+        - {x: 10, y: -3.5}
+        - {x: 5, y: 3.5}
+        - {x: 14, y: 8.5}
+        - {x: 14, y: 13.5}
+        - {x: -1, y: 34.5}
+        - {x: -18, y: 34.5}
+        - {x: -23, y: 30.5}
+        - {x: -23, y: -34.5}
+        - {x: 5, y: -34.5}
+        - {x: 5, y: -24.5}
+    - name: icemage_2
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 582
+        width: 47
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0.5, y: 34.5}
+        - {x: -18.5, y: 34.5}
+        - {x: -23.5, y: 22.5}
+        - {x: -23.5, y: -33.5}
+        - {x: -21.5, y: -34.5}
+        - {x: 15.5, y: -34.5}
+        - {x: 23.5, y: -10.5}
+        - {x: 23.5, y: 11.5}
+        - {x: 8.5, y: 32.5}
+    - name: icemage_3
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 609
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: icemage_5
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 608
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: icemage_6
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 608
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: icemage_7
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 606
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: icemage_8
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 606
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: icemage_9
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 606
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: icemage_11
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 501
+        width: 46
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 6.5}
+        - {x: 9, y: 0.5}
+        - {x: 14, y: 8.5}
+        - {x: 14, y: 13.5}
+        - {x: 3, y: 27.5}
+        - {x: -6, y: 34.5}
+        - {x: -17, y: 34.5}
+        - {x: -23, y: 19.5}
+        - {x: -23, y: -31.5}
+        - {x: -21, y: -34.5}
+        - {x: 14, y: -34.5}
+        - {x: 23, y: -14.5}
+        - {x: 23, y: 6.5}
+        - {x: 22, y: 9.5}
+    - name: icemage_12
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 501
+        width: 55
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.5, y: 34.5}
+        - {x: -27.5, y: 34.5}
+        - {x: -27.5, y: -34.5}
+        - {x: 8.5, y: -34.5}
+        - {x: 27.5, y: -13.5}
+        - {x: 27.5, y: 8.5}
+    - name: icemage_13
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 501
+        width: 100
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 34.5}
+        - {x: -50, y: 9.5}
+        - {x: -50, y: -34.5}
+        - {x: 46, y: -34.5}
+        - {x: 50, y: -33.5}
+        - {x: 50, y: 2.5}
+        - {x: -9, y: 34.5}
+    - name: icemage_14
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 501
+        width: 127
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.5, y: 34.5}
+        - {x: -53.5, y: 34.5}
+        - {x: -63.5, y: 29.5}
+        - {x: -63.5, y: -34.5}
+        - {x: 0.5, y: -34.5}
+        - {x: 63.5, y: -18.5}
+        - {x: 63.5, y: -8.5}
+        - {x: 43.5, y: -4.5}
+    - name: icemage_15
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 501
+        width: 100
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 34.5}
+        - {x: -50, y: 9.5}
+        - {x: -50, y: -34.5}
+        - {x: 37, y: -34.5}
+        - {x: 50, y: -32.5}
+        - {x: 50, y: -2.5}
+        - {x: -10, y: 34.5}
     outline: []
   spritePackingTag: 
   userData: 
