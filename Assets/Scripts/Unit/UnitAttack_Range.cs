@@ -18,6 +18,9 @@ public class UnitAttack_Range : UnitAttack
 
     public override void Attack()
     {
+		if (null == target) {
+			return;
+		}
         float distance = Vector3.Distance(self.transform.position, target.transform.position);
         GameObject bullet = GameObject.Instantiate<GameObject>(bulletPrefab);
         UnitMove unitMove = null;

@@ -106,6 +106,7 @@ public class EnemyUnit : Unit {
 		health = health - damage;
 		if (0 >= health) {
 			unitAnimation.animator.SetTrigger ("dead");
+			healthBar.gameObject.SetActive (false);
 		}
 	}
 }

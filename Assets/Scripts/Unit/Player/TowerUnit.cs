@@ -26,7 +26,7 @@ public class TowerUnit : BasePlayerUnit {
         {
             unitAnimation.ChangeAnimationClip("attack", attackAnimationClip);
         }
-
+			
 		unitAnimation.animationEvents.Add ("attack", unitAttack.Attack);
 
 		unitAttack.info = attackInfo;
