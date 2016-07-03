@@ -4,13 +4,12 @@ using System.Collections;
 
 [RequireComponent(typeof(UnitColliderAttack))]
 public class UnitAttack_Melee : UnitAttack {
-    private Unit targetUnit;
 	private UnitColliderAttack unitColliderAttack;
 	public override void Attack()
 	{
-        if (null != targetUnit)
+        if (null != target)
         {
-            targetUnit.Damage((int)data.power);
+            target.Damage((int)data.power);
         }
 	}
 
@@ -31,7 +30,7 @@ public class UnitAttack_Melee : UnitAttack {
             UnitColliderDamage colliderDamage = col.gameObject.GetComponent<UnitColliderDamage>();
             if (null != colliderDamage)
             {
-                targetUnit = colliderDamage.unit;
+                target = colliderDamage.unit;
             }
         }
     }
@@ -40,7 +39,7 @@ public class UnitAttack_Melee : UnitAttack {
     {
         if (unitColliderAttack.targetUnitTag == col.gameObject.tag)
         {
-            targetUnit = null;
+            target = null;
         }
     }
 }

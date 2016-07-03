@@ -226,7 +226,6 @@
      <None Include="Assets\2DxFX\Resources\_2dxFX_GrassFX.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Twist.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_CompressionFX.shader" />
-     <None Include="Assets\Resources\Sprites\Unit\animations.txt" />
      <None Include="Assets\Plugins\Android\unityads\AndroidManifest.xml" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />

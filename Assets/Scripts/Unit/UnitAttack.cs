@@ -15,7 +15,7 @@ public abstract class UnitAttack : MonoBehaviour {
 		public float 	speed;
 		public float 	cooltime;
 		public float	mana;
-		public float	time;
+		//public float	time;
 	}
 
     [System.Serializable]
@@ -29,5 +29,7 @@ public abstract class UnitAttack : MonoBehaviour {
 
     public AttackInfo info;
 	public AttackData data;
+	public AttackData max;
+	public AttackData upgrade;
 	public abstract void Attack ();
 }

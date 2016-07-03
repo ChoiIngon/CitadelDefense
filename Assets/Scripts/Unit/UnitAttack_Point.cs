@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UnitAttack_Bullet : UnitAttack {
+public class UnitAttack_Point : UnitAttack {
 	public override void Attack()
 	{
 		if (null == target) {

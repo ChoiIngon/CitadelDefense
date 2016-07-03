@@ -177,8 +177,8 @@
      <Compile Include="Assets\Scripts\Unit\Unit.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAnimation.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack.cs" />
-     <Compile Include="Assets\Scripts\Unit\UnitAttack_Bullet.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack_Melee.cs" />
+     <Compile Include="Assets\Scripts\Unit\UnitAttack_Point.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack_Range.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitColliderAttack.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitColliderDamage.cs" />
@@ -354,7 +354,6 @@
      <None Include="Assets\2DxFX\Resources\_2dxFX_GrassFX.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Twist.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_CompressionFX.shader" />
-     <None Include="Assets\Resources\Sprites\Unit\animations.txt" />
      <None Include="Assets\Plugins\Android\unityads\AndroidManifest.xml" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />

@@ -12,7 +12,7 @@ public class UnitAttack_Range : UnitAttack
 
     public GameObject bulletPrefab;
     public BulletMoveType bulletMove;
-    
+	public float moveSpeed;
     [HideInInspector]
     public List<UnitMove> unitMoves = new List<UnitMove>();
 
@@ -27,13 +27,13 @@ public class UnitAttack_Range : UnitAttack
         if(BulletMoveType.Curve == bulletMove)
         {
             UnitMove_SinCurve sinCurveMove = bullet.AddComponent<UnitMove_SinCurve>();
-            sinCurveMove.Init(self.transform.position, target.transform.position, distance / 4, 5.0f);
+			sinCurveMove.Init(self.transform.position, target.transform.position, distance / 4, moveSpeed);
             unitMove = sinCurveMove;
         }
         else if(BulletMoveType.Stright == bulletMove)
         {
             UnitMove_Stright strightMove = bullet.AddComponent<UnitMove_Stright>();
-            strightMove.Init(self.transform.position, target.transform.position, 8.0f);
+			strightMove.Init(self.transform.position, target.transform.position, moveSpeed);
             unitMove = strightMove;
         }
         unitMoves.Add(unitMove);
