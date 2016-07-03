@@ -7,8 +7,10 @@ public class UnitAttack_Point : UnitAttack {
 		if (null == target) {
 			return;
 		}
+		/*
 		Effect go = GameObject.Instantiate<Effect> (info.effect);
 		go.transform.position = target.transform.position;
 		target.Damage ((int)data.power);
+		*/
 	}
 }

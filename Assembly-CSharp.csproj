@@ -170,6 +170,7 @@
      <Compile Include="Assets\Scripts\Unit\Citadel\CitadelUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\UnitSlot.cs" />
      <Compile Include="Assets\Scripts\Unit\Enemy\EnemyUnit.cs" />
+     <Compile Include="Assets\Scripts\Unit\Missile.cs" />
      <Compile Include="Assets\Scripts\Unit\Player\BasePlayerUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Player\BuildingUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Player\HeroUnit.cs" />
@@ -182,7 +183,11 @@
      <Compile Include="Assets\Scripts\Unit\UnitAttack_Range.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitColliderAttack.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitColliderDamage.cs" />
+     <Compile Include="Assets\Scripts\Unit\UnitHit.cs" />
+     <Compile Include="Assets\Scripts\Unit\UnitHit_CircleRange.cs" />
+     <Compile Include="Assets\Scripts\Unit\UnitHit_Target.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitMove.cs" />
+     <Compile Include="Assets\Scripts\Unit\UnitMove_Position.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitMove_SinCurve.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitMove_Stright.cs" />
      <Compile Include="Assets\Scripts\UserInputManager.cs" />

@@ -4,60 +4,13 @@ using System.Collections.Generic;
 
 public class UnitAttack_Range : UnitAttack
 {
-    public enum BulletMoveType
-    {
-        Curve,
-        Stright
-    }
-
-    public GameObject bulletPrefab;
-    public BulletMoveType bulletMove;
-	public float moveSpeed;
-    [HideInInspector]
-    public List<UnitMove> unitMoves = new List<UnitMove>();
-
+    public Missile missilePrefab;
     public override void Attack()
     {
 		if (null == target) {
 			return;
 		}
-        float distance = Vector3.Distance(self.transform.position, target.transform.position);
-        GameObject bullet = GameObject.Instantiate<GameObject>(bulletPrefab);
-        UnitMove unitMove = null;
-        if(BulletMoveType.Curve == bulletMove)
-        {
-            UnitMove_SinCurve sinCurveMove = bullet.AddComponent<UnitMove_SinCurve>();
-			sinCurveMove.Init(self.transform.position, target.transform.position, distance / 4, moveSpeed);
-            unitMove = sinCurveMove;
-        }
-        else if(BulletMoveType.Stright == bulletMove)
-        {
-            UnitMove_Stright strightMove = bullet.AddComponent<UnitMove_Stright>();
-			strightMove.Init(self.transform.position, target.transform.position, moveSpeed);
-            unitMove = strightMove;
-        }
-        unitMoves.Add(unitMove);
-    }
-
-    void Update()
-    {
-        List<UnitMove> completeMove = new List<UnitMove>();
-        foreach (UnitMove unitMove in unitMoves)
-        {
-            if (1.0f <= unitMove.interpolate)
-            {
-                completeMove.Add(unitMove);
-                Effect go = GameObject.Instantiate<Effect>(info.effect);
-                UnitColliderAttack col = go.GetComponent<UnitColliderAttack>();
-                col.attackPower = data.power;
-                go.transform.position = unitMove.end;
-            }
-        }
-
-        foreach (UnitMove unitMove in completeMove)
-        {
-            unitMoves.Remove(unitMove);
-            DestroyImmediate(unitMove.gameObject, true);
-        }
+		Missile missile = Object.Instantiate<Missile> (missilePrefab);
+		missile.Init (self.transform.position, target, data.power);
     }
 }

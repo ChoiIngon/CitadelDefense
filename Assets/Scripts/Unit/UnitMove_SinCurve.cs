@@ -2,32 +2,15 @@
 using System.Collections;
 
 public class UnitMove_SinCurve : UnitMove {
-    /*
-	public float speed;
-	public Vector3 start;
-	public Vector3 end;
-	public float interpolate {
-		get { return _interpolate; }
-	}
-	[SerializeField]
-	private float _interpolate;
-	private float distance = 0.0f;
-    */
-
-    public float height;
-    public void Init(Vector3 start, Vector3 end, float height, float speed)
+    private float height;
+	public override void Init(Vector3 start, Vector3 end)
 	{
-		_interpolate = 0.0f;
-		transform.position = start;
-		this.start = start;
-		this.end = end;
-		this.height = height;
-		this.speed = speed;
-		distance = Vector3.Distance (start, end);
+		base.Init (start, end);
+		height = distance / 4;
 	}
-		
 	void Update() {
 		if (1.0f < _interpolate) {
+			enabled = false;
 			return;
 		}
 		_interpolate += Time.deltaTime * speed / distance;

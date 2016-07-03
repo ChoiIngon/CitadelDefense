@@ -24,7 +24,7 @@ public abstract class UnitAttack : MonoBehaviour {
         public string name;
         public string description;
         public Sprite icon;
-        public Effect effect;
+        //public Effect effect;
     }
 
     public AttackInfo info;

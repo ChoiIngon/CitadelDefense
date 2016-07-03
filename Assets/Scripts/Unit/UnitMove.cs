@@ -3,7 +3,9 @@ using System.Collections;
 
 public class UnitMove : MonoBehaviour {
     public float speed;
+	[HideInInspector]
     public Vector3 start;
+	[HideInInspector]
     public Vector3 end;
     public float interpolate
     {
@@ -12,6 +14,15 @@ public class UnitMove : MonoBehaviour {
 
     protected float _interpolate;
     protected float distance = 0.0f;
+
+	public virtual void Init(Vector3 start, Vector3 end)
+	{
+		transform.position = start;
+		this.start = start;
+		this.end = end;
+		_interpolate = 0.0f;
+		distance = Vector3.Distance (start, end);
+	}
 }
 
 /*
