@@ -61,8 +61,11 @@ public class GameManager : MonoBehaviour {
         state = GameState.Lobby;
 		selectedSlot = null;
 		selectedUnit = null;
-        for(int i=0; i<heros.Length; i++)
+        Transform transHeros = transform.FindChild("Unit/Heros");
+        heros = new HeroUnit[transHeros.childCount];
+        for(int i=0; i<transHeros.childCount; i++)
         {
+            heros[i] = transHeros.GetChild(i).GetComponent<HeroUnit>(); 
             heros[i].Init();
         }
 	}
