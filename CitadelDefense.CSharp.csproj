@@ -218,7 +218,6 @@
     <Compile Include="Assets\Scripts\Util\Test.cs" />
     <Compile Include="Assets\Scripts\Util\TouchEvent.cs" />
     <Compile Include="Assets\Scripts\XXField.cs" />
-    <Compile Include="Assets\Scripts\test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\2DxFX\Resources\_2dxFX_4Gradients.shader" />

@@ -32,4 +32,14 @@ public abstract class UnitAttack : MonoBehaviour {
 	public AttackData max;
 	public AttackData upgrade;
 	public abstract void Attack ();
+    public virtual void Upgrade(int level)
+    {
+        if(1 > level)
+        {
+            throw new System.Exception("invalid level");
+        }
+        data.power = info.power + (info.power * upgrade.power * (level - 1));
+        data.range = info.range + (info.range * upgrade.range * (level - 1));
+        data.speed = info.speed + (info.speed * upgrade.speed * (level - 1));
+    }
 }

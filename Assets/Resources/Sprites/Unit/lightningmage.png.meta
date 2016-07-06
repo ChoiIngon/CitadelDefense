@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8fcbe7427933744de9a4f146a8f75a9b
-timeCreated: 1467439395
+timeCreated: 1467808229
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -19,6 +19,14 @@ TextureImporter:
     21300024: lightningmage@attack_2
     21300026: lightningmage@attack_3
     21300028: lightningmage@attack_4
+    21300030: lightningmage_3
+    21300032: lightningmage_4
+    21300034: lightningmage_5
+    21300036: lightningmage_6
+    21300038: lightningmage_7
+    21300040: lightningmage_8
+    21300042: lightningmage_9
+    21300044: lightningmage_10
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -68,8 +76,8 @@ TextureImporter:
     - name: lightningmage@idle_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 582
+        x: 0
+        y: 187
         width: 46
         height: 69
       alignment: 0
@@ -93,8 +101,8 @@ TextureImporter:
     - name: lightningmage@idle_1
       rect:
         serializedVersion: 2
-        x: 88
-        y: 582
+        x: 76
+        y: 187
         width: 46
         height: 69
       alignment: 0
@@ -122,8 +130,8 @@ TextureImporter:
     - name: lightningmage@idle_2
       rect:
         serializedVersion: 2
-        x: 163
-        y: 582
+        x: 151
+        y: 187
         width: 47
         height: 69
       alignment: 0
@@ -139,77 +147,99 @@ TextureImporter:
         - {x: 23.5, y: -10.5}
         - {x: 23.5, y: 11.5}
         - {x: 8.5, y: 32.5}
-    - name: lightningmage@lightningbolt_0
+    - name: lightningmage_3
       rect:
         serializedVersion: 2
-        x: 231
-        y: 609
+        x: 219
+        y: 214
         width: 21
         height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: lightningmage@lightningbolt_1
+    - name: lightningmage_4
       rect:
         serializedVersion: 2
-        x: 257
-        y: 608
-        width: 23
+        x: 246
+        y: 216
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: lightningmage_5
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 213
+        width: 18
         height: 21
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: lightningmage@lightningbolt_2
+    - name: lightningmage_6
       rect:
         serializedVersion: 2
-        x: 286
-        y: 608
+        x: 274
+        y: 213
         width: 26
         height: 24
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: lightningmage@lightningbolt_3
+    - name: lightningmage_7
       rect:
         serializedVersion: 2
-        x: 318
-        y: 606
+        x: 306
+        y: 213
         width: 29
-        height: 24
+        height: 22
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: lightningmage@lightningbolt_4
+    - name: lightningmage_8
       rect:
         serializedVersion: 2
-        x: 355
-        y: 606
+        x: 343
+        y: 211
         width: 32
         height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: lightningmage@lightningbolt_5
+    - name: lightningmage_9
       rect:
         serializedVersion: 2
-        x: 395
-        y: 606
+        x: 383
+        y: 211
         width: 32
         height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: lightningmage_10
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 211
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: lightningmage@attack_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 501
+        x: 2
+        y: 106
         width: 46
         height: 69
       alignment: 0
@@ -233,75 +263,75 @@ TextureImporter:
     - name: lightningmage@attack_1
       rect:
         serializedVersion: 2
-        x: 73
-        y: 501
+        x: 61
+        y: 106
         width: 55
         height: 69
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.43432742, y: 0.5087247}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -5.5, y: 34.5}
-        - {x: -27.5, y: 34.5}
-        - {x: -27.5, y: -34.5}
-        - {x: 8.5, y: -34.5}
-        - {x: 27.5, y: -13.5}
-        - {x: 27.5, y: 8.5}
+      - - {x: -1.8880081, y: 33.897995}
+        - {x: -23.888008, y: 33.897995}
+        - {x: -23.888008, y: -35.102005}
+        - {x: 12.111992, y: -35.102005}
+        - {x: 31.111992, y: -14.102005}
+        - {x: 31.111992, y: 7.897995}
     - name: lightningmage@attack_2
       rect:
         serializedVersion: 2
-        x: 130
-        y: 501
+        x: 118
+        y: 106
         width: 100
         height: 69
       alignment: 9
-      pivot: {x: 0.32997087, y: 0.45651466}
+      pivot: {x: 0.31037033, y: 0.5087247}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -22.997086, y: 37.50049}
-        - {x: -32.997086, y: 12.500488}
-        - {x: -32.997086, y: -31.499512}
-        - {x: 63.002914, y: -31.499512}
-        - {x: 67.002914, y: -30.499512}
-        - {x: 67.002914, y: 5.5004883}
-        - {x: 8.002914, y: 37.50049}
+      - - {x: -21.037033, y: 33.897995}
+        - {x: -31.037033, y: 8.897995}
+        - {x: -31.037033, y: -35.102005}
+        - {x: 64.96297, y: -35.102005}
+        - {x: 68.96297, y: -34.102005}
+        - {x: 68.96297, y: 1.897995}
+        - {x: 9.962967, y: 33.897995}
     - name: lightningmage@attack_3
       rect:
         serializedVersion: 2
-        x: 237
-        y: 501
+        x: 225
+        y: 106
         width: 127
         height: 69
       alignment: 9
-      pivot: {x: 0.27161437, y: 0.45651466}
+      pivot: {x: 0.2558822, y: 0.5087247}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 4.5049744, y: 37.50049}
-        - {x: -24.495026, y: 37.50049}
-        - {x: -34.495026, y: 32.50049}
-        - {x: -34.495026, y: -31.499512}
-        - {x: 29.504974, y: -31.499512}
-        - {x: 92.504974, y: -15.499512}
-        - {x: 92.504974, y: -5.4995117}
-        - {x: 72.504974, y: -1.4995117}
+      - - {x: 6.50296, y: 33.897995}
+        - {x: -22.49704, y: 33.897995}
+        - {x: -32.49704, y: 28.897995}
+        - {x: -32.49704, y: -35.102005}
+        - {x: 31.50296, y: -35.102005}
+        - {x: 94.50296, y: -19.102005}
+        - {x: 94.50296, y: -9.102005}
+        - {x: 74.50296, y: -5.102005}
     - name: lightningmage@attack_4
       rect:
         serializedVersion: 2
-        x: 370
-        y: 501
+        x: 358
+        y: 106
         width: 100
         height: 69
       alignment: 9
-      pivot: {x: 0.34997436, y: 0.47101006}
+      pivot: {x: 0.31037018, y: 0.5043622}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -24.997437, y: 36.500305}
-        - {x: -34.997437, y: 11.500305}
-        - {x: -34.997437, y: -32.499695}
-        - {x: 52.002563, y: -32.499695}
-        - {x: 65.00256, y: -30.499695}
-        - {x: 65.00256, y: -0.49969482}
-        - {x: 5.0025635, y: 36.500305}
+      - - {x: -21.037018, y: 34.199005}
+        - {x: -31.037018, y: 9.199005}
+        - {x: -31.037018, y: -34.800995}
+        - {x: 55.962982, y: -34.800995}
+        - {x: 68.96298, y: -32.800995}
+        - {x: 68.96298, y: -2.8009949}
+        - {x: 8.962982, y: 34.199005}
     outline: []
   spritePackingTag: 
   userData: 

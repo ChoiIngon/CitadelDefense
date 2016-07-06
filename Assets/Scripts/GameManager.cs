@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour {
     public BuildingUnit[] buildings;
 	public TowerUnit[] towers;
 	public HeroUnit[] heros;
-
+    public UnitSlot[] slots;
 	[HideInInspector]
 	public UnitSlot selectedSlot;
 	[HideInInspector]
@@ -61,11 +61,12 @@ public class GameManager : MonoBehaviour {
         state = GameState.Lobby;
 		selectedSlot = null;
 		selectedUnit = null;
+        
         Transform transHeros = transform.FindChild("Unit/Heros");
         heros = new HeroUnit[transHeros.childCount];
-        for(int i=0; i<transHeros.childCount; i++)
+        for (int i = 0; i < transHeros.childCount; i++)
         {
-            heros[i] = transHeros.GetChild(i).GetComponent<HeroUnit>(); 
+            heros[i] = transHeros.GetChild(i).GetComponent<HeroUnit>();
             heros[i].Init();
         }
 	}
@@ -81,6 +82,24 @@ public class GameManager : MonoBehaviour {
 		citadel.hp.value = citadel.hp.max;
 		citadel.mp.max = 500 + citadel.level * 10;
 		citadel.mp.value = citadel.mp.max;
+
+        foreach(HeroUnit hero in heros)
+        {
+            Transform touchEvent = hero.transform.FindChild("TouchEvent");
+            if(null != touchEvent)
+            {
+                touchEvent.gameObject.SetActive(true);
+            }
+        }
+
+        foreach(UnitSlot slot in slots)
+        {
+            Transform touchEvent = slot.transform.FindChild("TouchEvent");
+            if (null != touchEvent)
+            {
+                touchEvent.gameObject.SetActive(false);
+            }
+        }
     }
 
 	public void WaveEnd(WaveResult result)
@@ -93,7 +112,25 @@ public class GameManager : MonoBehaviour {
 			enemyManager.Clear ();
 		}
 		wave = null;
-	}
+
+        foreach (HeroUnit hero in heros)
+        {
+            Transform touchEvent = hero.transform.FindChild("TouchEvent");
+            if (null != touchEvent)
+            {
+                touchEvent.gameObject.SetActive(true);
+            }
+        }
+
+        foreach (UnitSlot slot in slots)
+        {
+            Transform touchEvent = slot.transform.FindChild("TouchEvent");
+            if (null != touchEvent)
+            {
+                touchEvent.gameObject.SetActive(true);
+            }
+        }
+    }
 
 	public class Wave
 	{

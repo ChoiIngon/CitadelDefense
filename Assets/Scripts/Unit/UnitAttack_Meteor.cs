@@ -5,22 +5,30 @@ public class UnitAttack_Meteor : UnitAttack {
     public Missile missilePrefab;
     public int missileCount;
     private float deltaTime;
+    public Vector3 initPosition;
+    private Vector3 targetPosition;
+    public TouchEvent unitTouchEvent;
+    public TouchEvent touchEvent;
+    void OnEnable()
+    {
+        transform.position = initPosition;
+        touchEvent.gameObject.SetActive(true);
+    }
 
     void Start()
     {
-        
-        
-        Attack();
+        touchEvent.onTouchUp += OnTouchUp;
+        touchEvent.onTouchDrag += OnTouchDrag;
     }
 
     public override void Attack()
 	{
-		deltaTime = 0.0f;
-        StartCoroutine(Meteor());
     }
 
     IEnumerator Meteor()
     {
+        Vector3 curPosition = transform.position;
+        Debug.Log("cur position:" + curPosition);
         for (int i = 0; i < missileCount; i++)
         {
             deltaTime = 0.0f;
@@ -30,10 +38,33 @@ public class UnitAttack_Meteor : UnitAttack {
                 deltaTime += Time.deltaTime;
                 yield return null;
             }
-            Vector3 endPosition = new Vector3(Random.Range(6.5f, 9.5f), Random.Range(1.0f, 6.0f), 0.0f);
+
+            
+            Vector3 endPosition = new Vector3(Random.Range(curPosition.x - 2.0f, curPosition.x + 2.0f), Random.Range(curPosition.y + 2.0f, curPosition.y - 2.0f), 0.0f);
+            Debug.Log("end position:" + endPosition);
             Vector3 startPosition = new Vector3(endPosition.x - 4.0f, endPosition.y + 7.0f, endPosition.z);
             Missile missile = Object.Instantiate<Missile>(missilePrefab);
             missile.Init(startPosition, endPosition, data.power);
         }
+        gameObject.SetActive(false);
+        unitTouchEvent.gameObject.SetActive(true);
+        touchEvent.onTouchDrag += OnTouchDrag;
+    }
+
+    public void OnTouchUp()
+    {
+        if(false == gameObject.activeSelf)
+        {
+            return;
+        }
+        Time.timeScale = 1.0f;
+        deltaTime = 0.0f;
+        StartCoroutine(Meteor());
+        touchEvent.onTouchDrag -= OnTouchDrag;
+    }
+
+    public void OnTouchDrag(Vector3 delta)
+    {
+        transform.position = new Vector3(transform.position.x + delta.x, transform.position.y, transform.position.z);
     }
 }
