@@ -124,9 +124,6 @@
      <Compile Include="Assets\Devwinsoft\CharacterEngine\Script\DevPart.cs" />
      <Compile Include="Assets\Devwinsoft\CharacterEngine\Script\_Define.cs" />
      <Compile Include="Assets\Devwinsoft\CharacterEngine\Test\TestCharacter.cs" />
-     <Compile Include="Assets\Mega Toon FX Free Pack\Script\AutoDestory.cs" />
-     <Compile Include="Assets\Mega Toon FX Free Pack\Script\CameraOrbit.cs" />
-     <Compile Include="Assets\Mega Toon FX Free Pack\Script\SceneManager.cs" />
      <Compile Include="Assets\Node_Editor\Framework\ConnectionTypes.cs" />
      <Compile Include="Assets\Node_Editor\Framework\Node.cs" />
      <Compile Include="Assets\Node_Editor\Framework\NodeCanvas.cs" />
@@ -150,7 +147,6 @@
      <Compile Include="Assets\Node_Editor\Utilities\OverlayGUI.cs" />
      <Compile Include="Assets\Node_Editor\Utilities\RTEditorGUI.cs" />
      <Compile Include="Assets\Node_Editor\Utilities\ResourceManager.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Properties\AssemblyInfo.cs" />
      <Compile Include="Assets\Scripts\Effect\Effect.cs" />
      <Compile Include="Assets\Scripts\Effect\Effect_Damage.cs" />
      <Compile Include="Assets\Scripts\EnemyManager.cs" />
@@ -179,8 +175,9 @@
      <Compile Include="Assets\Scripts\Unit\UnitAnimation.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack_Melee.cs" />
-     <Compile Include="Assets\Scripts\Unit\UnitAttack_Point.cs" />
+     <Compile Include="Assets\Scripts\Unit\UnitAttack_Meteor.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack_Range.cs" />
+     <Compile Include="Assets\Scripts\Unit\UnitAttack_Target.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitColliderAttack.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitColliderDamage.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitHit.cs" />
@@ -192,8 +189,6 @@
      <Compile Include="Assets\Scripts\Unit\UnitMove_Stright.cs" />
      <Compile Include="Assets\Scripts\UserInputManager.cs" />
      <Compile Include="Assets\Scripts\Util\AutoRecoveryInt.cs" />
-     <Compile Include="Assets\Scripts\Util\FPSDisplay.cs" />
-     <Compile Include="Assets\Scripts\Util\Test.cs" />
      <Compile Include="Assets\Scripts\Util\TouchEvent.cs" />
      <Compile Include="Assets\Scripts\XXField.cs" />
      <None Include="Assets\Devwinsoft\CharacterEngine\Texture\Package\armor\ancient-b\info.txt" />
@@ -257,7 +252,6 @@
      <None Include="Assets\2DxFX\Resources\_2dxFX_SandFX.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_PatternAdditive.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_CircleFade.shader" />
-     <None Include="Assets\uIntelliSense\Editor\Resources\uintellisense-data.xml" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Blur.shader" />
      <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_background_button_pause.xml" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Negative.shader" />
@@ -268,7 +262,6 @@
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_4Gradients.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
-     <None Include="Assets\uIntelliSense\LICENSE.txt" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Hologram.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_GoldFX.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />

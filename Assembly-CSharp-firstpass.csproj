@@ -207,7 +207,6 @@
      <None Include="Assets\2DxFX\Resources\_2dxFX_SandFX.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_PatternAdditive.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_CircleFade.shader" />
-     <None Include="Assets\uIntelliSense\Editor\Resources\uintellisense-data.xml" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Blur.shader" />
      <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_background_button_pause.xml" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Negative.shader" />
@@ -218,7 +217,6 @@
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_4Gradients.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
-     <None Include="Assets\uIntelliSense\LICENSE.txt" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Hologram.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_GoldFX.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />

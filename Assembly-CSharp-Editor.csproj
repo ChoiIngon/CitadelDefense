@@ -82,48 +82,6 @@
      <Compile Include="Assets\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
      <Compile Include="Assets\Editor\Node_Editor\NodeEditorWindow.cs" />
      <Compile Include="Assets\Editor\Node_Editor\RTNE_InspectorGUI.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Menu\Colors\FolderColors.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Menu\Colors\FolderColorsStorage.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Menu\Colors\FoldersColorsContainerEditor.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Menu\Colors\RainbowColorFolder.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Menu\Colors\RainbowColorFolderDrawer.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Menu\IconSet.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Menu\RainbowFoldersMenu.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Menu\RainbowFoldersProjectContextMenu.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Menu\Tags\FolderTags.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Menu\Tags\FolderTagsStorage.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Menu\Tags\FoldersTagsContainerEditor.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Menu\Tags\RainbowColorTaggedFolderDrawer.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Menu\Tags\RainbowTaggedFolder.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\RainbowFoldersBrowserIcons.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\RainbowFoldersEditorUtility.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Settings\RainbowFolder.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Settings\RainbowFolderDrawer.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Settings\RainbowFoldersExtensionMethods.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Settings\RainbowFoldersSettings.cs" />
-     <Compile Include="Assets\RainbowFolders\Editor\Settings\RainbowFoldersSettingsEditor.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\Element Adder Menu\ElementAdderMenuBuilder.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\Element Adder Menu\ElementAdderMenuCommandAttribute.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\Element Adder Menu\ElementAdderMeta.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\Element Adder Menu\GenericElementAdderMenu.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\Element Adder Menu\GenericElementAdderMenuBuilder.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\Element Adder Menu\IElementAdder.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\Element Adder Menu\IElementAdderMenu.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\Element Adder Menu\IElementAdderMenuBuilder.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\Element Adder Menu\IElementAdderMenuCommand.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\GenericListAdaptor.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\IReorderableListAdaptor.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\IReorderableListDropTarget.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\Internal\GUIHelper.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\Internal\ReorderableListResources.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\Internal\SerializedPropertyUtility.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\ReorderableListControl.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\ReorderableListEvents.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\ReorderableListFlags.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\ReorderableListGUI.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\ReorderableListStyles.cs" />
-     <Compile Include="Assets\RainbowFolders\ReorderableList\Editor\SerializedPropertyAdaptor.cs" />
-     <Compile Include="Assets\uIntelliSense\Editor\MenuItems.cs" />
      <None Include="Assets\Devwinsoft\CharacterEngine\Texture\Package\armor\ancient-b\info.txt" />
      <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_view_video_play.xml" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_GrayScale.shader" />
@@ -185,7 +143,6 @@
      <None Include="Assets\2DxFX\Resources\_2dxFX_SandFX.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_PatternAdditive.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_CircleFade.shader" />
-     <None Include="Assets\uIntelliSense\Editor\Resources\uintellisense-data.xml" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Blur.shader" />
      <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_background_button_pause.xml" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Negative.shader" />
@@ -196,7 +153,6 @@
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_4Gradients.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
-     <None Include="Assets\uIntelliSense\LICENSE.txt" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Hologram.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_GoldFX.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />
@@ -328,18 +284,6 @@
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="LostPolygon.uIntelliSense.Internal.MacInterop">
- <HintPath>/Users/kukuta/workspace/CitadelDefense/Assets/uIntelliSense/Editor/Assemblies/LostPolygon.uIntelliSense.Internal.MacInterop.dll</HintPath>
- </Reference>
- <Reference Include="LostPolygon.uIntelliSense">
- <HintPath>/Users/kukuta/workspace/CitadelDefense/Assets/uIntelliSense/Editor/Assemblies/LostPolygon.uIntelliSense.dll</HintPath>
- </Reference>
- <Reference Include="LostPolygon.uIntelliSense.fastJSON">
- <HintPath>/Users/kukuta/workspace/CitadelDefense/Assets/uIntelliSense/Editor/Plugins/LostPolygon.uIntelliSense.fastJSON.dll</HintPath>
- </Reference>
- <Reference Include="LostPolygon.uIntelliSense.HtmlAgilityPack">
- <HintPath>/Users/kukuta/workspace/CitadelDefense/Assets/uIntelliSense/Editor/Plugins/LostPolygon.uIntelliSense.HtmlAgilityPack.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

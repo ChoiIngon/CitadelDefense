@@ -28,21 +28,21 @@ public class UnitAttack_Meteor : UnitAttack {
     IEnumerator Meteor()
     {
         Vector3 curPosition = transform.position;
-        Debug.Log("cur position:" + curPosition);
         for (int i = 0; i < missileCount; i++)
         {
             float interval = Random.Range(0.1f, 0.2f);
             yield return new WaitForSeconds(interval);
 
             Vector3 endPosition = new Vector3(Random.Range(curPosition.x - 2.0f, curPosition.x + 2.0f), Random.Range(curPosition.y + 2.0f, curPosition.y - 2.0f), 0.0f);
-            Debug.Log("end position:" + endPosition);
             Vector3 startPosition = new Vector3(endPosition.x - 4.0f, endPosition.y + 7.0f, endPosition.z);
             Missile missile = Object.Instantiate<Missile>(missilePrefab);
             missile.Init(startPosition, endPosition, data.power);
         }
         gameObject.SetActive(false);
-        unitTouchEvent.gameObject.SetActive(true);
-        touchEvent.onTouchDrag += OnTouchDrag;
+		touchEvent.onTouchDrag += OnTouchDrag;
+		if (GameManager.GameState.Play == GameManager.Instance.state) {
+			unitTouchEvent.gameObject.SetActive (true);
+		}
     }
 
     public void OnTouchUp()

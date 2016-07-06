@@ -57,7 +57,7 @@ public class EnemyUnit : Unit {
 		maxHealth = maxHealth + (maxHealth * levelupInfo.health * (GameManager.Instance.waveLevel - 1));
 		health = maxHealth;
         unitAttack.data.power = unitAttack.info.power + (unitAttack.info.power * levelupInfo.power * (GameManager.Instance.waveLevel - 1));
-        unitAttack.data.range = unitAttack.info.range + (unitAttack.info.range * levelupInfo.range * (GameManager.Instance.waveLevel - 1));
+        unitAttack.data.maxRange = unitAttack.info.maxRange + (unitAttack.info.maxRange * levelupInfo.maxRange * (GameManager.Instance.waveLevel - 1));
         unitAttack.data.speed = unitAttack.info.speed + (unitAttack.info.speed * levelupInfo.speed * (GameManager.Instance.waveLevel - 1));
     }
 
@@ -80,9 +80,9 @@ public class EnemyUnit : Unit {
 
 	void FixedUpdate()
 	{
-		Debug.DrawRay(transform.position, Vector3.left * unitAttack.info.range, Color.red);
+		Debug.DrawRay(transform.position, Vector3.left * unitAttack.info.maxRange, Color.red);
 
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, unitAttack.info.range, 1 << LayerMask.NameToLayer("Citadel"));
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, unitAttack.info.maxRange, 1 << LayerMask.NameToLayer("Citadel"));
 		if (hit.collider != null)
 		{
 			moveSpeed = 0.0f;

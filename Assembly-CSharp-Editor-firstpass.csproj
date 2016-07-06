@@ -124,7 +124,6 @@
      <None Include="Assets\2DxFX\Resources\_2dxFX_SandFX.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_PatternAdditive.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_CircleFade.shader" />
-     <None Include="Assets\uIntelliSense\Editor\Resources\uintellisense-data.xml" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Blur.shader" />
      <None Include="Assets\Plugins\Android\unityads\res\drawable\unityads_background_button_pause.xml" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Negative.shader" />
@@ -135,7 +134,6 @@
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_4Gradients.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
-     <None Include="Assets\uIntelliSense\LICENSE.txt" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Hologram.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_GoldFX.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />
@@ -267,18 +265,6 @@
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="LostPolygon.uIntelliSense.Internal.MacInterop">
- <HintPath>/Users/kukuta/workspace/CitadelDefense/Assets/uIntelliSense/Editor/Assemblies/LostPolygon.uIntelliSense.Internal.MacInterop.dll</HintPath>
- </Reference>
- <Reference Include="LostPolygon.uIntelliSense">
- <HintPath>/Users/kukuta/workspace/CitadelDefense/Assets/uIntelliSense/Editor/Assemblies/LostPolygon.uIntelliSense.dll</HintPath>
- </Reference>
- <Reference Include="LostPolygon.uIntelliSense.fastJSON">
- <HintPath>/Users/kukuta/workspace/CitadelDefense/Assets/uIntelliSense/Editor/Plugins/LostPolygon.uIntelliSense.fastJSON.dll</HintPath>
- </Reference>
- <Reference Include="LostPolygon.uIntelliSense.HtmlAgilityPack">
- <HintPath>/Users/kukuta/workspace/CitadelDefense/Assets/uIntelliSense/Editor/Plugins/LostPolygon.uIntelliSense.HtmlAgilityPack.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

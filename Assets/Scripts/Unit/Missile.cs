@@ -2,12 +2,18 @@
 using System.Collections;
 
 public class Missile : MonoBehaviour {
+	public UnitHit hitPrefab;
+
 	[HideInInspector]
 	public float power;
-	public UnitHit hitPrefab;
+
 	protected UnitMove move;
+	private Vector3 start;
+	private Vector3 end;
 	// Use this for initialization
 	public void Init (Vector3 start, Vector3 end, float power) {
+		this.start = start;
+		this.end = end;
 		move = GetComponent<UnitMove> ();
 		move.Init (start, end);
 		this.power = power;
@@ -26,4 +32,5 @@ public class Missile : MonoBehaviour {
 			hit.Init (move.end, power);
 			DestroyObject (gameObject);
 		}
-	}}
+	}
+}

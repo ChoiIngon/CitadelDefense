@@ -37,7 +37,8 @@ public class TowerUnit : BasePlayerUnit {
     void InitAttackData()
     {
         unitAttack.data.power = unitAttack.info.power + (unitAttack.info.power * levelupInfo.power * (state.level-1));
-        unitAttack.data.range = unitAttack.info.range + (unitAttack.info.range * levelupInfo.range * (state.level-1));
+        unitAttack.data.maxRange = unitAttack.info.maxRange + (unitAttack.info.maxRange * levelupInfo.maxRange * (state.level-1));
+		unitAttack.data.minRange = unitAttack.info.minRange + (unitAttack.info.minRange * levelupInfo.minRange * (state.level-1));
         unitAttack.data.speed = unitAttack.info.speed + (unitAttack.info.speed * levelupInfo.speed * (state.level-1));
     }
 	// Update is called once per frame
@@ -49,8 +50,8 @@ public class TowerUnit : BasePlayerUnit {
 			if (null == enemy) {
 				continue;
 			}
-			float distance = Vector3.Distance (transform.position, enemy.transform.position);
-			if (distance < unitAttack.data.range && 0 < enemy.health) {
+			float distance = Mathf.Abs(transform.position.x - enemy.transform.position.x);
+			if (distance > unitAttack.data.minRange && distance < unitAttack.data.maxRange && 0 < enemy.health) {
 				target = enemy;
 				unitAttack.target = target;
 				break;

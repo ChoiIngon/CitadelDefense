@@ -10,7 +10,8 @@ public abstract class UnitAttack : MonoBehaviour {
 
 	[System.Serializable]
 	public class AttackData {
-		public float 	range;
+		public float 	minRange;
+		public float	maxRange;
 		public float 	power;
 		public float 	speed;
 		public float 	cooltime;
@@ -39,7 +40,7 @@ public abstract class UnitAttack : MonoBehaviour {
             throw new System.Exception("invalid level");
         }
         data.power = info.power + (info.power * upgrade.power * (level - 1));
-        data.range = info.range + (info.range * upgrade.range * (level - 1));
+        data.maxRange = info.maxRange + (info.maxRange * upgrade.maxRange * (level - 1));
         data.speed = info.speed + (info.speed * upgrade.speed * (level - 1));
     }
 }

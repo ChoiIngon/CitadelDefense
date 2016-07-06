@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 252e9804d9cdf4381a60a45e6487db8c
-timeCreated: 1465031245
+timeCreated: 1467826919
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -25,6 +25,7 @@ TextureImporter:
     21300036: Cannon (1)_18
     21300038: Cannon (1)_19
     21300040: unit_005_idle
+    21300042: cannon@cannonball
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -78,14 +79,17 @@ TextureImporter:
         y: 158
         width: 50
         height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.56791514, y: 0.42359558}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -25, y: 25}
-        - {x: -25, y: -25}
-        - {x: 25, y: -25}
-        - {x: 25, y: 25}
+      - - {x: -27.39576, y: 20.82022}
+        - {x: -27.39576, y: -1.179779}
+        - {x: -13.39576, y: -17.17978}
+        - {x: 15.60424, y: -17.17978}
+        - {x: 18.60424, y: -10.179779}
+        - {x: 18.60424, y: 7.820221}
+        - {x: 10.60424, y: 20.82022}
     - name: unit_005_attack_1
       rect:
         serializedVersion: 2
@@ -93,14 +97,19 @@ TextureImporter:
         y: 158
         width: 50
         height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5424469, y: 0.4066168}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -25, y: 25}
-        - {x: -25, y: -25}
-        - {x: 25, y: -25}
-        - {x: 25, y: 25}
+      - - {x: 7.877655, y: 18.669159}
+        - {x: -22.122345, y: 18.669159}
+        - {x: -24.122345, y: 9.669159}
+        - {x: -24.122345, y: -1.3308411}
+        - {x: -16.122345, y: -17.330841}
+        - {x: 14.877655, y: -17.330841}
+        - {x: 19.877655, y: -9.330841}
+        - {x: 19.877655, y: 7.669159}
+        - {x: 15.877655, y: 17.669159}
     - name: unit_005_attack_2
       rect:
         serializedVersion: 2
@@ -108,14 +117,17 @@ TextureImporter:
         y: 159
         width: 50
         height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.6867667, y: 0.4066165}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -25, y: 25}
-        - {x: -25, y: -25}
-        - {x: 25, y: -25}
-        - {x: 25, y: 25}
+      - - {x: -31.338333, y: 23.669174}
+        - {x: -34.338333, y: 14.669174}
+        - {x: -34.338333, y: -9.330826}
+        - {x: -22.338333, y: -17.330826}
+        - {x: 13.661667, y: -17.330826}
+        - {x: 13.661667, y: 6.669174}
+        - {x: -14.338333, y: 23.669174}
     - name: unit_005_attack_3
       rect:
         serializedVersion: 2
@@ -123,14 +135,18 @@ TextureImporter:
         y: 162
         width: 50
         height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.71256864, y: 0.3481656}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -25, y: 25}
-        - {x: -25, y: -25}
-        - {x: 25, y: -25}
-        - {x: 25, y: 25}
+      - - {x: -29.628433, y: 28.59172}
+        - {x: -35.628433, y: 19.59172}
+        - {x: -35.628433, y: -7.4082794}
+        - {x: -11.628433, y: -17.40828}
+        - {x: 13.371567, y: -17.40828}
+        - {x: 14.371567, y: -13.408279}
+        - {x: 14.371567, y: 10.591721}
+        - {x: -13.628433, y: 28.59172}
     - name: unit_005_attack_4
       rect:
         serializedVersion: 2
@@ -138,14 +154,20 @@ TextureImporter:
         y: 162
         width: 50
         height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.72016054, y: 0.3481656}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -25, y: 25}
-        - {x: -25, y: -25}
-        - {x: 25, y: -25}
-        - {x: 25, y: 25}
+      - - {x: -28.008026, y: 30.59172}
+        - {x: -29.008026, y: 28.59172}
+        - {x: -35.008026, y: 8.591721}
+        - {x: -36.008026, y: 5.5917206}
+        - {x: -36.008026, y: -2.4082794}
+        - {x: -27.008026, y: -15.408279}
+        - {x: -18.008026, y: -17.40828}
+        - {x: 13.991974, y: -17.40828}
+        - {x: 13.991974, y: 9.591721}
+        - {x: -22.008026, y: 30.59172}
     - name: unit_005_idle
       rect:
         serializedVersion: 2
@@ -153,14 +175,30 @@ TextureImporter:
         y: 211
         width: 50
         height: 50
+      alignment: 9
+      pivot: {x: 0.6103621, y: 0.4066168}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25.518105, y: 21.669159}
+        - {x: -28.518105, y: 18.669159}
+        - {x: -30.518105, y: 11.669159}
+        - {x: -30.518105, y: -1.3308411}
+        - {x: -14.518105, y: -17.330841}
+        - {x: 13.481895, y: -17.330841}
+        - {x: 15.481895, y: -10.330841}
+        - {x: 15.481895, y: 8.669159}
+        - {x: -9.518105, y: 21.669159}
+    - name: cannon@cannonball
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 217
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -25, y: 25}
-        - {x: -25, y: -25}
-        - {x: 25, y: -25}
-        - {x: 25, y: 25}
+      outline: []
     outline: []
   spritePackingTag: 
   userData: 

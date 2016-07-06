@@ -85,7 +85,6 @@ public class PanelUnitInfo : MonoBehaviour {
             unit.Levelup();
 			Init();
 			unitInfo.SetUnit(unit);
-			Debug.Log("hero unit level:" + unit.state.level);
 		});
 	}
 	public void Init()

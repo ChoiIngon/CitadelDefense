@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour {
             Transform touchEvent = hero.transform.FindChild("TouchEvent");
             if (null != touchEvent)
             {
-                touchEvent.gameObject.SetActive(true);
+                touchEvent.gameObject.SetActive(false);
             }
         }
 

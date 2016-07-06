@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class UnitMove_Stright : UnitMove {
+	public float height;
+	public GameObject shadow;
 	public override void Init(Vector3 start, Vector3 end)
 	{
 		base.Init (start, end);
@@ -24,6 +26,12 @@ public class UnitMove_Stright : UnitMove {
 			return;
 		}
 		_interpolate += Time.deltaTime * speed / distance;
-		transform.position = Vector3.Lerp (start, end, interpolate);
+		Vector3 curPos = Vector3.Lerp (start, end, interpolate);
+		transform.position = curPos;
+		if (null != shadow) {
+			curPos.y -= height * (1.0f - interpolate);
+			shadow.transform.position = curPos;
+			shadow.transform.rotation = Quaternion.Euler(0, 0, -transform.rotation.z);
+		}
 	}
 }
