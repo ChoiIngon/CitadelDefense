@@ -211,8 +211,6 @@
     <Compile Include="Assets\Scripts\Unit\UnitMove_Stright.cs" />
     <Compile Include="Assets\Scripts\UserInputManager.cs" />
     <Compile Include="Assets\Scripts\Util\AutoRecoveryInt.cs" />
-    <Compile Include="Assets\Scripts\Util\FPSDisplay.cs" />
-    <Compile Include="Assets\Scripts\Util\Test.cs" />
     <Compile Include="Assets\Scripts\Util\TouchEvent.cs" />
     <Compile Include="Assets\Scripts\XXField.cs" />
   </ItemGroup>

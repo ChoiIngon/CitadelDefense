@@ -4,7 +4,7 @@ using System.Collections;
 public class UnitAttack_Meteor : UnitAttack {
     public Missile missilePrefab;
     public int missileCount;
-    private float deltaTime;
+
     public Vector3 initPosition;
     private Vector3 targetPosition;
     public TouchEvent unitTouchEvent;
@@ -31,15 +31,9 @@ public class UnitAttack_Meteor : UnitAttack {
         Debug.Log("cur position:" + curPosition);
         for (int i = 0; i < missileCount; i++)
         {
-            deltaTime = 0.0f;
             float interval = Random.Range(0.1f, 0.2f);
-            while(deltaTime < interval)
-            {
-                deltaTime += Time.deltaTime;
-                yield return null;
-            }
+            yield return new WaitForSeconds(interval);
 
-            
             Vector3 endPosition = new Vector3(Random.Range(curPosition.x - 2.0f, curPosition.x + 2.0f), Random.Range(curPosition.y + 2.0f, curPosition.y - 2.0f), 0.0f);
             Debug.Log("end position:" + endPosition);
             Vector3 startPosition = new Vector3(endPosition.x - 4.0f, endPosition.y + 7.0f, endPosition.z);
@@ -58,7 +52,6 @@ public class UnitAttack_Meteor : UnitAttack {
             return;
         }
         Time.timeScale = 1.0f;
-        deltaTime = 0.0f;
         StartCoroutine(Meteor());
         touchEvent.onTouchDrag -= OnTouchDrag;
     }
