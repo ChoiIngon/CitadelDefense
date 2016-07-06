@@ -146,9 +146,6 @@
     <Compile Include="Assets\Devwinsoft\CharacterEngine\Script\DevPart.cs" />
     <Compile Include="Assets\Devwinsoft\CharacterEngine\Script\_Define.cs" />
     <Compile Include="Assets\Devwinsoft\CharacterEngine\Test\TestCharacter.cs" />
-    <Compile Include="Assets\Mega Toon FX Free Pack\Script\AutoDestory.cs" />
-    <Compile Include="Assets\Mega Toon FX Free Pack\Script\CameraOrbit.cs" />
-    <Compile Include="Assets\Mega Toon FX Free Pack\Script\SceneManager.cs" />
     <Compile Include="Assets\Node_Editor\Framework\ConnectionTypes.cs" />
     <Compile Include="Assets\Node_Editor\Framework\Node.cs" />
     <Compile Include="Assets\Node_Editor\Framework\NodeCanvas.cs" />
@@ -387,8 +384,6 @@
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
-    <None Include="Assets\uIntelliSense\Editor\Resources\uintellisense-data.xml" />
-    <None Include="Assets\uIntelliSense\LICENSE.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
