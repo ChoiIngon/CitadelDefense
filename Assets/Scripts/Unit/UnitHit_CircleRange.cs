@@ -10,10 +10,17 @@ public class UnitHit_CircleRange : UnitHit {
 	void Start () {
 		animator = GetComponent<Animator> ();
 		GetComponent<UnitColliderAttack> ().power = power;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+        Hashtable ht = new Hashtable();
+        ht.Add("x", 0.1f);
+        ht.Add("y", 0.1f);
+        ht.Add("time", 0.3f);
+
+        iTween.ShakePosition(Camera.main.gameObject, ht);
+    }
+
+    // Update is called once per frame
+    void Update () {
 		AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo (0);
 		if (state.normalizedTime >= 1.0f)
 		{

@@ -56,12 +56,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -206,8 +200,9 @@
     <Compile Include="Assets\Scripts\Unit\UnitAnimation.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitAttack.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitAttack_Melee.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitAttack_Point.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack_Meteor.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitAttack_Range.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack_Target.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitColliderAttack.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitColliderDamage.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitHit.cs" />
