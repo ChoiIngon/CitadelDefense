@@ -24,6 +24,7 @@ public class UserInputManager : MonoBehaviour {
                 }
                 touchEvents.Add(touchEvent, touchEvent);
 			}
+			lastMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		}
         foreach(var v in touchEvents)
         {
