@@ -20,8 +20,11 @@ public class UnitMove : MonoBehaviour {
 		transform.position = start;
 		this.start = start;
 		this.end = end;
-		_interpolate = 0.0f;
 		distance = Vector3.Distance (start, end);
+		_interpolate = 0.0f;
+		if (0.0f >= distance) {
+			_interpolate = 1.00001f;
+		}
 	}
 }
 

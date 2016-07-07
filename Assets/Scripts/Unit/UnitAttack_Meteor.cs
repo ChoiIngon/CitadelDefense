@@ -6,7 +6,6 @@ public class UnitAttack_Meteor : UnitAttack {
     public int missileCount;
 
     public Vector3 initPosition;
-    private Vector3 targetPosition;
     public TouchEvent unitTouchEvent;
     public TouchEvent touchEvent;
     void OnEnable()

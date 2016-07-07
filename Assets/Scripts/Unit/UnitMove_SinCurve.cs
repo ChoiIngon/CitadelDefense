@@ -9,12 +9,15 @@ public class UnitMove_SinCurve : UnitMove {
 		base.Init (start, end);
 		height = distance / 4;
 	}
+
 	void Update() {
 		if (1.0f < _interpolate) {
 			enabled = false;
 			return;
 		}
+
 		_interpolate += Time.deltaTime * speed / distance;
+
 		Vector3 curPos = Vector3.Lerp (start, end, interpolate);
 		if (null != shadow) {
 			shadow.transform.position = curPos;

@@ -25,5 +25,6 @@ public class HeroUnit : TowerUnit {
         specialAttack.gameObject.SetActive(true);
         Time.timeScale = 0.1f;
         touchEvent.gameObject.SetActive(false);
+		specialAttack.Attack ();
     }
 }

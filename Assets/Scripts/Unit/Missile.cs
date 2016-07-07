@@ -8,12 +8,8 @@ public class Missile : MonoBehaviour {
 	public float power;
 
 	protected UnitMove move;
-	private Vector3 start;
-	private Vector3 end;
 	// Use this for initialization
 	public void Init (Vector3 start, Vector3 end, float power) {
-		this.start = start;
-		this.end = end;
 		move = GetComponent<UnitMove> ();
 		move.Init (start, end);
 		this.power = power;

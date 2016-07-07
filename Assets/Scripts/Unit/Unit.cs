@@ -18,10 +18,6 @@ public class Unit : MonoBehaviour {
 		sprite = renderer.sprite;
 		//unitSprite.sortingLayerName = "Unit";
 		unitAnimation = GetComponent<UnitAnimation> ();
-		if (null != unitAnimation) {
-			unitAnimation.Init ();
-		}
-
 
 		{
 			Transform tr = transform.FindChild ("UnitAttack");
