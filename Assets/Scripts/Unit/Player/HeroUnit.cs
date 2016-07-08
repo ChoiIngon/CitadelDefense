@@ -14,7 +14,7 @@ public class HeroUnit : TowerUnit {
         }
 	}
 
-    public void OnTouchDown()
+	public void OnTouchDown(Vector3 position)
     {
         if (GameManager.GameState.Play != GameManager.Instance.state)
         {
@@ -22,8 +22,6 @@ public class HeroUnit : TowerUnit {
         }
         specialAttack.data.power = unitAttack.data.power * 1.5f;
         specialAttack.self = this;
-        specialAttack.gameObject.SetActive(true);
-        touchEvent.gameObject.SetActive(false);
 		specialAttack.Attack ();
     }
 }

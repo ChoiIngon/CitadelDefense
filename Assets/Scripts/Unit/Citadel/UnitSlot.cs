@@ -7,7 +7,7 @@ public class UnitSlot : MonoBehaviour {
 	public BasePlayerUnit unit;
 	// Use this for initialization
 	void Start () {
-        transform.FindChild("TouchEvent").GetComponent<TouchEvent>().onTouchDown += () =>
+		transform.FindChild("TouchEvent").GetComponent<TouchEvent>().onTouchDown += (Vector3 position) =>
         {
             if (GameManager.GameState.Lobby != GameManager.Instance.state)
 			{

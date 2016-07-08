@@ -14,6 +14,7 @@ public class CitadelUnit : Unit {
     public ProgressBar mpBar;
 	public ProgressBar expBar;
 	public ProgressBar timeBar; // show wave progress
+	public UnitSlot[] slots;
 
     void Start()
     {
@@ -31,6 +32,10 @@ public class CitadelUnit : Unit {
 		mp.value = mp.max;
 		mp.interval = 1.0f;
 		mp.recovery = 5;
+
+		if (slots.Length >= level) {
+			slots [level - 1].gameObject.SetActive (true);
+		}
 	}
 	// Update is called once per frame
 	void Update () {
@@ -45,5 +50,12 @@ public class CitadelUnit : Unit {
         {
 			GameManager.Instance.WaveEnd (GameManager.WaveResult.Lose);
         }
+	}
+
+	public void Upgrade()
+	{
+		level += 1;
+		Init ();
+
 	}
 }

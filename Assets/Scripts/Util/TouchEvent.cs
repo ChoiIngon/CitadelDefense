@@ -5,7 +5,7 @@ using System.Collections;
 public class TouchEvent : MonoBehaviour {
     public string eventName;
     public GameObject holder;
-    public delegate void OnTouchDownDelegate();
+	public delegate void OnTouchDownDelegate(Vector3 position);
     public delegate void OnTouchUpDelegate();
     public delegate void OnTouchDragDelegate(Vector3 delta);
     public OnTouchDownDelegate onTouchDown;

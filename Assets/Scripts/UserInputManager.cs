@@ -20,7 +20,7 @@ public class UserInputManager : MonoBehaviour {
                 TouchEvent touchEvent = hit.collider.gameObject.GetComponent<TouchEvent>();
                 if (null != touchEvent.onTouchDown)
                 {
-                    touchEvent.onTouchDown();
+					touchEvent.onTouchDown(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                 }
                 touchEvents.Add(touchEvent, touchEvent);
 			}
