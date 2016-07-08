@@ -22,6 +22,7 @@ public class UnitAttack_Meteor : UnitAttack {
 
     public override void Attack()
 	{
+        Time.timeScale = 0.1f;
     }
 
     IEnumerator Meteor()

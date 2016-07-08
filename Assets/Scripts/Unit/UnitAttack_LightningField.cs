@@ -18,7 +18,8 @@ public class UnitAttack_LightningField : UnitAttack {
 
 	public override void Attack()
 	{
-	}
+        Time.timeScale = 0.1f;
+    }
 
 	IEnumerator Lightning()
 	{

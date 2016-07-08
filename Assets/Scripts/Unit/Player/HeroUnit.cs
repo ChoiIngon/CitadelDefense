@@ -23,7 +23,6 @@ public class HeroUnit : TowerUnit {
         specialAttack.data.power = unitAttack.data.power * 1.5f;
         specialAttack.self = this;
         specialAttack.gameObject.SetActive(true);
-        Time.timeScale = 0.1f;
         touchEvent.gameObject.SetActive(false);
 		specialAttack.Attack ();
     }

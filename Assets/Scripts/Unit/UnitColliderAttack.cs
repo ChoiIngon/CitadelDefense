@@ -3,9 +3,9 @@ using System.Collections;
 
 [RequireComponent (typeof (Rigidbody2D))]
 public class UnitColliderAttack : MonoBehaviour {
-	public string targetUnitTag;
+    public string targetUnitTag;
 	public float power;
-	// Use this for initialization
+    // Use this for initialization
 	protected void Start () {
 		Rigidbody2D rigidbody = GetComponent<Rigidbody2D> ();
 		rigidbody.isKinematic = true;
@@ -22,4 +22,12 @@ public class UnitColliderAttack : MonoBehaviour {
 			}
 		}
 	}
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+    }
+
+    void OnTriggerStay2D(Collider2D col)
+    {
+    }
 }
