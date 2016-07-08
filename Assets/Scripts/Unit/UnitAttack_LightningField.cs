@@ -20,7 +20,8 @@ public class UnitAttack_LightningField : UnitAttack {
 
 		transform.position = initPosition;
 		touchEvent.gameObject.SetActive (true);
-		touchEvent.onTouchDown += OnTouchDown;
+		touchEvent.onTouchDrag += OnTouchDrag;
+		touchEvent.onTouchUp += OnTouchUp;
 		unitTouchEvent.gameObject.SetActive(false);
 		bonusLightningCount = lightningCount;
     }
@@ -39,12 +40,14 @@ public class UnitAttack_LightningField : UnitAttack {
 		unitTouchEvent.gameObject.SetActive (true);
 	}
 
-	public void OnTouchDown(Vector3 position)
+	public void OnTouchDrag(Vector3 delta)
 	{
-		transform.position = new Vector3 (position.x, transform.position.y, transform.position.z);
-		touchEvent.onTouchDrag += OnTouchDrag;
-		touchEvent.onTouchUp += OnTouchUp;
-		touchEvent.onTouchDown -= OnTouchDown;
+		const float leftMost = 6.0f;
+
+		if (leftMost > transform.position.x + delta.x) {
+			return;
+		}
+		transform.position = new Vector3(transform.position.x + delta.x, transform.position.y, transform.position.z);
 	}
 	public void OnTouchUp()
 	{
@@ -54,17 +57,6 @@ public class UnitAttack_LightningField : UnitAttack {
 		touchEvent.onTouchUp -= OnTouchUp;
 		touchEvent.onTouchDown += AddLightning;
 	}
-
-	public void OnTouchDrag(Vector3 delta)
-	{
-		const float leftMost = 6.0f;
-		const float rightMost = 9.0f;
-		if (leftMost > transform.position.x + delta.x || transform.position.x + delta.x > rightMost) {
-			return;
-		}
-		transform.position = new Vector3(transform.position.x + delta.x, transform.position.y, transform.position.z);
-	}
-
 	private void AddLightning(Vector3 position)
 	{
 		if (0 >= bonusLightningCount) {

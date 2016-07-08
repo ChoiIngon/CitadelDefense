@@ -52,8 +52,7 @@ public class UnitAttack_Meteor : UnitAttack {
 	public void OnTouchDrag(Vector3 delta)
 	{
 		const float leftMost = 6.0f;
-		const float rightMost = 9.0f;
-		if (leftMost > transform.position.x + delta.x || transform.position.x + delta.x > rightMost) {
+		if (leftMost > transform.position.x + delta.x) {
 			return;
 		}
 
