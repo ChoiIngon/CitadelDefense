@@ -11,6 +11,7 @@ public class PanelUnitShop : MonoBehaviour {
 	}
 
 	public UIShopUnitInfo prefab;
+	public Transform content;
 	public ShopType type;
 	// Use this for initialization
 	void Start () 
@@ -25,8 +26,7 @@ public class PanelUnitShop : MonoBehaviour {
 
     void Init()
     {
-		Transform content = transform.FindChild ("Viewport/Content");
-        while(0 < content.childCount)
+		while(0 < content.childCount)
         {
             Transform child = content.GetChild(0);
             child.SetParent(null);
@@ -37,6 +37,7 @@ public class PanelUnitShop : MonoBehaviour {
 			UIShopUnitInfo shopUnitInfo = (UIShopUnitInfo)GameObject.Instantiate<UIShopUnitInfo>(prefab);
 			shopUnitInfo.SetUnit(unit);
 			shopUnitInfo.transform.SetParent(content);
+			shopUnitInfo.transform.localScale = new Vector3 (1.0f, 1.0f, 1.0f);
         }
     }
 }

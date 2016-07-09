@@ -23,9 +23,4 @@ public class ProgressBar : MonoBehaviour {
 	void Start () {
         _progress = transform.FindChild("Progress");
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

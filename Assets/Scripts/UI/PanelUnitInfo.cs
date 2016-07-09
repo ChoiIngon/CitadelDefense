@@ -14,7 +14,6 @@ public class PanelUnitInfo : MonoBehaviour {
 	public Text textAttackSpeed;
 	public Text textCritical;
 
-	[HideInInspector]
 	public UIShopUnitInfo unitInfo;
 	public void OnEnable()
 	{
@@ -28,25 +27,15 @@ public class PanelUnitInfo : MonoBehaviour {
 			{
 				return;
 			}
-			if(null != GameManager.Instance.selectedSlot.unit)
-			{
-				BasePlayerUnit selectedUnit = GameManager.Instance.selectedSlot.unit;
-				selectedUnit.state.equiped = false;
-				selectedUnit.gameObject.SetActive(false);
-				GameManager.Instance.selectedSlot.unit = null;
-			}
 
 			BasePlayerUnit unit = GameManager.Instance.selectedUnit;
-			unit.state.index = GameManager.Instance.selectedSlot.slotIndex;
-			unit.state.equiped = true;
 			unit.state.purchased = true;
-			unit.transform.position = GameManager.Instance.selectedSlot.transform.position;
-			unit.gameObject.SetActive(true);
+			GameManager.Instance.selectedSlot.EquipUnit(unit);
 
 			GameManager.Instance.selectedSlot = null;
 			GameManager.Instance.selectedUnit = null;
 			GameManager.Instance.unitInfoPanel.gameObject.SetActive(false);
-			GameManager.Instance.unitShopPanel.gameObject.SetActive(false);
+			GameManager.Instance.panelUnitShop.gameObject.SetActive(false);
 		});
 
 		buttonEquip.onClick.AddListener (() => {
@@ -55,25 +44,13 @@ public class PanelUnitInfo : MonoBehaviour {
 				return;
 			}
 
-			if(null != GameManager.Instance.selectedSlot.unit)
-			{
-				BasePlayerUnit selectedUnit = GameManager.Instance.selectedSlot.unit;
-				selectedUnit.state.equiped = false;
-				selectedUnit.gameObject.SetActive(false);
-				GameManager.Instance.selectedSlot.unit = null;
-			}
-
 			BasePlayerUnit unit = GameManager.Instance.selectedUnit;
-			unit.state.index = GameManager.Instance.selectedSlot.slotIndex;
-			unit.transform.position = GameManager.Instance.selectedSlot.transform.position;
-			unit.gameObject.SetActive(true);
-
-			GameManager.Instance.selectedSlot.unit = unit;
+			GameManager.Instance.selectedSlot.EquipUnit(unit);
 
 			GameManager.Instance.selectedUnit = null;
 			GameManager.Instance.selectedSlot = null;
 			GameManager.Instance.unitInfoPanel.gameObject.SetActive(false);
-			GameManager.Instance.unitShopPanel.gameObject.SetActive(false);
+			GameManager.Instance.panelUnitShop.gameObject.SetActive(false);
 		});
 
         buttonLevelup.onClick.AddListener (() => {
@@ -108,6 +85,9 @@ public class PanelUnitInfo : MonoBehaviour {
 			TowerUnit tower = (TowerUnit)unit;
 			textAttackPower.text = tower.unitAttack.data.power.ToString();
             textAttackSpeed.text = tower.unitAttack.data.speed.ToString();
+
+			int needGold = tower.levelupInfo.baseNeedGold + (int)((tower.state.level - 1) * tower.levelupInfo.baseNeedGold * tower.levelupInfo.needGoldIncreaseRate);
+			buttonLevelup.transform.FindChild ("Text").GetComponent<Text> ().text = "Level Up(" + needGold.ToString () + ")";
 		}
 		/*
 		attackPowerImage.sprite = unit.normalAttackInfo.sprite;

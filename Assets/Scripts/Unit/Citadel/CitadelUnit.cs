@@ -10,11 +10,7 @@ public class CitadelUnit : Unit {
 		get { return level * level; }
 	}
 	public int sp;		// skill point
-    public ProgressBar hpBar;
-    public ProgressBar mpBar;
-	public ProgressBar expBar;
-	public ProgressBar timeBar; // show wave progress
-	public UnitSlot[] slots;
+    public UnitSlot[] slots;
 
     void Start()
     {
@@ -37,11 +33,6 @@ public class CitadelUnit : Unit {
 			slots [level - 1].gameObject.SetActive (true);
 		}
 	}
-	// Update is called once per frame
-	void Update () {
-        hpBar.progress = (float)hp.value / (float)hp.max;
-        mpBar.progress = (float)mp.value / (float)mp.max;
-	}
 
 	public override void Damage(int damage)
 	{
@@ -56,6 +47,5 @@ public class CitadelUnit : Unit {
 	{
 		level += 1;
 		Init ();
-
 	}
 }

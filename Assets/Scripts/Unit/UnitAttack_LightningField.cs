@@ -20,8 +20,7 @@ public class UnitAttack_LightningField : UnitAttack {
 
 		transform.position = initPosition;
 		touchEvent.gameObject.SetActive (true);
-		touchEvent.onTouchDrag += OnTouchDrag;
-		touchEvent.onTouchUp += OnTouchUp;
+		touchEvent.onTouchDown += OnTouchDown;
 		unitTouchEvent.gameObject.SetActive(false);
 		bonusLightningCount = lightningCount;
     }
@@ -40,6 +39,13 @@ public class UnitAttack_LightningField : UnitAttack {
 		unitTouchEvent.gameObject.SetActive (true);
 	}
 
+	public void OnTouchDown(Vector3 position)
+	{
+		transform.position = new Vector3 (position.x, transform.position.y, transform.position.z);
+		touchEvent.onTouchDrag += OnTouchDrag;
+		touchEvent.onTouchUp += OnTouchUp;
+		touchEvent.onTouchDown -= OnTouchDown;
+	}
 	public void OnTouchDrag(Vector3 delta)
 	{
 		const float leftMost = 6.0f;
