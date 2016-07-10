@@ -23,8 +23,6 @@ public class EnemyUnit : Unit {
 	ProgressBar healthBar;
     public Effect_Damage effectDamage;
 
-	public int defense;    
-
     public AnimationClip moveAnimationClip;
     public AnimationClip attackAnimationClip;
     public AnimationClip deadAnimationClip;
@@ -86,6 +84,11 @@ public class EnemyUnit : Unit {
 		if (hit.collider != null)
 		{
 			moveSpeed = 0.0f;
+			UnitColliderDamage colDamage = hit.collider.GetComponent<UnitColliderDamage> ();
+			if(null != colDamage)
+			{
+				unitAttack.target = colDamage.unit;
+			}
 			unitAnimation.animator.SetTrigger ("attack");
 			unitAnimation.animator.speed = unitAttack.info.speed;
 		}
@@ -96,7 +99,7 @@ public class EnemyUnit : Unit {
 		if (0 >= health) {
 			return;
 		}
-		damage = Mathf.Max (damage - defense, 1);
+
 		GameObject go = new GameObject ();
 		go.name = "Effect_Damage";
 		go.transform.position = transform.position;

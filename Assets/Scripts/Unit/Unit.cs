@@ -5,7 +5,7 @@ using System.Collections;
 public class Unit : MonoBehaviour {
 	public Sprite sprite;
 
-	protected UnitAnimation unitAnimation;
+	public UnitAnimation unitAnimation;
 	public UnitAttack unitAttack;
 	protected UnitColliderDamage unitCollderDamage;
 

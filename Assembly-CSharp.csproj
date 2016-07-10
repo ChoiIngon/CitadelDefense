@@ -173,6 +173,7 @@
      <Compile Include="Assets\Scripts\Unit\Player\BasePlayerUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Player\BuildingUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Player\HeroUnit.cs" />
+     <Compile Include="Assets\Scripts\Unit\Player\SummonedCreature.cs" />
      <Compile Include="Assets\Scripts\Unit\Player\TowerUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Unit.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAnimation.cs" />

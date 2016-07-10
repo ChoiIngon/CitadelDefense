@@ -32,8 +32,9 @@ public abstract class UnitAttack : MonoBehaviour {
 	public AttackData data;
 	public AttackData max;
 	public AttackData upgrade;
+
 	public abstract void Attack ();
-    public virtual void Upgrade(int level)
+	public virtual void Upgrade(int level)
     {
         if(1 > level)
         {

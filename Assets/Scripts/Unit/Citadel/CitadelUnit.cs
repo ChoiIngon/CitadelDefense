@@ -27,7 +27,7 @@ public class CitadelUnit : Unit {
 		mp.max = 500 + (level -1) * 10;
 		mp.value = mp.max;
 		mp.interval = 1.0f;
-		mp.recovery = 5;
+		mp.recovery = 1;
 
 		if (slots.Length >= level) {
 			slots [level - 1].gameObject.SetActive (true);

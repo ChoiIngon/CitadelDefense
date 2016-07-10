@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
-[RequireComponent(typeof(UnitColliderAttack))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class UnitAttack_Melee : UnitAttack {
-	private UnitColliderAttack unitColliderAttack;
+	public string targetTag;
 	public override void Attack()
 	{
         if (null != target)
@@ -19,13 +19,12 @@ public class UnitAttack_Melee : UnitAttack {
 
 		BoxCollider2D boxCollider = GetComponent<BoxCollider2D> ();
 		boxCollider.isTrigger = true;
-
-		unitColliderAttack = GetComponent<UnitColliderAttack> ();
 	}
 
+	/*
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (unitColliderAttack.targetUnitTag == col.gameObject.tag)
+        if (targetTag == col.gameObject.tag)
         {
             UnitColliderDamage colliderDamage = col.gameObject.GetComponent<UnitColliderDamage>();
             if (null != colliderDamage)
@@ -37,9 +36,12 @@ public class UnitAttack_Melee : UnitAttack {
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if (unitColliderAttack.targetUnitTag == col.gameObject.tag)
+        if (targetTag == col.gameObject.tag)
         {
-            target = null;
+			if (target == col.gameObject.GetComponent<Unit> () && null != target) {
+				target = null;
+			}
         }
     }
+    */
 }

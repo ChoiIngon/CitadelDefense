@@ -20,6 +20,12 @@ public class HeroUnit : TowerUnit {
         {
             return;
         }
+
+		if (specialAttack.data.mana > GameManager.Instance.citadel.mp) {
+			return;
+		}
+
+		GameManager.Instance.citadel.mp -= (int)specialAttack.data.mana;
         specialAttack.data.power = unitAttack.data.power * 1.5f;
         specialAttack.self = this;
 		specialAttack.Attack ();

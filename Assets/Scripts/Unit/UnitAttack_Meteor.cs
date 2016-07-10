@@ -22,6 +22,8 @@ public class UnitAttack_Meteor : UnitAttack {
 		touchEvent.onTouchDown += OnTouchDown;
 		unitTouchEvent.gameObject.SetActive(false);
 		bounsMissileCount = missileCount;
+
+		GameManager.Instance.citadel.mp -= (int)data.mana;
     }
 
     IEnumerator Meteor()

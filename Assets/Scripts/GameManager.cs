@@ -154,8 +154,8 @@ public class GameManager : MonoBehaviour {
 
 	void Update()
 	{
-		hp.progress = (float)citadel.hp.value / (float)citadel.hp.max;
-		mp.progress = (float)citadel.mp.value / (float)citadel.mp.max;
+		hp.progress = (float)citadel.hp / (float)citadel.hp.max;
+		mp.progress = (float)citadel.mp / (float)citadel.mp.max;
 		hp.transform.FindChild("Text").GetComponent<Text>().text = citadel.hp.value + "/" + citadel.hp.max;
 		mp.transform.FindChild("Text").GetComponent<Text>().text = citadel.mp.value + "/" + citadel.mp.max;
 		if (null != wave) {

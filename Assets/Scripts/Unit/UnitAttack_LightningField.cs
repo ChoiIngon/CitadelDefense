@@ -23,6 +23,8 @@ public class UnitAttack_LightningField : UnitAttack {
 		touchEvent.onTouchDown += OnTouchDown;
 		unitTouchEvent.gameObject.SetActive(false);
 		bonusLightningCount = lightningCount;
+
+		GameManager.Instance.citadel.mp -= (int)data.mana;
     }
 
 	IEnumerator Lightning()

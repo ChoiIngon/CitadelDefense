@@ -22,7 +22,7 @@ public class UnitColliderAttack : MonoBehaviour {
 			}
 		}
 	}
-
+	
     void OnTriggerExit2D(Collider2D col)
     {
     }
