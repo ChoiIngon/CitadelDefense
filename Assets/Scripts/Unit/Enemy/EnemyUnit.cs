@@ -10,6 +10,13 @@ public class EnemyUnit : Unit {
         public float gold;
         public float exp;
     }
+    public enum ActionState
+    {
+        Move,
+        Attack,
+        Dead
+    }
+    public ActionState actionState = ActionState.Move;
     public int firstWave;
 
 	public float health;
@@ -19,8 +26,7 @@ public class EnemyUnit : Unit {
     public float moveSpeed;
     public Vector3 direction;
 
-    [HideInInspector]
-	ProgressBar healthBar;
+	public ProgressBar healthBar;
     public Effect_Damage effectDamage;
 
     public AnimationClip moveAnimationClip;
@@ -60,39 +66,40 @@ public class EnemyUnit : Unit {
     }
 
 	void Update () {
-		if (0 < maxHealth) {
-			healthBar.progress = (float)health / (float)maxHealth;
-		}
-
-		AnimatorStateInfo state = unitAnimation.animator.GetCurrentAnimatorStateInfo(0);
-		if (state.IsName ("move")) {
+        healthBar.progress = (float)health / (float)maxHealth;
+        if (0 < health)
+        {
+            Debug.DrawRay(transform.position, Vector3.left * unitAttack.info.maxRange, Color.red);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, unitAttack.info.maxRange, 1 << LayerMask.NameToLayer("Citadel"));
+            if (null == hit.collider)
+            {
+                unitAnimation.animator.SetTrigger("move");
+                unitAnimation.animator.speed = 1.0f;
+                actionState = ActionState.Move;
+            }
+            else
+            {
+                UnitColliderDamage colDamage = hit.collider.GetComponent<UnitColliderDamage>();
+                if (null != colDamage)
+                {
+                    unitAttack.target = colDamage.unit;
+                }
+                unitAnimation.animator.SetTrigger("attack");
+                unitAnimation.animator.speed = unitAttack.info.speed;
+                actionState = ActionState.Attack;
+            }
+        }
+        AnimatorStateInfo state = unitAnimation.animator.GetCurrentAnimatorStateInfo(0);
+		if (ActionState.Move == actionState) {
 			transform.Translate (direction * moveSpeed * Time.deltaTime);
 			unitAnimation.animator.speed = 1.0f;
 		}
 			
-		if (state.IsName ("dead") && state.normalizedTime >= 1.0f)
+		if (ActionState.Dead == actionState && state.normalizedTime >= 1.0f)
 		{
 			DestroyImmediate (gameObject, true);
 		}
-	}
-
-	void FixedUpdate()
-	{
-		Debug.DrawRay(transform.position, Vector3.left * unitAttack.info.maxRange, Color.red);
-
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, unitAttack.info.maxRange, 1 << LayerMask.NameToLayer("Citadel"));
-		if (hit.collider != null)
-		{
-			moveSpeed = 0.0f;
-			UnitColliderDamage colDamage = hit.collider.GetComponent<UnitColliderDamage> ();
-			if(null != colDamage)
-			{
-				unitAttack.target = colDamage.unit;
-			}
-			unitAnimation.animator.SetTrigger ("attack");
-			unitAnimation.animator.speed = unitAttack.info.speed;
-		}
-	}
+    }
 
 	public override void Damage(int damage)
 	{
@@ -108,6 +115,7 @@ public class EnemyUnit : Unit {
         effect.Init(damage);
 		health = health - damage;
 		if (0 >= health) {
+            actionState = ActionState.Dead;
 			unitAnimation.animator.SetTrigger ("dead");
 			healthBar.gameObject.SetActive (false);
 			GameManager.Instance.gold += (int)rewardGold;
