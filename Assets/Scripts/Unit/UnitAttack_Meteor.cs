@@ -22,8 +22,6 @@ public class UnitAttack_Meteor : UnitAttack {
 		touchEvent.onTouchDown += OnTouchDown;
 		unitTouchEvent.gameObject.SetActive(false);
 		bounsMissileCount = missileCount;
-
-		GameManager.Instance.citadel.mp -= (int)data.mana;
     }
 
     IEnumerator Meteor()
@@ -53,11 +51,6 @@ public class UnitAttack_Meteor : UnitAttack {
 	}
 	public void OnTouchDrag(Vector3 delta)
 	{
-		const float leftMost = 6.0f;
-		if (leftMost > transform.position.x + delta.x) {
-			return;
-		}
-
 		transform.position = new Vector3(transform.position.x + delta.x, transform.position.y, transform.position.z);
 	}
     public void OnTouchUp()

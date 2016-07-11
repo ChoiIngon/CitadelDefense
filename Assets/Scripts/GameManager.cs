@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour {
     public GameState state;
     
 	public EnemyManager enemyManager;
+	public Transform creatures;
 
     public PanelLobby 		lobbyPanel;
 	public PanelUnitShop 	panelUnitShop;
@@ -145,6 +146,11 @@ public class GameManager : MonoBehaviour {
             }
         }
 
+		while (0 < creatures.childCount) {
+			Transform child = creatures.GetChild (0);
+			child.SetParent (null);
+			Destroy (child.gameObject);
+		}
 		waveProgress.transform.FindChild ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
 		waveProgress.progress = 1.0f;
 

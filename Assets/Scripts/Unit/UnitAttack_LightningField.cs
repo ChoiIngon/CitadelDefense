@@ -23,8 +23,6 @@ public class UnitAttack_LightningField : UnitAttack {
 		touchEvent.onTouchDown += OnTouchDown;
 		unitTouchEvent.gameObject.SetActive(false);
 		bonusLightningCount = lightningCount;
-
-		GameManager.Instance.citadel.mp -= (int)data.mana;
     }
 
 	IEnumerator Lightning()
@@ -50,11 +48,6 @@ public class UnitAttack_LightningField : UnitAttack {
 	}
 	public void OnTouchDrag(Vector3 delta)
 	{
-		const float leftMost = 6.0f;
-
-		if (leftMost > transform.position.x + delta.x) {
-			return;
-		}
 		transform.position = new Vector3(transform.position.x + delta.x, transform.position.y, transform.position.z);
 	}
 	public void OnTouchUp()

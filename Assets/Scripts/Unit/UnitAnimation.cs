@@ -52,5 +52,7 @@ public class UnitAnimation : MonoBehaviour {
 		{
 			onComplete (animator);
 		}
+
+		spriteRenderer.sortingOrder = (int)(transform.position.y * -1000);
 	}
 }

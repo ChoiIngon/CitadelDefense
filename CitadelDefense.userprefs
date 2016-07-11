@@ -1,17 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Unit/Player/TowerUnit.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Unit/UnitAttack_Summon.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameManager.cs" Line="59" Column="14" />
-      <File FileName="Assets/Scripts/UI/PanelUnitShop.cs" Line="40" Column="71" />
-      <File FileName="Assets/Scripts/UI/PanelUnitInfo.cs" Line="64" Column="27" />
-      <File FileName="Assets/Scripts/UI/ButtonAdvertisement.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/ButtonClose.cs" Line="5" Column="16" />
-      <File FileName="Assets/Scripts/Unit/Citadel/UnitSlot.cs" Line="12" Column="1" />
-      <File FileName="Assets/Scripts/UI/ProgressBar.cs" Line="9" Column="1" />
-      <File FileName="Assets/Scripts/UI/UIShopUnitInfo.cs" Line="22" Column="4" />
-      <File FileName="Assets/Scripts/Unit/Player/TowerUnit.cs" Line="5" Column="1" />
-      <File FileName="Assets/Scripts/Unit/Player/HeroUnit.cs" Line="4" Column="28" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="158" Column="34" />
+      <File FileName="Assets/Scripts/Unit/Citadel/CitadelUnit.cs" Line="30" Column="18" />
+      <File FileName="Assets/Scripts/Unit/Player/HeroUnit.cs" Line="28" Column="43" />
+      <File FileName="Assets/Scripts/Unit/UnitAttack_LightningField.cs" Line="26" Column="1" />
+      <File FileName="Assets/Scripts/Unit/UnitAttack_Meteor.cs" Line="25" Column="1" />
+      <File FileName="Assets/Scripts/Unit/UnitAttack_PoisonCloud.cs" Line="17" Column="1" />
+      <File FileName="Assets/Scripts/Unit/Player/SummonedCreature.cs" Line="46" Column="115" />
+      <File FileName="Assets/Scripts/Unit/Enemy/EnemyUnit.cs" Line="23" Column="24" />
+      <File FileName="Assets/Scripts/Unit/UnitAttack.cs" Line="37" Column="2" />
+      <File FileName="Assets/Scripts/Unit/UnitAttack_Summon.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -19,8 +19,11 @@
       <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Editor/AIEditor/AIEditorWindow.cs" line="291" column="1" />
       <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/Citadel/UnitHero.cs" line="43" column="1" />
       <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/Citadel/UnitHero.cs" line="31" column="1" />
-      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/GameManager.cs" line="162" column="1" />
-      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/Citadel/UnitSlot.cs" line="12" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/UnitAttack_Melee.cs" line="32" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/UnitAttack_Melee.cs" line="42" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/UnitAttack_Melee.cs" line="39" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/UnitAttack_Melee.cs" line="41" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/Player/SummonedCreature.cs" line="56" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

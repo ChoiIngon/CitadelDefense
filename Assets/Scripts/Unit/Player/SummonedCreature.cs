@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class SummonedCreature : Unit {
-	
 	public float moveSpeed;
 	public int maxHealth;
 	public int health;
@@ -43,7 +42,9 @@ public class SummonedCreature : Unit {
 			if (distance > unitAttack.data.maxRange) {
 				unitAnimation.animator.SetTrigger ("move");
 				unitAnimation.animator.speed = 1.0f;
-				transform.position = Vector3.Lerp (transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+				Vector3 targetPosition = target.transform.position;
+				targetPosition.x = Mathf.Min (targetPosition.x, 8.0f);
+				transform.position = Vector3.Lerp (transform.position, target.transform.position, moveSpeed/distance * Time.deltaTime);
 			} else {
 				unitAnimation.animator.SetTrigger ("attack");
 				unitAnimation.animator.speed = unitAttack.data.speed;
