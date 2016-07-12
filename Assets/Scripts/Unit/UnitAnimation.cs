@@ -47,12 +47,12 @@ public class UnitAnimation : MonoBehaviour {
 		
 	void Update()
 	{
-		AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo (0);
+        spriteRenderer.sortingOrder = (int)(transform.position.y * -1000);
+
+        AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo (0);
 		if (state.normalizedTime >= 1.0f && null != onComplete)
 		{
 			onComplete (animator);
 		}
-
-		spriteRenderer.sortingOrder = (int)(transform.position.y * -1000);
 	}
 }
