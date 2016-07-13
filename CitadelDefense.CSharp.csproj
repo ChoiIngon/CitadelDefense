@@ -203,6 +203,7 @@
     <Compile Include="Assets\Scripts\Unit\Unit.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitAnimation.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitAttack.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack_Lightning.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitAttack_LightningField.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitAttack_Melee.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitAttack_Meteor.cs" />
