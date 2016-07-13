@@ -82,6 +82,12 @@
      <Compile Include="Assets\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
      <Compile Include="Assets\Editor\Node_Editor\NodeEditorWindow.cs" />
      <Compile Include="Assets\Editor\Node_Editor\RTNE_InspectorGUI.cs" />
+     <Compile Include="Assets\UFTAtlasEditor\Editor\UFTAtlas.cs" />
+     <Compile Include="Assets\UFTAtlasEditor\Editor\UFTAtlasEditor.cs" />
+     <Compile Include="Assets\UFTAtlasEditor\Editor\UFTAtlasEditorEventManager.cs" />
+     <Compile Include="Assets\UFTAtlasEditor\Editor\UFTAtlasEntry.cs" />
+     <Compile Include="Assets\UFTAtlasEditor\Editor\UFTCreatePlane.cs" />
+     <Compile Include="Assets\UFTAtlasEditor\Editor\UFTSelectTextureFromAtlasEditor.cs" />
      <None Include="Assets\Devwinsoft\CharacterEngine\Texture\Package\armor\ancient-b\info.txt" />
      <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_view_video_play.xml" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_GrayScale.shader" />
