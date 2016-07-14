@@ -34,6 +34,7 @@ public class EnemyUnit : Unit {
     public AnimationClip deadAnimationClip;
 	public UnitAttack.AttackInfo attackInfo;
     public LevelupInfo levelupInfo;
+
 	public override void Init () {
 		base.Init ();
 		healthBar = transform.FindChild("HealthBar").GetComponent<ProgressBar>();

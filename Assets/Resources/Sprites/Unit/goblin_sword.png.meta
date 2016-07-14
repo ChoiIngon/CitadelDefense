@@ -1,0 +1,216 @@
+fileFormatVersion: 2
+guid: f3ecebb60432340c9ad39b83de115054
+timeCreated: 1468508465
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: goblin_sword@move_0
+    21300002: goblin_sword@move_1
+    21300004: goblin_sword@move_2
+    21300006: goblin_sword@move_3
+    21300008: goblin_sword@attack_0
+    21300010: goblin_sword@attack_1
+    21300012: goblin_sword@attack_2
+    21300014: goblin_sword@dead_0
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: goblin_sword@move_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 154
+        width: 52
+        height: 55
+      alignment: 9
+      pivot: {x: 0.5, y: 0.39347646}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 33.358795}
+        - {x: -26, y: 31.358795}
+        - {x: -26, y: -8.641205}
+        - {x: -14, y: -21.641205}
+        - {x: 26, y: -21.641205}
+        - {x: 26, y: 33.358795}
+    - name: goblin_sword@move_1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 157
+        width: 49
+        height: 53
+      alignment: 9
+      pivot: {x: 0.46413, y: 0.3894567}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.74237, y: 32.358795}
+        - {x: -22.74237, y: 25.358795}
+        - {x: -22.74237, y: -13.641205}
+        - {x: -17.74237, y: -20.641205}
+        - {x: 17.25763, y: -20.641205}
+        - {x: 26.25763, y: -11.641205}
+        - {x: 26.25763, y: 23.358795}
+        - {x: 9.257629, y: 32.358795}
+    - name: goblin_sword@move_2
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 156
+        width: 48
+        height: 54
+      alignment: 9
+      pivot: {x: 0.4633824, y: 0.4132032}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22.242355, y: 31.687027}
+        - {x: -22.242355, y: -22.312973}
+        - {x: 11.757645, y: -22.312973}
+        - {x: 25.757645, y: -6.312973}
+        - {x: 25.757645, y: 28.687027}
+        - {x: 19.757645, y: 31.687027}
+    - name: goblin_sword@move_3
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 160
+        width: 47
+        height: 51
+      alignment: 9
+      pivot: {x: 0.5000003, y: 0.38512167}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23.500015, y: 31.358795}
+        - {x: -23.500015, y: 10.358795}
+        - {x: -19.500015, y: -10.641205}
+        - {x: -14.500015, y: -19.641205}
+        - {x: 15.499985, y: -19.641205}
+        - {x: 20.499985, y: -15.641205}
+        - {x: 23.499985, y: -10.641205}
+        - {x: 23.499985, y: 31.358795}
+    - name: goblin_sword@attack_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 91
+        width: 65
+        height: 53
+      alignment: 9
+      pivot: {x: 0.34677008, y: 0.38945684}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25.459946, y: 32.358788}
+        - {x: -19.540054, y: 32.358788}
+        - {x: -22.540054, y: 22.358788}
+        - {x: -22.540054, y: -20.641212}
+        - {x: 18.459946, y: -20.641212}
+        - {x: 42.459946, y: -12.641212}
+        - {x: 42.459946, y: 11.358788}
+        - {x: 34.459946, y: 31.358788}
+    - name: goblin_sword@attack_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 90
+        width: 75
+        height: 64
+      alignment: 9
+      pivot: {x: 0.75778705, y: 0.3260671}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6.83403, y: 37.131706}
+        - {x: 1.1659698, y: 37.131706}
+        - {x: 3.1659698, y: 43.131706}
+        - {x: -32.83403, y: 43.131706}
+        - {x: -56.83403, y: 30.131706}
+        - {x: -56.83403, y: -16.868294}
+        - {x: -38.83403, y: -20.868294}
+        - {x: 18.16597, y: -20.868294}
+        - {x: 18.16597, y: 31.131706}
+        - {x: -1.8340302, y: 37.131706}
+    - name: goblin_sword@attack_2
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 91
+        width: 78
+        height: 55
+      alignment: 9
+      pivot: {x: 0.6952933, y: 0.3934763}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10.76712, y: 33.358803}
+        - {x: -25.23288, y: 33.358803}
+        - {x: -29.23288, y: 24.358803}
+        - {x: -52.23288, y: -5.641197}
+        - {x: -54.23288, y: -8.641197}
+        - {x: -54.23288, y: -21.641197}
+        - {x: 22.76712, y: -21.641197}
+        - {x: 22.76712, y: 2.3588028}
+        - {x: 19.76712, y: 25.358803}
+    - name: goblin_sword@dead_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 22
+        width: 56
+        height: 57
+      alignment: 9
+      pivot: {x: 0.55231065, y: 0.39721417}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.929398, y: 34.35879}
+        - {x: -30.929398, y: 20.358791}
+        - {x: -30.929398, y: -4.6412086}
+        - {x: -12.929398, y: -22.641209}
+        - {x: 15.070602, y: -22.641209}
+        - {x: 25.070602, y: -14.641209}
+        - {x: 25.070602, y: 7.3587914}
+        - {x: -1.9293976, y: 34.35879}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
