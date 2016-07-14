@@ -96,7 +96,7 @@ public class EnemyUnit : Unit {
 			unitAnimation.animator.speed = 1.0f;
 		}
 			
-		if (ActionState.Dead == actionState && state.normalizedTime >= 1.0f)
+		if (state.IsName("dead") && state.normalizedTime >= 1.0f)
 		{
 			DestroyImmediate (gameObject, true);
 		}
