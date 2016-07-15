@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using XXField;
+using XXData;
+using XXMessage;
+using XXError;
 
 public class ClientSession : Gamnet.StreamSession
 {
@@ -91,20 +94,19 @@ public class ClientSession : Gamnet.StreamSession
             SendMsg(ntfToSvr);
         });
 
-        RegisterHandler(MsgSvrCli_Field_RoomData_Ntf.MSG_ID, (Gamnet.Buffer buf) =>
+        RegisterHandler(XXMsgSvrCli_Map_RoomData_Ntf.MSG_ID, (Gamnet.Buffer buf) =>
         {
-            MsgSvrCli_Field_RoomData_Ntf ntf = new MsgSvrCli_Field_RoomData_Ntf();
+            XXMsgSvrCli_Map_RoomData_Ntf ntf = new XXMsgSvrCli_Map_RoomData_Ntf();
             if (false == ntf.Load(buf))
             {
                 throw new System.Exception("load fail");
             }
-            roomData = ntf.RoomData;
         });
 
-        RegisterHandler(MsgSvrCli_Field_StartGame_Ntf.MSG_ID, (Gamnet.Buffer buf) =>
+        RegisterHandler(XXMsgSvrCli_Map_StartGame_Ntf.MSG_ID, (Gamnet.Buffer buf) =>
         {
             Debug.Log("MsgSvrCli_Field_StartGame_Ntf()");
-            MsgSvrCli_Field_StartGame_Ntf ntf = new MsgSvrCli_Field_StartGame_Ntf();
+            XXMsgSvrCli_Map_StartGame_Ntf ntf = new XXMsgSvrCli_Map_StartGame_Ntf();
             if (false == ntf.Load(buf))
             {
                 throw new System.Exception("MsgSvrCli_Raid_StartGame_Ntf() load fail");
@@ -202,90 +204,105 @@ public class ClientSession : Gamnet.StreamSession
 
     public override void OnConnect()
     {
-        if (ClientType.Host == clientType)
-        {
-            StartCoroutine(Send_CreateField_Req(accountInfo.AccountID));
-        }
-        else
-        {
-            StartCoroutine(Send_JoinField_Req(accountInfo.AccountID, fieldSEQ));
-        }
+        StartCoroutine(Send_Login(accountInfo.AccountID));
     }
     public override void OnReconnect()
     {
-        
     }
     public override void OnClose()
     {
-        
     }
     public override void OnError(System.Exception e)
     {
     }
 
-    public IEnumerator Send_CreateField_Req(string sAccountID)
+    public void CreateField()
     {
-        MsgCliSvr_Field_CreateField_Req req = new MsgCliSvr_Field_CreateField_Req();
-        MsgSvrCli_Field_CreateField_Ans ans = null;
-        req.AccountID = sAccountID;
+        StartCoroutine(Send_CreateField_Req());
+    }
+    public IEnumerator Send_Login(string userID)
+    {
+        XXMsgCliSvr_User_Login_Req req = new XXMsgCliSvr_User_Login_Req();
+        XXMsgSvrCli_User_Login_Ans ans = null;
+        req.AccountID = userID;
+        req.AccountType = XX_ACCOUNT_TYPE.XX_ACCOUNT_GUEST;
+        req.AccessToken = "OLujVj5GzG2ipazmuVKAG1SDUR2CV3PEWGv8720zW1aJE7/yDFiNvrulIrT1/8O9RNW53KTChHT7ERvn0PuiRczvxPBboR0qBMDu7d7D4X4=";
+        req.LoginType = XX_LOGIN_TYPE.XX_LOGIN_ACCESS_TOKEN;
 
-        SendMsg<MsgSvrCli_Field_CreateField_Ans>(req, (Gamnet.Buffer buf) => {
-            ans = new MsgSvrCli_Field_CreateField_Ans();
+        SendMsg<XXMsgSvrCli_User_Login_Ans>(req, (Gamnet.Buffer buf) => {
+            ans = new XXMsgSvrCli_User_Login_Ans();
             if (false == ans.Load(buf))
             {
                 throw new System.Exception("MsgSvrCli_Field_CreateField_Ans() load fail");
             }
 
-            if (XX_ERROR_CODE.XX_ERROR_SUCCESS != ans.ErrorCode)
+            if (XX_ERROR_CODE.XX_ERROR_SUCCESS != ans.Error.Code)
             {
                 return;
             }
             accountInfo = ans.AccountInfo;
-            fieldInfo = ans.FieldInfo;
-            fieldData = ans.FieldData;
-            playerStatData = ans.PlayerStatData;
         }, 300);
         while (null == ans)
         {
             yield return null;
         }
         Debug.Log("MsgSvrCli_Field_CreateField_Ans");
-        MsgCliSvr_Field_ReadyGame_Ntf ntf = new MsgCliSvr_Field_ReadyGame_Ntf();
+    }
+    public IEnumerator Send_CreateField_Req()
+    {
+        XXMsgCliSvr_Map_CreateField_Req req = new XXMsgCliSvr_Map_CreateField_Req();
+        XXMsgSvrCli_Map_CreateField_Ans ans = null;
+
+        req.RoomGroupIDs.Add("ROOM_GROUP_1");
+        req.RoomGroupIDs.Add("ROOM_GROUP_2");
+        req.RoomGroupIDs.Add("ROOM_GROUP_5");
+        req.RoomGroupIDs.Add("ROOM_GROUP_6");
+
+        SendMsg<XXMsgSvrCli_Map_CreateField_Ans>(req, (Gamnet.Buffer buf) => {
+            ans = new XXMsgSvrCli_Map_CreateField_Ans();
+            if (false == ans.Load(buf))
+            {
+                throw new System.Exception("MsgSvrCli_Field_CreateField_Ans() load fail");
+            }
+
+            if (XX_ERROR_CODE.XX_ERROR_SUCCESS != ans.Error.Code)
+            {
+                return;
+            }
+        }, 300);
+        while (null == ans)
+        {
+            yield return null;
+        }
+        Debug.Log("MsgSvrCli_Field_CreateField_Ans");
+        XXMsgCliSvr_Map_ReadyGame_Ntf ntf = new XXMsgCliSvr_Map_ReadyGame_Ntf();
         SendMsg(ntf);
     }
-
-    public IEnumerator Send_JoinField_Req(string sAccountID, uint fieldSEQ)
+    public IEnumerator Send_JoinField_Req(uint fieldSEQ)
     {
-        MsgCliSvr_Field_JoinField_Req req = new MsgCliSvr_Field_JoinField_Req();
-        MsgSvrCli_Field_JoinField_Ans ans = null;
-        req.AccountID = sAccountID;
+        XXMsgCliSvr_Map_JoinField_Req req = new XXMsgCliSvr_Map_JoinField_Req();
+        XXMsgSvrCli_Map_JoinField_Ans ans = null;
         req.FieldSEQ = fieldSEQ;
 
-        SendMsg<MsgSvrCli_Field_JoinField_Ans>(req, (Gamnet.Buffer buf) =>
+        SendMsg<XXMsgSvrCli_Map_JoinField_Ans>(req, (Gamnet.Buffer buf) =>
         {
-            ans = new MsgSvrCli_Field_JoinField_Ans();
+            ans = new XXMsgSvrCli_Map_JoinField_Ans();
             if (false == ans.Load(buf))
             {
                 throw new System.Exception("MsgSvrCli_Raid_JoinRoom_Ans() load fail");
             }
 
-            if (XX_ERROR_CODE.XX_ERROR_SUCCESS != ans.ErrorCode)
+            if (XX_ERROR_CODE.XX_ERROR_SUCCESS != ans.Error.Code)
             {
                 return;
             }
-
-            accountInfo = ans.AccountInfo;
-            fieldInfo = ans.FieldInfo;
-            fieldData = ans.FieldData;
-            playerStatData = ans.PlayerStatData;
-
         }, 300);
         while (null == ans)
         {
             yield return null;
         }
         Debug.Log("MsgSvrCli_Field_JoinField_Ans");
-        MsgCliSvr_Field_ReadyGame_Ntf ntf = new MsgCliSvr_Field_ReadyGame_Ntf();
+        XXMsgCliSvr_Map_ReadyGame_Ntf ntf = new XXMsgCliSvr_Map_ReadyGame_Ntf();
         SendMsg(ntf);
     }
 }

@@ -226,7 +226,11 @@
     <Compile Include="Assets\Scripts\Util\AutoRecoveryInt.cs" />
     <Compile Include="Assets\Scripts\Util\TouchEvent.cs" />
     <Compile Include="Assets\Scripts\Wave.cs" />
+    <Compile Include="Assets\Scripts\XXData.cs" />
+    <Compile Include="Assets\Scripts\XXError.cs" />
     <Compile Include="Assets\Scripts\XXField.cs" />
+    <Compile Include="Assets\Scripts\XXItem.cs" />
+    <Compile Include="Assets\Scripts\XXMessage.cs" />
     <Compile Include="Assets\UFTAtlasEditor\Demo\Scripts\PlaneController.cs" />
     <Compile Include="Assets\UFTAtlasEditor\Demo\Scripts\PlaneCreateController.cs" />
     <Compile Include="Assets\UFTAtlasEditor\Resources\Scripts\Core\Atlas\UFTAtlasMetadata.cs" />

@@ -2,6 +2,7 @@
 using UnityEditor;
 using System.Collections;
 using XXField;
+using XXData;
 
 [CustomEditor(typeof(ClientSession))]
 public class ClientSessionEditor : Editor {
@@ -25,6 +26,11 @@ public class ClientSessionEditor : Editor {
                 if (GUILayout.Button("Disconnect"))
                 {
                     session.Close();
+                }
+
+                if (GUILayout.Button("Create Field"))
+                {
+                    session.CreateField();
                 }
             }
             
