@@ -200,6 +200,7 @@
     <Compile Include="Assets\Scripts\Unit\Player\HeroUnit.cs" />
     <Compile Include="Assets\Scripts\Unit\Player\SummonedCreature.cs" />
     <Compile Include="Assets\Scripts\Unit\Player\TowerUnit.cs" />
+    <Compile Include="Assets\Scripts\Unit\ProceduralLightning.cs" />
     <Compile Include="Assets\Scripts\Unit\Unit.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitAnimation.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitAttack.cs" />
