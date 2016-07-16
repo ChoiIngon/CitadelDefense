@@ -4,13 +4,14 @@ using System.Collections.Generic;
 
 public class EnemyManager : MonoBehaviour {
 	[System.Serializable]
-	public class EnemyFormation
+	public class SpawnInfo
 	{
 		public EnemyUnit enemy;
 		public int firstWave;
-		public Vector3[] positions;
+		public Rect rect;
+		public int count;
 	}
-	public EnemyFormation [] formations;
+	public SpawnInfo [] spwan;
 
 	public void Clear()
 	{

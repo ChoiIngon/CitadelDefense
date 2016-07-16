@@ -20,19 +20,19 @@ public abstract class UnitAttack : MonoBehaviour {
 	}
 
     [System.Serializable]
-    public class AttackInfo : AttackData
+    public class AttackInfo
     {
         public string name;
+		public Sprite icon;
         public string description;
-        public Sprite icon;
-        //public Effect effect;
     }
 
     public AttackInfo info;
-	public AttackData data;
+
+	public AttackData init;
 	public AttackData max;
 	public AttackData upgrade;
-
+	[ReadOnly] public AttackData data;
 	public abstract void Attack ();
 	public virtual void Upgrade(int level)
     {
@@ -40,8 +40,9 @@ public abstract class UnitAttack : MonoBehaviour {
         {
             throw new System.Exception("invalid level");
         }
-        data.power = info.power + (info.power * upgrade.power * (level - 1));
-        data.maxRange = info.maxRange + (info.maxRange * upgrade.maxRange * (level - 1));
-        data.speed = info.speed + (info.speed * upgrade.speed * (level - 1));
+		data.power = init.power + upgrade.power * (level-1);
+		data.maxRange = init.maxRange + upgrade.maxRange * (level-1);
+		data.speed = init.speed + upgrade.speed * (level-1);
+		data.cooltime = init.cooltime + upgrade.cooltime * (level - 1);
     }
 }

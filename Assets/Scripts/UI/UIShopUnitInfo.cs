@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class UIShopUnitInfo : MonoBehaviour {
 	[HideInInspector]
-	public BasePlayerUnit unit;
+	public HeroUnit unit;
 
 	public Image unitIcon;
 	public Image skillIcon;
@@ -24,27 +24,30 @@ public class UIShopUnitInfo : MonoBehaviour {
         });
 	}
 
-	public void SetUnit(BasePlayerUnit unit)
+	public void SetUnit(HeroUnit unit)
 	{
-		if (null == unit.state) {
-			return;
-		}
 		this.unit = unit;
 
-		unitIcon.sprite = unit.sprite;
-		// skillIcon.sprite = ;
-		unitName.text = unit.name;
-		if (true == unit.state.equiped) {
+		unitIcon.sprite = unit.info.icon;
+		unitName.text = unit.info.name;
+		unitDescription.text = unit.info.description;
+		if (null != unit.specialAttack) {
+			skillIcon.sprite = unit.specialAttack.info.icon;
+		} else {
+			skillIcon.gameObject.SetActive (false);
+		}
+
+		if (true == unit.equiped) {
 			unitEquip.gameObject.SetActive (true);
 		} else {
 			unitEquip.gameObject.SetActive (false);
 		}
-		unitLevel.text = "Lv." + unit.state.level.ToString ();
+		unitLevel.text = "Lv." + unit.level.ToString ();
 
-		if (true == unit.state.purchased) {
+		if (true == unit.purchased) {
 			unitPrice.gameObject.SetActive (false);
 		} else {
-			unitPrice.text = unit.price.ToString();
+			unitPrice.text = unit.info.purchasePrice.ToString();
 			unitPrice.gameObject.SetActive (true);
 		}
 	}

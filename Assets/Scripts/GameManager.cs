@@ -59,8 +59,9 @@ public class GameManager : MonoBehaviour {
 	[HideInInspector]
 	public UnitSlot selectedSlot;
 	[HideInInspector]
-	public BasePlayerUnit selectedUnit;
+	public HeroUnit selectedUnit;
 
+	public UIMessageBox messageBox;
 	void Start () {
 		gold = 100000;
 		state = GameState.Ready;
@@ -86,11 +87,7 @@ public class GameManager : MonoBehaviour {
         lobbyPanel.gameObject.SetActive(false);
 		state = GameState.Play;
 
-		citadel.hp.max = 100 + citadel.level * 100;
-		citadel.hp.value = citadel.hp.max;
-		citadel.mp.max = 500 + citadel.level * 10;
-		citadel.mp.value = citadel.mp.max;
-
+		citadel.Init ();
         foreach(HeroUnit hero in heros)
         {
             Transform touchEvent = hero.transform.FindChild("TouchEvent");

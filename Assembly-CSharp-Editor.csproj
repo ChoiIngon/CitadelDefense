@@ -82,6 +82,7 @@
      <Compile Include="Assets\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
      <Compile Include="Assets\Editor\Node_Editor\NodeEditorWindow.cs" />
      <Compile Include="Assets\Editor\Node_Editor\RTNE_InspectorGUI.cs" />
+     <Compile Include="Assets\Editor\ReadOnlyAttribute.cs" />
      <Compile Include="Assets\UFTAtlasEditor\Editor\UFTAtlas.cs" />
      <Compile Include="Assets\UFTAtlasEditor\Editor\UFTAtlasEditor.cs" />
      <Compile Include="Assets\UFTAtlasEditor\Editor\UFTAtlasEditorEventManager.cs" />

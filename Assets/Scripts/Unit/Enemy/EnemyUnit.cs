@@ -1,77 +1,50 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(UnitAnimation))]
 public class EnemyUnit : Unit {
-    [System.Serializable]
-    public class LevelupInfo : UnitAttack.AttackData
-    {
-        public float health;
-        public float gold;
-        public float exp;
-    }
+	[System.Serializable]
+	public class UpgradeInfo
+	{
+		public float health;
+		public float gold;
+	}
     public enum ActionState
     {
         Move,
         Attack,
         Dead
     }
-    public ActionState actionState = ActionState.Move;
-    public int firstWave;
 
+    public ActionState actionState = ActionState.Move;
+    
 	public float health;
 	public float maxHealth;
-    public float rewardGold;
-    public float rewardExp;
-    public float moveSpeed;
+    public float gold;
+    public float exp;
+    public float speed;
+	public UpgradeInfo upgrade;
     public Vector3 direction;
 
 	public ProgressBar healthBar;
     public Effect_Damage effectDamage;
 
-    public AnimationClip moveAnimationClip;
-    public AnimationClip attackAnimationClip;
-    public AnimationClip deadAnimationClip;
-	public UnitAttack.AttackInfo attackInfo;
-    public LevelupInfo levelupInfo;
+	public UnitAttack attack;
+	public UnitAnimation unitAnimation;
 
-	public override void Init () {
-		base.Init ();
-		healthBar = transform.FindChild("HealthBar").GetComponent<ProgressBar>();
-
-        if(null != moveAnimationClip)
-        {
-            unitAnimation.ChangeAnimationClip("move", moveAnimationClip);
-        }
-
-        if(null != attackAnimationClip)
-        {
-            unitAnimation.ChangeAnimationClip("attack", attackAnimationClip);
-        }
-
-        unitAnimation.animationEvents.Add("attack", unitAttack.Attack);
-
-        if(null != deadAnimationClip)
-        {
-            unitAnimation.ChangeAnimationClip("dead", deadAnimationClip);
-        }
-
-		unitAttack.info = attackInfo;
-        unitAttack.self = this;
-
-		maxHealth = maxHealth + (maxHealth * levelupInfo.health * (GameManager.Instance.waveLevel - 1));
+	void Start () {
+	    unitAnimation.animationEvents.Add("attack", attack.Attack);
+		maxHealth = maxHealth + upgrade.health * (GameManager.Instance.waveLevel - 1);
 		health = maxHealth;
-        unitAttack.data.power = unitAttack.info.power + (unitAttack.info.power * levelupInfo.power * (GameManager.Instance.waveLevel - 1));
-        unitAttack.data.maxRange = unitAttack.info.maxRange + (unitAttack.info.maxRange * levelupInfo.maxRange * (GameManager.Instance.waveLevel - 1));
-        unitAttack.data.speed = unitAttack.info.speed + (unitAttack.info.speed * levelupInfo.speed * (GameManager.Instance.waveLevel - 1));
+		gold = gold + upgrade.gold * (GameManager.Instance.waveLevel - 1);
+		attack.Upgrade (GameManager.Instance.waveLevel);
     }
 
 	void Update () {
         healthBar.progress = (float)health / (float)maxHealth;
         if (0 < health)
         {
-            Debug.DrawRay(transform.position, Vector3.left * unitAttack.info.maxRange, Color.red);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, unitAttack.info.maxRange, 1 << LayerMask.NameToLayer("Citadel"));
+            Debug.DrawRay(transform.position, Vector3.left * attack.data.maxRange, Color.red);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, attack.data.maxRange, 1 << LayerMask.NameToLayer("Citadel"));
             if (null == hit.collider)
             {
                 unitAnimation.animator.SetTrigger("move");
@@ -83,16 +56,16 @@ public class EnemyUnit : Unit {
                 UnitColliderDamage colDamage = hit.collider.GetComponent<UnitColliderDamage>();
                 if (null != colDamage)
                 {
-                    unitAttack.target = colDamage.unit;
+                    attack.target = colDamage.unit;
                 }
                 unitAnimation.animator.SetTrigger("attack");
-                unitAnimation.animator.speed = unitAttack.info.speed;
+                unitAnimation.animator.speed = attack.data.speed;
                 actionState = ActionState.Attack;
             }
         }
         AnimatorStateInfo state = unitAnimation.animator.GetCurrentAnimatorStateInfo(0);
 		if (ActionState.Move == actionState) {
-			transform.Translate (direction * moveSpeed * Time.deltaTime);
+			transform.Translate (direction * speed * Time.deltaTime);
 			unitAnimation.animator.speed = 1.0f;
 		}
 			
@@ -119,7 +92,7 @@ public class EnemyUnit : Unit {
             actionState = ActionState.Dead;
 			unitAnimation.animator.SetTrigger ("dead");
 			healthBar.gameObject.SetActive (false);
-			GameManager.Instance.gold += (int)rewardGold;
+			GameManager.Instance.gold += (int)gold;
 		}
 	}
 }

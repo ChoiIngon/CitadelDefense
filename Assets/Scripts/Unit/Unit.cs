@@ -1,22 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(SpriteRenderer))]
+//[RequireComponent(typeof(SpriteRenderer))]
 public class Unit : MonoBehaviour {
-	public Sprite sprite;
+	//public Sprite sprite;
 
-	public UnitAnimation unitAnimation;
-	public UnitAttack unitAttack;
+	//public UnitAnimation unitAnimation;
+	//public UnitAttack unitAttack;
 	protected UnitColliderDamage unitCollderDamage;
 
 	public virtual void Init()
 	{
+		/*
 		SpriteRenderer renderer = GetComponent<SpriteRenderer> ();
 		if (null == renderer) {
 			throw new System.Exception ("fail to load \'SpriteRenderer\'");
 		}
 		sprite = renderer.sprite;
 		//unitSprite.sortingLayerName = "Unit";
+		/*
 		unitAnimation = GetComponent<UnitAnimation> ();
 
 		{
@@ -28,7 +30,7 @@ public class Unit : MonoBehaviour {
 				}
 			}
 		}
-
+		*/
 		{
 			Transform tr = transform.FindChild ("UnitColliderDamage");
 			if (null != tr) {

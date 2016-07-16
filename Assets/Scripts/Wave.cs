@@ -7,24 +7,26 @@ public class Wave {
 
 	public IEnumerator WaveStart()
 	{
-		List<EnemyManager.EnemyFormation> formations = new List<EnemyManager.EnemyFormation> ();
-		foreach(EnemyManager.EnemyFormation formation in GameManager.Instance.enemyManager.formations)
+		List<EnemyManager.SpawnInfo> infos = new List<EnemyManager.SpawnInfo> ();
+		foreach(EnemyManager.SpawnInfo info in GameManager.Instance.enemyManager.spwan)
 		{
-			if (formation.firstWave > GameManager.Instance.waveLevel) {
+			if (info.firstWave > GameManager.Instance.waveLevel) {
 				continue;
 			}
-			formations.Add (formation);
+			infos.Add (info);
 		}
 		Vector3 spawnPosition = GameManager.Instance.enemyManager.transform.position;
+
 		remainTime = GameManager.WAVE_TIME;
 
 		while (0.0f < remainTime) {
 			yield return new WaitForSeconds(Random.Range (1.0f, 1.5f));
-			EnemyManager.EnemyFormation formation = formations [Random.Range (0, formations.Count)];
-			foreach (Vector3 position in formation.positions) {
-				EnemyUnit unitEnemy = (EnemyUnit)GameObject.Instantiate<EnemyUnit> (formation.enemy);
+			spawnPosition.y = Random.Range (2.5f, 3.5f);
+			EnemyManager.SpawnInfo info = infos [Random.Range (0, infos.Count)];
+			for(int i=0; i<info.count; i++) {
+				EnemyUnit unitEnemy = (EnemyUnit)GameObject.Instantiate<EnemyUnit> (info.enemy);
 				unitEnemy.Init();
-				unitEnemy.transform.position = spawnPosition + position;
+				unitEnemy.transform.position = new Vector3 (spawnPosition.x + Random.Range (-1.0f, 1.0f), spawnPosition.y + Random.Range (-1.0f, 1.0f), 0.0f);
 				unitEnemy.transform.SetParent (GameManager.Instance.enemyManager.transform);
 			}
 		}

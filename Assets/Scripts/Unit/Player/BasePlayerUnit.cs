@@ -11,8 +11,8 @@ public class BasePlayerUnit : Unit {
 		public int  level;
 	}
 
-	public int price;
-	public int maxLevel;
+
+	//public int maxLevel;
 	public UnitState state;
 
     public virtual void Levelup() { }

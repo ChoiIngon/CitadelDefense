@@ -2,16 +2,21 @@
 using System.Collections;
 
 public class SummonedCreature : Unit {
+	public int level;
 	public float moveSpeed;
-	public int maxHealth;
-	public int health;
+	public float maxHealth;
+	public float health;
 	public ProgressBar healthBar;
+	public UnitAnimation unitAnimation;
+	public UnitAttack attack;
 	// Use this for initialization
 	void Start () {
-		unitAttack.self = this;
-		unitAnimation.animationEvents.Add ("attack", unitAttack.Attack);
+		maxHealth = maxHealth + (maxHealth * 0.1f * (level - 1));
+		health = maxHealth;
+		attack.Upgrade (level);
+		unitAnimation.animationEvents.Add ("attack", attack.Attack);
 	}
-	
+
 	void Update () {
 		EnemyUnit target = null;
 
@@ -25,7 +30,7 @@ public class SummonedCreature : Unit {
 			float distance = Vector3.Distance (transform.position, enemy.transform.position);
 			if (0 < enemy.health && minDistance > distance) {
 				target = enemy;
-				unitAttack.target = target;
+				attack.target = target;
 				minDistance = distance;
 			}
 		}
@@ -39,7 +44,7 @@ public class SummonedCreature : Unit {
 
 			float distance = Vector3.Distance (transform.position, target.transform.position);
 
-			if (distance > unitAttack.data.maxRange) {
+			if (distance > attack.data.maxRange) {
 				unitAnimation.animator.SetTrigger ("move");
 				unitAnimation.animator.speed = 1.0f;
 				Vector3 targetPosition = target.transform.position;
@@ -47,7 +52,7 @@ public class SummonedCreature : Unit {
 				transform.position = Vector3.Lerp (transform.position, target.transform.position, moveSpeed/distance * Time.deltaTime);
 			} else {
 				unitAnimation.animator.SetTrigger ("attack");
-				unitAnimation.animator.speed = unitAttack.data.speed;
+				unitAnimation.animator.speed = attack.data.speed;
 			}
 		}
 		healthBar.progress = (float)health / (float)maxHealth;

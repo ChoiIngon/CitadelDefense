@@ -4,7 +4,7 @@ using System.Collections;
 public class UnitSlot : MonoBehaviour {
 	public int slotIndex;
 	[HideInInspector]
-	public BasePlayerUnit equippedUnit;
+	public HeroUnit equippedUnit;
 	// Use this for initialization
 	void Start () {
 		transform.FindChild("TouchEvent").GetComponent<TouchEvent>().onTouchDown += (Vector3 position) =>
@@ -14,28 +14,28 @@ public class UnitSlot : MonoBehaviour {
         };
 	}
 
-	public void EquipUnit(BasePlayerUnit unit)
+	public void EquipUnit(HeroUnit unit)
 	{
 		if (null != equippedUnit) {
-			equippedUnit.state.equiped = false;
+			equippedUnit.equiped = false;
 			equippedUnit.gameObject.SetActive (false);
 		}
 
-		if (true == unit.state.equiped) {
-			UnitSlot slot = GameManager.Instance.slots [unit.state.index];
+		if (true == unit.equiped) {
+			UnitSlot slot = GameManager.Instance.slots [unit.slotIndex];
 			slot.UnequipUnit ();
 		}
 
-		unit.state.index = slotIndex;
-		unit.state.equiped = true;
+		unit.slotIndex = slotIndex;
+		unit.equiped = true;
 		unit.transform.position = transform.position;
 		unit.gameObject.SetActive(true);
-
 		equippedUnit = unit;
 	}
 
 	public void UnequipUnit()
 	{
+		/*
 		if (null == equippedUnit) {
 			return;
 		}
@@ -43,5 +43,6 @@ public class UnitSlot : MonoBehaviour {
 		equippedUnit.state.equiped = false;
 		equippedUnit.gameObject.SetActive (false);
 		equippedUnit = null;
+		*/
 	}
 }
