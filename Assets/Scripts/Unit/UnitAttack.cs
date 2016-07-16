@@ -44,5 +44,6 @@ public abstract class UnitAttack : MonoBehaviour {
 		data.maxRange = init.maxRange + upgrade.maxRange * (level-1);
 		data.speed = init.speed + upgrade.speed * (level-1);
 		data.cooltime = init.cooltime + upgrade.cooltime * (level - 1);
+		data.mana = init.mana + upgrade.mana * (level - 1);
     }
 }
