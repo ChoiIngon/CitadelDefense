@@ -32,7 +32,11 @@ public abstract class UnitAttack : MonoBehaviour {
 	public AttackData init;
 	public AttackData max;
 	public AttackData upgrade;
+#if UNITY_EDITOR
 	[ReadOnly] public AttackData data;
+#else
+	public AttackData data;
+#endif
 	public abstract void Attack ();
 	public virtual void Upgrade(int level)
     {

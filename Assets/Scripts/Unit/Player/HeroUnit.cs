@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+#if UNITY_EDITOR
 using UnityEditor;
-
+#endif
 public class HeroUnit : Unit {
 	[System.Serializable]
 	public class Info
@@ -13,11 +14,17 @@ public class HeroUnit : Unit {
 		public int upgradePrice; // level * upgradePrice
 	}
 	public Info info;
+#if UNITY_EDITOR
 	[ReadOnly] public int	level;
 	[ReadOnly] public int	slotIndex; 
 	[ReadOnly] public bool	purchased;
 	[ReadOnly] public bool	equiped;
-
+#else
+	public int	level;
+	public int	slotIndex; 
+	public bool	purchased;
+	public bool	equiped;
+#endif
 	private float coolTime;
 	public ProgressBar coolTimeBar;
 	public UnitAnimation unitAnimation;
@@ -104,7 +111,7 @@ public class HeroUnit : Unit {
 	}
 }
 
-
+#if UNITY_EDITOR
 public class ReadOnlyAttribute : PropertyAttribute
 {
 
@@ -128,3 +135,4 @@ public class ReadOnlyDrawer : PropertyDrawer
 		GUI.enabled = true;
 	}
 }
+#endif
