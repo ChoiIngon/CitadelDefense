@@ -41,6 +41,8 @@ public class EnemyUnit : Unit {
 
 	void Update () {
         healthBar.progress = (float)health / (float)maxHealth;
+		unitAnimation.spriteRenderer.sortingOrder = (int)(transform.position.y * -1000);
+
         if (0 < health)
         {
             Debug.DrawRay(transform.position, Vector3.left * attack.data.maxRange, Color.red);
