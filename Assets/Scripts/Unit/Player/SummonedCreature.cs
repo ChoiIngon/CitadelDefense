@@ -18,6 +18,7 @@ public class SummonedCreature : Unit {
 	}
 
 	void Update () {
+		unitAnimation.spriteRenderer.sortingOrder = (int)(transform.position.y * -1000);
 		EnemyUnit target = null;
 
 		float minDistance = float.MaxValue;
