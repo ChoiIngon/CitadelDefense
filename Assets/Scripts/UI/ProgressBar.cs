@@ -15,6 +15,9 @@ public class ProgressBar : MonoBehaviour {
             {
                 scale = 1.0f;
             }
+			if (null == _progress) {
+				return;
+			}
             _progress.localScale = new Vector3(scale, _progress.localScale.y, _progress.localScale.z);
         }
     }
