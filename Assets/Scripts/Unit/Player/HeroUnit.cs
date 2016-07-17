@@ -15,7 +15,7 @@ public class HeroUnit : Unit {
 	}
 	public Info info;
 #if UNITY_EDITOR
-	[ReadOnly] public int	level;
+	[ReadOnly] public int	level = 1;
 	[ReadOnly] public int	slotIndex; 
 	[ReadOnly] public bool	purchased;
 	[ReadOnly] public bool	equiped;
@@ -107,7 +107,9 @@ public class HeroUnit : Unit {
 		level += 1;
 		GameManager.Instance.gold -= upgradeGold;
 		normalAttack.Upgrade (level);
-		specialAttack.Upgrade (level);
+		if (null != specialAttack) {
+			specialAttack.Upgrade (level);
+		}
 	}
 }
 

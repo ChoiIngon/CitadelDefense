@@ -59,7 +59,7 @@ public class UnitAttack_Meteor : UnitAttack {
         {
             return;
         }
-        Time.timeScale = 1.0f;
+		Time.timeScale = GameManager.Instance.timeScale;
         StartCoroutine(Meteor());
         touchEvent.onTouchDrag -= OnTouchDrag;
 		touchEvent.onTouchUp -= OnTouchUp;

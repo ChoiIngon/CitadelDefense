@@ -34,8 +34,10 @@ public class GameManager : MonoBehaviour {
 	public Transform creatures;
 
     public PanelLobby 		lobbyPanel;
+	public PanelPlay 		playPanel;
 	public PanelUnitShop 	panelUnitShop;
 	public PanelUnitInfo	unitInfoPanel;
+
 	public ProgressBar 		hp;
 	public ProgressBar 		mp;
 	public ProgressBar 		waveProgress;
@@ -56,6 +58,7 @@ public class GameManager : MonoBehaviour {
 	public TowerUnit[] towers;
 	public HeroUnit[] heros;
     public UnitSlot[] slots;
+	public float timeScale;
 	[HideInInspector]
 	public UnitSlot selectedSlot;
 	[HideInInspector]
@@ -67,7 +70,8 @@ public class GameManager : MonoBehaviour {
 		state = GameState.Ready;
 		selectedSlot = null;
 		selectedUnit = null;
-        
+		timeScale = 1.0f;
+		Time.timeScale = timeScale;
         Transform transHeros = transform.FindChild("Unit/Heros");
         heros = new HeroUnit[transHeros.childCount];
         for (int i = 0; i < transHeros.childCount; i++)
@@ -85,6 +89,7 @@ public class GameManager : MonoBehaviour {
     {
         Debug.Log("Wave Started");
         lobbyPanel.gameObject.SetActive(false);
+		playPanel.gameObject.SetActive (true);
 		state = GameState.Play;
 
 		citadel.Init ();
@@ -114,6 +119,7 @@ public class GameManager : MonoBehaviour {
 	public void WaveEnd(WaveResult result)
 	{
 		lobbyPanel.gameObject.SetActive (true);
+		playPanel.gameObject.SetActive (false);
 		state = GameState.Ready;
 		if (WaveResult.Win == result) {
 			waveLevel += 1;

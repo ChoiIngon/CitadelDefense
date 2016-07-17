@@ -35,14 +35,12 @@ public class UnitSlot : MonoBehaviour {
 
 	public void UnequipUnit()
 	{
-		/*
 		if (null == equippedUnit) {
 			return;
 		}
 
-		equippedUnit.state.equiped = false;
+		equippedUnit.equiped = false;
 		equippedUnit.gameObject.SetActive (false);
 		equippedUnit = null;
-		*/
 	}
 }

@@ -1,0 +1,206 @@
+fileFormatVersion: 2
+guid: 326c60b7a46804e30944fbbdfc824682
+timeCreated: 1468722403
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: icebolt_0
+    21300002: icebolt_1
+    21300004: icebolt_2
+    21300006: icebolt_3
+    21300008: icebolt_4
+    21300010: icebolt_5
+    21300012: icebolt_6
+    21300014: icebolt_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: icebolt_0
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 10
+        width: 128
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 20.5}
+        - {x: -10, y: 20.5}
+        - {x: -11, y: 17.5}
+        - {x: -11, y: 16.5}
+        - {x: -11, y: 20.5}
+        - {x: -30, y: 20.5}
+        - {x: -50, y: 16.5}
+        - {x: -64, y: 1.5}
+        - {x: -64, y: -3.5}
+        - {x: -44, y: -5.5}
+        - {x: -43, y: -5.5}
+        - {x: -42, y: -4.5}
+        - {x: -37, y: -8.5}
+        - {x: -39, y: -6.5}
+        - {x: -48, y: -5.5}
+        - {x: -51, y: -7.5}
+        - {x: -47, y: -16.5}
+        - {x: -30, y: -20.5}
+        - {x: 5, y: -20.5}
+        - {x: 55, y: -8.5}
+        - {x: 64, y: -3.5}
+        - {x: 64, y: 4.5}
+      - - {x: -61, y: -6.5}
+        - {x: -60, y: -9.5}
+        - {x: -56, y: -9.5}
+        - {x: -54, y: -7.5}
+        - {x: -55, y: -4.5}
+        - {x: -59, y: -4.5}
+    - name: icebolt_1
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 16
+        width: 125
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: icebolt_2
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 14
+        width: 128
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -53, y: 16.5}
+        - {x: -64, y: 9.5}
+        - {x: -64, y: -3.5}
+        - {x: -49, y: -16.5}
+        - {x: 41, y: -16.5}
+        - {x: 64, y: -7.5}
+        - {x: 64, y: 14.5}
+        - {x: 49, y: 16.5}
+    - name: icebolt_3
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 41
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: icebolt_4
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 8
+        width: 126
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -57, y: 17.5}
+        - {x: -63, y: 7.5}
+        - {x: -63, y: -5.5}
+        - {x: -50, y: -17.5}
+        - {x: 54, y: -17.5}
+        - {x: 63, y: -15.5}
+        - {x: 63, y: 14.5}
+        - {x: 37, y: 17.5}
+    - name: icebolt_5
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 12
+        width: 128
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30, y: 18.5}
+        - {x: -64, y: 7.5}
+        - {x: -64, y: -3.5}
+        - {x: -55, y: -12.5}
+        - {x: -36, y: -18.5}
+        - {x: 27, y: -18.5}
+        - {x: 64, y: -7.5}
+        - {x: 64, y: 6.5}
+        - {x: 17, y: 18.5}
+    - name: icebolt_6
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 20
+        width: 100
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: icebolt_7
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 32
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

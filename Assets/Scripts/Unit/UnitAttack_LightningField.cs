@@ -52,7 +52,7 @@ public class UnitAttack_LightningField : UnitAttack {
 	}
 	public void OnTouchUp()
 	{
-		Time.timeScale = 1.0f;
+		Time.timeScale = GameManager.Instance.timeScale;
 		StartCoroutine(Lightning());
 		touchEvent.onTouchDrag -= OnTouchDrag;
 		touchEvent.onTouchUp -= OnTouchUp;
