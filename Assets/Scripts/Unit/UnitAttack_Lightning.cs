@@ -17,7 +17,7 @@ public class UnitAttack_Lightning : UnitAttack {
 			lightning.transform.SetParent (transform);
 		}
 
-		target.Damage((int)data.power);
+		Damage (target);
 	}
 
 	public void Update()

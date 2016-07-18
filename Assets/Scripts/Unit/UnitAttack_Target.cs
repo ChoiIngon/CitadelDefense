@@ -11,6 +11,6 @@ public class UnitAttack_Target : UnitAttack {
 	
 		Effect go = GameObject.Instantiate<Effect> (effectPrefab);
 		go.transform.position = target.transform.position;
-		target.Damage ((int)data.power);
+		Damage (target);
 	}
 }

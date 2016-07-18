@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CitadelUnit : Unit {
-    public AutoRecoveryInt hp;
+	public AutoRecoveryInt hp;
 	public AutoRecoveryInt mp;
     public int level;
 	public int currentExp;

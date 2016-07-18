@@ -3,11 +3,9 @@ using System.Collections;
 
 public class SummonedCreature : Unit {
 	public int level;
-	public float moveSpeed;
 	public float maxHealth;
 	public float health;
 	public ProgressBar healthBar;
-	public UnitAnimation unitAnimation;
 	public UnitAttack attack;
 	// Use this for initialization
 	void Start () {
@@ -29,7 +27,7 @@ public class SummonedCreature : Unit {
 				continue;
 			}
 			float distance = Vector3.Distance (transform.position, enemy.transform.position);
-			if (0 < enemy.health && minDistance > distance) {
+			if (0 < enemy.hp && minDistance > distance) {
 				target = enemy;
 				attack.target = target;
 				minDistance = distance;
@@ -47,10 +45,10 @@ public class SummonedCreature : Unit {
 
 			if (distance > attack.data.maxRange) {
 				unitAnimation.animator.SetTrigger ("move");
-				unitAnimation.animator.speed = 1.0f;
+				unitAnimation.animator.speed = unitMove.speed;
 				Vector3 targetPosition = target.transform.position;
-				targetPosition.x = Mathf.Min (targetPosition.x, 7.0f);
-				transform.position = Vector3.Lerp (transform.position, target.transform.position, moveSpeed/distance * Time.deltaTime);
+				targetPosition.x = Mathf.Min (targetPosition.x, 8.5f);
+				unitMove.Init(transform.position, targetPosition);
 			} else {
 				unitAnimation.animator.SetTrigger ("attack");
 				unitAnimation.animator.speed = attack.data.speed;

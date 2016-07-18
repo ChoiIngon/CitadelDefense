@@ -1,46 +1,37 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 //[RequireComponent(typeof(SpriteRenderer))]
 public class Unit : MonoBehaviour {
-	//public Sprite sprite;
+	public UnitMove unitMove;
+	public UnitAnimation unitAnimation;
 
-	//public UnitAnimation unitAnimation;
-	//public UnitAttack unitAttack;
-	protected UnitColliderDamage unitCollderDamage;
-
-	public virtual void Init()
-	{
-		/*
-		SpriteRenderer renderer = GetComponent<SpriteRenderer> ();
-		if (null == renderer) {
-			throw new System.Exception ("fail to load \'SpriteRenderer\'");
-		}
-		sprite = renderer.sprite;
-		//unitSprite.sortingLayerName = "Unit";
-		/*
-		unitAnimation = GetComponent<UnitAnimation> ();
-
-		{
-			Transform tr = transform.FindChild ("UnitAttack");
-			if (null != tr) {
-				unitAttack = tr.GetComponent<UnitAttack> ();
-				if (null == unitAttack) {
-					throw new System.Exception ("fail to load \'UnitAttack\'");
-				}
-			}
-		}
-		*/
-		{
-			Transform tr = transform.FindChild ("UnitColliderDamage");
-			if (null != tr) {
-				unitCollderDamage = tr.GetComponent<UnitColliderDamage> ();
-				if (null == unitCollderDamage) {
-					throw new System.Exception ("fail to load \'UnitColliderDamage\'");
-				}
-				unitCollderDamage.unit = this;
-			}
-		}
-	}
+	public virtual void Init() {}
 	public virtual void Damage(int damage) {}
 }
+
+public class ReadOnlyAttribute : PropertyAttribute
+{
+}
+#if UNITY_EDITOR
+[CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
+public class ReadOnlyDrawer : PropertyDrawer
+{
+	public override float GetPropertyHeight(SerializedProperty property,
+		GUIContent label)
+	{
+		return EditorGUI.GetPropertyHeight(property, label, true);
+	}
+
+	public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+	{
+		GUI.enabled = false;
+		EditorGUI.PropertyField(position, property, label, true);
+		GUI.enabled = true;
+	}
+}
+#endif

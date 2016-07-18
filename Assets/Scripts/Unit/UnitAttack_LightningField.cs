@@ -72,8 +72,8 @@ public class UnitAttack_LightningField : UnitAttack {
 		Vector3 position = new Vector3(Random.Range(transform.position.x - 2.0f, transform.position.x + 2.0f), Random.Range(transform.position.y + 1.5f, transform.position.y - 1.5f), 0.0f);
 		GameObject obj = GameObject.Instantiate<GameObject>(lightning);
 		obj.transform.position = position;
-		UnitColliderAttack attack = obj.GetComponent<UnitColliderAttack> ();
-		attack.power = data.power;
+		UnitColliderAttack col = obj.GetComponent<UnitColliderAttack> ();
+		col.attack = this;
 		UnitAnimation anim = obj.GetComponent<UnitAnimation> ();
 		anim.onComplete += (Animator animator) => {
 			DestroyImmediate (animator.gameObject);

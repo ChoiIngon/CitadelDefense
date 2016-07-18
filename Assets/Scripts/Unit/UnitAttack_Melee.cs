@@ -4,12 +4,12 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
 public class UnitAttack_Melee : UnitAttack {
-	public string targetTag;
+	//public string targetTag;
 	public override void Attack()
 	{
         if (null != target)
         {
-            target.Damage((int)data.power);
+            Damage(target);
         }
 	}
 

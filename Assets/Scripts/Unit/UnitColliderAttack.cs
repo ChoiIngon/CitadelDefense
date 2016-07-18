@@ -3,8 +3,7 @@ using System.Collections;
 
 [RequireComponent (typeof (Rigidbody2D))]
 public class UnitColliderAttack : MonoBehaviour {
-    public string targetUnitTag;
-	public float power;
+	public UnitAttack attack;
     // Use this for initialization
 	protected void Start () {
 		Rigidbody2D rigidbody = GetComponent<Rigidbody2D> ();
@@ -15,19 +14,11 @@ public class UnitColliderAttack : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		if (targetUnitTag == col.gameObject.tag) {
+		if (attack.targetTag == col.gameObject.tag) {
 			UnitColliderDamage colliderDamage = col.gameObject.GetComponent<UnitColliderDamage> ();
 			if (null != colliderDamage) {
-				colliderDamage.unit.Damage ((int)power);
+				attack.Damage (colliderDamage.unit);
 			}
 		}
 	}
-	
-    void OnTriggerExit2D(Collider2D col)
-    {
-    }
-
-    void OnTriggerStay2D(Collider2D col)
-    {
-    }
 }

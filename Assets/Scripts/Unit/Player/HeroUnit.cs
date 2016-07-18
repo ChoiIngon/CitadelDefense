@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 public class HeroUnit : Unit {
 	[System.Serializable]
 	public class Info
@@ -14,21 +11,15 @@ public class HeroUnit : Unit {
 		public int upgradePrice; // level * upgradePrice
 	}
 	public Info info;
-#if UNITY_EDITOR
+
 	[ReadOnly] public int	level = 1;
 	[ReadOnly] public int	slotIndex; 
 	[ReadOnly] public bool	purchased;
 	[ReadOnly] public bool	equiped;
-#else
-	public int	level;
-	public int	slotIndex; 
-	public bool	purchased;
-	public bool	equiped;
-#endif
+
 	private float coolTime;
 	public ProgressBar coolTimeBar;
-	public UnitAnimation unitAnimation;
-	public UnitAttack normalAttack;
+	public UnitAttack passiveAttack;
     public UnitAttack specialAttack;
 	public TouchEvent touchEvent;
 
@@ -58,11 +49,11 @@ public class HeroUnit : Unit {
 			};
 			touchEvent.gameObject.SetActive (false);
         }
-		normalAttack.Upgrade (level);
+		passiveAttack.Upgrade (level);
 		if (null != specialAttack) {
 			specialAttack.Upgrade (level);
 		}
-		unitAnimation.animationEvents.Add ("attack", normalAttack.Attack);
+		unitAnimation.animationEvents.Add ("attack", passiveAttack.Attack);
 	}
 
 	void Update () {
@@ -76,7 +67,7 @@ public class HeroUnit : Unit {
 				continue;
 			}
 			float distance = Mathf.Abs(transform.position.x - enemy.transform.position.x);
-			if (distance > normalAttack.data.minRange && distance < normalAttack.data.maxRange && 0 < enemy.health && minDistance > distance) {
+			if (distance > passiveAttack.data.minRange && distance < passiveAttack.data.maxRange && 0 < enemy.hp && minDistance > distance) {
 				target = enemy;
 				minDistance = distance;
 			}
@@ -84,8 +75,8 @@ public class HeroUnit : Unit {
 
 		if (null != target) {
 			unitAnimation.animator.SetTrigger ("attack");
-			normalAttack.target = target;
-			unitAnimation.animator.speed = normalAttack.data.speed;
+			passiveAttack.target = target;
+			unitAnimation.animator.speed = passiveAttack.data.speed;
 		} else {
 			unitAnimation.animator.SetTrigger ("idle");
 			unitAnimation.animator.speed = 1.0f;
@@ -106,35 +97,10 @@ public class HeroUnit : Unit {
 
 		level += 1;
 		GameManager.Instance.gold -= upgradeGold;
-		normalAttack.Upgrade (level);
+		passiveAttack.Upgrade (level);
 		if (null != specialAttack) {
 			specialAttack.Upgrade (level);
 		}
 	}
 }
-
-#if UNITY_EDITOR
-public class ReadOnlyAttribute : PropertyAttribute
-{
-
-}
-
-[CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
-public class ReadOnlyDrawer : PropertyDrawer
-{
-	public override float GetPropertyHeight(SerializedProperty property,
-		GUIContent label)
-	{
-		return EditorGUI.GetPropertyHeight(property, label, true);
-	}
-
-	public override void OnGUI(Rect position,
-		SerializedProperty property,
-		GUIContent label)
-	{
-		GUI.enabled = false;
-		EditorGUI.PropertyField(position, property, label, true);
-		GUI.enabled = true;
-	}
-}
-#endif
+	

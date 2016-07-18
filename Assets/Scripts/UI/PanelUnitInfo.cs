@@ -87,8 +87,8 @@ public class PanelUnitInfo : MonoBehaviour {
 		textAttackPower.gameObject.SetActive (true);
 		textAttackSpeed.gameObject.SetActive(true);
 		textCritical.gameObject.SetActive (true);	
-		textAttackPower.text = unit.normalAttack.data.power.ToString();
-		textAttackSpeed.text = unit.normalAttack.data.speed.ToString();
+		textAttackPower.text = unit.passiveAttack.data.power.ToString();
+		textAttackSpeed.text = unit.passiveAttack.data.speed.ToString();
 
 		int upgradeGold = unit.info.upgradePrice * unit.level;
 		buttonLevelup.transform.FindChild ("Text").GetComponent<Text> ().text = "Level Up(" + upgradeGold.ToString () + ")";

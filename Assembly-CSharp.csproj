@@ -151,7 +151,15 @@
      <Compile Include="Assets\Node_Editor\Utilities\RTEditorGUI.cs" />
      <Compile Include="Assets\Node_Editor\Utilities\ResourceManager.cs" />
      <Compile Include="Assets\Scripts\AI\AIAction.cs" />
-     <Compile Include="Assets\Scripts\Buff\Buff_Freeze.cs" />
+     <Compile Include="Assets\Scripts\Buff\Buff.cs" />
+     <Compile Include="Assets\Scripts\Buff\Buff_AttackPowerDown.cs" />
+     <Compile Include="Assets\Scripts\Buff\Buff_AttackPowerUp.cs" />
+     <Compile Include="Assets\Scripts\Buff\Buff_AttackSpeedDown.cs" />
+     <Compile Include="Assets\Scripts\Buff\Buff_AttackSpeedUp.cs" />
+     <Compile Include="Assets\Scripts\Buff\Buff_MoveSpeed.cs" />
+     <Compile Include="Assets\Scripts\Buff\Buff_MoveSpeedUp.cs" />
+     <Compile Include="Assets\Scripts\Buff\Buff_Poison.cs" />
+     <Compile Include="Assets\Scripts\Buff\Buff_Stun.cs" />
      <Compile Include="Assets\Scripts\Effect\Effect.cs" />
      <Compile Include="Assets\Scripts\Effect\Effect_Damage.cs" />
      <Compile Include="Assets\Scripts\EnemyManager.cs" />
@@ -171,14 +179,10 @@
      <Compile Include="Assets\Scripts\UI\UIPopupDialog.cs" />
      <Compile Include="Assets\Scripts\UI\UIShopUnitInfo.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\CitadelUnit.cs" />
-     <Compile Include="Assets\Scripts\Unit\Citadel\UnitSlot.cs" />
      <Compile Include="Assets\Scripts\Unit\Enemy\EnemyUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Missile.cs" />
-     <Compile Include="Assets\Scripts\Unit\Player\BasePlayerUnit.cs" />
-     <Compile Include="Assets\Scripts\Unit\Player\BuildingUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Player\HeroUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Player\SummonedCreature.cs" />
-     <Compile Include="Assets\Scripts\Unit\Player\TowerUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\ProceduralLightning.cs" />
      <Compile Include="Assets\Scripts\Unit\Unit.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAnimation.cs" />
@@ -194,7 +198,6 @@
      <Compile Include="Assets\Scripts\Unit\UnitAttack_Target.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitColliderAttack.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitColliderDamage.cs" />
-     <Compile Include="Assets\Scripts\Unit\UnitColliderDot.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitHit.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitHit_CircleRange.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitHit_Target.cs" />
@@ -202,6 +205,7 @@
      <Compile Include="Assets\Scripts\Unit\UnitMove_Position.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitMove_SinCurve.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitMove_Stright.cs" />
+     <Compile Include="Assets\Scripts\Unit\UnitSlot.cs" />
      <Compile Include="Assets\Scripts\UserInputManager.cs" />
      <Compile Include="Assets\Scripts\Util\AutoRecoveryInt.cs" />
      <Compile Include="Assets\Scripts\Util\TouchEvent.cs" />

@@ -54,8 +54,6 @@ public class GameManager : MonoBehaviour {
 	public Text textGold;
 	public const int WAVE_TIME = 40;
 	public CitadelUnit citadel;
-    public BuildingUnit[] buildings;
-	public TowerUnit[] towers;
 	public HeroUnit[] heros;
     public UnitSlot[] slots;
 	public float timeScale;

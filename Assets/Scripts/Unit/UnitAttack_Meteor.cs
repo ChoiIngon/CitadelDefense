@@ -35,6 +35,7 @@ public class UnitAttack_Meteor : UnitAttack {
             Vector3 endPosition = new Vector3(Random.Range(curPosition.x - 2.0f, curPosition.x + 2.0f), Random.Range(curPosition.y + 2.0f, curPosition.y - 2.0f), 0.0f);
             Vector3 startPosition = new Vector3(endPosition.x - 4.0f, endPosition.y + 7.0f, endPosition.z);
             Missile missile = Object.Instantiate<Missile>(missilePrefab);
+			missile.attack = this;
             missile.Init(startPosition, endPosition, data.power);
         }
 		touchEvent.onTouchDown -= AddMeteor;
@@ -75,6 +76,7 @@ public class UnitAttack_Meteor : UnitAttack {
 		Vector3 endPosition = new Vector3(Random.Range(curPosition.x - 2.0f, curPosition.x + 2.0f), Random.Range(curPosition.y + 2.0f, curPosition.y - 2.0f), 0.0f);
 		Vector3 startPosition = new Vector3(endPosition.x - 4.0f, endPosition.y + 7.0f, endPosition.z);
 		Missile missile = Object.Instantiate<Missile>(missilePrefab);
+		missile.attack = this;
 		missile.Init(startPosition, endPosition, data.power);
 	}
 }

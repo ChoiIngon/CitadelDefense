@@ -19,7 +19,7 @@ public class UnitAttack_IceStorm : UnitAttack {
 		while (deltaTime < time) {
 			for (int i = 0; i < GameManager.Instance.enemyManager.transform.childCount; i++) {
 				EnemyUnit enemy = GameManager.Instance.enemyManager.transform.GetChild (i).GetComponent<EnemyUnit> ();
-				enemy.Damage ((int)data.power);
+				Damage (enemy);
 			}
 			yield return new WaitForSeconds (0.5f);
 		}
@@ -27,21 +27,7 @@ public class UnitAttack_IceStorm : UnitAttack {
 	void Update()
 	{
 		deltaTime += Time.deltaTime;
-		for(int i=0; i< GameManager.Instance.enemyManager.transform.childCount; i++)
-		{
-			EnemyUnit enemy = GameManager.Instance.enemyManager.transform.GetChild (i).GetComponent<EnemyUnit> ();
-			enemy.direction.x = 0.0f;
-			enemy.unitAnimation.animator.speed = 0.0f;
-			enemy.unitAnimation.spriteRenderer.color = Color.blue; 
-		}
 		if (deltaTime >= time) {
-			for(int i=0; i< GameManager.Instance.enemyManager.transform.childCount; i++)
-			{
-				EnemyUnit enemy = GameManager.Instance.enemyManager.transform.GetChild (i).GetComponent<EnemyUnit> ();
-				enemy.direction.x = -1.0f;
-				enemy.unitAnimation.animator.speed = 1.0f;
-				enemy.unitAnimation.spriteRenderer.color = Color.white; 
-			}
 			gameObject.SetActive (false);
 		}
 	}

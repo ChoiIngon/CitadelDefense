@@ -17,7 +17,9 @@ public class UnitMove_SinCurve : UnitMove {
 		}
 
 		_interpolate += Time.deltaTime * speed / distance;
-
+		if (null != buff) {
+			_interpolate = buff (_interpolate);
+		}
 		Vector3 curPos = Vector3.Lerp (start, end, interpolate);
 		if (null != shadow) {
 			shadow.transform.position = curPos;

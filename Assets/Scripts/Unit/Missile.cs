@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Missile : MonoBehaviour {
+	public UnitAttack attack;
 	public UnitHit hitPrefab;
 
 	[HideInInspector]
@@ -25,6 +26,7 @@ public class Missile : MonoBehaviour {
 		if (1.0f <= move.interpolate)
 		{
             UnitHit hit = GameObject.Instantiate<UnitHit>(hitPrefab);
+			hit.attack = attack;
 			hit.Init (move.end, power);
 			DestroyObject (gameObject);
 		}

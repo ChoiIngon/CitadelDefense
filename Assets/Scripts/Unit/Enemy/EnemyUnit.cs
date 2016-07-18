@@ -17,11 +17,9 @@ public class EnemyUnit : Unit {
 
     public ActionState actionState = ActionState.Move;
     
-	public float health;
-	public float maxHealth;
+	public AutoRecoveryInt hp;
     public float gold;
-    public float exp;
-    public float speed;
+    public float exp;    
 	public UpgradeInfo upgrade;
     public Vector3 direction;
 
@@ -29,21 +27,22 @@ public class EnemyUnit : Unit {
     public Effect_Damage effectDamage;
 
 	public UnitAttack attack;
-	public UnitAnimation unitAnimation;
 
 	void Start () {
+		hp.max = (int)(hp.max + upgrade.health * (GameManager.Instance.waveLevel - 1));
+		hp.value = hp.max;
 	    unitAnimation.animationEvents.Add("attack", attack.Attack);
-		maxHealth = maxHealth + upgrade.health * (GameManager.Instance.waveLevel - 1);
-		health = maxHealth;
 		gold = gold + upgrade.gold * (GameManager.Instance.waveLevel - 1);
 		attack.Upgrade (GameManager.Instance.waveLevel);
     }
 
 	void Update () {
-        healthBar.progress = (float)health / (float)maxHealth;
+		if (0 < hp.max) {
+			healthBar.progress = (float)hp.GetValue () / (float)hp.max;
+		}
 		unitAnimation.spriteRenderer.sortingOrder = (int)(transform.position.y * -1000);
 
-        if (0 < health)
+        if (0 < hp)
         {
             Debug.DrawRay(transform.position, Vector3.left * attack.data.maxRange, Color.red);
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, attack.data.maxRange, 1 << LayerMask.NameToLayer("Citadel"));
@@ -67,8 +66,16 @@ public class EnemyUnit : Unit {
         }
         AnimatorStateInfo state = unitAnimation.animator.GetCurrentAnimatorStateInfo(0);
 		if (ActionState.Move == actionState) {
-			transform.Translate (direction * speed * Time.deltaTime);
-			unitAnimation.animator.speed = 1.0f;
+			unitMove.enabled = true;
+			unitMove.Init (transform.position, transform.position + Vector3.left);
+			//transform.Translate (direction * unitMove.speed * Time.deltaTime);
+			if (null != unitMove.buff) {
+				unitAnimation.animator.speed = unitMove.buff(unitMove.speed);
+			} else {
+				unitAnimation.animator.speed = unitMove.speed;
+			}
+		} else {
+			unitMove.enabled = false;
 		}
 			
 		if (state.IsName("dead") && state.normalizedTime >= 1.0f)
@@ -79,7 +86,7 @@ public class EnemyUnit : Unit {
 
 	public override void Damage(int damage)
 	{
-		if (0 >= health) {
+		if (0 >= hp) {
 			return;
 		}
 
@@ -89,10 +96,11 @@ public class EnemyUnit : Unit {
         Effect_Damage effect = (Effect_Damage)GameObject.Instantiate<Effect_Damage>(effectDamage);
 		effect.transform.SetParent (go.transform);
         effect.Init(damage);
-		health = health - damage;
-		if (0 >= health) {
+		hp -= damage;
+		if (0 >= hp) {
             actionState = ActionState.Dead;
 			unitAnimation.animator.SetTrigger ("dead");
+			unitAnimation.animator.speed = 1.0f;
 			healthBar.gameObject.SetActive (false);
 			GameManager.Instance.gold += (int)gold;
 		}

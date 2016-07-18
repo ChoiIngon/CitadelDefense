@@ -10,7 +10,7 @@ public class UnitHit_CircleRange : UnitHit {
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator> ();
-		GetComponent<UnitColliderAttack> ().power = power;
+		GetComponent<UnitColliderAttack> ().attack = attack;
 
         if (true == shakeCamera)
         {
