@@ -11,7 +11,6 @@ public class Buff_Poison : Buff {
 	public override void Start () {
         base.Start();
 		deltaTime = 0.0f;
-		target = GetComponentInParent<Unit> ();
 		if (null == target) {
 			return;
 		}
