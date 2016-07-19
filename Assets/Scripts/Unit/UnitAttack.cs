@@ -45,6 +45,7 @@ public abstract class UnitAttack : MonoBehaviour {
 		unit.Damage ((int)data.power);
 		if (null != buffPrefab) {
 			Buff buff = GameObject.Instantiate<Buff> (buffPrefab);
+            buff.unit = unit;
 			buff.transform.SetParent (unit.transform);
 		}
 	}

@@ -9,8 +9,9 @@ using UnityEditor;
 public class Unit : MonoBehaviour {
 	public UnitMove unitMove;
 	public UnitAnimation unitAnimation;
+    public Dictionary<string, Buff> buffs = new Dictionary<string, Buff>();
 
-	public virtual void Init() {}
+    public virtual void Init() {}
 	public virtual void Damage(int damage) {}
 }
 

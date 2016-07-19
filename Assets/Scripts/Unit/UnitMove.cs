@@ -3,9 +3,9 @@ using System.Collections;
 
 public class UnitMove : MonoBehaviour {
 	public float speed;
-	[HideInInspector]
+	//[HideInInspector]
 	public Vector3 start = Vector3.zero;
-	[HideInInspector]
+	//[HideInInspector]
 	public Vector3 end = Vector3.zero;
     public float interpolate
     {

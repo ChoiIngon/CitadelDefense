@@ -8,17 +8,7 @@ public class PanelLobby : MonoBehaviour {
 	public Button buttonUpgradeCitadel;
 	// Use this for initialization
 	void Start () {
-        waveStart.onClick.AddListener(() =>
-        {
-            GameManager.Instance.WaveStart();
-        });
-		buttonUpgradeCitadel.onClick.AddListener (() => {
-			GameManager.Instance.citadel.Upgrade();
-		});
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+        waveStart.onClick.AddListener(GameManager.Instance.WaveStart);
+		buttonUpgradeCitadel.onClick.AddListener (GameManager.Instance.citadel.Upgrade);
 	}
 }

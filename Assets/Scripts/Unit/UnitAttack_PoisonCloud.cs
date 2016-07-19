@@ -3,7 +3,7 @@ using System.Collections;
 
 public class UnitAttack_PoisonCloud : UnitAttack {
     public GameObject poisonCloudPrefab;
-	public Buff_Poison poisonBuffPrefab;
+	
 	public Vector3 initPosition;
 	private float deltaTime;
 	public override void Attack()
@@ -27,7 +27,8 @@ public class UnitAttack_PoisonCloud : UnitAttack {
 		if (targetTag == col.gameObject.tag) {
 			UnitColliderDamage colliderDamage = col.gameObject.GetComponent<UnitColliderDamage> ();
 			if (null != colliderDamage) {
-				Buff_Poison buff = GameObject.Instantiate<Buff_Poison>(poisonBuffPrefab);
+				Buff_Poison buff = (Buff_Poison)GameObject.Instantiate<Buff>(buffPrefab);
+                buff.unit = colliderDamage.unit;
 				buff.time = data.time;
 				buff.damage = data.power;
 				buff.interval = 1.0f / data.speed;

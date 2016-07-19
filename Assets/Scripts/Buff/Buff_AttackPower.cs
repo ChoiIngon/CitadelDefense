@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Buff_AttackPowerDown : MonoBehaviour {
+public class Buff_AttackPower : Buff {
 
 	// Use this for initialization
-	void Start () {
-	
+	public override void Start () {
+        base.Start();
 	}
 	
 	// Update is called once per frame

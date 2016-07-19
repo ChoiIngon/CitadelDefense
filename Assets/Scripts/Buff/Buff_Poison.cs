@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Buff_Poison : MonoBehaviour {
+public class Buff_Poison : Buff {
 	public float damage;
 	public float interval;
 	public float time;
 	private Unit target;
 	private float deltaTime;
 	// Use this for initialization
-	void Start () {
+	public override void Start () {
+        base.Start();
 		deltaTime = 0.0f;
 		target = GetComponentInParent<Unit> ();
 		if (null == target) {
