@@ -5,6 +5,10 @@ using XXData;
 using XXMessage;
 using XXError;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class ClientSession : Gamnet.StreamSession
 {
     public string host;
@@ -138,41 +142,6 @@ public class ClientSession : Gamnet.StreamSession
 
     bool stopSend = false;
     float stopTime = 0.0f;
-    void Update()
-    {
-        base.Update();
-        if (XX_FIELD_STATE_TYPE.XX_FIELD_STATE_PLAY == fieldData.State)
-        {
-            /*
-            elapsedTime += Time.deltaTime;
-            if (0 == Random.Range(0, 300))
-            {
-                stopSend = true;
-                return;
-            }
-
-            stopTime += Time.deltaTime;
-            if (false == stopSend)
-            {
-                if (msgSendInterval > stopTime)
-                {
-                    return;
-                }
-                MsgCliSvr_Field_MoveButtonDown_Ntf ntf = new MsgCliSvr_Field_MoveButtonDown_Ntf();
-                SendMsg(ntf);
-                stopTime = 0.0f;
-            }
-            else
-            {
-                if (1.0f < stopTime)
-                {
-                    stopSend = false;
-                    stopTime = 0.0f;
-                }
-            }
-            */
-        }
-    }
         
     void OnGUI()
     {
@@ -306,3 +275,62 @@ public class ClientSession : Gamnet.StreamSession
         SendMsg(ntf);
     }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(ClientSession))]
+public class ClientSessionEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+
+        ClientSession session = (ClientSession)target;
+
+        if (EditorApplication.isPlaying)
+        {
+            if (ClientSession.State.Connected != session.state)
+            {
+                if (GUILayout.Button("Connect"))
+                {
+                    session.Connect(session.host, session.port);
+                }
+            }
+            else
+            {
+                if (GUILayout.Button("Disconnect"))
+                {
+                    session.Close();
+                }
+
+                if (GUILayout.Button("Create Field"))
+                {
+                    session.CreateField();
+                }
+            }
+
+            if (XX_FIELD_STATE_TYPE.XX_FIELD_STATE_PLAY == session.fieldData.State)
+            {
+                GUILayout.BeginHorizontal();
+                if (GUILayout.Button("Move Left"))
+                {
+
+                }
+
+                if (GUILayout.Button("Idle"))
+                {
+
+                }
+
+                if (GUILayout.Button("Move Right"))
+                {
+
+                }
+                GUILayout.EndHorizontal();
+                if (GUILayout.Button("Jump"))
+                {
+                }
+            }
+        }
+    }
+}
+#endif

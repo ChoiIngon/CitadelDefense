@@ -13,6 +13,7 @@ public class SummonedCreature : Unit {
 		health = maxHealth;
 		attack.Upgrade (level);
 		unitAnimation.animationEvents.Add ("attack", attack.Attack);
+        unitMove.Init(transform.position, transform.position);
 	}
 
 	void Update () {
@@ -47,7 +48,7 @@ public class SummonedCreature : Unit {
 				unitAnimation.animator.SetTrigger ("move");
 				unitAnimation.animator.speed = unitMove.speed;
 				Vector3 targetPosition = target.transform.position;
-				targetPosition.x = Mathf.Min (targetPosition.x, 8.5f);
+				targetPosition.x = Mathf.Min (targetPosition.x, 9f);
 				unitMove.Init(transform.position, targetPosition);
 			} else {
 				unitAnimation.animator.SetTrigger ("attack");

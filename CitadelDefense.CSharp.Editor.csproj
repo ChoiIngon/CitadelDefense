@@ -126,7 +126,6 @@
     <Compile Include="Assets\Editor\AIEditor\Nodes\Node.cs" />
     <Compile Include="Assets\Editor\AIEditor\Nodes\Selector.cs" />
     <Compile Include="Assets\Editor\AIEditor\Nodes\Sequence.cs" />
-    <Compile Include="Assets\Editor\ClientSessionEditor.cs" />
     <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
     <Compile Include="Assets\Editor\ImageEffects\AntialiasingEditor.cs" />
     <Compile Include="Assets\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
