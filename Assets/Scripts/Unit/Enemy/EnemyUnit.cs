@@ -28,7 +28,8 @@ public class EnemyUnit : Unit {
 
 	public UnitAttack attack;
 
-	void Start () {
+	public override void Start () {
+		base.Start ();
 		hp.max = (int)(hp.max + upgrade.health * (GameManager.Instance.waveLevel - 1));
 		hp.value = hp.max;
 	    unitAnimation.animationEvents.Add("attack", attack.Attack);

@@ -25,7 +25,6 @@ public class Wave {
 			EnemyManager.SpawnInfo info = infos [Random.Range (0, infos.Count)];
 			for(int i=0; i<info.count; i++) {
 				EnemyUnit unitEnemy = (EnemyUnit)GameObject.Instantiate<EnemyUnit> (info.enemy);
-				unitEnemy.Init();
 				unitEnemy.transform.position = new Vector3 (spawnPosition.x + Random.Range (-1.0f, 1.0f), spawnPosition.y + Random.Range (-1.0f, 1.0f), 0.0f);
 				unitEnemy.transform.SetParent (GameManager.Instance.enemyManager.transform);
 			}

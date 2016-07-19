@@ -12,13 +12,8 @@ public class CitadelUnit : Unit {
 	public int sp;		// skill point
     public UnitSlot[] slots;
 
-    void Start()
-    {
-        Init();
-    }
-    public override void Init()
+    public void Init()
 	{
-        base.Init();
 		hp.max = 1000 + (level - 1) * 50;
 		hp.value = hp.max;
 		hp.interval = 1.0f;

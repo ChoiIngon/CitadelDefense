@@ -23,7 +23,8 @@ public class HeroUnit : Unit {
     public UnitAttack specialAttack;
 	public TouchEvent touchEvent;
 
-	void Start() {
+	public virtual void Start() {
+		base.Start ();
 		level = 1;
         if (null != touchEvent)
         {
@@ -55,7 +56,8 @@ public class HeroUnit : Unit {
 		}
 		unitAnimation.animationEvents.Add ("attack", passiveAttack.Attack);
 	}
-
+	public void Init() {
+	}
 	void Update () {
 		EnemyUnit target = null;
 		float minDistance = float.MaxValue;

@@ -7,12 +7,47 @@ using UnityEditor;
 
 //[RequireComponent(typeof(SpriteRenderer))]
 public class Unit : MonoBehaviour {
+	public enum UnitSize
+	{
+		Small,
+		Middle,
+		Large
+	}
+	public UnitSize size;
 	public UnitMove unitMove;
 	public UnitAnimation unitAnimation;
     public Dictionary<string, Buff> buffs = new Dictionary<string, Buff>();
 
-    public virtual void Init() {}
+	public virtual void Start() {
+		float scale = 1.0f;
+		switch (size) {
+		case UnitSize.Small:
+			scale = 0.3f;
+			break;
+		case UnitSize.Middle:
+			scale = 0.5f;
+			break;
+		case UnitSize.Large:
+			scale = 1.0f;
+			break;
+		}
+		//Scale (transform, scale);
+
+		transform.localScale *= scale;
+	}
+    
 	public virtual void Damage(int damage) {}
+
+	/*
+	private void Scale(Transform transform, float scale)
+	{
+		transform.localScale = transform.localScale * scale;
+		foreach (Transform child in transform)
+		{
+			Scale (child, scale);
+		}        
+	}
+	*/
 }
 
 public class ReadOnlyAttribute : PropertyAttribute
