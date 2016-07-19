@@ -48,7 +48,7 @@ public class SummonedCreature : Unit {
 				unitAnimation.animator.SetTrigger ("move");
 				unitAnimation.animator.speed = unitMove.speed;
 				Vector3 targetPosition = target.transform.position;
-				targetPosition.x = Mathf.Min (targetPosition.x, 9f);
+				targetPosition.x = Mathf.Min (targetPosition.x, 9.5f);
 				unitMove.Init(transform.position, targetPosition);
 			} else {
 				unitAnimation.animator.SetTrigger ("attack");

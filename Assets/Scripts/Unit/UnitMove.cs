@@ -23,6 +23,7 @@ public class UnitMove : MonoBehaviour {
 		this.end = end;
 		distance = Vector3.Distance (start, end);
 		_interpolate = 0.0f;
+        enabled = true;
 		if (0.0f >= distance) {
 			_interpolate = 1.00001f;
 		}
