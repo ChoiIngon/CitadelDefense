@@ -39,7 +39,6 @@ public class ProceduralLightning : MonoBehaviour {
 	}
 	private LineRenderer _lineRenderer;
 
-	[SerializeField]
 	public string sortingLayerName {
 		get {
 			return lineRenderer.sortingLayerName;
@@ -48,7 +47,6 @@ public class ProceduralLightning : MonoBehaviour {
 			lineRenderer.sortingLayerName = value;
 		}
 	}
-	[SerializeField]
 	public int sortingOrder {
 		get {
 			return lineRenderer.sortingOrder;
@@ -57,7 +55,6 @@ public class ProceduralLightning : MonoBehaviour {
 			lineRenderer.sortingOrder = value;
 		}
 	}
-	[SerializeField]
 	public int sortingLayerID {
 		get {
 			return lineRenderer.sortingLayerID;
