@@ -5,34 +5,33 @@ public class Buff_Poison : Buff {
 	public float damage;
 	public float interval;
 	public float time;
-	private Unit target;
 	private float deltaTime;
 	// Use this for initialization
 	public override void Start () {
         base.Start();
 		deltaTime = 0.0f;
-		if (null == target) {
+		if (null == unit) {
 			return;
 		}
-		if (null == target.unitAnimation) {
+		if (null == unit.unitAnimation) {
 			return;
 		}
 		StartCoroutine (Damage ());
-		target.unitAnimation.spriteRenderer.color = Color.green;
+        unit.unitAnimation.spriteRenderer.color = Color.green;
 	}
 
 	IEnumerator Damage()
 	{
 		while (deltaTime < time) {
-			target.Damage ((int)damage);
+            unit.Damage ((int)damage);
 			yield return new WaitForSeconds (interval);
 		}
-		target.unitAnimation.spriteRenderer.color = Color.white;
-		target = null;
+        unit.unitAnimation.spriteRenderer.color = Color.white;
+        unit = null;
 	}
 	// Update is called once per frame
 	void Update () {
-		if (null == target) {
+		if (null == unit) {
 			Destroy (gameObject);
 		}
 		deltaTime += Time.deltaTime;
