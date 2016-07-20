@@ -108,7 +108,7 @@ public class PanelUnitInfo : MonoBehaviour {
 			buttonBuy.gameObject.SetActive (true);
 		}
 
-		if (true == unit.purchased && unit.slotIndex != GameManager.Instance.selectedSlot.slotIndex) {
+		if (true == unit.purchased && (unit.slotIndex != GameManager.Instance.selectedSlot.slotIndex || false == unit.equiped)) {
 			buttonEquip.gameObject.SetActive (true);
 		}
     }

@@ -18,13 +18,10 @@ public class UnitSlot : MonoBehaviour {
 
 	public void EquipUnit(HeroUnit unit)
 	{
-		if (null != equippedUnit) {
-			equippedUnit.equiped = false;
-			equippedUnit.gameObject.SetActive (false);
-		}
+        UnequipUnit();
 
 		if (true == unit.equiped) {
-			UnitSlot slot = GameManager.Instance.slots [unit.slotIndex];
+			UnitSlot slot = GameManager.Instance.citadel.slots [unit.slotIndex];
 			slot.UnequipUnit ();
 		}
 

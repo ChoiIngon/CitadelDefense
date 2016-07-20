@@ -54,8 +54,8 @@ public class GameManager : MonoBehaviour {
 	public Text textGold;
 	public const int WAVE_TIME = 40;
 	public CitadelUnit citadel;
-	public HeroUnit[] heros;
-    public UnitSlot[] slots;
+	[HideInInspector] public HeroUnit[] heros;
+    
 	public float timeScale;
 	[HideInInspector]
 	public UnitSlot selectedSlot;
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        foreach(UnitSlot slot in slots)
+        foreach(UnitSlot slot in citadel.slots)
         {
             Transform touchEvent = slot.transform.FindChild("TouchEvent");
             if (null != touchEvent)
@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        foreach (UnitSlot slot in slots)
+        foreach (UnitSlot slot in citadel.slots)
         {
             Transform touchEvent = slot.transform.FindChild("TouchEvent");
             if (null != touchEvent)

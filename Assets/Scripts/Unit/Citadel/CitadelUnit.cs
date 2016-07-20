@@ -4,13 +4,9 @@ using System.Collections;
 public class CitadelUnit : Unit {
 	public AutoRecoveryInt hp;
 	public AutoRecoveryInt mp;
+
     public int level;
-	public int currentExp;
-	public int nextExp {
-		get { return level * level; }
-	}
-	public int sp;		// skill point
-    public UnitSlot[] slots;
+	public UnitSlot[] slots;
 
     public void Init()
 	{
