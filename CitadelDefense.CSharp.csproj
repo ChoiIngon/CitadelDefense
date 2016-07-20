@@ -138,6 +138,12 @@
     <Compile Include="Assets\2DxFX\Scripts\_2dxFX_WaterAndBackgroundDeluxe.cs" />
     <Compile Include="Assets\2DxFX\Scripts\_2dxFX_Wave.cs" />
     <Compile Include="Assets\2DxFX\Scripts\_2dxFX_WoodFX.cs" />
+    <Compile Include="Assets\Custom 2D Colliders\Scripts\ArcCollider2D.cs" />
+    <Compile Include="Assets\Custom 2D Colliders\Scripts\BezierCurveCollider2D.cs" />
+    <Compile Include="Assets\Custom 2D Colliders\Scripts\CapsuleCollider2D.cs" />
+    <Compile Include="Assets\Custom 2D Colliders\Scripts\EllipseCollider2D.cs" />
+    <Compile Include="Assets\Custom 2D Colliders\Scripts\RoundedBoxCollider2D.cs" />
+    <Compile Include="Assets\Custom 2D Colliders\Scripts\StarCollider2D.cs" />
     <Compile Include="Assets\Devwinsoft\CharacterEngine\Example\Script\Base\BaseSamplesMgr.cs" />
     <Compile Include="Assets\Devwinsoft\CharacterEngine\Example\Script\Base\BaseViewerMgr.cs" />
     <Compile Include="Assets\Devwinsoft\CharacterEngine\Example\Script\DemoCharacter.cs" />
