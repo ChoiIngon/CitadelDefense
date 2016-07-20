@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class UnitAttack_Lightning : UnitAttack {
 	public ProceduralLightning lightningPrefab;
-    public Effect sparkPrefab;
+	public UnitAnimation sparkPrefab;
     public float interval;
     private float deltaTime;
 
@@ -33,7 +33,7 @@ public class UnitAttack_Lightning : UnitAttack {
         while (null != target && deltaTime <= data.time)
         {
             Damage(target);
-            Effect spark = GameObject.Instantiate<Effect>(sparkPrefab);
+			UnitAnimation spark = GameObject.Instantiate<UnitAnimation>(sparkPrefab);
             spark.transform.position = target.transform.position;
             yield return new WaitForSeconds(interval);
         }

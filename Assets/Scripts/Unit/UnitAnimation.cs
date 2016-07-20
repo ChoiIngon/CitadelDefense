@@ -14,6 +14,7 @@ public class UnitAnimation : MonoBehaviour {
 			return _animator;
 		}
 	}
+	public bool finishDestroy;
 	private Animator _animator;
 	[HideInInspector]
 	public SpriteRenderer spriteRenderer{
@@ -48,9 +49,15 @@ public class UnitAnimation : MonoBehaviour {
 	void Update()
 	{
         AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo (0);
-		if (state.normalizedTime >= 1.0f && null != onComplete)
+		if (state.normalizedTime >= 1.0f)
 		{
-			onComplete (animator);
+			if (null != onComplete) {	
+				onComplete (animator);
+			}
+
+			if (true == finishDestroy) {
+				DestroyImmediate (gameObject, true);
+			}
 		}
 	}
 }

@@ -29,12 +29,8 @@ public class HeroUnit : Unit {
         if (null != touchEvent)
         {
 			touchEvent.onTouchDown += (Vector3 position) => {
-				if (GameManager.GameState.Play != GameManager.Instance.state) {
-					return;
-				}
-
 				if (specialAttack.data.mana > GameManager.Instance.citadel.mp) {
-					GameManager.Instance.messageBox.message = "마나가 부족 합니다";
+					GameManager.Instance.uiMessageBox.message = "마나가 부족 합니다";
 					return;
 				}
 
@@ -55,8 +51,13 @@ public class HeroUnit : Unit {
 			specialAttack.Upgrade (level);
 		}
 		unitAnimation.animationEvents.Add ("attack", passiveAttack.Attack);
+		Init ();
 	}
 	public void Init() {
+		if (null != coolTimeBar) {
+			coolTimeBar.progress = 1.0f;
+			coolTime = 0.0f;
+		}
 	}
 	void Update () {
 		EnemyUnit target = null;
@@ -93,7 +94,7 @@ public class HeroUnit : Unit {
 	{
 		int upgradeGold = info.upgradePrice * level;
 		if (upgradeGold >= GameManager.Instance.gold) {
-			GameManager.Instance.messageBox.message = "골드가 부족 합니다";
+			GameManager.Instance.uiMessageBox.message = "골드가 부족 합니다";
 			return;
 		}
 

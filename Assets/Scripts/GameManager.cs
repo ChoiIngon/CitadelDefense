@@ -28,67 +28,68 @@ public class GameManager : MonoBehaviour {
 		Lose
 	}
 
-    public GameState state;
+	public const int WAVE_TIME = 90;
+	public int waveLevel;
+	public float timeScale;
+	public GameState gameState;
     
-	public EnemyManager enemyManager;
+    public EnemyManager enemyManager;
 	public Transform creatures;
 
-    public PanelLobby 		lobbyPanel;
-	public PanelPlay 		playPanel;
-	public PanelUnitShop 	panelUnitShop;
-	public PanelUnitInfo	unitInfoPanel;
+	public PanelLobby 		uiLobbyPanel;
+	public PanelPlay 		uiPlayPanel;
+	public PanelHeroShop 	uiHeroShopPanel;
+	public PanelHeroInfo	uiHeroInfoPanel;
+	public ProgressBar 		uiCitadelHealth;
+	public ProgressBar 		uiCitadelMana;
+	public ProgressBar 		uiWaveProgress;
+	public Text 			uiGold;
+	public MessageBox 		uiMessageBox;
 
-	public ProgressBar 		hp;
-	public ProgressBar 		mp;
-	public ProgressBar 		waveProgress;
-
-	public int waveLevel;
 	public decimal gold {
 		get { return _gold; }
 		set { 
 			_gold = value;
-			textGold.text = _gold.ToString ("N0");
+			uiGold.text = _gold.ToString ("N0");
 		}
 	}
 	private decimal _gold;
-	public Text textGold;
-	public const int WAVE_TIME = 40;
+
 	public CitadelUnit citadel;
-	[HideInInspector] public HeroUnit[] heros;
+	public HeroUnit[] heros;
     
-	public float timeScale;
 	[HideInInspector]
 	public UnitSlot selectedSlot;
 	[HideInInspector]
 	public HeroUnit selectedUnit;
+	private Wave wave = null;
+	private IEnumerator waveCoroutine = null;
 
-	public UIMessageBox messageBox;
 	void Start () {
 		gold = 100000;
-		state = GameState.Ready;
+		gameState = GameState.Ready;
 		selectedSlot = null;
 		selectedUnit = null;
 		timeScale = 1.0f;
 		Time.timeScale = timeScale;
+
         Transform transHeros = transform.FindChild("Unit/Heros");
         heros = new HeroUnit[transHeros.childCount];
         for (int i = 0; i < transHeros.childCount; i++)
         {
             heros[i] = transHeros.GetChild(i).GetComponent<HeroUnit>();
-            heros[i].Init();
         }
 
-		waveProgress.transform.FindChild ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
+		uiWaveProgress.transform.FindChild ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
+
+		// saved game data load
 	}
 
-	private Wave wave = null;
-	private IEnumerator waveCoroutine = null;
-    public void WaveStart()
+	public void WaveStart()
     {
-        Debug.Log("Wave Started");
-        lobbyPanel.gameObject.SetActive(false);
-		playPanel.gameObject.SetActive (true);
-		state = GameState.Play;
+		uiLobbyPanel.gameObject.SetActive(false);
+		uiPlayPanel.gameObject.SetActive (true);
+		gameState = GameState.Play;
 
 		citadel.Init ();
         foreach(HeroUnit hero in heros)
@@ -116,9 +117,9 @@ public class GameManager : MonoBehaviour {
 
 	public void WaveEnd(WaveResult result)
 	{
-		lobbyPanel.gameObject.SetActive (true);
-		playPanel.gameObject.SetActive (false);
-		state = GameState.Ready;
+		uiLobbyPanel.gameObject.SetActive (true);
+		uiPlayPanel.gameObject.SetActive (false);
+		gameState = GameState.Ready;
 		if (WaveResult.Win == result) {
 			waveLevel += 1;
 		} else {
@@ -136,6 +137,8 @@ public class GameManager : MonoBehaviour {
             {
                 touchEvent.gameObject.SetActive(false);
             }
+
+			hero.Init ();
         }
 
         foreach (UnitSlot slot in citadel.slots)
@@ -147,13 +150,8 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-		while (0 < creatures.childCount) {
-			Transform child = creatures.GetChild (0);
-			child.SetParent (null);
-			Destroy (child.gameObject);
-		}
-		waveProgress.transform.FindChild ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
-		waveProgress.progress = 1.0f;
+		uiWaveProgress.transform.FindChild ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
+		uiWaveProgress.progress = 1.0f;
 
 		citadel.hp.value = citadel.hp.max;
 		citadel.mp.value = citadel.mp.max;
@@ -161,13 +159,15 @@ public class GameManager : MonoBehaviour {
 
 	void Update()
 	{
-		hp.progress = (float)citadel.hp / (float)citadel.hp.max;
-		mp.progress = (float)citadel.mp / (float)citadel.mp.max;
-		hp.transform.FindChild("Text").GetComponent<Text>().text = citadel.hp.value + "/" + citadel.hp.max;
-		mp.transform.FindChild("Text").GetComponent<Text>().text = citadel.mp.value + "/" + citadel.mp.max;
+		uiCitadelHealth.progress = (float)citadel.hp / (float)citadel.hp.max;
+		uiCitadelHealth.transform.FindChild("Text").GetComponent<Text>().text = citadel.hp.value + "/" + citadel.hp.max;
+
+		uiCitadelMana.progress = (float)citadel.mp / (float)citadel.mp.max;
+		uiCitadelMana.transform.FindChild("Text").GetComponent<Text>().text = citadel.mp.value + "/" + citadel.mp.max;
+
 		if (null != wave) {
 			wave.Update ();
-			waveProgress.progress = wave.remainTime / GameManager.WAVE_TIME;
+			uiWaveProgress.progress = wave.remainTime / GameManager.WAVE_TIME;
 		}
 	}
 }

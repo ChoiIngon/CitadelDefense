@@ -27,7 +27,7 @@ public class Missile : MonoBehaviour {
 		{
             UnitHit hit = GameObject.Instantiate<UnitHit>(hitPrefab);
 			hit.attack = attack;
-			hit.Init (move.end, power);
+			hit.transform.position = move.end;
 			DestroyObject (gameObject);
 		}
 	}

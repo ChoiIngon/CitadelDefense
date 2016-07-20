@@ -37,7 +37,7 @@ public class CitadelUnit : Unit {
 	public void Upgrade()
 	{
 		if (GameManager.Instance.gold < 2000 * level) {
-			GameManager.Instance.messageBox.message = "골드가 부족 합니다";
+			GameManager.Instance.uiMessageBox.message = "골드가 부족 합니다";
 			return;
 		}
 		GameManager.Instance.gold -= 2000 * level;

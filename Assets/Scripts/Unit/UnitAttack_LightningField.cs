@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class UnitAttack_LightningField : UnitAttack {
-	public GameObject lightning;
+	public UnitHit lightning;
 	public int lightningCount;
 	public int bonusLightningCount;
 	public Vector3 initPosition;
@@ -70,13 +70,8 @@ public class UnitAttack_LightningField : UnitAttack {
 	private void SpawnLightning()
 	{
 		Vector3 position = new Vector3(Random.Range(transform.position.x - 2.0f, transform.position.x + 2.0f), Random.Range(transform.position.y + 1.5f, transform.position.y - 1.5f), 0.0f);
-		GameObject obj = GameObject.Instantiate<GameObject>(lightning);
+		UnitHit obj = GameObject.Instantiate<UnitHit>(lightning);
+		obj.attack = this;
 		obj.transform.position = position;
-		UnitColliderAttack col = obj.GetComponent<UnitColliderAttack> ();
-		col.attack = this;
-		UnitAnimation anim = obj.GetComponent<UnitAnimation> ();
-		anim.onComplete += (Animator animator) => {
-			DestroyImmediate (animator.gameObject);
-		};
 	}
 }
