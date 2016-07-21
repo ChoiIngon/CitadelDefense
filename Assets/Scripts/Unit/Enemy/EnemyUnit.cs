@@ -48,20 +48,7 @@ public class EnemyUnit : Unit {
         {
             Debug.DrawRay(transform.position, Vector3.left * attack.data.maxRange, Color.red);
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, attack.data.maxRange, 1 << LayerMask.NameToLayer("Citadel"));
-            if (null == hit.collider)
-            {
-                unitAnimation.animator.SetTrigger("move");
-                if (null != unitMove.buff)
-                {
-                    unitAnimation.animator.speed = unitMove.buff(unitMove.speed);
-                }
-                else
-                {
-                    unitAnimation.animator.speed = unitMove.speed;
-                }
-                actionState = ActionState.Move;
-            }
-            else
+            if(null != hit.collider)
             {
                 UnitColliderDamage colDamage = hit.collider.GetComponent<UnitColliderDamage>();
                 if (null != colDamage)
@@ -79,6 +66,20 @@ public class EnemyUnit : Unit {
                 }
                 actionState = ActionState.Attack;
             }
+            else
+            {
+                unitAnimation.animator.SetTrigger("move");
+                if (null != unitMove.buff)
+                {
+                    unitAnimation.animator.speed = unitMove.buff(unitMove.speed);
+                }
+                else
+                {
+                    unitAnimation.animator.speed = unitMove.speed;
+                }
+                actionState = ActionState.Move;
+            }
+
         }
         AnimatorStateInfo state = unitAnimation.animator.GetCurrentAnimatorStateInfo(0);
 		if (ActionState.Move == actionState) {
