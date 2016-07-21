@@ -29,7 +29,7 @@ public class HeroUnit : Unit {
         if (null != touchEvent)
         {
 			touchEvent.onTouchDown += (Vector3 position) => {
-				if (specialAttack.data.mana > GameManager.Instance.citadel.mp) {
+				if (specialAttack.data.mana > GameManager.Instance.citadel.mana) {
 					GameManager.Instance.uiMessageBox.message = "마나가 부족 합니다";
 					return;
 				}
@@ -39,7 +39,7 @@ public class HeroUnit : Unit {
 					return;
 				}
 
-				GameManager.Instance.citadel.mp -= (int)specialAttack.data.mana;
+				GameManager.Instance.citadel.mana -= (int)specialAttack.data.mana;
 				specialAttack.self = this;
 				specialAttack.Attack ();
 				coolTime = specialAttack.data.cooltime;

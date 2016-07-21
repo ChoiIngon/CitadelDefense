@@ -41,7 +41,7 @@ public class Wave {
 			Object.Destroy (child.gameObject);
 		}
 
-		if (0 < GameManager.Instance.citadel.hp) {
+		if (0 < GameManager.Instance.citadel.health) {
 			GameManager.Instance.WaveEnd (GameManager.WaveResult.Win);
 		} else {
 			GameManager.Instance.WaveEnd (GameManager.WaveResult.Lose);

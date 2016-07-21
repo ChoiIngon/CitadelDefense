@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour {
 	public PanelPlay 		uiPlayPanel;
 	public PanelHeroShop 	uiHeroShopPanel;
 	public PanelHeroInfo	uiHeroInfoPanel;
+	public GameObject 		uiCitadelBuffPanel;
+	public GameObject 		uiItemPanel;
 	public ProgressBar 		uiCitadelHealth;
 	public ProgressBar 		uiCitadelMana;
 	public ProgressBar 		uiWaveProgress;
@@ -81,7 +83,7 @@ public class GameManager : MonoBehaviour {
         }
 
 		uiWaveProgress.transform.FindChild ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
-
+		citadel.Init ();
 		// saved game data load
 	}
 
@@ -91,8 +93,7 @@ public class GameManager : MonoBehaviour {
 		uiPlayPanel.gameObject.SetActive (true);
 		gameState = GameState.Play;
 
-		citadel.Init ();
-        foreach(HeroUnit hero in heros)
+		foreach(HeroUnit hero in heros)
         {
             Transform touchEvent = hero.transform.FindChild("TouchEvent");
             if(null != touchEvent)
@@ -153,17 +154,16 @@ public class GameManager : MonoBehaviour {
 		uiWaveProgress.transform.FindChild ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
 		uiWaveProgress.progress = 1.0f;
 
-		citadel.hp.value = citadel.hp.max;
-		citadel.mp.value = citadel.mp.max;
+		citadel.Init ();
     }
 
 	void Update()
 	{
-		uiCitadelHealth.progress = (float)citadel.hp / (float)citadel.hp.max;
-		uiCitadelHealth.transform.FindChild("Text").GetComponent<Text>().text = citadel.hp.value + "/" + citadel.hp.max;
+		uiCitadelHealth.progress = (float)citadel.health / (float)citadel.health.max;
+		uiCitadelHealth.transform.FindChild("Text").GetComponent<Text>().text = citadel.health.value + "/" + citadel.health.max;
 
-		uiCitadelMana.progress = (float)citadel.mp / (float)citadel.mp.max;
-		uiCitadelMana.transform.FindChild("Text").GetComponent<Text>().text = citadel.mp.value + "/" + citadel.mp.max;
+		uiCitadelMana.progress = (float)citadel.mana / (float)citadel.mana.max;
+		uiCitadelMana.transform.FindChild("Text").GetComponent<Text>().text = citadel.mana.value + "/" + citadel.mana.max;
 
 		if (null != wave) {
 			wave.Update ();

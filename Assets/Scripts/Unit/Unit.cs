@@ -7,6 +7,14 @@ using UnityEditor;
 
 //[RequireComponent(typeof(SpriteRenderer))]
 public class Unit : MonoBehaviour {
+	public enum Elemental
+	{
+		None,
+		Fire,
+		Ice,
+		Electricity,
+		Max
+	}
 	public enum UnitSize
 	{
 		Small,
@@ -14,6 +22,7 @@ public class Unit : MonoBehaviour {
 		Large
 	}
 	public UnitSize size;
+	public Elemental elemental;
 	public UnitMove unitMove;
 	public UnitAnimation unitAnimation;
     public Dictionary<string, Buff> buffs = new Dictionary<string, Buff>();

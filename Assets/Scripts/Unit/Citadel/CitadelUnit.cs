@@ -2,23 +2,23 @@
 using System.Collections;
 
 public class CitadelUnit : Unit {
-	public AutoRecoveryInt hp;
-	public AutoRecoveryInt mp;
+	public AutoRecoveryInt health;
+	public AutoRecoveryInt mana;
 
     public int level;
 	public UnitSlot[] slots;
 
     public void Init()
 	{
-		hp.max = 1000 + (level - 1) * 50;
-		hp.value = hp.max;
-		hp.interval = 1.0f;
-		hp.recovery = 2;
+		health.max = 1000 + (level - 1) * 50;
+		health.value = health.max;
+		health.interval = 1.0f;
+		health.recovery = 2;
 	
-		mp.max = 500 + (level -1) * 10;
-		mp.value = mp.max;
-		mp.interval = 1.0f;
-		mp.recovery = 1;
+		mana.max = 500 + (level -1) * 10;
+		mana.value = mana.max;
+		mana.interval = 1.0f;
+		mana.recovery = 1;
 
 		if (slots.Length >= level) {
 			slots [level - 1].gameObject.SetActive (true);
@@ -27,8 +27,8 @@ public class CitadelUnit : Unit {
 
 	public override void Damage(int damage)
 	{
-		hp -= damage;
-        if(0 >= hp)
+		health -= damage;
+		if(0 >= health)
         {
 			GameManager.Instance.WaveEnd (GameManager.WaveResult.Lose);
         }

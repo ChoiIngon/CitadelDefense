@@ -160,6 +160,7 @@
      <Compile Include="Assets\Scripts\Buff\Buff.cs" />
      <Compile Include="Assets\Scripts\Buff\Buff_AttackPower.cs" />
      <Compile Include="Assets\Scripts\Buff\Buff_AttackSpeed.cs" />
+     <Compile Include="Assets\Scripts\Buff\Buff_ManaRecovery.cs" />
      <Compile Include="Assets\Scripts\Buff\Buff_MoveSpeed.cs" />
      <Compile Include="Assets\Scripts\Buff\Buff_Poison.cs" />
      <Compile Include="Assets\Scripts\Buff\Buff_Stun.cs" />
@@ -196,6 +197,7 @@
      <Compile Include="Assets\Scripts\Unit\UnitAttack_Meteor.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack_PoisonCloud.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack_Range.cs" />
+     <Compile Include="Assets\Scripts\Unit\UnitAttack_SuicideBombing.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack_Summon.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack_Target.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitColliderDamage.cs" />
