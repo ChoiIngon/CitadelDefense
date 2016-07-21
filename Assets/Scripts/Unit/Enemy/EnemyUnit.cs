@@ -34,6 +34,7 @@ public class EnemyUnit : Unit {
 		hp.value = hp.max;
 	    unitAnimation.animationEvents.Add("attack", attack.Attack);
 		gold = gold + upgrade.gold * (GameManager.Instance.waveLevel - 1);
+        attack.self = this;
 		attack.Upgrade (GameManager.Instance.waveLevel);
     }
 
