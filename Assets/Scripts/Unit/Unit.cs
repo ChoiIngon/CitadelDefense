@@ -24,6 +24,8 @@ public class Unit : MonoBehaviour {
 	public UnitSize size;
 	public Elemental elemental;
 	public UnitMove unitMove;
+    public UnitAttack passiveAttack;
+    public UnitAttack activeAttack;
 	public UnitAnimation unitAnimation;
     public Dictionary<string, Buff> buffs = new Dictionary<string, Buff>();
 
@@ -46,17 +48,6 @@ public class Unit : MonoBehaviour {
 	}
     
 	public virtual void Damage(int damage) {}
-
-	/*
-	private void Scale(Transform transform, float scale)
-	{
-		transform.localScale = transform.localScale * scale;
-		foreach (Transform child in transform)
-		{
-			Scale (child, scale);
-		}        
-	}
-	*/
 }
 
 public class ReadOnlyAttribute : PropertyAttribute

@@ -36,12 +36,21 @@ public class CitadelUnit : Unit {
 
 	public void Upgrade()
 	{
-		if (GameManager.Instance.gold < 2000 * level) {
+		if (GameManager.Instance.gold < 1000 * level) {
 			GameManager.Instance.uiMessageBox.message = "골드가 부족 합니다";
 			return;
 		}
-		GameManager.Instance.gold -= 2000 * level;
+		GameManager.Instance.gold -= 1000 * level;
 		level += 1;
 		Init ();
 	}
+
+    public void EquipItem(Item item)
+    {
+        item.equipped = true;
+    }
+
+    public void UnequipItem(Item item)
+    {
+    }
 }

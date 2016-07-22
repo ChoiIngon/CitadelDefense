@@ -19,17 +19,15 @@ public class HeroUnit : Unit {
 
 	private float coolTime;
 	public ProgressBar coolTimeBar;
-	public UnitAttack passiveAttack;
-    public UnitAttack specialAttack;
 	public TouchEvent touchEvent;
 
-	public virtual void Start() {
+	public override void Start() {
 		base.Start ();
 		level = 1;
         if (null != touchEvent)
         {
 			touchEvent.onTouchDown += (Vector3 position) => {
-				if (specialAttack.data.mana > GameManager.Instance.citadel.mana) {
+				if (activeAttack.data.mana > GameManager.Instance.citadel.mana) {
 					GameManager.Instance.uiMessageBox.message = "마나가 부족 합니다";
 					return;
 				}
@@ -39,18 +37,25 @@ public class HeroUnit : Unit {
 					return;
 				}
 
-				GameManager.Instance.citadel.mana -= (int)specialAttack.data.mana;
-				specialAttack.self = this;
-				specialAttack.Attack ();
-				coolTime = specialAttack.data.cooltime;
+				GameManager.Instance.citadel.mana -= (int)activeAttack.data.mana;
+                activeAttack.self = this;
+                activeAttack.Attack ();
+				coolTime = activeAttack.data.cooltime;
 			};
 			touchEvent.gameObject.SetActive (false);
         }
-		passiveAttack.Upgrade (level);
-		if (null != specialAttack) {
-			specialAttack.Upgrade (level);
+
+        if (null != passiveAttack)
+        {
+            unitAnimation.animationEvents.Add("attack", passiveAttack.Attack);
+            passiveAttack.self = this;
+            passiveAttack.Upgrade(level);
+        }
+
+		if (null != activeAttack) {
+            activeAttack.Upgrade (level);
 		}
-		unitAnimation.animationEvents.Add ("attack", passiveAttack.Attack);
+		
 		Init ();
 	}
 	public void Init() {
@@ -86,7 +91,7 @@ public class HeroUnit : Unit {
 		}
 		if (0 < coolTime && null != coolTimeBar) {
 			coolTime -= Time.deltaTime;
-			coolTimeBar.progress = (specialAttack.data.cooltime - coolTime) / specialAttack.data.cooltime;
+			coolTimeBar.progress = (activeAttack.data.cooltime - coolTime) / activeAttack.data.cooltime;
 		}
 	}
 
@@ -100,9 +105,12 @@ public class HeroUnit : Unit {
 
 		level += 1;
 		GameManager.Instance.gold -= upgradeGold;
-		passiveAttack.Upgrade (level);
-		if (null != specialAttack) {
-			specialAttack.Upgrade (level);
+        if (null != passiveAttack)
+        {
+            passiveAttack.Upgrade(level);
+        }
+		if (null != activeAttack) {
+            activeAttack.Upgrade (level);
 		}
 	}
 }

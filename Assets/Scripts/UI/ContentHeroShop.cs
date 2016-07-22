@@ -31,8 +31,8 @@ public class ContentHeroShop : MonoBehaviour {
 		unitIcon.sprite = unit.info.icon;
 		unitName.text = unit.info.name;
 		unitDescription.text = unit.info.description;
-		if (null != unit.specialAttack) {
-			skillIcon.sprite = unit.specialAttack.info.icon;
+		if (null != unit.activeAttack) {
+			skillIcon.sprite = unit.activeAttack.info.icon;
 		} else {
 			skillIcon.gameObject.SetActive (false);
 		}

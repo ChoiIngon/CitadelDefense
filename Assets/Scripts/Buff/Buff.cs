@@ -2,19 +2,28 @@
 using System.Collections;
 
 public class Buff : MonoBehaviour {
-    public string id;
+    [System.Serializable]
+    public class BuffInfo
+    {
+        public string id;
+        public string name;
+        public string description;
+        public Sprite icon;
+    }
+
+    public BuffInfo info;
     [HideInInspector]
     public Unit unit;
 	// Use this for initialization
 	public virtual void Start () {
-        if (unit.buffs.ContainsKey(id))
+        if (unit.buffs.ContainsKey(info.id))
         {
             unit = null;
             Destroy(gameObject);
             return;
         }
 
-        unit.buffs.Add(id, this);
+        unit.buffs.Add(info.id, this);
 	}
 
     void OnDestroy()
@@ -23,9 +32,9 @@ public class Buff : MonoBehaviour {
         {
             return;
         }
-        if (unit.buffs.ContainsKey(id))
+        if (unit.buffs.ContainsKey(info.id))
         {
-            unit.buffs.Remove(id);
+            unit.buffs.Remove(info.id);
         }
     }
 }

@@ -1,22 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SummonedCreature : Unit {
+public class SummonedUnit : Unit {
 	public int level;
 	public float maxHealth;
 	public float health;
 	public ProgressBar healthBar;
-	public UnitAttack attack;
+	
 	// Use this for initialization
-	void Start () {
+	public override void Start () {
+        base.Start();
+
 		maxHealth = maxHealth + (maxHealth * 0.1f * (level - 1));
 		health = maxHealth;
-		attack.Upgrade (level);
-		unitAnimation.animationEvents.Add ("attack", attack.Attack);
-        unitMove.Init(transform.position, transform.position);
-	}
+	    unitMove.Init(transform.position, transform.position);
+        if (null != passiveAttack)
+        {
+            unitAnimation.animationEvents.Add("attack", passiveAttack.Attack);
+            passiveAttack.self = this;
+            passiveAttack.Upgrade(level);
+        }
+    }
 
-	void Update () {
+    void Update () {
 		unitAnimation.spriteRenderer.sortingOrder = (int)(transform.position.y * -1000);
 		EnemyUnit target = null;
 
@@ -30,7 +36,7 @@ public class SummonedCreature : Unit {
 			float distance = Vector3.Distance (transform.position, enemy.transform.position);
 			if (0 < enemy.hp && minDistance > distance) {
 				target = enemy;
-				attack.target = target;
+                passiveAttack.target = target;
 				minDistance = distance;
 			}
 		}
@@ -44,7 +50,7 @@ public class SummonedCreature : Unit {
 
 			float distance = Vector3.Distance (transform.position, target.transform.position);
 
-			if (distance > attack.data.maxRange) {
+			if (distance > passiveAttack.data.maxRange) {
 				unitAnimation.animator.SetTrigger ("move");
 				unitAnimation.animator.speed = unitMove.speed;
 				Vector3 targetPosition = target.transform.position;
@@ -52,7 +58,7 @@ public class SummonedCreature : Unit {
 				unitMove.Init(transform.position, targetPosition);
 			} else {
 				unitAnimation.animator.SetTrigger ("attack");
-				unitAnimation.animator.speed = attack.data.speed;
+				unitAnimation.animator.speed = passiveAttack.data.speed;
 			}
 		}
 		healthBar.progress = (float)health / (float)maxHealth;

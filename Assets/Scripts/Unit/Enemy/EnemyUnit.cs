@@ -26,16 +26,19 @@ public class EnemyUnit : Unit {
 	public ProgressBar healthBar;
     public Effect_Damage effectDamage;
 
-	public UnitAttack attack;
-
 	public override void Start () {
 		base.Start ();
 		hp.max = (int)(hp.max + upgrade.health * (GameManager.Instance.waveLevel - 1));
 		hp.value = hp.max;
-	    unitAnimation.animationEvents.Add("attack", attack.Attack);
+	    
 		gold = gold + upgrade.gold * (GameManager.Instance.waveLevel - 1);
-        attack.self = this;
-		attack.Upgrade (GameManager.Instance.waveLevel);
+
+        if (null != passiveAttack)
+        {
+            unitAnimation.animationEvents.Add("attack", passiveAttack.Attack);
+            passiveAttack.self = this;
+            passiveAttack.Upgrade(GameManager.Instance.waveLevel);
+        }
     }
 
 	void Update () {
@@ -46,23 +49,23 @@ public class EnemyUnit : Unit {
 
         if (0 < hp)
         {
-            Debug.DrawRay(transform.position, Vector3.left * attack.data.maxRange, Color.red);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, attack.data.maxRange, 1 << LayerMask.NameToLayer("Citadel"));
+            Debug.DrawRay(transform.position, Vector3.left * passiveAttack.data.maxRange, Color.red);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, passiveAttack.data.maxRange, 1 << LayerMask.NameToLayer("Citadel"));
             if(null != hit.collider)
             {
                 UnitColliderDamage colDamage = hit.collider.GetComponent<UnitColliderDamage>();
                 if (null != colDamage)
                 {
-                    attack.target = colDamage.unit;
+                    passiveAttack.target = colDamage.unit;
                 }
                 unitAnimation.animator.SetTrigger("attack");
                 if (null != unitMove.buff)
                 {
-                    unitAnimation.animator.speed = unitMove.buff(attack.data.speed);
+                    unitAnimation.animator.speed = unitMove.buff(passiveAttack.data.speed);
                 }
                 else
                 {
-                    unitAnimation.animator.speed = attack.data.speed;
+                    unitAnimation.animator.speed = passiveAttack.data.speed;
                 }
                 actionState = ActionState.Attack;
             }
