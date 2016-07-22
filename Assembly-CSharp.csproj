@@ -168,6 +168,7 @@
      <Compile Include="Assets\Scripts\Effect\Effect_Damage.cs" />
      <Compile Include="Assets\Scripts\EnemyManager.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Item\Item.cs" />
      <Compile Include="Assets\Scripts\Network\Buffer.cs" />
      <Compile Include="Assets\Scripts\Network\ClientSession.cs" />
      <Compile Include="Assets\Scripts\Network\Session.cs" />
@@ -185,7 +186,7 @@
      <Compile Include="Assets\Scripts\Unit\Enemy\EnemyUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Missile.cs" />
      <Compile Include="Assets\Scripts\Unit\Player\HeroUnit.cs" />
-     <Compile Include="Assets\Scripts\Unit\Player\SummonedCreature.cs" />
+     <Compile Include="Assets\Scripts\Unit\Player\SummonedUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\ProceduralLightning.cs" />
      <Compile Include="Assets\Scripts\Unit\Unit.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAnimation.cs" />
