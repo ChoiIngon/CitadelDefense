@@ -34,11 +34,8 @@ public abstract class UnitAttack : MonoBehaviour {
 	public AttackData init;
 	public AttackData max;
 	public AttackData upgrade;
-#if UNITY_EDITOR
 	[ReadOnly] public AttackData data;
-#else
-	public AttackData data;
-#endif
+
 	public abstract void Attack ();
 	public virtual void Damage(Unit unit)
 	{
@@ -56,6 +53,7 @@ public abstract class UnitAttack : MonoBehaviour {
             throw new System.Exception("invalid level");
         }
 		data.power = init.power + upgrade.power * (level-1);
+		data.minRange = init.minRange + upgrade.minRange * (level-1);
 		data.maxRange = init.maxRange + upgrade.maxRange * (level-1);
 		data.speed = init.speed + upgrade.speed * (level-1);
 		data.cooltime = init.cooltime + upgrade.cooltime * (level - 1);

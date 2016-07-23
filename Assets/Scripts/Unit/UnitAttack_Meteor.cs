@@ -26,23 +26,26 @@ public class UnitAttack_Meteor : UnitAttack {
 
     IEnumerator Meteor()
     {
-        Vector3 curPosition = transform.position;
         for (int i = 0; i < missileCount; i++)
         {
             float interval = Random.Range(0.1f, 0.2f);
             yield return new WaitForSeconds(interval);
 
-            Vector3 endPosition = new Vector3(Random.Range(curPosition.x - 2.0f, curPosition.x + 2.0f), Random.Range(curPosition.y + 2.0f, curPosition.y - 2.0f), 0.0f);
-            Vector3 startPosition = new Vector3(endPosition.x - 4.0f, endPosition.y + 7.0f, endPosition.z);
-            Missile missile = Object.Instantiate<Missile>(missilePrefab);
-			missile.attack = this;
-            missile.Init(startPosition, endPosition, data.power);
+			SpawnMeteor ();
         }
 		touchEvent.onTouchDown -= AddMeteor;
 		touchEvent.gameObject.SetActive (false);
 		unitTouchEvent.gameObject.SetActive (true);
     }
 
+	void SpawnMeteor()
+	{
+		Vector3 curPosition = transform.position;
+		Vector3 endPosition = new Vector3(Random.Range(curPosition.x - 2.0f, curPosition.x + 2.0f), Random.Range(curPosition.y + 2.0f, curPosition.y - 2.0f), 0.0f);
+		Vector3 startPosition = new Vector3(endPosition.x - 4.0f, endPosition.y + 7.0f, endPosition.z);
+		Missile missile = Object.Instantiate<Missile>(missilePrefab);
+		missile.Init(startPosition, endPosition, this, 7.0f);
+	}
 	public void OnTouchDown(Vector3 position)
 	{
 		transform.position = new Vector3 (position.x, transform.position.y, transform.position.z);
@@ -72,11 +75,6 @@ public class UnitAttack_Meteor : UnitAttack {
 			return;
 		}
 		bounsMissileCount -= 1;
-		Vector3 curPosition = transform.position;
-		Vector3 endPosition = new Vector3(Random.Range(curPosition.x - 2.0f, curPosition.x + 2.0f), Random.Range(curPosition.y + 2.0f, curPosition.y - 2.0f), 0.0f);
-		Vector3 startPosition = new Vector3(endPosition.x - 4.0f, endPosition.y + 7.0f, endPosition.z);
-		Missile missile = Object.Instantiate<Missile>(missilePrefab);
-		missile.attack = this;
-		missile.Init(startPosition, endPosition, data.power);
+		SpawnMeteor ();
 	}
 }

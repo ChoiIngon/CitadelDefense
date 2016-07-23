@@ -61,7 +61,7 @@ public class EnemyUnit : Unit {
                 unitAnimation.animator.SetTrigger("attack");
                 if (null != unitMove.buff)
                 {
-                    unitAnimation.animator.speed = unitMove.buff(passiveAttack.data.speed);
+					unitAnimation.animator.speed = unitMove.speed;
                 }
                 else
                 {
@@ -72,14 +72,7 @@ public class EnemyUnit : Unit {
             else
             {
                 unitAnimation.animator.SetTrigger("move");
-                if (null != unitMove.buff)
-                {
-                    unitAnimation.animator.speed = unitMove.buff(unitMove.speed);
-                }
-                else
-                {
-                    unitAnimation.animator.speed = unitMove.speed;
-                }
+				unitAnimation.animator.speed = unitMove.speed;
                 actionState = ActionState.Move;
             }
 
@@ -87,7 +80,7 @@ public class EnemyUnit : Unit {
         AnimatorStateInfo state = unitAnimation.animator.GetCurrentAnimatorStateInfo(0);
 		if (ActionState.Move == actionState) {
 			unitMove.enabled = true;
-			unitMove.Init (transform.position, transform.position + Vector3.left);
+			unitMove.Init (transform.position + Vector3.left, altitude);
 			//transform.Translate (direction * unitMove.speed * Time.deltaTime);
 		} else {
 			unitMove.enabled = false;

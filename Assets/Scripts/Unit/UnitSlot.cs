@@ -4,6 +4,7 @@ using System.Collections;
 public class UnitSlot : MonoBehaviour {
 	public int slotIndex;
 	public int sortingOrder;
+	public float altitude;
 	public Sprite normalSprite;
 	public Sprite selectedSprite;
 	[HideInInspector]
@@ -63,6 +64,7 @@ public class UnitSlot : MonoBehaviour {
 
 		unit.slotIndex = slotIndex;
 		unit.equiped = true;
+		unit.altitude = altitude;
 		unit.transform.position = transform.position;
 		unit.gameObject.SetActive(true);
 		unit.unitAnimation.spriteRenderer.sortingOrder = sortingOrder + 1;

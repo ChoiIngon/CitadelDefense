@@ -21,6 +21,7 @@ public class Unit : MonoBehaviour {
 		Middle,
 		Large
 	}
+	public float altitude;
 	public UnitSize size;
 	public Elemental elemental;
 	public UnitMove unitMove;

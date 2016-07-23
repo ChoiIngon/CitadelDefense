@@ -2,12 +2,11 @@
 using System.Collections;
 
 public class UnitMove_Stright : UnitMove {
-	public float height;
 	public bool useRotation;
 	public GameObject shadow;
-	public override void Init(Vector3 start, Vector3 end)
+	public override void Init(Vector3 end, float altitude = 0.0f)
 	{
-		base.Init (start, end);
+		base.Init (end, altitude);
 
 		if (true == useRotation) {
 			Vector3 from = end - start;
@@ -27,15 +26,16 @@ public class UnitMove_Stright : UnitMove {
 			return;
 		}
 		_interpolate += Time.deltaTime * speed / distance;
-		if (null != buff) {
-			_interpolate = buff (_interpolate);
-		}
+		//if (null != buff) {
+		//	_interpolate = buff (_interpolate);
+		//}
 		Vector3 curPos = Vector3.Lerp (start, end, interpolate);
 		transform.position = curPos;
 		if (null != shadow) {
-			curPos.y -= height * (1.0f - interpolate);
+			curPos.y -= altitude * (1.0f - interpolate);
 			shadow.transform.position = curPos;
 			shadow.transform.rotation = Quaternion.Euler(0, 0, -transform.rotation.z);
 		}
 	}
 }
+

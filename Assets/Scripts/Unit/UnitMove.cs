@@ -2,10 +2,21 @@
 using System.Collections;
 
 public class UnitMove : MonoBehaviour {
-	public float speed;
-	//[HideInInspector]
+	public float altitude;
+	public float speed {
+		set { _speed = value; }
+		get { 
+			if (null != buff) {
+				return buff (_speed);
+			}
+			return _speed;
+		}
+	}
+	[SerializeField]
+	private float _speed;
+	[HideInInspector]
 	public Vector3 start = Vector3.zero;
-	//[HideInInspector]
+	[HideInInspector]
 	public Vector3 end = Vector3.zero;
     public float interpolate
     {
@@ -16,11 +27,11 @@ public class UnitMove : MonoBehaviour {
     protected float distance = 0.0f;
 	public delegate float BuffSpeed(float interpolate);
 	public BuffSpeed buff;
-	public virtual void Init(Vector3 start, Vector3 end)
+	public virtual void Init(Vector3 end, float altitude)
 	{
-		transform.position = start;
-		this.start = start;
+		this.start = transform.position;
 		this.end = end;
+		this.altitude = altitude;
 		distance = Vector3.Distance (start, end);
 		_interpolate = 0.0f;
         enabled = true;

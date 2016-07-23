@@ -16,6 +16,7 @@ public class HeroUnit : Unit {
 	[ReadOnly] public int	slotIndex; 
 	[ReadOnly] public bool	purchased;
 	[ReadOnly] public bool	equiped;
+	[ReadOnly] public float height;
 
 	private float coolTime;
 	public ProgressBar coolTimeBar;

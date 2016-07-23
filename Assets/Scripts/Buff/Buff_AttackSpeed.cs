@@ -12,4 +12,7 @@ public class Buff_AttackSpeed : Buff {
     void Update () {
 	
 	}
+
+	public override void Upgrade () {
+	}
 }

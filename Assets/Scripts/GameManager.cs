@@ -48,14 +48,15 @@ public class GameManager : MonoBehaviour {
 	public Text 			uiGold;
 	public MessageBox 		uiMessageBox;
 
-	public decimal gold {
+	public long gold {
 		get { return _gold; }
 		set { 
 			_gold = value;
 			uiGold.text = _gold.ToString ("N0");
 		}
 	}
-	private decimal _gold;
+	[SerializeField]
+	private long _gold;
 
 	public CitadelUnit citadel;
 	public HeroUnit[] heros;

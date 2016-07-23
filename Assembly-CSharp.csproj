@@ -204,7 +204,6 @@
      <Compile Include="Assets\Scripts\Unit\UnitColliderDamage.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitHit.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitMove.cs" />
-     <Compile Include="Assets\Scripts\Unit\UnitMove_Position.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitMove_SinCurve.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitMove_Stright.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitSlot.cs" />

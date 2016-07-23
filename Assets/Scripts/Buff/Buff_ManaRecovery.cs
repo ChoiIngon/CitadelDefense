@@ -12,4 +12,6 @@ public class Buff_ManaRecovery : Buff {
 	void Update () {
 	
 	}
+	public override void Upgrade () {
+	}
 }

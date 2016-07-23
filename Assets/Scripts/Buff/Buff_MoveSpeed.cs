@@ -36,8 +36,10 @@ public class Buff_MoveSpeed : Buff {
 			if (deltaTime >= time) {
                 unit.unitAnimation.spriteRenderer.color = Color.white;
 				Destroy (gameObject);
-				move.buff = null;
+				move.buff -= SpeedDown;
 			}		
 		}
+	}
+	public override void Upgrade () {
 	}
 }

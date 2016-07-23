@@ -13,7 +13,7 @@ public class SummonedUnit : Unit {
 
 		maxHealth = maxHealth + (maxHealth * 0.1f * (level - 1));
 		health = maxHealth;
-	    unitMove.Init(transform.position, transform.position);
+		unitMove.Init(transform.position, altitude);
         if (null != passiveAttack)
         {
             unitAnimation.animationEvents.Add("attack", passiveAttack.Attack);
@@ -55,7 +55,7 @@ public class SummonedUnit : Unit {
 				unitAnimation.animator.speed = unitMove.speed;
 				Vector3 targetPosition = target.transform.position;
 				targetPosition.x = Mathf.Min (targetPosition.x, 9.5f);
-				unitMove.Init(transform.position, targetPosition);
+				unitMove.Init(targetPosition, altitude);
 			} else {
 				unitAnimation.animator.SetTrigger ("attack");
 				unitAnimation.animator.speed = passiveAttack.data.speed;

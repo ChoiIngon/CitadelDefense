@@ -4,9 +4,9 @@ using System.Collections;
 public class UnitMove_SinCurve : UnitMove {
     private float height;
 	public GameObject shadow;
-	public override void Init(Vector3 start, Vector3 end)
+	public override void Init(Vector3 end, float altitude = 0.0f)
 	{
-		base.Init (start, end);
+		base.Init (end, altitude);
 		height = distance / 4;
 	}
 
@@ -17,9 +17,9 @@ public class UnitMove_SinCurve : UnitMove {
 		}
 
 		_interpolate += Time.deltaTime * speed / distance;
-		if (null != buff) {
-			_interpolate = buff (_interpolate);
-		}
+		//if (null != buff) {
+		//	_interpolate = buff (_interpolate);
+		//}
 		Vector3 curPos = Vector3.Lerp (start, end, interpolate);
 		if (null != shadow) {
 			shadow.transform.position = curPos;
@@ -34,3 +34,4 @@ public class UnitMove_SinCurve : UnitMove {
 		}
 	}
 }
+
