@@ -5,9 +5,11 @@ public class UnitMove : MonoBehaviour {
 	public float altitude;
 	public float speed {
 		set { _speed = value; }
-		get { 
+		get {
 			if (null != buff) {
-				return buff (_speed);
+				float tmp = _speed;
+				buff (ref tmp, _speed);
+				return tmp;
 			}
 			return _speed;
 		}
@@ -25,7 +27,7 @@ public class UnitMove : MonoBehaviour {
 
     protected float _interpolate;
     protected float distance = 0.0f;
-	public delegate float BuffSpeed(float interpolate);
+	public delegate void BuffSpeed(ref float ret, float originalSpeed);
 	public BuffSpeed buff;
 	public virtual void Init(Vector3 end, float altitude)
 	{

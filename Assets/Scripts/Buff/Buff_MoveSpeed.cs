@@ -22,12 +22,12 @@ public class Buff_MoveSpeed : Buff {
 			return;
 		}
         unit.unitAnimation.spriteRenderer.color = new Color(165.0f/256.0f, 242 / 256.0f, 243 / 256.0f);
-		move.buff += SpeedDown;
+		move.buff += MoveSpeed;
 	}
 
-	float SpeedDown(float interpolate)
+	void MoveSpeed(ref float ret, float original)
 	{
-		return interpolate * value;
+		ret += original * value;
 	}
 	// Update is called once per frame
 	void Update () {
@@ -36,10 +36,8 @@ public class Buff_MoveSpeed : Buff {
 			if (deltaTime >= time) {
                 unit.unitAnimation.spriteRenderer.color = Color.white;
 				Destroy (gameObject);
-				move.buff -= SpeedDown;
+				move.buff -= MoveSpeed;
 			}		
 		}
-	}
-	public override void Upgrade () {
 	}
 }

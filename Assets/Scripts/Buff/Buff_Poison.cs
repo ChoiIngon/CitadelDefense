@@ -36,6 +36,4 @@ public class Buff_Poison : Buff {
 		}
 		deltaTime += Time.deltaTime;
 	}
-	public override void Upgrade () {
-	}
 }

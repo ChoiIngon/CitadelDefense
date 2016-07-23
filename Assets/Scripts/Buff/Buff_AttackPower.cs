@@ -15,15 +15,20 @@ public class Buff_AttackPower : Buff {
 			return;
 		}
 		deltaTime = 0.0f;
+		unit.passiveAttack.powerBuff += AttackPower;
 	}
-	
+
+	void AttackPower(ref float ret, float original)
+	{
+		ret += original * value;
+	}
+
 	// Update is called once per frame
 	void Update () {
-	
-	}
-
-	public override void Upgrade () {
-		level += 1;
-
+		deltaTime += Time.deltaTime;
+		if (deltaTime > time) {
+			unit.passiveAttack.powerBuff -= AttackPower;
+			Destroy (gameObject);		
+		}
 	}
 }

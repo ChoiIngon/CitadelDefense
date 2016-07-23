@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Buff : MonoBehaviour {
+public class Buff : MonoBehaviour {
     [System.Serializable]
     public class BuffInfo
     {
@@ -12,9 +12,6 @@ public abstract class Buff : MonoBehaviour {
     }
 
 	public BuffInfo info;
-	public int level;
-
-    [HideInInspector]
     public Unit unit;
 	// Use this for initialization
 	public virtual void Start () {
@@ -28,7 +25,7 @@ public abstract class Buff : MonoBehaviour {
         unit.buffs.Add(info.id, this);
 	}
 
-    void OnDestroy()
+    public virtual void OnDestroy()
     {
         if(null == unit)
         {
@@ -39,6 +36,4 @@ public abstract class Buff : MonoBehaviour {
             unit.buffs.Remove(info.id);
         }
     }
-
-	public abstract void Upgrade ();
 }

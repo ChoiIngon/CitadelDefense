@@ -15,7 +15,6 @@ public class UnitAttack_Summon : UnitAttack {
 			creature.transform.position = position;
 			creature.level = level;
 			creature.maxHealth = health + health * 0.2f * (level - 1);
-			creature.passiveAttack.data.power = data.power;
 		}
 	}
 

@@ -69,6 +69,7 @@ public class UnitSlot : MonoBehaviour {
 		unit.gameObject.SetActive(true);
 		unit.unitAnimation.spriteRenderer.sortingOrder = sortingOrder + 1;
 		unit.transform.SetParent (transform);
+
 		equippedUnit = unit;
 		GetComponent<SpriteRenderer> ().enabled = false;
 	}

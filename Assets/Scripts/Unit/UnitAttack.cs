@@ -11,7 +11,7 @@ public abstract class UnitAttack : MonoBehaviour {
 	public Unit 	target;
 
 	[System.Serializable]
-	public class AttackData {
+	public struct AttackData {
 		public float 	minRange;
 		public float	maxRange;
 		public float 	power;
@@ -34,8 +34,39 @@ public abstract class UnitAttack : MonoBehaviour {
 	public AttackData init;
 	public AttackData max;
 	public AttackData upgrade;
-	[ReadOnly] public AttackData data;
+	public AttackData data {
+		get {
+			AttackData tmp = _data;
+			if (null != powerBuff) {
+				powerBuff (ref tmp.power, _data.power);
+			}
 
+			if (null != speedBuff) {
+				speedBuff (ref tmp.speed, _data.speed);
+			}
+			if (null != cooltimeBuff) {
+				cooltimeBuff (ref tmp.cooltime, _data.cooltime);
+				//tmp.cooltime = Mathf.Max (10.0f, tmp.cooltime);
+			}
+
+			if (null != manaBuff) {
+				manaBuff (ref tmp.mana, _data.mana);
+			}
+
+			return tmp;
+		}
+	}
+	[SerializeField]
+	private AttackData _data;
+	public delegate void BuffPower(ref float ret, float originalAttackPower);
+	public delegate void BuffSpeed(ref float ret, float originalAttackSpeed);
+	public delegate void BuffCooltime(ref float ret, float originalCooltime);
+	public delegate void BuffMana(ref float ret, float orignaMana);
+
+	public BuffPower powerBuff;
+	public BuffSpeed speedBuff;
+	public BuffCooltime cooltimeBuff;
+	public BuffMana manaBuff;
 	public abstract void Attack ();
 	public virtual void Damage(Unit unit)
 	{
@@ -52,12 +83,12 @@ public abstract class UnitAttack : MonoBehaviour {
         {
             throw new System.Exception("invalid level");
         }
-		data.power = init.power + upgrade.power * (level-1);
-		data.minRange = init.minRange + upgrade.minRange * (level-1);
-		data.maxRange = init.maxRange + upgrade.maxRange * (level-1);
-		data.speed = init.speed + upgrade.speed * (level-1);
-		data.cooltime = init.cooltime + upgrade.cooltime * (level - 1);
-		data.mana = init.mana + upgrade.mana * (level - 1);
-		data.time = init.time + upgrade.time * (level - 1);
+		_data.power = init.power + upgrade.power * (level-1);
+		_data.minRange = init.minRange + upgrade.minRange * (level-1);
+		_data.maxRange = init.maxRange + upgrade.maxRange * (level-1);
+		_data.speed = init.speed + upgrade.speed * (level-1);
+		_data.cooltime = init.cooltime + upgrade.cooltime * (level - 1);
+		_data.mana = init.mana + upgrade.mana * (level - 1);
+		_data.time = init.time + upgrade.time * (level - 1);
     }
 }

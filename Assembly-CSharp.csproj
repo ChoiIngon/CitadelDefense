@@ -182,6 +182,11 @@
      <Compile Include="Assets\Scripts\UI\PanelLobby.cs" />
      <Compile Include="Assets\Scripts\UI\PanelPlay.cs" />
      <Compile Include="Assets\Scripts\UI\ProgressBar.cs" />
+     <Compile Include="Assets\Scripts\Unit\Citadel\CitadelBuff.cs" />
+     <Compile Include="Assets\Scripts\Unit\Citadel\CitadelBuff_AttackPower.cs" />
+     <Compile Include="Assets\Scripts\Unit\Citadel\CitadelBuff_Cooltime.cs" />
+     <Compile Include="Assets\Scripts\Unit\Citadel\CitadelBuff_ManaConsume.cs" />
+     <Compile Include="Assets\Scripts\Unit\Citadel\CitadelBuff_ManaRecovery.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\CitadelUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Enemy\EnemyUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Missile.cs" />

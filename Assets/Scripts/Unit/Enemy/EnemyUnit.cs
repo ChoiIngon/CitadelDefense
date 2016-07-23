@@ -16,9 +16,9 @@ public class EnemyUnit : Unit {
     }
 
     public ActionState actionState = ActionState.Move;
-    
 	public AutoRecoveryInt hp;
     public float gold;
+	public static float BOUNUS_GOLD;
     public float exp;    
 	public UpgradeInfo upgrade;
     public Vector3 direction;
@@ -110,7 +110,7 @@ public class EnemyUnit : Unit {
 			unitAnimation.animator.SetTrigger ("dead");
 			unitAnimation.animator.speed = 1.0f;
 			healthBar.gameObject.SetActive (false);
-			GameManager.Instance.gold += (int)gold;
+			GameManager.Instance.gold += (int)gold + (int)(gold * BOUNUS_GOLD);
 		}
 	}
 }

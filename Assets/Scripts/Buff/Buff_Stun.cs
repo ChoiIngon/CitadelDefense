@@ -12,6 +12,4 @@ public class Buff_Stun : Buff {
 	void Update () {
 	
 	}
-	public override void Upgrade () {
-	}
 }
