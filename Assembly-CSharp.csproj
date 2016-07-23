@@ -175,8 +175,10 @@
      <Compile Include="Assets\Scripts\Network\StreamSession.cs" />
      <Compile Include="Assets\Scripts\UI\ButtonAdvertisement.cs" />
      <Compile Include="Assets\Scripts\UI\ButtonClose.cs" />
+     <Compile Include="Assets\Scripts\UI\ContentCitadelBuff.cs" />
      <Compile Include="Assets\Scripts\UI\ContentHeroShop.cs" />
      <Compile Include="Assets\Scripts\UI\MessageBox.cs" />
+     <Compile Include="Assets\Scripts\UI\PanelCitadelBuff.cs" />
      <Compile Include="Assets\Scripts\UI\PanelHeroInfo.cs" />
      <Compile Include="Assets\Scripts\UI\PanelHeroShop.cs" />
      <Compile Include="Assets\Scripts\UI\PanelLobby.cs" />
