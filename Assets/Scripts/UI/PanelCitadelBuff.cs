@@ -7,7 +7,7 @@ public class PanelCitadelBuff : MonoBehaviour {
 	public Transform content;
 	public Text description;
 	public Button levelup;
-	public CitadelBuff selectedBuff;
+	public ContentCitadelBuff selectedBuff;
 	void Start()
 	{
 		levelup.onClick.AddListener (() => {
@@ -16,6 +16,7 @@ public class PanelCitadelBuff : MonoBehaviour {
 				selectedBuff.Upgrade();
 			}
 		});
+
 		foreach(CitadelBuff buff in GameManager.Instance.citadel.citadelBuffs)
 		{
 			ContentCitadelBuff contentCitadelBuff = GameObject.Instantiate<ContentCitadelBuff>(contentPrefab);

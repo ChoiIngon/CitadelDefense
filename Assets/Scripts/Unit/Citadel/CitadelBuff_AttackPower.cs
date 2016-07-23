@@ -11,8 +11,4 @@ public class CitadelBuff_AttackPower : CitadelBuff {
 			}
 		}
 	}
-	public override void Upgrade()
-	{
-		
-	}
 }

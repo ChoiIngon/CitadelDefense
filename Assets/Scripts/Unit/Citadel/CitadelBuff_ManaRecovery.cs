@@ -6,7 +6,4 @@ public class CitadelBuff_ManaRecovery : CitadelBuff {
 	{
 		GameManager.Instance.citadel.manaUpgradeInfo.recoveryBonus = value;
 	}
-	public override void Upgrade()
-	{
-	}
 }

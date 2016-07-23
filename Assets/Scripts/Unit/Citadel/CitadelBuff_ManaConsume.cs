@@ -11,7 +11,4 @@ public class CitadelBuff_ManaConsume : CitadelBuff {
 			}
 		}
 	}
-	public override void Upgrade()
-	{
-	}
 }

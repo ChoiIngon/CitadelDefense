@@ -15,14 +15,4 @@ public class CitadelBuff_Cooltime : CitadelBuff {
 			}
 		}
 	}
-	public override void Upgrade()
-	{
-		maxLevel = 20;
-		if (level >= maxLevel + 1) {
-			return;
-		}
-
-		level++;
-		value = -0.01f * level;
-	}
 }

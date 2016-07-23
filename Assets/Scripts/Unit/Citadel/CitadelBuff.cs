@@ -13,13 +13,32 @@ public class CitadelBuff : MonoBehaviour {
 	public int level;
 	public int maxLevel;
 	public int upgradeCost;
-	public float value;
+	public float upgradeValue;
+	public float value {
+		get {
+			return upgradeValue * level;
+		}
+	}
 	public virtual void Init()
 	{
 	}
-	public virtual void Upgrade()
+	public virtual bool Upgrade()
 	{
+		if (level >= maxLevel) {
+			GameManager.Instance.uiMessageBox.message = "최대 레벨에 도달했습니다";
+			return false;
+		}
+		int cost = level * upgradeCost;
+		if (GameManager.Instance.gold < cost) {
+			GameManager.Instance.uiMessageBox.message = "골드가 부족 합니다";
+			return false;
+		}
+		GameManager.Instance.gold -= cost;
+		level++;
+		Init ();
+		return true;
 	}
+
 	public void Buff(ref float ret, float originalValue)
 	{
 		ret += originalValue * value;
