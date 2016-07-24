@@ -18,9 +18,9 @@ public class PanelHeroShop : MonoBehaviour {
 
 	void OnDisable()
 	{
-		foreach(UnitSlot slot in GameManager.Instance.citadel.slots)
+		foreach(CitadelParts parts in GameManager.Instance.citadel.citadelParts)
 		{
-			slot.Select(false);
+			parts.slot.selected = false;
 		}
 	}
 

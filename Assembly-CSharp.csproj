@@ -189,6 +189,7 @@
      <Compile Include="Assets\Scripts\Unit\Citadel\CitadelBuff_Cooltime.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\CitadelBuff_ManaConsume.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\CitadelBuff_ManaRecovery.cs" />
+     <Compile Include="Assets\Scripts\Unit\Citadel\CitadelParts.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\CitadelUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Enemy\EnemyUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Missile.cs" />

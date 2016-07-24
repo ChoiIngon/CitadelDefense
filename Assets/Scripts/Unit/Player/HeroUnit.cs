@@ -20,14 +20,14 @@ public class HeroUnit : Unit {
 
 	private float coolTime;
 	public ProgressBar coolTimeBar;
-	public TouchEvent touchEvent;
+	public TouchEvent touch;
 
 	public override void Start() {
 		base.Start ();
 		level = 1;
-        if (null != touchEvent)
+		if (null != touch)
         {
-			touchEvent.onTouchDown += (Vector3 position) => {
+			touch.onTouchDown += (Vector3 position) => {
 				if (activeAttack.data.mana > GameManager.Instance.citadel.mana) {
 					GameManager.Instance.uiMessageBox.message = "마나가 부족 합니다";
 					return;
@@ -43,7 +43,7 @@ public class HeroUnit : Unit {
                 activeAttack.Attack ();
 				coolTime = activeAttack.data.cooltime;
 			};
-			touchEvent.gameObject.SetActive (false);
+			touch.gameObject.SetActive (false);
         }
 
         if (null != passiveAttack)

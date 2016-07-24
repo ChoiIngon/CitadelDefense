@@ -3,25 +3,42 @@ using System.Collections;
 
 public class UnitSlot : MonoBehaviour {
 	public int slotIndex;
-	public int sortingOrder;
+	public int sortingOrder {
+		get {
+			return GetComponent<SpriteRenderer> ().sortingOrder;
+		}
+	}
 	public float altitude;
+	public bool selected {
+		set {
+			if (true == value) {
+				GetComponent<SpriteRenderer> ().enabled = true;
+				GetComponent<SpriteRenderer> ().sprite = selectedSprite;
+			} else {
+				GetComponent<SpriteRenderer> ().sprite = normalSprite;
+				if (null != equippedUnit) {
+					GetComponent<SpriteRenderer> ().enabled = false;
+				}
+			}
+		}
+	}
 	public Sprite normalSprite;
 	public Sprite selectedSprite;
+	public TouchEvent touch;
 	[HideInInspector]
 	public HeroUnit equippedUnit;
 	// Use this for initialization
 	void Start () {
 		GetComponent<SpriteRenderer> ().sprite = normalSprite;
-		sortingOrder = GetComponent<SpriteRenderer> ().sortingOrder;
 		transform.FindChild("TouchEvent").GetComponent<TouchEvent>().onTouchDown += (Vector3 position) =>
         {
 			GameManager.Instance.uiHeroShopPanel.gameObject.SetActive(true);
 			GameManager.Instance.selectedSlot = this;
-			foreach(UnitSlot slot in GameManager.Instance.citadel.slots)
+			foreach(CitadelParts parts in GameManager.Instance.citadel.citadelParts)
 			{
-				slot.Select(false);
+				parts.slot.selected = false;
 			}
-			Select(true);
+			selected = true;
 			if(null != equippedUnit)
 			{
 				GameManager.Instance.selectedUnit = equippedUnit;
@@ -40,25 +57,12 @@ public class UnitSlot : MonoBehaviour {
         };
 	}
 
-	public void Select(bool flag)
-	{
-		if (true == flag) {
-			GetComponent<SpriteRenderer> ().enabled = true;
-			GetComponent<SpriteRenderer> ().sprite = selectedSprite;
-		} else {
-			GetComponent<SpriteRenderer> ().sprite = normalSprite;
-			if (null != equippedUnit) {
-				GetComponent<SpriteRenderer> ().enabled = false;
-			}
-		}
-	}
-
 	public void EquipUnit(HeroUnit unit)
 	{
         UnequipUnit();
 
 		if (true == unit.equiped) {
-			UnitSlot slot = GameManager.Instance.citadel.slots [unit.slotIndex];
+			UnitSlot slot = GameManager.Instance.citadel.citadelParts [unit.slotIndex].slot;
 			slot.UnequipUnit ();
 		}
 

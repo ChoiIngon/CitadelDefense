@@ -17,17 +17,27 @@ public class CitadelUnit : Unit {
 
 	public UpgradeInfo healthUpgradeInfo;
 	public UpgradeInfo manaUpgradeInfo;
-	public UnitSlot[] slots;
 	public Item[] items = new Item[5];
+	public CitadelParts[] citadelParts;
 	public CitadelBuff[] citadelBuffs;
 
 	[ReadOnly] public AutoRecoveryInt health;
 	[ReadOnly] public AutoRecoveryInt mana;
 
+	void Start()
+	{
+		citadelParts = new CitadelParts[transform.FindChild ("Animation/Parts").childCount];
+		for (int i = 0; i < citadelParts.Length; i++) {
+			CitadelParts parts = transform.FindChild ("Animation/Parts").GetChild(i).GetComponent<CitadelParts>();
+			citadelParts [parts.slotIndex] = parts;
+			citadelParts [parts.slotIndex].gameObject.SetActive (false);
+		}
+		citadelParts [0].gameObject.SetActive (true);
+	}
     public void Init()
 	{
-		if (slots.Length >= level) {
-			slots [level - 1].gameObject.SetActive (true);
+		if (citadelParts.Length >= level) {
+			citadelParts [level - 1].gameObject.SetActive (true);
 		}
 
 		foreach (CitadelBuff buff in citadelBuffs) {

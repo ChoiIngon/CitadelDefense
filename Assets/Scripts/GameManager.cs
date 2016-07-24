@@ -96,19 +96,17 @@ public class GameManager : MonoBehaviour {
 
 		foreach(HeroUnit hero in heros)
         {
-            Transform touchEvent = hero.transform.FindChild("TouchEvent");
-            if(null != touchEvent)
+            if(null != hero.touch)
             {
-                touchEvent.gameObject.SetActive(true);
+				hero.touch.gameObject.SetActive(true);
             }
         }
 
-        foreach(UnitSlot slot in citadel.slots)
+		foreach(CitadelParts parts in citadel.citadelParts)
         {
-            Transform touchEvent = slot.transform.FindChild("TouchEvent");
-            if (null != touchEvent)
+			if (null != parts.slot.touch)
             {
-                touchEvent.gameObject.SetActive(false);
+				parts.slot.touch.gameObject.SetActive(false);
             }
         }
 
@@ -134,21 +132,19 @@ public class GameManager : MonoBehaviour {
 
         foreach (HeroUnit hero in heros)
         {
-            Transform touchEvent = hero.transform.FindChild("TouchEvent");
-            if (null != touchEvent)
+           	if (null != hero.touch)
             {
-                touchEvent.gameObject.SetActive(false);
+				hero.touch.gameObject.SetActive(false);
             }
 
 			hero.Init ();
         }
 
-        foreach (UnitSlot slot in citadel.slots)
+		foreach (CitadelParts parts in citadel.citadelParts)
         {
-            Transform touchEvent = slot.transform.FindChild("TouchEvent");
-            if (null != touchEvent)
+			if (null != parts.slot.touch)
             {
-               touchEvent.gameObject.SetActive(true);
+				parts.slot.touch.gameObject.SetActive(true);
             }
         }
 
