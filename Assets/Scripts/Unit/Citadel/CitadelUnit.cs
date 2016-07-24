@@ -26,6 +26,10 @@ public class CitadelUnit : Unit {
 
 	public void Init()
 	{
+		if (citadelParts.Length >= level) {
+			citadelParts [level - 1].gameObject.SetActive (true);
+		}
+
 		foreach (CitadelBuff buff in citadelBuffs) {
 			buff.Init ();
 		}
