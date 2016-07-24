@@ -9,6 +9,10 @@ public class CitadelBuff : MonoBehaviour {
 		public string description;
 		public Sprite icon;
 	}
+	[System.Serializable]
+	public class SaveData {
+		public int level;
+	}
 	public Info info;
 	public int level;
 	public int maxLevel;

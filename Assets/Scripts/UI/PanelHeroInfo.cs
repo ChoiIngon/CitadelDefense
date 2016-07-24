@@ -42,6 +42,7 @@ public class PanelHeroInfo : MonoBehaviour {
 			GameManager.Instance.selectedUnit = null;
 			GameManager.Instance.uiHeroInfoPanel.gameObject.SetActive(false);
 			GameManager.Instance.uiHeroShopPanel.gameObject.SetActive(false);
+			GameManager.Instance.Save();
 		});
 
 		buttonEquip.onClick.AddListener (() => {
@@ -57,6 +58,7 @@ public class PanelHeroInfo : MonoBehaviour {
 			GameManager.Instance.selectedSlot = null;
 			GameManager.Instance.uiHeroInfoPanel.gameObject.SetActive(false);
 			GameManager.Instance.uiHeroShopPanel.gameObject.SetActive(false);
+			GameManager.Instance.Save();
 		});
 
         buttonLevelup.onClick.AddListener (() => {
@@ -68,6 +70,7 @@ public class PanelHeroInfo : MonoBehaviour {
 			unit.Upgrade();
 			Init();
 			contentHeroShop.SetUnit(unit);
+			GameManager.Instance.Save();
 		});
 	}
 	public void Init()
@@ -76,6 +79,7 @@ public class PanelHeroInfo : MonoBehaviour {
 		if (null == unit) {
 			return;
 		}
+		unit.Init ();
 		textName.text = unit.info.name;
 		imageUnit.sprite = unit.info.icon;
 		textLevel.text = unit.level.ToString ();
@@ -91,7 +95,7 @@ public class PanelHeroInfo : MonoBehaviour {
 		textAttackSpeed.text = unit.passiveAttack.data.speed.ToString();
 
 		int upgradeGold = unit.info.upgradePrice * unit.level;
-		buttonLevelup.transform.FindChild ("Text").GetComponent<Text> ().text = "Level Up(" + upgradeGold.ToString () + ")";
+		buttonLevelup.transform.FindChild ("Text").GetComponent<Text> ().text = "Level Up\r\n(" + upgradeGold.ToString () + " G)";
 
 		//attackPowerImage.sprite = unit.normalAttack.info.icon;
 		//specialAttackImage.sprite = unit.specialAttack.info.icon;

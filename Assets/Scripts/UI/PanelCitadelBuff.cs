@@ -14,6 +14,7 @@ public class PanelCitadelBuff : MonoBehaviour {
 			if(null != selectedBuff)
 			{
 				selectedBuff.Upgrade();
+				GameManager.Instance.Save();
 			}
 		});
 

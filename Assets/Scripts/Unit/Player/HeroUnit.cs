@@ -10,9 +10,18 @@ public class HeroUnit : Unit {
 		public int purchasePrice;
 		public int upgradePrice; // level * upgradePrice
 	}
+
+	[System.Serializable]
+	public class SaveData
+	{
+		public int level;
+		public int slotIndex;
+		public bool purchased;
+		public bool equiped;
+	}
 	public Info info;
 
-	[ReadOnly] public int	level = 1;
+	public int	level;
 	[ReadOnly] public int	slotIndex; 
 	[ReadOnly] public bool	purchased;
 	[ReadOnly] public bool	equiped;
@@ -24,7 +33,6 @@ public class HeroUnit : Unit {
 
 	public override void Start() {
 		base.Start ();
-		level = 1;
 		if (null != touch)
         {
 			touch.onTouchDown += (Vector3 position) => {
@@ -63,6 +71,12 @@ public class HeroUnit : Unit {
 		if (null != coolTimeBar) {
 			coolTimeBar.progress = 1.0f;
 			coolTime = 0.0f;
+		}
+		if (null != passiveAttack) {
+			passiveAttack.Upgrade(level);
+		}
+		if (null != activeAttack) {
+			activeAttack.Upgrade(level);
 		}
 	}
 	void Update () {

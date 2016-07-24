@@ -24,22 +24,8 @@ public class CitadelUnit : Unit {
 	[ReadOnly] public AutoRecoveryInt health;
 	[ReadOnly] public AutoRecoveryInt mana;
 
-	void Start()
+	public void Init()
 	{
-		citadelParts = new CitadelParts[transform.FindChild ("Animation/Parts").childCount];
-		for (int i = 0; i < citadelParts.Length; i++) {
-			CitadelParts parts = transform.FindChild ("Animation/Parts").GetChild(i).GetComponent<CitadelParts>();
-			citadelParts [parts.slotIndex] = parts;
-			citadelParts [parts.slotIndex].gameObject.SetActive (false);
-		}
-		citadelParts [0].gameObject.SetActive (true);
-	}
-    public void Init()
-	{
-		if (citadelParts.Length >= level) {
-			citadelParts [level - 1].gameObject.SetActive (true);
-		}
-
 		foreach (CitadelBuff buff in citadelBuffs) {
 			buff.Init ();
 		}
@@ -54,8 +40,6 @@ public class CitadelUnit : Unit {
 		mana.recovery = 1;
 		mana.interval = manaUpgradeInfo.recoverySpeed * Mathf.Max(1 + manaUpgradeInfo.recoveryBonus, 0.01f);
 	}
-
-	public delegate void ManaRecovery(ref float ret, float original);
 
 	public override void Damage(int damage)
 	{
@@ -76,6 +60,10 @@ public class CitadelUnit : Unit {
 		GameManager.Instance.gold -= cost;
 		level += 1;
 		Init ();
+		if (citadelParts.Length >= level) {
+			citadelParts [level - 1].gameObject.SetActive (true);
+		}
+		GameManager.Instance.Save ();
 	}
 
     public void EquipItem(Item item)

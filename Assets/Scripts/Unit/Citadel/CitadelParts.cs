@@ -7,9 +7,13 @@ public class CitadelParts : MonoBehaviour {
 	public float altitude;
 
 	public UnitSlot slot;
+	[System.Serializable]
+	public class SaveData {
+		public bool active;
+	}
 
-	// Use this for initialization
-	void Start () {
+	public void Init()
+	{
 		GetComponent<SpriteRenderer> ().sortingOrder = sortingOrder * 10;
 		slot.slotIndex = slotIndex;
 		slot.GetComponent<SpriteRenderer> ().sortingOrder = sortingOrder * 10 - 2;
