@@ -15,6 +15,7 @@ public class EnemyUnit : Unit {
         Dead
     }
 
+    public string id;
     public ActionState actionState = ActionState.Move;
 	public AutoRecoveryInt hp;
     public float gold;

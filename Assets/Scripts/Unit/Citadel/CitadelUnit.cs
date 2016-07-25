@@ -47,7 +47,13 @@ public class CitadelUnit : Unit {
 
 	public override void Damage(int damage)
 	{
-		health -= damage;
+        Hashtable ht = new Hashtable();
+        ht.Add("x", 0.1f);
+        ht.Add("y", 0.1f);
+        ht.Add("time", 0.3f);
+        iTween.ShakePosition(gameObject, ht);
+        
+        health -= damage;
 		if(0 >= health)
         {
 			GameManager.Instance.WaveEnd (GameManager.WaveResult.Lose);
