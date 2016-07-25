@@ -107,6 +107,8 @@ public class GameManager : MonoBehaviour {
 		}
 
 		Load();
+
+        uiLobbyPanel.OnEnable();
 		uiWaveProgress.transform.FindChild ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
 		foreach(HeroUnit hero in heros)
 		{

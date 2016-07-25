@@ -25,7 +25,7 @@ public class PanelLobby : MonoBehaviour {
 		});
 	}
 
-	void OnEnable() {
+	public void OnEnable() {
 		buttonUpgradeCitadel.transform.FindChild ("Text").GetComponent<Text> ().text = 
 			"요새 업그레이드" + "\r\n" +
 			"(" + (GameManager.Instance.citadel.upgradeCost * GameManager.Instance.citadel.level).ToString() + " G)";

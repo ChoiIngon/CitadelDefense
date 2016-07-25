@@ -48,8 +48,8 @@ public class CitadelUnit : Unit {
 	public override void Damage(int damage)
 	{
         Hashtable ht = new Hashtable();
-        ht.Add("x", 0.1f);
-        ht.Add("y", 0.1f);
+        ht.Add("x", 0.05f);
+        ht.Add("y", 0.05f);
         ht.Add("time", 0.3f);
         iTween.ShakePosition(gameObject, ht);
         
