@@ -7,7 +7,6 @@ using UnityEditor;
 public class UnitHit : MonoBehaviour {
 	public enum ColliderType
 	{
-		SingleTarget,
 		Box,
 		Circle,
 		Ellipse
@@ -23,7 +22,9 @@ public class UnitHit : MonoBehaviour {
 		rigidbody.isKinematic = true;
 	
 		Collider2D collider = GetComponent<Collider2D> ();
-		collider.isTrigger = true;
+		if (null != collider) {
+			collider.isTrigger = true;
+		}
 
 	    if (true == shakeCamera)
         {

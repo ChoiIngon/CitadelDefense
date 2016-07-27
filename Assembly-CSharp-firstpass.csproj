@@ -200,6 +200,7 @@
      <None Include="Assets\2DxFX\Resources\_2dxFX_ColorChange.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Cartoon.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\RadialBlur.shader" />
+     <None Include="Assets\MagicArsenal\MagicArsenal - ReadMe.txt" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_MetalFX.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Pixel8bitsC64.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_StoneFX.shader" />
@@ -306,6 +307,7 @@
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
+     <None Include="Assets\MagicArsenal\KunaiEditor\Editor\Readme.txt" />
      <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_button_pause.xml" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Lightning.shader" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_Sepia.shader" />

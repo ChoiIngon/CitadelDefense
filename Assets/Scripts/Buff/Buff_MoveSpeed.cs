@@ -21,7 +21,7 @@ public class Buff_MoveSpeed : Buff {
 		if (null != move.buff) {
 			return;
 		}
-        unit.unitAnimation.spriteRenderer.color = new Color(165.0f/256.0f, 242 / 256.0f, 243 / 256.0f);
+		unit.unitAnimation.spriteRenderer.color = Color.blue;
 		move.buff += MoveSpeed;
 	}
 
