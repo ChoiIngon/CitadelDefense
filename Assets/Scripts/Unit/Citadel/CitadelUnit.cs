@@ -29,7 +29,6 @@ public class CitadelUnit : Unit {
 	{
 		{
 			Transform t = transform.FindChild ("Heros");
-			heros = new HeroUnit[t.childCount];
 			for (int i = 0; i < t.childCount; i++) {
 				HeroUnit hero = t.GetChild (i).GetComponent<HeroUnit> ();
 				hero.gameObject.SetActive (false);
