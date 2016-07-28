@@ -89,23 +89,8 @@ public class GameManager : MonoBehaviour {
 		timeScale = 1.0f;
 		Time.timeScale = timeScale;
 
-        Transform transHeros = transform.FindChild("Unit/Heros");
-        heros = new HeroUnit[transHeros.childCount];
-        for (int i = 0; i < transHeros.childCount; i++)
-        {
-            heros[i] = transHeros.GetChild(i).GetComponent<HeroUnit>();
-			heros[i].gameObject.SetActive (false);
-        }
-
-		Transform transCitadelParts = transform.FindChild ("Unit/Citadel/Animation/Parts");
-		citadel.citadelParts = new CitadelParts[transCitadelParts.childCount];
-		for (int i = 0; i < citadel.citadelParts.Length; i++) {
-			CitadelParts parts = transCitadelParts.GetChild(i).GetComponent<CitadelParts>();
-			parts.Init ();
-			parts.gameObject.SetActive (false);
-			citadel.citadelParts [parts.slotIndex] = parts;
-		}
-
+		citadel.Init ();
+        
 		Load();
 
         uiLobbyPanel.OnEnable();
@@ -114,7 +99,7 @@ public class GameManager : MonoBehaviour {
 		{
 			hero.Init ();
 		}
-		citadel.Init ();
+		citadel.Reset ();
 	}
 
 	public void WaveStart()
@@ -180,7 +165,7 @@ public class GameManager : MonoBehaviour {
 		uiWaveProgress.transform.FindChild ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
 		uiWaveProgress.progress = 1.0f;
 
-		citadel.Init ();
+		citadel.Reset ();
 		Save ();
     }
 
@@ -209,12 +194,13 @@ public class GameManager : MonoBehaviour {
 		data.gold = gold;
 		data.heros = new HeroUnit.SaveData[heros.Length];
 		for (int i = 0; i < heros.Length; i++) {
-			HeroUnit.SaveData hero = new HeroUnit.SaveData ();
-			hero.level = heros [i].level;
-			hero.purchased = heros [i].purchased;
-			hero.slotIndex = heros [i].slotIndex;
-			hero.equiped = heros [i].equiped;
-			data.heros [i] = hero;
+			HeroUnit.SaveData saveData = new HeroUnit.SaveData ();
+			saveData.id = heros [i].info.id;
+			saveData.level = heros [i].level;
+			saveData.purchased = heros [i].purchased;
+			saveData.slotIndex = heros [i].slotIndex;
+			saveData.equiped = heros [i].equiped;
+			data.heros [i] = saveData;
 		}
 
 		data.citadelParts = new CitadelParts.SaveData[citadel.citadelParts.Length];

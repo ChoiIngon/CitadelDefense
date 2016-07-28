@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CitadelUnit : Unit {
 	
@@ -20,11 +21,34 @@ public class CitadelUnit : Unit {
 	public Item[] items = new Item[5];
 	public CitadelParts[] citadelParts;
 	public CitadelBuff[] citadelBuffs;
+	public Dictionary<string, HeroUnit> heros = new Dictionary<string, HeroUnit> ();
 
 	[ReadOnly] public AutoRecoveryInt health;
 	[ReadOnly] public AutoRecoveryInt mana;
-
 	public void Init()
+	{
+		{
+			Transform t = transform.FindChild ("Heros");
+			heros = new HeroUnit[t.childCount];
+			for (int i = 0; i < t.childCount; i++) {
+				HeroUnit hero = t.GetChild (i).GetComponent<HeroUnit> ();
+				hero.gameObject.SetActive (false);
+				heros [hero.info.id] = hero;
+			}
+		}
+
+		{
+			Transform t = transform.FindChild ("Animation/Parts");
+			citadelParts = new CitadelParts[t.childCount];
+			for (int i = 0; i < t.childCount; i++) {
+				CitadelParts parts = t.GetChild (i).GetComponent<CitadelParts> ();
+				parts.Init ();
+				parts.gameObject.SetActive (false);
+				citadelParts [parts.slotIndex] = parts;
+			}
+		}
+	}
+	public void Reset()
 	{
 		if (citadelParts.Length >= level) {
 			citadelParts [level - 1].gameObject.SetActive (true);
@@ -69,7 +93,7 @@ public class CitadelUnit : Unit {
 		}
 		GameManager.Instance.gold -= cost;
 		level += 1;
-		Init ();
+		Reset ();
 		if (citadelParts.Length >= level) {
 			citadelParts [level - 1].gameObject.SetActive (true);
 		}

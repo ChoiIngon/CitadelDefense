@@ -1,21 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Wave.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/PanelHeroInfo.cs" Line="94" Column="1" />
-      <File FileName="Assets/Scripts/Buff/Buff_ManaRecovery.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/ProgressBar.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Unit/Citadel/CitadelUnit.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Buff/Buff_AttackSpeed.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Unit/Unit.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/PanelHeroShop.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/PanelLobby.cs" Line="1" Column="1" />
-      <File FileName="Assets/2DxFX/Scripts/_2dxFX_Hologram.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Unit/Player/HeroUnit.cs" Line="93" Column="1" />
-      <File FileName="Assets/Scripts/Unit/UnitHit.cs" Line="40" Column="1" />
-      <File FileName="Assets/Scripts/Unit/UnitAttack_Summon.cs" Line="18" Column="43" />
-      <File FileName="Assets/Scripts/Wave.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="215" Column="2" />
+      <File FileName="Assets/Scripts/Unit/Player/HeroUnit.cs" Line="20" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -31,8 +19,9 @@
       <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/UI/PanelHeroInfo.cs" line="20" column="1" />
       <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/UI/PanelHeroInfo.cs" line="78" column="1" />
       <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/UI/PanelHeroInfo.cs" line="97" column="1" />
-      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/Player/HeroUnit.cs" line="100" column="1" />
-      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/Player/HeroUnit.cs" line="83" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/Player/HeroUnit.cs" line="102" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/Player/HeroUnit.cs" line="85" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/UnitHit.cs" line="41" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
