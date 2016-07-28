@@ -91,6 +91,9 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="Assembly-UnityScript">
+      <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="CitadelDefense.CSharp.Plugins.csproj">
@@ -192,6 +195,8 @@
     <None Include="Assets\Devwinsoft\CharacterEngine\ReadMe_kr.txt" />
     <None Include="Assets\Devwinsoft\CharacterEngine\Shader\SpriteChroma.shader" />
     <None Include="Assets\Devwinsoft\CharacterEngine\Texture\Package\armor\ancient-b\info.txt" />
+    <None Include="Assets\MagicArsenal\KunaiEditor\Editor\Readme.txt" />
+    <None Include="Assets\MagicArsenal\MagicArsenal - ReadMe.txt" />
     <None Include="Assets\Node_Editor\Resources\LineShader.shader" />
     <None Include="Assets\Node_Editor\Utilities\link.xml" />
     <None Include="Assets\Plugins\Android\unityads\AndroidManifest.xml" />
