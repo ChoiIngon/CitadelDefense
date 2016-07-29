@@ -19,8 +19,6 @@ public class EnemyUnit : Unit {
     public ActionState actionState = ActionState.Move;
 	public AutoRecoveryInt hp;
     public float gold;
-	public static float BOUNUS_GOLD;
-
     public float exp;    
 	public UpgradeInfo upgrade;
     public Vector3 direction;
