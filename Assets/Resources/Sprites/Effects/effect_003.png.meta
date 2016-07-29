@@ -220,7 +220,7 @@ TextureImporter:
         - {x: 10, y: 185}
         - {x: 10, y: 202}
     outline: []
-  spritePackingTag: 
+  spritePackingTag: effect
   userData: 
   assetBundleName: 
   assetBundleVariant: 

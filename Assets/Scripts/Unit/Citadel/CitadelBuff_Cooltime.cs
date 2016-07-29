@@ -8,7 +8,8 @@ public class CitadelBuff_Cooltime : CitadelBuff {
 	}
 	public override void Init()
 	{
-		foreach (HeroUnit unit in GameManager.Instance.heros) {
+		foreach (var itr in GameManager.Instance.citadel.heros) {
+			HeroUnit unit = itr.Value;
 			if (null != unit.activeAttack) {
 				unit.activeAttack.cooltimeBuff -= this.Buff;
 				unit.activeAttack.cooltimeBuff += this.Buff;

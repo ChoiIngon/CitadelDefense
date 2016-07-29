@@ -21,7 +21,7 @@ public class CitadelUnit : Unit {
 	public Item[] items = new Item[5];
 	public CitadelParts[] citadelParts;
 	public CitadelBuff[] citadelBuffs;
-	public Dictionary<string, HeroUnit> heros = new Dictionary<string, HeroUnit> ();
+	public Dictionary<int, HeroUnit> heros = new Dictionary<int, HeroUnit> ();
 
 	[ReadOnly] public AutoRecoveryInt health;
 	[ReadOnly] public AutoRecoveryInt mana;

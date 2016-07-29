@@ -20,12 +20,12 @@ public class EnemyUnit : Unit {
 	public AutoRecoveryInt hp;
     public float gold;
 	public static float BOUNUS_GOLD;
+
     public float exp;    
 	public UpgradeInfo upgrade;
     public Vector3 direction;
 
 	public ProgressBar healthBar;
-    public Effect_Damage effectDamage;
 
 	public override void Start () {
 		base.Start ();
@@ -99,19 +99,24 @@ public class EnemyUnit : Unit {
 			return;
 		}
 
-		GameObject go = new GameObject ();
-		go.name = "Effect_Damage";
-		go.transform.position = transform.position;
-        Effect_Damage effect = (Effect_Damage)GameObject.Instantiate<Effect_Damage>(effectDamage);
-		effect.transform.SetParent (go.transform);
-        effect.Init(damage);
 		hp -= damage;
 		if (0 >= hp) {
-            actionState = ActionState.Dead;
+			actionState = ActionState.Dead;
 			unitAnimation.animator.SetTrigger ("dead");
 			unitAnimation.animator.speed = 1.0f;
 			healthBar.gameObject.SetActive (false);
-			GameManager.Instance.gold += (int)gold + (int)(gold * BOUNUS_GOLD);
+			int rewardGold = (int)gold + (int)(gold * GameManager.Instance.goldBonus);
+			GameManager.Instance.gold += rewardGold;
+
+			GameObject go = new GameObject ();
+			go.name = "Effect_GoldReward";
+			go.transform.position = transform.position;
+			go.AddComponent<UnityStandardAssets.Utility.TimedObjectDestructor> ();
+			GameObject effect = GameObject.Instantiate<GameObject>(GameManager.Instance.effectGoldReward);
+			effect.transform.position = transform.position;
+			effect.GetComponentInChildren<MeshRenderer> ().sortingLayerName = "Effect";
+			effect.GetComponentInChildren<TextMesh> ().text = rewardGold.ToString ();
+			effect.transform.SetParent (go.transform);
 		}
 	}
 }

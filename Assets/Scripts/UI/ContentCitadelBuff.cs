@@ -20,9 +20,13 @@ public class ContentCitadelBuff : MonoBehaviour {
 	public void OnClick()
 	{
 		panel.selectedBuff = this;
-		panel.description.text = string.Format(buff.info.description, Mathf.Abs(buff.value));
+		panel.description.text = string.Format(buff.info.description, Mathf.Abs(buff.value) * 100.0f);
 		Text text = panel.levelup.transform.FindChild("Text").GetComponent<Text>();
-		text.text = "Level up\r\n(" + (buff.upgradeCost * (buff.level + 1)).ToString () + " G)";
+		if (buff.maxLevel == buff.level) {
+			text.text = "Max Level";
+		} else {
+			text.text = "Level up\r\n(" + (buff.upgradeCost * (buff.level + 1)).ToString () + " G)";
+		}
 	}
 
 	public void Upgrade()
@@ -31,6 +35,10 @@ public class ContentCitadelBuff : MonoBehaviour {
 		level.text = buff.level.ToString ();
 		panel.description.text = string.Format(buff.info.description, Mathf.Abs(buff.value) * 100.0f);
 		Text text = panel.levelup.transform.FindChild("Text").GetComponent<Text>();
-		text.text = "Level up\r\n(" + (buff.upgradeCost * (buff.level + 1)).ToString () + " G)";
+		if (buff.maxLevel == buff.level) {
+			text.text = "Max Level";
+		} else {
+			text.text = "Level up\r\n(" + (buff.upgradeCost * (buff.level + 1)).ToString () + " G)";
+		}
 	}
 }

@@ -1601,7 +1601,7 @@ TextureImporter:
         - {x: -101, y: 178}
         - {x: -103, y: 176}
     outline: []
-  spritePackingTag: 
+  spritePackingTag: unit
   userData: 
   assetBundleName: 
   assetBundleVariant: 

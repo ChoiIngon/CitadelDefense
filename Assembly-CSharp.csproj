@@ -179,7 +179,6 @@
      <Compile Include="Assets\Scripts\Buff\Buff_Poison.cs" />
      <Compile Include="Assets\Scripts\Buff\Buff_Stun.cs" />
      <Compile Include="Assets\Scripts\Effect\Effect.cs" />
-     <Compile Include="Assets\Scripts\Effect\Effect_Damage.cs" />
      <Compile Include="Assets\Scripts\EnemyManager.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Item\Item.cs" />
@@ -230,7 +229,9 @@
      <Compile Include="Assets\Scripts\Unit\UnitMove_Stright.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitSlot.cs" />
      <Compile Include="Assets\Scripts\UserInputManager.cs" />
+     <Compile Include="Assets\Scripts\Util\AnimatorObjectDestructor.cs" />
      <Compile Include="Assets\Scripts\Util\AutoRecoveryInt.cs" />
+     <Compile Include="Assets\Scripts\Util\TextOutline.cs" />
      <Compile Include="Assets\Scripts\Util\TouchEvent.cs" />
      <Compile Include="Assets\Scripts\Wave.cs" />
      <Compile Include="Assets\Scripts\XXData.cs" />

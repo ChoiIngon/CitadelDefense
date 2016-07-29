@@ -32,8 +32,9 @@ public class PanelHeroShop : MonoBehaviour {
             child.SetParent(null);
             DestroyObject(child.gameObject);
         }
-        foreach(HeroUnit unit in GameManager.Instance.heros)
+		foreach(var itr in GameManager.Instance.citadel.heros)
         {
+			HeroUnit unit = itr.Value;
 			ContentHeroShop contentHeroShop = GameObject.Instantiate<ContentHeroShop>(contentPrefab);
 			contentHeroShop.SetUnit(unit);
 			contentHeroShop.transform.SetParent(content);

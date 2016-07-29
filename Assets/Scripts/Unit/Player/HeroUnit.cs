@@ -5,7 +5,7 @@ public class HeroUnit : Unit {
 	public class Info
 	{
 		public Sprite icon;
-		public string id;
+		public int id;
 		public string name;
 		public string description;
 		public int purchasePrice;
@@ -15,7 +15,7 @@ public class HeroUnit : Unit {
 	[System.Serializable]
 	public class SaveData
 	{
-		public string id;
+		public int id;
 		public int level;
 		public int slotIndex;
 		public bool purchased;

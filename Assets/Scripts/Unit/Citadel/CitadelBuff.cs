@@ -20,7 +20,7 @@ public class CitadelBuff : MonoBehaviour {
 	public float upgradeValue;
 	public float value {
 		get {
-			return upgradeValue * level;
+			return Mathf.Round(upgradeValue * level * 10000.0f)/10000.0f;
 		}
 	}
 	public virtual void Init()
@@ -32,7 +32,7 @@ public class CitadelBuff : MonoBehaviour {
 			GameManager.Instance.uiMessageBox.message = "최대 레벨에 도달했습니다";
 			return false;
 		}
-		int cost = level * upgradeCost;
+		int cost = (level + 1) * upgradeCost;
 		if (GameManager.Instance.gold < cost) {
 			GameManager.Instance.uiMessageBox.message = "골드가 부족 합니다";
 			return false;
