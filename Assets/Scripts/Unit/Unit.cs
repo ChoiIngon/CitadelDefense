@@ -28,6 +28,22 @@ public class Unit : MonoBehaviour {
     public UnitAttack passiveAttack;
     public UnitAttack activeAttack;
 	public UnitAnimation unitAnimation;
+	public BoxCollider2D hitBox;
+	public Vector3 center {
+		get {
+			return hitBox.bounds.center;
+		}
+	}
+	public Vector3 hitPoint {
+		get {
+			if (null == hitBox) {
+				return Vector3.zero;
+			}
+			float x = Random.Range (-hitBox.bounds.size.x/2, hitBox.bounds.size.x/2);
+			float y = Random.Range (-hitBox.bounds.size.y/2, hitBox.bounds.size.y/2);
+			return new Vector3 (x + hitBox.bounds.center.x, y + hitBox.bounds.center.y, 0.0f);
+		}
+	}
     public Dictionary<string, Buff> buffs = new Dictionary<string, Buff>();
 
 	public virtual void Start() {
@@ -47,7 +63,7 @@ public class Unit : MonoBehaviour {
 
 		transform.localScale *= scale;
 	}
-    
+
 	public virtual void Damage(int damage) {}
 }
 

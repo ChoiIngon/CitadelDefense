@@ -11,6 +11,6 @@ public class UnitAttack_Range : UnitAttack
 			return;
 		}
 		Missile missile = Object.Instantiate<Missile> (missilePrefab);
-		missile.Init (transform.position, target.transform.position, this, self.altitude);
+		missile.Init (transform.position, target.hitPoint, this, self.altitude);
     }
 }
