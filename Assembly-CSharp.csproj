@@ -205,6 +205,7 @@
      <Compile Include="Assets\Scripts\Unit\Citadel\CitadelParts.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\CitadelUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Enemy\EnemyCitadelUnit.cs" />
+     <Compile Include="Assets\Scripts\Unit\Enemy\EnemyHeroUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Enemy\EnemyUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Missile.cs" />
      <Compile Include="Assets\Scripts\Unit\Player\HeroUnit.cs" />

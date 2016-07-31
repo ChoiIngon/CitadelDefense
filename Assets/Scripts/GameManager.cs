@@ -49,6 +49,9 @@ public class GameManager : MonoBehaviour {
     public EnemyManager enemyManager;
 	public Transform creatures;
 
+	public Dictionary<Object, Object> enemies = new Dictionary<Object, Object>();
+	public Dictionary<Object, Object> player = new Dictionary<Object, Object>();
+
 	public PanelLobby 		uiLobbyPanel;
 	public PanelPlay 		uiPlayPanel;
 	public PanelHeroShop 	uiHeroShopPanel;

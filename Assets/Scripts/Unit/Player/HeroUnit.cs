@@ -60,13 +60,8 @@ public class HeroUnit : Unit {
         {
             unitAnimation.animationEvents.Add("attack", passiveAttack.Attack);
             passiveAttack.self = this;
-            passiveAttack.Upgrade(level);
         }
-
-		if (null != activeAttack) {
-            activeAttack.Upgrade (level);
-		}
-		
+			
 		Init ();
 	}
 	public void Init() {

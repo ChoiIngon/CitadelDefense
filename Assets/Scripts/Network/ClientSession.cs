@@ -140,9 +140,6 @@ public class ClientSession : Gamnet.StreamSession
         });
     }
 
-    bool stopSend = false;
-    float stopTime = 0.0f;
-        
     void OnGUI()
     {
         GUILayout.BeginHorizontal();

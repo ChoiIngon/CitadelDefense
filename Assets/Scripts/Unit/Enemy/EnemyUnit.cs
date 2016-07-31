@@ -74,7 +74,6 @@ public class EnemyUnit : Unit {
 				unitAnimation.animator.speed = unitMove.speed;
                 actionState = ActionState.Move;
             }
-
         }
         AnimatorStateInfo state = unitAnimation.animator.GetCurrentAnimatorStateInfo(0);
 		if (ActionState.Move == actionState) {
