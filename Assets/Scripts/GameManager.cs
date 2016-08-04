@@ -153,6 +153,7 @@ public class GameManager : MonoBehaviour {
 			if (null != parts.slot.equippedUnit) 
 			{
 				HeroUnit unit = parts.slot.equippedUnit;
+				unit.Init ();
 				if (null != unit.touch) 
 				{
 					unit.touch.gameObject.SetActive (false);
