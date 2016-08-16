@@ -6,6 +6,8 @@ public class CitadelParts : MonoBehaviour {
 	public int sortingOrder;
 	public float altitude;
 
+	public SpriteRenderer front;
+	public SpriteRenderer back;
 	public UnitSlot slot;
 	[System.Serializable]
 	public class SaveData {
@@ -14,10 +16,11 @@ public class CitadelParts : MonoBehaviour {
 
 	public void Init()
 	{
-		GetComponent<SpriteRenderer> ().sortingOrder = sortingOrder * 10;
+		front.sortingOrder = sortingOrder * 10;
 		slot.slotIndex = slotIndex;
 		slot.GetComponent<SpriteRenderer> ().sortingOrder = sortingOrder * 10 - 2;
-		SpriteRenderer back = transform.FindChild ("Back").GetComponent<SpriteRenderer> ();
 		back.sortingOrder = sortingOrder * 10 - 3;
+
+
 	}
 }

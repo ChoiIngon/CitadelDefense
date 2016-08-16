@@ -230,6 +230,7 @@ public class GameManager : MonoBehaviour {
 
 	public void Load()
 	{
+		Debug.Log (Application.persistentDataPath);
 		if (File.Exists (Application.persistentDataPath + "/playerdata.dat")) {
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Open (Application.persistentDataPath + "/playerdata.dat", FileMode.Open);
@@ -266,6 +267,7 @@ public class GameManager : MonoBehaviour {
 				buff.level = data.citadelBuffs [i].level;
 			}
 			file.Close ();
+		} else {
 		}
 	}
 }

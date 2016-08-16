@@ -18,7 +18,7 @@ public class CitadelUnit : Unit {
 
 	public UpgradeInfo healthUpgradeInfo;
 	public UpgradeInfo manaUpgradeInfo;
-	public Item[] items = new Item[5];
+
 	public CitadelParts[] citadelParts;
 	public CitadelBuff[] citadelBuffs;
 	public Dictionary<int, HeroUnit> heros = new Dictionary<int, HeroUnit> ();
@@ -98,13 +98,4 @@ public class CitadelUnit : Unit {
 		}
 		GameManager.Instance.Save ();
 	}
-
-    public void EquipItem(Item item)
-    {
-        item.equipped = true;
-    }
-
-    public void UnequipItem(Item item)
-    {
-    }
 }

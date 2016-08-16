@@ -25,7 +25,7 @@ public class HeroUnit : Unit {
 
 	public int	level;
 	[ReadOnly] public int	slotIndex; 
-	[ReadOnly] public bool	purchased;
+	public bool	purchased;
 	[ReadOnly] public bool	equiped;
 	[ReadOnly] public float height;
 
