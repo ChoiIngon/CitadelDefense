@@ -196,6 +196,7 @@
      <Compile Include="Assets\Scripts\UI\PanelHeroShop.cs" />
      <Compile Include="Assets\Scripts\UI\PanelLobby.cs" />
      <Compile Include="Assets\Scripts\UI\PanelPlay.cs" />
+     <Compile Include="Assets\Scripts\UI\PanelResult.cs" />
      <Compile Include="Assets\Scripts\UI\ProgressBar.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\CitadelBuff.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\CitadelBuff_AttackPower.cs" />
