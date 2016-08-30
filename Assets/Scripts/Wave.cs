@@ -21,7 +21,6 @@ public class Wave {
 
 		while (0.0f < remainTime) {
 			yield return new WaitForSeconds(Random.Range (1.0f, 1.5f));
-			spawnPosition.y = Random.Range (2.5f, 3.5f);
 			EnemyManager.SpawnInfo info = infos [Random.Range (0, infos.Count)];
 			for(int i=0; i<info.count; i++) {
 				EnemyUnit unitEnemy = (EnemyUnit)GameObject.Instantiate<EnemyUnit> (info.enemy);

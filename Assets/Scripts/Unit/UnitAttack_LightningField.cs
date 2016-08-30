@@ -9,7 +9,7 @@ public class UnitAttack_LightningField : UnitAttack {
 
 	public TouchEvent unitTouchEvent;
 	public TouchEvent touchEvent;
-
+	public Vector2 bound;
 	void Start()
 	{
 		touchEvent.gameObject.SetActive (false);
@@ -69,7 +69,7 @@ public class UnitAttack_LightningField : UnitAttack {
 
 	private void SpawnLightning()
 	{
-		Vector3 position = new Vector3(Random.Range(transform.position.x - 2.0f, transform.position.x + 2.0f), Random.Range(transform.position.y + 1.5f, transform.position.y - 1.5f), 0.0f);
+		Vector3 position = new Vector3(Random.Range(transform.position.x - bound.x/2, transform.position.x + bound.x/2), Random.Range(transform.position.y - bound.y/2, transform.position.y + bound.y/2), 0.0f);
 		UnitHit obj = GameObject.Instantiate<UnitHit>(lightning);
 		obj.attack = this;
 		obj.transform.position = position;

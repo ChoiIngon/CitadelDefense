@@ -8,7 +8,7 @@ public class UnitAttack_Meteor : UnitAttack {
     public Vector3 initPosition;
     public TouchEvent unitTouchEvent;
     public TouchEvent touchEvent;
-
+	public Vector2 bound;
 	public void Start()
 	{
 		touchEvent.gameObject.SetActive (false);
@@ -41,7 +41,7 @@ public class UnitAttack_Meteor : UnitAttack {
 	void SpawnMeteor()
 	{
 		Vector3 curPosition = transform.position;
-		Vector3 endPosition = new Vector3(Random.Range(curPosition.x - 2.0f, curPosition.x + 2.0f), Random.Range(curPosition.y + 2.0f, curPosition.y - 2.0f), 0.0f);
+		Vector3 endPosition = new Vector3(Random.Range(curPosition.x - bound.x/2, curPosition.x + bound.x/2), Random.Range(curPosition.y - bound.y/2, curPosition.y + bound.y/2), 0.0f);
 		Vector3 startPosition = new Vector3(endPosition.x - 4.0f, endPosition.y + 7.0f, endPosition.z);
 		Missile missile = Object.Instantiate<Missile>(missilePrefab);
 		missile.Init(startPosition, endPosition, this, 7.0f);

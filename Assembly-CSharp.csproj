@@ -171,6 +171,7 @@
      <Compile Include="Assets\Scripts\AI\Decorator\Selector.cs" />
      <Compile Include="Assets\Scripts\AI\Decorator\Sequence.cs" />
      <Compile Include="Assets\Scripts\AI\NodeManager.cs" />
+     <Compile Include="Assets\Scripts\Background\TiledSprite.cs" />
      <Compile Include="Assets\Scripts\Buff\Buff.cs" />
      <Compile Include="Assets\Scripts\Buff\Buff_AttackPower.cs" />
      <Compile Include="Assets\Scripts\Buff\Buff_AttackSpeed.cs" />
