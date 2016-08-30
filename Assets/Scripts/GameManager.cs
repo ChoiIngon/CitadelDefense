@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour {
 	public ProgressBar 		uiWaveProgress;
 	public Text 			uiGold;
 	public MessageBox 		uiMessageBox;
+    public PanelResult      uiResultPanel;
 
 	public GameObject 		effectGoldReward;
 	public long gold {
@@ -143,7 +144,10 @@ public class GameManager : MonoBehaviour {
 		} else {
 			enemyManager.Clear ();
 		}
-		if (null != waveCoroutine) {
+
+        uiResultPanel.Active(result);
+
+        if (null != waveCoroutine) {
 			StopCoroutine (waveCoroutine);
 		}
 		wave = null;

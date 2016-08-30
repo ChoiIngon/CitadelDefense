@@ -1,39 +1,59 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PanelResult : MonoBehaviour {
 	public Sprite win;
 	public Sprite lose;
-	// Use this for initialization
+	
 	public Vector3 start;
 	public Vector3 end;
 	public float time;
 
-	private Vector3 direction;
 	private float interpolate;
-	private RectTransform rectTransform;
+	
+    public void Active(GameManager.WaveResult result)
+    {
+        Image image = GetComponent<Image>();
+        if(GameManager.WaveResult.Win == result)
+        {
+            image.sprite = win;
+        }
+        else
+        {
+            image.sprite = lose;
+        }
+        gameObject.SetActive(true);
+    }
+
 	void Start () {
-		//iTween.MoveTo (gameObject, Camera.main.ScreenToWorldPoint (Vector3.zero), 1.0f);
-		rectTransform = GetComponent<RectTransform>();
-		direction = Vector3.down;
-		interpolate = 0.0f;
-		rectTransform.localPosition = start;
-	}
+    }
 
 	void OnEnable() {
-		
-	}
+        StartCoroutine(_Update());
+    }
 
-	// Update is called once per frame
-	void Update () {
-		if (1.0f > interpolate) {
-			interpolate += Time.deltaTime;
-		} else {
-			interpolate -= Time.deltaTime;
-		}
-		rectTransform.localPosition = Vector3.Lerp (start, end, interpolate);
-		if (interpolate < 0.0f) {
-			gameObject.SetActive (false);
-		}
-	}
+    IEnumerator _Update()
+    {
+        interpolate = 0.0f;
+        while (1.0f > interpolate)
+        {
+            interpolate += Time.deltaTime / time;
+            transform.localPosition = Vector3.Lerp(start, end, interpolate);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1.0f);
+
+        Image image = GetComponent<Image>();
+        Color color = image.color;
+        while(0.0f < image.color.a)
+        {
+            color.a -= Time.deltaTime;
+            image.color = color;
+            yield return null;
+        }
+        
+        gameObject.SetActive(false);
+    }
 }
