@@ -52,14 +52,17 @@ public class GameManager : MonoBehaviour {
 	public Dictionary<Object, Object> enemies = new Dictionary<Object, Object>();
 	public Dictionary<Object, Object> player = new Dictionary<Object, Object>();
 
-	public PanelLobby 		uiLobbyPanel;
+	public PanelCitadel 	uiCitadelPanel;
+	public PanelCitadelBuff	uiCitadelBuffPanel;
+	public ProgressBar 		uiCitadelHealth;
+	public ProgressBar 		uiCitadelMana;
+
 	public PanelPlay 		uiPlayPanel;
 	public PanelHeroShop 	uiHeroShopPanel;
 	public PanelHeroInfo	uiHeroInfoPanel;
-	public GameObject 		uiCitadelBuffPanel;
+
 	public GameObject 		uiItemPanel;
-	public ProgressBar 		uiCitadelHealth;
-	public ProgressBar 		uiCitadelMana;
+
 	public ProgressBar 		uiWaveProgress;
 	public Text 			uiGold;
 	public MessageBox 		uiMessageBox;
@@ -97,7 +100,7 @@ public class GameManager : MonoBehaviour {
         
 		Load();
 
-        uiLobbyPanel.OnEnable();
+        uiCitadelPanel.OnEnable();
 		uiWaveProgress.transform.FindChild ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
 		foreach(var itr in citadel.heros)
 		{
@@ -109,7 +112,7 @@ public class GameManager : MonoBehaviour {
 
 	public void WaveStart()
     {
-		uiLobbyPanel.gameObject.SetActive(false);
+		uiCitadelPanel.gameObject.SetActive(false);
 		uiPlayPanel.gameObject.SetActive (true);
 		gameState = GameState.Play;
 
@@ -136,7 +139,7 @@ public class GameManager : MonoBehaviour {
 
 	public void WaveEnd(WaveResult result)
 	{
-		uiLobbyPanel.gameObject.SetActive (true);
+		uiCitadelPanel.gameObject.SetActive (true);
 		uiPlayPanel.gameObject.SetActive (false);
 		gameState = GameState.Ready;
 		if (WaveResult.Win == result) {

@@ -25,11 +25,7 @@ public class TiledSprite : MonoBehaviour {
 			for (int x = 0; x < row; x++)
 			{
 				child = Instantiate(childPrefab) as GameObject;				
-<<<<<<< HEAD
 				child.transform.position = transform.position + (new Vector3 (x * spriteSize.x, -y * spriteSize.y, 0.0f)); 
-=======
-				child.transform.position = transform.position + (new Vector3 (x * spriteSize.x, y * spriteSize.y, 0.0f)); 
->>>>>>> origin/master
 				child.transform.parent = transform;
 			}
 		}
