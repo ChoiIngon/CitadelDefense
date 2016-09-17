@@ -3,14 +3,15 @@ using System.Collections;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class TiledSprite : MonoBehaviour {
-	public int row;
-	public int col;
+	public float width;
+	public float height;
 	private SpriteRenderer spriteRenderer;
 	// Use this for initialization
 	void Start () {
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 		Vector2 spriteSize = new Vector2(spriteRenderer.bounds.size.x / transform.localScale.x, spriteRenderer.bounds.size.y / transform.localScale.y);
-
+		int col = (int)(height / spriteSize.y);
+		int row = (int)(width / spriteSize.x);
 		// Generate a child prefab of the sprite renderer
 		GameObject childPrefab = new GameObject();
 		SpriteRenderer childSprite = childPrefab.AddComponent<SpriteRenderer>();
@@ -24,7 +25,7 @@ public class TiledSprite : MonoBehaviour {
 			for (int x = 0; x < row; x++)
 			{
 				child = Instantiate(childPrefab) as GameObject;				
-				child.transform.position = transform.position + (new Vector3 (x * (spriteSize.x-0.05f), y * (spriteSize.y-0.05f), 0.0f)); 
+				child.transform.position = transform.position + (new Vector3 (x * spriteSize.x, -y * spriteSize.y, 0.0f)); 
 				child.transform.parent = transform;
 			}
 		}

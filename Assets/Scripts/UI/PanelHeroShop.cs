@@ -6,12 +6,7 @@ public class PanelHeroShop : MonoBehaviour {
 	public ContentHeroShop contentPrefab;
 	public Transform content;
 
-	void Start () 
-	{
-        Init();
-	}
-
-    void OnEnable()
+	void OnEnable()
     {
         Init();
     }

@@ -15,6 +15,10 @@ public class PanelHeroInfo : MonoBehaviour {
 	public Text textCritical;
 
 	public ContentHeroShop contentHeroShop;
+
+	public ContentSkillInfo passiveSkill;
+	public ContentSkillInfo activeSkill;
+
 	public void OnEnable()
 	{
 		Init ();
@@ -94,12 +98,10 @@ public class PanelHeroInfo : MonoBehaviour {
 		textAttackPower.text = unit.passiveAttack.data.power.ToString();
 		textAttackSpeed.text = unit.passiveAttack.data.speed.ToString();
 
+		passiveSkill.Init (unit.passiveAttack);
+		activeSkill.Init (unit.activeAttack);
 		int upgradeGold = unit.info.upgradePrice * unit.level;
 		buttonLevelup.transform.FindChild ("Text").GetComponent<Text> ().text = "Level Up\r\n(" + upgradeGold.ToString () + " G)";
-
-		//attackPowerImage.sprite = unit.normalAttack.info.icon;
-		//specialAttackImage.sprite = unit.specialAttack.info.icon;
-		//skillName.text = unit.specialAttack.info.name;
 
 		buttonBuy.gameObject.SetActive (false);
 		buttonBuy.transform.FindChild ("Text").GetComponent<Text> ().text = unit.info.purchasePrice.ToString();
