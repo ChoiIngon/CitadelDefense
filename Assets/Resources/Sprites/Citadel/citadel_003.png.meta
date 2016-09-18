@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9692c8f255dbd46408e25cad84c3eff7
-timeCreated: 1474180691
+timeCreated: 1474221683
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -9,8 +9,8 @@ TextureImporter:
     21300004: citadel_003_3_front
     21300006: citadel_003_3_back
     21300008: citadel_003_4
-    21300010: citadel_003_4_back
-    21300012: citadel_003_4_front
+    21300010: citadel_003_4_front
+    21300012: citadel_003_4_back
     21300014: citadel_003_1_front
     21300016: citadel_003_8
     21300018: citadel_003_1_back
@@ -71,10 +71,10 @@ TextureImporter:
       name: citadel_003_0_front
       rect:
         serializedVersion: 2
-        x: 422
-        y: 2172
-        width: 558
-        height: 1628
+        x: 210
+        y: 185
+        width: 770
+        height: 3500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -84,10 +84,10 @@ TextureImporter:
       name: citadel_003_0_back
       rect:
         serializedVersion: 2
-        x: 1262
-        y: 186
-        width: 1697
-        height: 3597
+        x: 985
+        y: 185
+        width: 1500
+        height: 3500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -97,10 +97,10 @@ TextureImporter:
       name: citadel_003_3_front
       rect:
         serializedVersion: 2
-        x: 3171
-        y: 3249
-        width: 429
-        height: 237
+        x: 2500
+        y: 2880
+        width: 460
+        height: 300
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -110,23 +110,10 @@ TextureImporter:
       name: citadel_003_3_back
       rect:
         serializedVersion: 2
-        x: 3931
-        y: 3251
-        width: 432
-        height: 276
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: citadel_003_4_back
-      rect:
-        serializedVersion: 2
-        x: 5620
-        y: 3229
-        width: 445
-        height: 276
+        x: 3290
+        y: 2880
+        width: 460
+        height: 300
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,10 +123,23 @@ TextureImporter:
       name: citadel_003_4_front
       rect:
         serializedVersion: 2
-        x: 4865
-        y: 3229
-        width: 444
-        height: 235
+        x: 4880
+        y: 2880
+        width: 520
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: citadel_003_4_back
+      rect:
+        serializedVersion: 2
+        x: 4110
+        y: 2880
+        width: 520
+        height: 300
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,10 +149,10 @@ TextureImporter:
       name: citadel_003_1_front
       rect:
         serializedVersion: 2
-        x: 3177
-        y: 1561
-        width: 366
-        height: 1126
+        x: 2500
+        y: 800
+        width: 700
+        height: 2000
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: citadel_003_1_back
       rect:
         serializedVersion: 2
-        x: 3940
-        y: 737
-        width: 670
-        height: 1966
+        x: 3220
+        y: 800
+        width: 700
+        height: 2000
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,10 +175,10 @@ TextureImporter:
       name: citadel_003_2_front
       rect:
         serializedVersion: 2
-        x: 4809
-        y: 1561
-        width: 366
-        height: 1126
+        x: 3940
+        y: 800
+        width: 700
+        height: 2000
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,10 +188,10 @@ TextureImporter:
       name: citadel_003_2_back
       rect:
         serializedVersion: 2
-        x: 5525
-        y: 678
-        width: 483
-        height: 2065
+        x: 4660
+        y: 800
+        width: 700
+        height: 2000
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

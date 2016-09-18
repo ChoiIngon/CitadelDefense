@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 0ba678d8a5b0347eaa9604a266c34b0e
-timeCreated: 1474180863
+timeCreated: 1474221728
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -9,9 +9,9 @@ TextureImporter:
     21300004: citadel_002_3_front
     21300006: citadel_002_3
     21300008: citadel_002_3_back
-    21300010: citadel_002_4_front
+    21300010: citadel_002_4_back
     21300012: citadel_002_6
-    21300014: citadel_002_4_back
+    21300014: citadel_002_4_front
     21300016: citadel_002_2_back
     21300018: citadel_002_1_front
     21300020: citadel_002_1_back
@@ -69,12 +69,12 @@ TextureImporter:
       name: citadel_002_0_front
       rect:
         serializedVersion: 2
-        x: 445
-        y: 2044
-        width: 530
-        height: 1118
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 210
+        y: 185
+        width: 770
+        height: 3500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -82,12 +82,12 @@ TextureImporter:
       name: citadel_002_0_back
       rect:
         serializedVersion: 2
-        x: 1174
-        y: 228
-        width: 1692
-        height: 2949
-      alignment: 9
-      pivot: {x: 0.5, y: 0.09}
+        x: 985
+        y: 185
+        width: 1500
+        height: 3500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -95,12 +95,12 @@ TextureImporter:
       name: citadel_002_3_front
       rect:
         serializedVersion: 2
-        x: 3121
-        y: 2595
-        width: 417
-        height: 231
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 2500
+        y: 2880
+        width: 460
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -108,25 +108,12 @@ TextureImporter:
       name: citadel_002_3_back
       rect:
         serializedVersion: 2
-        x: 3873
-        y: 2607
-        width: 414
-        height: 254
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: citadel_002_4_front
-      rect:
-        serializedVersion: 2
-        x: 4628
-        y: 2607
-        width: 412
-        height: 231
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 3290
+        y: 2880
+        width: 460
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -134,12 +121,25 @@ TextureImporter:
       name: citadel_002_4_back
       rect:
         serializedVersion: 2
-        x: 5293
-        y: 2626
-        width: 414
-        height: 252
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 4110
+        y: 2880
+        width: 520
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: citadel_002_4_front
+      rect:
+        serializedVersion: 2
+        x: 4880
+        y: 2880
+        width: 520
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -147,12 +147,12 @@ TextureImporter:
       name: citadel_002_2_back
       rect:
         serializedVersion: 2
-        x: 5300
-        y: 552
-        width: 462
-        height: 1687
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 4660
+        y: 800
+        width: 700
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -160,12 +160,12 @@ TextureImporter:
       name: citadel_002_1_front
       rect:
         serializedVersion: 2
-        x: 3059
-        y: 1429
-        width: 388
-        height: 752
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 2500
+        y: 800
+        width: 700
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -173,12 +173,12 @@ TextureImporter:
       name: citadel_002_1_back
       rect:
         serializedVersion: 2
-        x: 3756
-        y: 580
-        width: 639
-        height: 1601
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 3220
+        y: 800
+        width: 700
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -186,12 +186,12 @@ TextureImporter:
       name: citadel_002_2_front
       rect:
         serializedVersion: 2
-        x: 4570
-        y: 1438
-        width: 388
-        height: 752
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 3940
+        y: 800
+        width: 700
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
