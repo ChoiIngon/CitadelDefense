@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class CitadelUnit : Unit {
-	
     public int level;
 	public int upgradeCost;
 
@@ -16,10 +15,20 @@ public class CitadelUnit : Unit {
 		public float recoveryBonus;
 	}
 
+	[System.Serializable]
+	public class CitadelPartsSpriteInfo
+	{
+		public int level;
+		public int partsIndex;
+		public Sprite front;
+		public Sprite back;
+	};
+
 	public UpgradeInfo healthUpgradeInfo;
 	public UpgradeInfo manaUpgradeInfo;
 
 	public CitadelParts[] citadelParts;
+	public CitadelPartsSpriteInfo[] citadelPartsSpriteInfo;
 	public CitadelBuff[] citadelBuffs;
 	public Dictionary<int, HeroUnit> heros = new Dictionary<int, HeroUnit> ();
 
@@ -49,8 +58,15 @@ public class CitadelUnit : Unit {
 	}
 	public void Reset()
 	{
-		if (citadelParts.Length >= level) {
-			citadelParts [level - 1].gameObject.SetActive (true);
+		foreach (CitadelPartsSpriteInfo info in citadelPartsSpriteInfo) {
+			if (info.level <= level) {
+				CitadelParts parts = citadelParts [info.partsIndex];
+				parts.gameObject.SetActive (true);
+				parts.front.sprite = info.front;
+				parts.back.sprite = info.back;
+			} else {
+				break;
+			}
 		}
 
 		foreach (CitadelBuff buff in citadelBuffs) {

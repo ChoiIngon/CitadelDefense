@@ -20,7 +20,5 @@ public class CitadelParts : MonoBehaviour {
 		slot.slotIndex = slotIndex;
 		slot.GetComponent<SpriteRenderer> ().sortingOrder = sortingOrder * 10 - 2;
 		back.sortingOrder = sortingOrder * 10 - 3;
-
-
 	}
 }
