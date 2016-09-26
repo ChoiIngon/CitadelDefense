@@ -4,11 +4,11 @@ using UnityEngine.UI;
 
 public class PanelPlay : MonoBehaviour {
 	public Button buttonBack;
-	public Button buttonSpeed;
+	public ToggleButton buttonSpeed;
 
 	// Use this for initialization
 	void Start () {
-		buttonSpeed.onClick.AddListener (() => {
+		buttonSpeed.onValueChanged.AddListener (value => {
 			if(GameManager.Instance.timeScale > 1.0f)
 			{
 				GameManager.Instance.timeScale = 1.0f;
@@ -16,14 +16,11 @@ public class PanelPlay : MonoBehaviour {
 			else
 			{
 				GameManager.Instance.timeScale = 2.0f;
-				buttonSpeed.Select();
 			}
 			Time.timeScale = GameManager.Instance.timeScale;
 		});
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		buttonBack.onClick.AddListener (() => {
+			GameManager.Instance.WaveEnd(GameManager.WaveResult.Lose);
+		});
 	}
 }

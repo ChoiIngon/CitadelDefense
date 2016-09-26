@@ -235,6 +235,7 @@
      <Compile Include="Assets\Scripts\Util\AutoRecoveryInt.cs" />
      <Compile Include="Assets\Scripts\Util\CSVReader.cs" />
      <Compile Include="Assets\Scripts\Util\TextOutline.cs" />
+     <Compile Include="Assets\Scripts\Util\ToggleButton.cs" />
      <Compile Include="Assets\Scripts\Util\TouchEvent.cs" />
      <Compile Include="Assets\Scripts\Wave.cs" />
      <Compile Include="Assets\Scripts\XXData.cs" />
