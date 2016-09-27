@@ -18,7 +18,7 @@ TextureImporter:
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -57,11 +57,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: buff_goldbonus
+    - serializedVersion: 2
+      name: buff_goldbonus
       rect:
         serializedVersion: 2
         x: 0
@@ -71,18 +74,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 12, y: 27}
-        - {x: 2, y: 27}
-        - {x: -14, y: 21}
-        - {x: -27, y: -2}
-        - {x: -27, y: -12}
-        - {x: -19, y: -25}
-        - {x: 24, y: -25}
-        - {x: 29, y: -15}
-        - {x: 29, y: -4}
-        - {x: 18, y: 20}
-    - name: buff_manarecovery
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: buff_manarecovery
       rect:
         serializedVersion: 2
         x: 60
@@ -92,23 +87,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 11, y: 26}
-        - {x: -23, y: 26}
-        - {x: -25, y: 17}
-        - {x: -25, y: -5}
-        - {x: -17, y: -28}
-        - {x: 8, y: -28}
-        - {x: 22, y: -25}
-        - {x: 29, y: -15}
-        - {x: 29, y: -9}
-        - {x: 21, y: 9}
-      - - {x: 19, y: 8}
-        - {x: 22, y: 9}
-        - {x: 22, y: 12}
-        - {x: 19, y: 13}
-        - {x: 17, y: 11}
-    - name: buff_skillcooltime
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: buff_skillcooltime
       rect:
         serializedVersion: 2
         x: 120
@@ -118,17 +100,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 5, y: 25}
-        - {x: -19, y: 25}
-        - {x: -27, y: 17}
-        - {x: -27, y: -7}
-        - {x: -16, y: -25}
-        - {x: 17, y: -25}
-        - {x: 28, y: -19}
-        - {x: 28, y: 0}
-        - {x: 25, y: 11}
-    - name: buff_attackpower
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: buff_attackpower
       rect:
         serializedVersion: 2
         x: 0
@@ -138,26 +113,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 7, y: -3}
-        - {x: 6, y: -5}
-        - {x: 2, y: -10}
-        - {x: 1, y: -13}
-        - {x: 8, y: -25}
-        - {x: 22, y: -25}
-        - {x: 29, y: -15}
-        - {x: 29, y: 0}
-        - {x: 21, y: 24}
-        - {x: 0, y: 24}
-        - {x: -2, y: 23}
-        - {x: -27, y: -8}
-        - {x: -27, y: -22}
-        - {x: -22, y: -25}
-        - {x: -14, y: -25}
-        - {x: 1, y: -17}
-        - {x: 0, y: -14}
-        - {x: 3, y: -7}
-    - name: buff_summonhp
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: buff_summonhp
       rect:
         serializedVersion: 2
         x: 60
@@ -167,41 +126,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 10, y: 24}
-        - {x: -16, y: 24}
-        - {x: -27, y: 10}
-        - {x: -27, y: -24}
-        - {x: -18, y: -30}
-        - {x: 20, y: -30}
-        - {x: 24, y: -28}
-        - {x: 29, y: -19}
-        - {x: 29, y: -6}
-        - {x: 22, y: 21}
-      - - {x: -22, y: -24}
-        - {x: -21, y: -27}
-        - {x: -18, y: -27}
-        - {x: -16, y: -25}
-        - {x: -17, y: -22}
-        - {x: -20, y: -22}
-      - - {x: -13, y: -22}
-        - {x: -10, y: -21}
-        - {x: -10, y: -18}
-        - {x: -13, y: -17}
-        - {x: -15, y: -19}
-      - - {x: 21, y: 3}
-        - {x: 24, y: -2}
-        - {x: 27, y: -1}
-        - {x: 27, y: 3}
-        - {x: 25, y: 5}
-        - {x: 23, y: 5}
-      - - {x: 16, y: 28}
-        - {x: 17, y: 25}
-        - {x: 20, y: 25}
-        - {x: 22, y: 27}
-        - {x: 21, y: 30}
-        - {x: 18, y: 30}
-    - name: buff_summonattack
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: buff_summonattack
       rect:
         serializedVersion: 2
         x: 120
@@ -211,38 +139,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -27, y: 25}
-        - {x: -27, y: -27}
-        - {x: -19, y: -30}
-        - {x: 18, y: -30}
-        - {x: 28, y: -26}
-        - {x: 29, y: -16}
-        - {x: 29, y: 25}
-      - - {x: -22, y: -24}
-        - {x: -21, y: -27}
-        - {x: -18, y: -27}
-        - {x: -16, y: -25}
-        - {x: -17, y: -22}
-        - {x: -20, y: -22}
-      - - {x: -13, y: -22}
-        - {x: -10, y: -21}
-        - {x: -10, y: -18}
-        - {x: -13, y: -17}
-        - {x: -15, y: -19}
-      - - {x: 21, y: 3}
-        - {x: 24, y: -2}
-        - {x: 27, y: -1}
-        - {x: 27, y: 3}
-        - {x: 25, y: 5}
-        - {x: 23, y: 5}
-      - - {x: 16, y: 28}
-        - {x: 17, y: 25}
-        - {x: 20, y: 25}
-        - {x: 22, y: 27}
-        - {x: 21, y: 30}
-        - {x: 18, y: 30}
-    - name: gold_coin
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: gold_coin
       rect:
         serializedVersion: 2
         x: 0
@@ -252,17 +152,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -4, y: 27}
-        - {x: -15, y: 23}
-        - {x: -26, y: -2}
-        - {x: -26, y: -18}
-        - {x: -22, y: -22}
-        - {x: -5, y: -22}
-        - {x: 18, y: -12}
-        - {x: 18, y: 24}
-        - {x: 11, y: 27}
-    - name: attack_power
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: attack_power
       rect:
         serializedVersion: 2
         x: 60
@@ -272,18 +165,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 5, y: 24}
-        - {x: 2, y: 21}
-        - {x: -17, y: 4}
-        - {x: -26, y: -12}
-        - {x: -26, y: -23}
-        - {x: -24, y: -25}
-        - {x: -5, y: -25}
-        - {x: 22, y: -3}
-        - {x: 22, y: 22}
-        - {x: 21, y: 24}
-    - name: mana
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: mana
       rect:
         serializedVersion: 2
         x: 120
@@ -293,17 +178,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -13, y: 24}
-        - {x: -22, y: 19}
-        - {x: -22, y: -3}
-        - {x: -13, y: -26}
-        - {x: -12, y: -30}
-        - {x: 12, y: -30}
-        - {x: 23, y: -11}
-        - {x: 23, y: 13}
-        - {x: 14, y: 24}
-    - name: cooltime
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: cooltime
       rect:
         serializedVersion: 2
         x: 0
@@ -313,39 +191,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 15, y: -18}
-        - {x: 12, y: -21}
-        - {x: 12, y: -25}
-        - {x: 13, y: -27}
-        - {x: 17, y: -27}
-        - {x: 20, y: -24}
-        - {x: 20, y: -20}
-        - {x: 19, y: -18}
-      - - {x: 3, y: 22}
-        - {x: -10, y: 22}
-        - {x: -23, y: 11}
-        - {x: -25, y: 5}
-        - {x: -25, y: -5}
-        - {x: -7, y: -25}
-        - {x: 12, y: -25}
-        - {x: 19, y: -14}
-        - {x: 19, y: 5}
-        - {x: 8, y: 20}
-      - - {x: 27, y: -12}
-        - {x: 29, y: -14}
-        - {x: 30, y: -14}
-        - {x: 30, y: -9}
-        - {x: 28, y: -9}
-      - - {x: 15, y: 26}
-        - {x: 13, y: 24}
-        - {x: 13, y: 21}
-        - {x: 15, y: 19}
-        - {x: 17, y: 19}
-        - {x: 19, y: 21}
-        - {x: 19, y: 24}
-        - {x: 17, y: 26}
-    - name: summon
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: summon
       rect:
         serializedVersion: 2
         x: 60
@@ -355,53 +204,8 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 25, y: -6}
-        - {x: 24, y: -4}
-        - {x: 25, y: 19}
-        - {x: 21, y: 20}
-        - {x: 18, y: 19}
-        - {x: 2, y: 15}
-        - {x: -2, y: 20}
-        - {x: -4, y: 20}
-        - {x: -6, y: 19}
-        - {x: -15, y: 18}
-        - {x: -19, y: 18}
-        - {x: -27, y: 7}
-        - {x: -27, y: -10}
-        - {x: -24, y: -17}
-        - {x: -20, y: -20}
-        - {x: -17, y: -19}
-        - {x: -2, y: -30}
-        - {x: 0, y: -30}
-        - {x: 9, y: -29}
-        - {x: 11, y: -23}
-        - {x: 24, y: -15}
-        - {x: 25, y: -12}
-      - - {x: -22, y: -24}
-        - {x: -21, y: -27}
-        - {x: -18, y: -27}
-        - {x: -16, y: -25}
-        - {x: -17, y: -22}
-        - {x: -20, y: -22}
-      - - {x: -15, y: -20}
-        - {x: -11, y: -25}
-        - {x: -8, y: -24}
-        - {x: -8, y: -22}
-        - {x: -12, y: -17}
-        - {x: -14, y: -17}
-      - - {x: 21, y: 3}
-        - {x: 22, y: 0}
-        - {x: 25, y: 0}
-        - {x: 27, y: 2}
-        - {x: 26, y: 5}
-        - {x: 23, y: 5}
-      - - {x: 16, y: 28}
-        - {x: 17, y: 25}
-        - {x: 20, y: 25}
-        - {x: 22, y: 27}
-        - {x: 21, y: 30}
-        - {x: 18, y: 30}
+      outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: 
   userData: 
