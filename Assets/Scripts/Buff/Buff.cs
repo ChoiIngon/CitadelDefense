@@ -36,4 +36,9 @@ public class Buff : MonoBehaviour {
             unit.buffs.Remove(info.id);
         }
     }
+
+    public virtual string Description(string text)
+    {
+        return text;
+    }
 }

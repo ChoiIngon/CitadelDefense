@@ -6,8 +6,9 @@ public class Buff_Poison : Buff {
 	public float interval;
 	public float time;
 	private float deltaTime;
-	// Use this for initialization
-	public override void Start () {
+    // Use this for initialization
+    
+    public override void Start () {
         base.Start();
 		deltaTime = 0.0f;
 		if (null == unit) {
@@ -36,4 +37,11 @@ public class Buff_Poison : Buff {
 		}
 		deltaTime += Time.deltaTime;
 	}
+    public override string Description(string text)
+    {
+        text.Replace("{DURATION}", "{0}");
+        text.Replace("{VALUE_1}", "{1}");
+        text.Replace("{VALUE_2}", "{2}");
+        return string.Format(text, time, interval, damage);
+    }
 }
