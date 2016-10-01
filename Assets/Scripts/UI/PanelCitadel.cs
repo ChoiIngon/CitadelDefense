@@ -15,7 +15,7 @@ public class PanelCitadel : MonoBehaviour {
 			GameManager.Instance.citadel.Upgrade();
 			buttonUpgrade.transform.FindChild ("Text").GetComponent<Text> ().text = 
 				"요새 업그레이드" + "\r\n" +
-				"(" + (GameManager.Instance.citadel.upgradeCost * GameManager.Instance.citadel.level).ToString() + " G)";
+				"<size=14>(" + (GameManager.Instance.citadel.upgradeCost * GameManager.Instance.citadel.level).ToString() + " G)</size>";
 		});
 		buttonBuff.onClick.AddListener (() => {
 			GameManager.Instance.uiCitadelBuffPanel.gameObject.SetActive(true);
@@ -33,6 +33,6 @@ public class PanelCitadel : MonoBehaviour {
 	public void OnEnable() {
 		buttonUpgrade.transform.FindChild ("Text").GetComponent<Text> ().text = 
 			"요새 업그레이드" + "\r\n" +
-			"(" + (GameManager.Instance.citadel.upgradeCost * GameManager.Instance.citadel.level).ToString() + " G)";
+			"<size=14>(" + (GameManager.Instance.citadel.upgradeCost * GameManager.Instance.citadel.level).ToString() + " G)</size>";
 	}
 }
