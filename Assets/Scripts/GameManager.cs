@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour {
 		public int waveLevel;
 		public long gold;
 		public int citadelLevel;
-		public Dictionary<int, HeroUnit.SaveData> heros;
+		public Dictionary<string, HeroUnit.SaveData> heros;
 		public CitadelParts.SaveData[] citadelParts;
 		public CitadelBuff.SaveData[] citadelBuffs;
 	}
@@ -203,7 +203,7 @@ public class GameManager : MonoBehaviour {
 		data.waveLevel = waveLevel;
 		data.citadelLevel = citadel.level;
 		data.gold = gold;
-		data.heros = new Dictionary<int, HeroUnit.SaveData> ();
+		data.heros = new Dictionary<string, HeroUnit.SaveData> ();
 		foreach (var itr in citadel.heros) {
 			HeroUnit hero = itr.Value;
 			if (false == hero.purchased) {

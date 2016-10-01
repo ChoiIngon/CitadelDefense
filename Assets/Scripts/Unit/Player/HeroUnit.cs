@@ -5,7 +5,7 @@ public class HeroUnit : Unit {
 	public class Info
 	{
 		public Sprite icon;
-		public int id;
+		public string id;
 		public string name;
 		public string description;
 		public int purchasePrice;
@@ -15,7 +15,7 @@ public class HeroUnit : Unit {
 	[System.Serializable]
 	public class SaveData
 	{
-		public int id;
+		public string id;
 		public int level;
 		public int slotIndex;
 		public bool purchased;
@@ -34,6 +34,7 @@ public class HeroUnit : Unit {
 	public TouchEvent touch;
 
 	public override void Start() {
+		targetTag = "Enemy";
 		base.Start ();
 		if (null != touch)
         {

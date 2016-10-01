@@ -11,6 +11,7 @@ public class UnitHit : MonoBehaviour {
 		Circle,
 		Ellipse
 	}
+
 	public UnitAttack attack;
     public bool shakeCamera;
 	public int hitCount = int.MaxValue;
@@ -36,9 +37,9 @@ public class UnitHit : MonoBehaviour {
         }
     }
 		
-    void OnTriggerEnter2D(Collider2D col)
+	void OnTriggerEnter2D(Collider2D col)
     {
-        if (attack.targetTag == col.gameObject.tag && 0 < hitCount)
+        if (attack.self.targetTag == col.gameObject.tag && 0 < hitCount)
         {
             UnitColliderDamage colliderDamage = col.gameObject.GetComponent<UnitColliderDamage>();
             if (null != colliderDamage)
@@ -54,7 +55,6 @@ public class UnitHit : MonoBehaviour {
 [CustomEditor(typeof(UnitHit))]
 public class UnitHitEditor : Editor
 {
-
 	void OnEnable()
 	{
 	}
@@ -79,14 +79,14 @@ public class UnitHitEditor : Editor
 		if (newColliderType != hit.colliderType) {
 			switch (hit.colliderType) {
 			case UnitHit.ColliderType.Box:
-				DestroyImmediate(hit.gameObject.GetComponent<BoxCollider2D> ());
+				DestroyImmediate(hit.gameObject.GetComponent<BoxCollider2D> (), true);
 				break;
 			case UnitHit.ColliderType.Circle:
-				DestroyImmediate(hit.gameObject.GetComponent<CircleCollider2D> ());
+				DestroyImmediate(hit.gameObject.GetComponent<CircleCollider2D> (), true);
 				break;
 			case UnitHit.ColliderType.Ellipse:
-				DestroyImmediate (hit.gameObject.GetComponent<EllipseCollider2D> ());
-				DestroyImmediate (hit.gameObject.GetComponent<EdgeCollider2D> ());
+				DestroyImmediate (hit.gameObject.GetComponent<EllipseCollider2D> (), true);
+				DestroyImmediate (hit.gameObject.GetComponent<EdgeCollider2D> (), true);
 				break;
 			}
 

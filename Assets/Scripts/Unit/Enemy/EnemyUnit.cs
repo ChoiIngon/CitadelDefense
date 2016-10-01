@@ -27,6 +27,7 @@ public class EnemyUnit : Unit {
 
 	public override void Start () {
 		base.Start ();
+		targetTag = "Player";
 		hp.max = (int)(hp.max + upgrade.health * (GameManager.Instance.waveLevel - 1));
 		hp.value = hp.max;
 	    
