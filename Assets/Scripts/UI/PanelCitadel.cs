@@ -7,6 +7,7 @@ public class PanelCitadel : MonoBehaviour {
 	public Button buttonUpgrade;
 	public Button buttonBuff;
 	public Button buttonItem;
+	public Button buttonExit;
 	// Use this for initialization
 	void Start () {
         waveStart.onClick.AddListener(GameManager.Instance.WaveStart);
@@ -18,6 +19,9 @@ public class PanelCitadel : MonoBehaviour {
 		});
 		buttonBuff.onClick.AddListener (() => {
 			GameManager.Instance.uiCitadelBuffPanel.gameObject.SetActive(true);
+		});
+		buttonExit.onClick.AddListener(() => {
+			GameManager.Instance.Quit();
 		});
 		/*
 		buttonItem.onClick.AddListener (() => {

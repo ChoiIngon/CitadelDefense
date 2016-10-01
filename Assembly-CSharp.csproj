@@ -195,6 +195,7 @@
      <Compile Include="Assets\Scripts\UI\ContentCitadelBuff.cs" />
      <Compile Include="Assets\Scripts\UI\ContentHeroShop.cs" />
      <Compile Include="Assets\Scripts\UI\ContentSkillInfo.cs" />
+     <Compile Include="Assets\Scripts\UI\DialogBox.cs" />
      <Compile Include="Assets\Scripts\UI\MessageBox.cs" />
      <Compile Include="Assets\Scripts\UI\PanelCitadel.cs" />
      <Compile Include="Assets\Scripts\UI\PanelCitadelBuff.cs" />

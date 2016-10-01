@@ -8,6 +8,7 @@ using System.IO;
 
 public class GameManager : MonoBehaviour {
     private static GameManager self;
+	private const int SAVE_FORMAT_VERSION = 3;
     public static GameManager Instance
     {
         get
@@ -34,8 +35,9 @@ public class GameManager : MonoBehaviour {
 
 	[System.Serializable]
 	public class SaveData {
-		public int waveLevel;
+		public int version;
 		public long gold;
+		public int waveLevel;
 		public int citadelLevel;
 		public Dictionary<string, HeroUnit.SaveData> heros;
 		public CitadelParts.SaveData[] citadelParts;
@@ -66,6 +68,7 @@ public class GameManager : MonoBehaviour {
 	public ProgressBar 		uiWaveProgress;
 	public Text 			uiGold;
 	public MessageBox 		uiMessageBox;
+	public DialogBox 		uiDialogBox;
     public PanelResult      uiResultPanel;
 
 	public GameObject 		effectGoldReward;
@@ -200,9 +203,11 @@ public class GameManager : MonoBehaviour {
 		FileStream file = File.Create (Application.persistentDataPath + "/playerdata.dat");
 
 		SaveData data = new SaveData ();
+		data.version = SAVE_FORMAT_VERSION;
+		data.gold = gold;
 		data.waveLevel = waveLevel;
 		data.citadelLevel = citadel.level;
-		data.gold = gold;
+
 		data.heros = new Dictionary<string, HeroUnit.SaveData> ();
 		foreach (var itr in citadel.heros) {
 			HeroUnit hero = itr.Value;
@@ -243,38 +248,52 @@ public class GameManager : MonoBehaviour {
 			FileStream file = File.Open (Application.persistentDataPath + "/playerdata.dat", FileMode.Open);
 			SaveData data = (SaveData)bf.Deserialize (file);
 
-			waveLevel = data.waveLevel;
 			gold = data.gold;
 			citadel.level = data.citadelLevel;
 
-			foreach (var itr in data.heros) {
-				HeroUnit.SaveData saveData = itr.Value;
-				HeroUnit hero = citadel.heros [saveData.id];
-				hero.level = saveData.level;
-				hero.purchased = saveData.purchased;
-				hero.slotIndex = saveData.slotIndex;
-				hero.equiped = saveData.equiped;
-				if (true == hero.equiped) {
-					citadel.citadelParts [hero.slotIndex].slot.EquipUnit (hero);
+			if (data.version == SAVE_FORMAT_VERSION) {
+				waveLevel = data.waveLevel;
+				foreach (var itr in data.heros) {
+					HeroUnit.SaveData saveData = itr.Value;
+					HeroUnit hero = citadel.heros [saveData.id];
+					hero.level = saveData.level;
+					hero.purchased = saveData.purchased;
+					hero.slotIndex = saveData.slotIndex;
+					hero.equiped = saveData.equiped;
+					if (true == hero.equiped) {
+						citadel.citadelParts [hero.slotIndex].slot.EquipUnit (hero);
+					}
 				}
-			}
 
-			if (null != data.citadelParts) {
-				for (int i = 0; i < citadel.citadelParts.Length; i++) {
-					if (null == data.citadelParts [i]) {
-						continue;
-					}
-					if (true == data.citadelParts [i].active) {
-						citadel.citadelParts [i].gameObject.SetActive (true);
+				if (null != data.citadelParts) {
+					for (int i = 0; i < citadel.citadelParts.Length; i++) {
+						if (null == data.citadelParts [i]) {
+							continue;
+						}
+						if (true == data.citadelParts [i].active) {
+							citadel.citadelParts [i].gameObject.SetActive (true);
+						}
 					}
 				}
-			}
-			for (int i = 0; i < data.citadelBuffs.Length; i++) {
-				CitadelBuff buff = citadel.citadelBuffs [i];
-				buff.level = data.citadelBuffs [i].level;
+				for (int i = 0; i < data.citadelBuffs.Length; i++) {
+					CitadelBuff buff = citadel.citadelBuffs [i];
+					buff.level = data.citadelBuffs [i].level;
+				}
 			}
 			file.Close ();
+		} 
+	}
+
+	public void Quit()
+	{
+		if (GameManager.GameState.Ready == gameState) {
+			uiDialogBox.Activate ("Quit?", () => {
+				Application.Quit();
+			});
 		} else {
+			uiDialogBox.Activate ("Exit?", () => {
+				GameManager.Instance.WaveEnd (WaveResult.Lose);	
+			});
 		}
 	}
 }
