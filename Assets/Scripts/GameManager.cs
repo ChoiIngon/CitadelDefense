@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour {
 			}
 			if (null != parts.slot.touch)
             {
-				parts.slot.touch.gameObject.SetActive(false);
+				parts.slot.SetActive (false);
             }
         }
 
@@ -178,7 +178,7 @@ public class GameManager : MonoBehaviour {
 
 			if (null != parts.slot.touch)
             {
-				parts.slot.touch.gameObject.SetActive(true);
+				parts.slot.SetActive (true);
             }
         }
 

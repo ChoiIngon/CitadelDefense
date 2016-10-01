@@ -57,7 +57,7 @@ public class UnitSlot : MonoBehaviour {
 			}
         };
 	}
-
+		
 	public void EquipUnit(HeroUnit unit)
 	{
         UnequipUnit();
@@ -90,5 +90,14 @@ public class UnitSlot : MonoBehaviour {
 		equippedUnit.gameObject.SetActive (false);
 		equippedUnit = null;
 		GetComponent<SpriteRenderer> ().enabled = true;
+	}
+
+	public void SetActive(bool flag)
+	{
+		if (null == equippedUnit) {
+			guide.SetActive (flag);
+			GetComponent<SpriteRenderer> ().enabled = flag;
+		}
+		touch.gameObject.SetActive (flag);
 	}
 }
