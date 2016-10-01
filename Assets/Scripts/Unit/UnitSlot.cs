@@ -25,12 +25,13 @@ public class UnitSlot : MonoBehaviour {
 	public Sprite normalSprite;
 	public Sprite selectedSprite;
 	public TouchEvent touch;
+	public GameObject guide;
 	[HideInInspector]
 	public HeroUnit equippedUnit;
 	// Use this for initialization
 	void Start () {
 		GetComponent<SpriteRenderer> ().sprite = normalSprite;
-		transform.FindChild("TouchEvent").GetComponent<TouchEvent>().onTouchDown += (Vector3 position) =>
+		touch.onTouchDown += (Vector3 position) =>
         {
 			GameManager.Instance.uiHeroShopPanel.gameObject.SetActive(true);
 			GameManager.Instance.selectedSlot = this;
@@ -38,7 +39,7 @@ public class UnitSlot : MonoBehaviour {
 			{
 				parts.slot.selected = false;
 			}
-			selected = true;
+			this.selected = true;
 			if(null != equippedUnit)
 			{
 				GameManager.Instance.selectedUnit = equippedUnit;
@@ -76,6 +77,7 @@ public class UnitSlot : MonoBehaviour {
 
 		equippedUnit = unit;
 		GetComponent<SpriteRenderer> ().enabled = false;
+		guide.SetActive (false);
 	}
 
 	public void UnequipUnit()

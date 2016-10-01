@@ -7,8 +7,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
 public class GameManager : MonoBehaviour {
-    private static GameManager self;
 	private const int SAVE_FORMAT_VERSION = 3;
+	private const int DEFAULT_GOLD = 14000;
+	private static GameManager self;
+
     public static GameManager Instance
     {
         get
@@ -92,7 +94,7 @@ public class GameManager : MonoBehaviour {
 	private IEnumerator waveCoroutine = null;
 
 	void Start () {
-		gold = 10000;
+		gold = DEFAULT_GOLD;
 		gameState = GameState.Ready;
 		selectedSlot = null;
 		selectedUnit = null;
@@ -115,6 +117,10 @@ public class GameManager : MonoBehaviour {
 
 	public void WaveStart()
     {
+		if (0 == citadel.GetActiveUnitCount ()) {
+			uiMessageBox.message = "마법사를 먼저 성에 배치 해주세요.";
+			return;
+		}
 		uiCitadelPanel.gameObject.SetActive(false);
 		uiPlayPanel.gameObject.SetActive (true);
 		gameState = GameState.Play;

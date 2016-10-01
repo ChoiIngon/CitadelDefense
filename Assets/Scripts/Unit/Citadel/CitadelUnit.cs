@@ -115,4 +115,15 @@ public class CitadelUnit : Unit {
 		}
 		GameManager.Instance.Save ();
 	}
+
+	public int GetActiveUnitCount() {
+		int count = 0;
+		foreach (var v in heros) {
+			HeroUnit unit = v.Value;
+			if (true == unit.equiped) {
+				count++;
+			}
+		}
+		return count;
+	}
 }
