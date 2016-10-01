@@ -29,13 +29,12 @@ public class DialogBox : MonoBehaviour {
 		submit.onClick.RemoveAllListeners();
 		gameObject.SetActive(false);
 	}
-
-
+		
 	public void Activate(string text, UnityEngine.Events.UnityAction action)
 	{
 		gameObject.SetActive (true);
 		this.text.text = text;
-		backgroundRect.sizeDelta = new Vector2 (backgroundRect.rect.width, this.text.preferredHeight + 100.0f);
+		backgroundRect.sizeDelta = new Vector2 (backgroundRect.rect.width, this.text.preferredHeight + 130.0f);
 		submit.onClick.RemoveAllListeners();
 		submit.onClick.AddListener(action);
 		submit.onClick.AddListener(Close);
