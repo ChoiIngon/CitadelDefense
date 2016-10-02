@@ -29,13 +29,16 @@ public class HeroUnit : Unit {
 	[ReadOnly] public bool	equiped;
 	[ReadOnly] public float height;
 
+	private EnemyUnit targetUnit;
 	private float coolTime;
 	public ProgressBar coolTimeBar;
 	public TouchEvent touch;
 
 	public override void Start() {
-		targetTag = "Enemy";
 		base.Start ();
+		targetTag = "Enemy";
+		targetUnit = null;
+
 		if (null != touch)
         {
 			touch.onTouchDown += (Vector3 position) => {
@@ -78,25 +81,25 @@ public class HeroUnit : Unit {
 		}
 	}
 	void Update () {
-		EnemyUnit target = null;
-		float minDistance = float.MaxValue;
+		if (null == targetUnit || 0 >= targetUnit.hp) {
+			float minDistance = float.MaxValue;
 
-		Transform enemyManager = GameManager.Instance.enemyManager.transform;
-		for (int i = 0; i < enemyManager.childCount; i++) {
-			EnemyUnit enemy = enemyManager.GetChild (i).GetComponent<EnemyUnit>();
-			if (null == enemy) {
-				continue;
-			}
-			float distance = Mathf.Abs(transform.position.x - enemy.transform.position.x);
-			if (distance > passiveAttack.data.minRange && distance < passiveAttack.data.maxRange && 0 < enemy.hp && minDistance > distance) {
-				target = enemy;
-				minDistance = distance;
+			Transform enemyManager = GameManager.Instance.enemyManager.transform;
+			for (int i = 0; i < enemyManager.childCount; i++) {
+				EnemyUnit enemy = enemyManager.GetChild (i).GetComponent<EnemyUnit> ();
+				if (null == enemy) {
+					continue;
+				}
+				float distance = Mathf.Abs (transform.position.x - enemy.transform.position.x);
+				if (distance > passiveAttack.data.minRange && distance < passiveAttack.data.maxRange && 0 < enemy.hp && minDistance > distance) {
+					targetUnit = enemy;
+					minDistance = distance;
+				}
 			}
 		}
-
-		if (null != target) {
+		if (null != targetUnit) {
 			unitAnimation.animator.SetTrigger ("attack");
-			passiveAttack.target = target;
+			passiveAttack.target = targetUnit;
 			unitAnimation.animator.speed = passiveAttack.data.speed;
 		} else {
 			unitAnimation.animator.SetTrigger ("idle");

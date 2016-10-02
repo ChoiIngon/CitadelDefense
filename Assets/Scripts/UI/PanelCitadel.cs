@@ -43,7 +43,6 @@ public class PanelCitadel : MonoBehaviour {
 				textTip.text = tips [i];
 				yield return new WaitForSeconds (5.0f);
 			}
-			Debug.Log ("coroutine");
 		}
 	}
 	public void OnEnable() {

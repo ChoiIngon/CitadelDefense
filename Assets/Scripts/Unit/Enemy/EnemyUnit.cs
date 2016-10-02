@@ -49,15 +49,10 @@ public class EnemyUnit : Unit {
 
         if (0 < hp)
         {
-            Debug.DrawRay(transform.position, Vector3.left * passiveAttack.data.maxRange, Color.red);
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, passiveAttack.data.maxRange, 1 << LayerMask.NameToLayer("Citadel"));
             if(null != hit.collider)
             {
-                UnitColliderDamage colDamage = hit.collider.GetComponent<UnitColliderDamage>();
-                if (null != colDamage)
-                {
-                    passiveAttack.target = colDamage.unit;
-                }
+                passiveAttack.target = GameManager.Instance.citadel;
                 unitAnimation.animator.SetTrigger("attack");
                 if (null != unitMove.buff)
                 {
