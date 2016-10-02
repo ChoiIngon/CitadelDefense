@@ -83,11 +83,30 @@ public class EnemyUnit : Unit {
 
 			yield return null;
 		}
+
+		unitMove.enabled = false;
+		unitAnimation.animator.SetTrigger ("dead");
+		unitAnimation.animator.speed = 1.0f;
+		healthBar.gameObject.SetActive (false);
+
+		int rewardGold = (int)gold + (int)(gold * GameManager.Instance.goldBonus);
+		GameManager.Instance.gold += rewardGold;
+
+		GameObject go = new GameObject ();
+		go.name = "Effect_GoldReward";
+		go.transform.position = transform.position;
+		go.AddComponent<UnityStandardAssets.Utility.TimedObjectDestructor> ();
+		GameObject effect = GameObject.Instantiate<GameObject>(GameManager.Instance.effectGoldReward);
+		effect.transform.position = transform.position;
+		effect.GetComponentInChildren<MeshRenderer> ().sortingLayerName = "Effect";
+		effect.GetComponentInChildren<TextMesh> ().text = rewardGold.ToString ();
+		effect.transform.SetParent (go.transform);
+
 		while (true) {
 			AnimatorStateInfo state = unitAnimation.animator.GetCurrentAnimatorStateInfo (0);
-			if (state.IsName ("dead") && state.normalizedTime >= 1.0f) {
+			if (true == state.IsName ("dead") && 1.0f <= state.normalizedTime) {
 				DestroyImmediate (gameObject, true);
-				yield break;
+				break;
 			}
 			yield return new WaitForSeconds(0.1f);
 		}
@@ -147,21 +166,6 @@ public class EnemyUnit : Unit {
 		hp -= damage;
 		if (0 >= hp) {
 			actionState = ActionState.Dead;
-			unitAnimation.animator.SetTrigger ("dead");
-			unitAnimation.animator.speed = 1.0f;
-			healthBar.gameObject.SetActive (false);
-			int rewardGold = (int)gold + (int)(gold * GameManager.Instance.goldBonus);
-			GameManager.Instance.gold += rewardGold;
-
-			GameObject go = new GameObject ();
-			go.name = "Effect_GoldReward";
-			go.transform.position = transform.position;
-			go.AddComponent<UnityStandardAssets.Utility.TimedObjectDestructor> ();
-			GameObject effect = GameObject.Instantiate<GameObject>(GameManager.Instance.effectGoldReward);
-			effect.transform.position = transform.position;
-			effect.GetComponentInChildren<MeshRenderer> ().sortingLayerName = "Effect";
-			effect.GetComponentInChildren<TextMesh> ().text = rewardGold.ToString ();
-			effect.transform.SetParent (go.transform);
 		}
 	}
 }
