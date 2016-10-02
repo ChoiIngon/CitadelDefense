@@ -10,6 +10,7 @@ public class EnemyUnit : Unit {
 	}
     public enum ActionState
     {
+		Idle,
         Move,
         Attack,
         Dead
@@ -28,6 +29,7 @@ public class EnemyUnit : Unit {
 	public override void Start () {
 		base.Start ();
 		targetTag = "Player";
+
 		hp.max = (int)(hp.max + upgrade.health * (GameManager.Instance.waveLevel - 1));
 		hp.value = hp.max;
 	    
@@ -39,8 +41,58 @@ public class EnemyUnit : Unit {
             passiveAttack.self = this;
             passiveAttack.Upgrade(GameManager.Instance.waveLevel);
         }
+
+		StartCoroutine (Action ());
     }
 
+
+	IEnumerator Action()
+	{
+		actionState = ActionState.Idle;
+		while (ActionState.Dead != actionState) {
+			//if (0 < hp.max) {
+			healthBar.progress = (float)hp.GetValue () / (float)hp.max;
+			//}
+			unitAnimation.spriteRenderer.sortingOrder = (int)(transform.position.y * -1000);
+
+			RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, passiveAttack.data.maxRange, 1 << LayerMask.NameToLayer("Citadel"));
+			if(null != hit.collider)
+			{
+				actionState = ActionState.Attack;
+				unitAnimation.animator.SetTrigger("attack");
+
+				if (null != unitMove.buff)
+				{
+					unitAnimation.animator.speed = unitMove.speed;
+				}
+				else
+				{
+					unitAnimation.animator.speed = passiveAttack.data.speed;
+				}
+				passiveAttack.target = GameManager.Instance.citadel;
+				unitMove.enabled = false;
+			}
+			else
+			{
+				actionState = ActionState.Move;
+				unitAnimation.animator.SetTrigger("move");
+				unitAnimation.animator.speed = unitMove.speed;
+				unitMove.enabled = true;
+				unitMove.Init (transform.position + Vector3.left, altitude);
+			}
+
+			yield return null;
+		}
+		while (true) {
+			AnimatorStateInfo state = unitAnimation.animator.GetCurrentAnimatorStateInfo (0);
+			if (state.IsName ("dead") && state.normalizedTime >= 1.0f) {
+				DestroyImmediate (gameObject, true);
+				yield break;
+			}
+			yield return new WaitForSeconds(0.1f);
+		}
+	}
+	/*
 	void Update () {
 		if (0 < hp.max) {
 			healthBar.progress = (float)hp.GetValue () / (float)hp.max;
@@ -50,7 +102,7 @@ public class EnemyUnit : Unit {
         if (0 < hp)
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, passiveAttack.data.maxRange, 1 << LayerMask.NameToLayer("Citadel"));
-            if(null != hit.collider)
+			if(null != hit.collider && ActionState.Attack != actionState)
             {
                 passiveAttack.target = GameManager.Instance.citadel;
                 unitAnimation.animator.SetTrigger("attack");
@@ -64,7 +116,7 @@ public class EnemyUnit : Unit {
                 }
                 actionState = ActionState.Attack;
             }
-            else
+			else if(ActionState.Move != actionState)
             {
                 unitAnimation.animator.SetTrigger("move");
 				unitAnimation.animator.speed = unitMove.speed;
@@ -85,7 +137,7 @@ public class EnemyUnit : Unit {
 			DestroyImmediate (gameObject, true);
 		}
     }
-
+	*/
 	public override void Damage(int damage)
 	{
 		if (0 >= hp) {
