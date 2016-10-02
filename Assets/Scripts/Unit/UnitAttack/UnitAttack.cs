@@ -53,11 +53,12 @@ public abstract class UnitAttack : MonoBehaviour {
 			return tmp;
 		}
 	}
+	private AttackData _data;
 	public Buff buffPrefab;
 	public UnitHit hitPrefab;
 
 	[SerializeField]
-	private AttackData _data;
+
 	public delegate void BuffPower(ref float ret, float originalAttackPower);
 	public delegate void BuffSpeed(ref float ret, float originalAttackSpeed);
 	public delegate void BuffCooltime(ref float ret, float originalCooltime);

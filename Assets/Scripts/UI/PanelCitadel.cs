@@ -8,9 +8,10 @@ public class PanelCitadel : MonoBehaviour {
 	public Button buttonBuff;
 	public Button buttonItem;
 	public Button buttonExit;
-	// Use this for initialization
+	public Text textTip;
+
 	void Start () {
-        waveStart.onClick.AddListener(GameManager.Instance.WaveStart);
+		waveStart.onClick.AddListener(GameManager.Instance.WaveStart);
 		buttonUpgrade.onClick.AddListener (() => {
 			GameManager.Instance.citadel.Upgrade();
 			buttonUpgrade.transform.FindChild ("Text").GetComponent<Text> ().text = 
@@ -30,7 +31,23 @@ public class PanelCitadel : MonoBehaviour {
 		*/
 	}
 
+	IEnumerator DisplayTips()
+	{
+		string[] tips = new string[] {
+			"Tip: 전투중 마법사를 터치하면 특수 스킬이 발동 됩니다.",
+			"Tip: 마법진 스킬은 마법진을 터치 할때 마다 보너스 공격이 나갑니다."
+		};
+
+		while (true) {
+			for (int i = 0; i < tips.Length; i++) {
+				textTip.text = tips [i];
+				yield return new WaitForSeconds (5.0f);
+			}
+			Debug.Log ("coroutine");
+		}
+	}
 	public void OnEnable() {
+		StartCoroutine (DisplayTips ());
 		buttonUpgrade.transform.FindChild ("Text").GetComponent<Text> ().text = 
 			"요새 업그레이드" + "\r\n" +
 			"<size=14>(" + (GameManager.Instance.citadel.upgradeCost * GameManager.Instance.citadel.level).ToString() + " G)</size>";
