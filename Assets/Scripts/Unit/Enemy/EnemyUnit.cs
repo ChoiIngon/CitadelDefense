@@ -69,7 +69,12 @@ public class EnemyUnit : Unit {
 				{
 					unitAnimation.animator.speed = passiveAttack.data.speed;
 				}
-				passiveAttack.target = GameManager.Instance.citadel;
+
+				UnitColliderDamage colDamage = hit.collider.GetComponent<UnitColliderDamage>();
+				if (null != colDamage)
+				{
+					passiveAttack.target = colDamage.unit;
+				}
 				unitMove.enabled = false;
 			}
 			else
@@ -81,7 +86,7 @@ public class EnemyUnit : Unit {
 				unitMove.Init (transform.position + Vector3.left, altitude);
 			}
 
-			yield return null;
+			yield return new WaitForSeconds(0.1f);
 		}
 
 		unitMove.enabled = false;
@@ -111,52 +116,7 @@ public class EnemyUnit : Unit {
 			yield return new WaitForSeconds(0.1f);
 		}
 	}
-	/*
-	void Update () {
-		if (0 < hp.max) {
-			healthBar.progress = (float)hp.GetValue () / (float)hp.max;
-		}
-		unitAnimation.spriteRenderer.sortingOrder = (int)(transform.position.y * -1000);
 
-        if (0 < hp)
-        {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, passiveAttack.data.maxRange, 1 << LayerMask.NameToLayer("Citadel"));
-			if(null != hit.collider && ActionState.Attack != actionState)
-            {
-                passiveAttack.target = GameManager.Instance.citadel;
-                unitAnimation.animator.SetTrigger("attack");
-                if (null != unitMove.buff)
-                {
-					unitAnimation.animator.speed = unitMove.speed;
-                }
-                else
-                {
-                    unitAnimation.animator.speed = passiveAttack.data.speed;
-                }
-                actionState = ActionState.Attack;
-            }
-			else if(ActionState.Move != actionState)
-            {
-                unitAnimation.animator.SetTrigger("move");
-				unitAnimation.animator.speed = unitMove.speed;
-                actionState = ActionState.Move;
-            }
-        }
-        AnimatorStateInfo state = unitAnimation.animator.GetCurrentAnimatorStateInfo(0);
-		if (ActionState.Move == actionState) {
-			unitMove.enabled = true;
-			unitMove.Init (transform.position + Vector3.left, altitude);
-			//transform.Translate (direction * unitMove.speed * Time.deltaTime);
-		} else {
-			unitMove.enabled = false;
-		}
-			
-		if (state.IsName("dead") && state.normalizedTime >= 1.0f)
-		{
-			DestroyImmediate (gameObject, true);
-		}
-    }
-	*/
 	public override void Damage(int damage)
 	{
 		if (0 >= hp) {

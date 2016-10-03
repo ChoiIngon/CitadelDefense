@@ -49,11 +49,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: lightning_024_0
+    - serializedVersion: 2
+      name: lightning_024_0
       rect:
         serializedVersion: 2
         x: 11
@@ -63,16 +66,10 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 9.5, y: 189}
-        - {x: -11.5, y: 189}
-        - {x: -17.5, y: 180}
-        - {x: -17.5, y: 0}
-        - {x: 13.5, y: 0}
-        - {x: 16.5, y: 3}
-        - {x: 17.5, y: 26}
-        - {x: 17.5, y: 178}
-    - name: lightning_024_1
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: lightning_024_1
       rect:
         serializedVersion: 2
         x: 67
@@ -82,31 +79,10 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -37.5, y: 166}
-        - {x: -37.5, y: 0}
-        - {x: 37.5, y: 0}
-        - {x: 37.5, y: 77}
-        - {x: 35.5, y: 89}
-        - {x: 4.5, y: 190}
-        - {x: -9.5, y: 190}
-      - - {x: -13.5, y: 9}
-        - {x: -10.5, y: 10}
-        - {x: -10.5, y: 13}
-        - {x: -13.5, y: 14}
-        - {x: -15.5, y: 12}
-      - - {x: 12.5, y: 15}
-        - {x: 15.5, y: 16}
-        - {x: 15.5, y: 19}
-        - {x: 12.5, y: 20}
-        - {x: 10.5, y: 18}
-      - - {x: -26.5, y: 120}
-        - {x: -23.5, y: 115}
-        - {x: -20.5, y: 117}
-        - {x: -21.5, y: 124}
-        - {x: -23.5, y: 126}
-        - {x: -26.5, y: 125}
-    - name: lightning_024_2
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: lightning_024_2
       rect:
         serializedVersion: 2
         x: 165
@@ -116,24 +92,10 @@ TextureImporter:
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -26.5, y: 191}
-        - {x: -26.5, y: 0}
-        - {x: 26.5, y: 0}
-        - {x: 26.5, y: 191}
-      - - {x: 19.5, y: 13}
-        - {x: 19.5, y: 4}
-        - {x: 21.5, y: 2}
-        - {x: 26.5, y: 3}
-        - {x: 26.5, y: 13}
-        - {x: 21.5, y: 14}
-      - - {x: 22.5, y: 18}
-        - {x: 25.5, y: 19}
-        - {x: 25.5, y: 22}
-        - {x: 22.5, y: 23}
-        - {x: 20.5, y: 21}
+      outline: []
+      tessellationDetail: -1
     outline: []
-  spritePackingTag: effect
+  spritePackingTag: attack
   userData: 
   assetBundleName: 
   assetBundleVariant: 
