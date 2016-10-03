@@ -19,6 +19,11 @@ public class PanelCitadel : MonoBehaviour {
 				"<size=14>(" + (GameManager.Instance.citadel.upgradeCost * GameManager.Instance.citadel.level).ToString() + " G)</size>";
 		});
 		buttonBuff.onClick.AddListener (() => {
+			if(10 > GameManager.Instance.waveLevel)
+			{
+				GameManager.Instance.uiMessageBox.message = "10 웨이브 이후 부터 사용 가능 합니다.";
+				return;
+			}
 			GameManager.Instance.uiCitadelBuffPanel.gameObject.SetActive(true);
 		});
 		buttonExit.onClick.AddListener(() => {

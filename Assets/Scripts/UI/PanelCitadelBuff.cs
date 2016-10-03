@@ -4,13 +4,14 @@ using System.Collections;
 
 public class PanelCitadelBuff : MonoBehaviour {
 	public ContentCitadelBuff contentPrefab;
+	public ContentCitadelBuff selectedBuff;
 	public Transform content;
 	public Text description;
-	public Button levelup;
-	public ContentCitadelBuff selectedBuff;
+	public Button upgrade;
+
 	void Start()
 	{
-		levelup.onClick.AddListener (() => {
+		upgrade.onClick.AddListener (() => {
 			if(null != selectedBuff)
 			{
 				selectedBuff.Upgrade();
