@@ -79,6 +79,16 @@ public class HeroUnit : Unit {
 		if (null != activeAttack) {
 			activeAttack.Upgrade(level);
 		}
+
+		unitAnimation.animator.SetTrigger ("idle");
+		unitAnimation.animator.speed = 1.0f;
+	}
+	public void SetActive(bool flag)
+	{
+		if (null != touch) 
+		{
+			touch.gameObject.SetActive (flag);
+		}
 	}
 	void Update () {
 		if (null == targetUnit || 0 >= targetUnit.hp) {
