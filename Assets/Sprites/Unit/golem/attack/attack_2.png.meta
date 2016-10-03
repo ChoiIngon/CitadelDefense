@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 647d1f548764d944482a4fd5e9a5ee68
-timeCreated: 1468327036
+guid: 41371bf8ae61eff4da409928bc9b769d
+timeCreated: 1468327035
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -41,17 +41,19 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
+  alignment: 7
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites: []
     outline: []
-  spritePackingTag: golem
+  spritePackingTag: unit
   userData: 
   assetBundleName: 
   assetBundleVariant: 

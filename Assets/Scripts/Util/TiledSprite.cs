@@ -9,6 +9,7 @@ public class TiledSprite : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		spriteRenderer = GetComponent<SpriteRenderer> ();
+
 		Vector2 spriteSize = new Vector2(spriteRenderer.bounds.size.x / transform.localScale.x, spriteRenderer.bounds.size.y / transform.localScale.y);
 		int col = (int)(height / spriteSize.y);
 		int row = (int)(width / spriteSize.x);
@@ -17,6 +18,8 @@ public class TiledSprite : MonoBehaviour {
 		SpriteRenderer childSprite = childPrefab.AddComponent<SpriteRenderer>();
 		childPrefab.transform.position = transform.position;
 		childSprite.sprite = spriteRenderer.sprite;
+		childSprite.sortingLayerID = spriteRenderer.sortingLayerID;
+		childSprite.sortingLayerName = spriteRenderer.sortingLayerName;
 		childSprite.sortingOrder = spriteRenderer.sortingOrder;
 		// Loop through and spit out repeated tiles
 		GameObject child;
