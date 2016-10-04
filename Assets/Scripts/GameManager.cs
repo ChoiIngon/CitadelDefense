@@ -117,6 +117,7 @@ public class GameManager : MonoBehaviour {
 
 	public void WaveStart()
     {
+		Time.timeScale = GameManager.Instance.timeScale;
 		if (0 == citadel.GetActiveUnitCount ()) {
 			uiMessageBox.message = "마법사를 먼저 성에 배치 해주세요.";
 			return;
@@ -145,6 +146,7 @@ public class GameManager : MonoBehaviour {
 
 	public void WaveEnd(WaveResult result)
 	{
+		Time.timeScale = 1.0f;
 		uiCitadelPanel.gameObject.SetActive (true);
 		uiPlayPanel.gameObject.SetActive (false);
 		gameState = GameState.Ready;
@@ -179,6 +181,11 @@ public class GameManager : MonoBehaviour {
 		uiWaveProgress.transform.FindChild ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
 		uiWaveProgress.progress = 1.0f;
 
+		while (0 < creatures.childCount) {
+			Transform child = creatures.GetChild (0);
+			child.SetParent (null);
+			Object.Destroy (child.gameObject);
+		}
 		citadel.Reset ();
 		Save ();
     }

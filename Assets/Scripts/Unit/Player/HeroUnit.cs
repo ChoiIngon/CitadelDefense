@@ -24,8 +24,9 @@ public class HeroUnit : Unit {
 	public Info info;
 
 	public int	level;
-	[ReadOnly] public int	slotIndex; 
 	public bool	purchased;
+	[ReadOnly] public int	slotIndex; 
+	[ReadOnly] public bool isActive;
 	[ReadOnly] public bool	equiped;
 	[ReadOnly] public float height;
 
@@ -62,26 +63,32 @@ public class HeroUnit : Unit {
 
         if (null != passiveAttack)
         {
-            unitAnimation.animationEvents.Add("attack", passiveAttack.Attack);
+            unitAnimation.animationEvents.Add("attack", PassiveAttack);
             passiveAttack.self = this;
         }
 			
 		Init ();
 	}
+
+	private void PassiveAttack() {
+		if (true == isActive) {
+			passiveAttack.Attack ();
+		}
+	}
+
 	public void Init() {
 		if (null != coolTimeBar) {
 			coolTimeBar.progress = 1.0f;
 			coolTime = 0.0f;
 		}
 		if (null != passiveAttack) {
+			passiveAttack.Init ();
 			passiveAttack.Upgrade(level);
 		}
 		if (null != activeAttack) {
+			activeAttack.Init ();
 			activeAttack.Upgrade(level);
 		}
-
-		unitAnimation.animator.SetTrigger ("idle");
-		unitAnimation.animator.speed = 1.0f;
 	}
 	public void SetActive(bool flag)
 	{
@@ -89,6 +96,7 @@ public class HeroUnit : Unit {
 		{
 			touch.gameObject.SetActive (flag);
 		}
+		isActive = flag;
 	}
 	void Update () {
 		if (null == targetUnit || 0 >= targetUnit.hp) {

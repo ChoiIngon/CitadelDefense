@@ -70,6 +70,7 @@ public abstract class UnitAttack : MonoBehaviour {
 	public BuffMana manaBuff;
 	public abstract void Attack ();
 
+	public virtual void Init() {}
 	public virtual void Hit(Vector3 position)
 	{
 		if(null != hitPrefab)

@@ -39,12 +39,6 @@ public class Wave {
 		} else {
 			GameManager.Instance.WaveEnd (GameManager.WaveResult.Lose);
 		}
-
-		while (0 < GameManager.Instance.creatures.childCount) {
-			Transform child = GameManager.Instance.creatures.GetChild (0);
-			child.SetParent (null);
-			Object.Destroy (child.gameObject);
-		}
 	}
 
 	public void Update()

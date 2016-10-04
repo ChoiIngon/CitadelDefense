@@ -24,28 +24,23 @@ public class PanelResult : MonoBehaviour {
             image.sprite = lose;
         }
         gameObject.SetActive(true);
+		StartCoroutine(_Update());
     }
-
-	void Start () {
-    }
-
-	void OnEnable() {
-        StartCoroutine(_Update());
-    }
-
+		
     IEnumerator _Update()
     {
+		Image image = GetComponent<Image>();
         interpolate = 0.0f;
+		image.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         while (1.0f > interpolate)
         {
             interpolate += Time.deltaTime / time;
-            transform.localPosition = Vector3.Lerp(start, end, interpolate);
+			transform.localPosition = Vector3.Lerp(start, end, interpolate);
             yield return null;
         }
 
         yield return new WaitForSeconds(1.0f);
-
-        Image image = GetComponent<Image>();
+        
         Color color = image.color;
         while(0.0f < image.color.a)
         {

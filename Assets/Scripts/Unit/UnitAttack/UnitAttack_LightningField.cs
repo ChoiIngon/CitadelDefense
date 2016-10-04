@@ -13,6 +13,15 @@ public class UnitAttack_LightningField : UnitAttack {
 	{
 		touchEvent.gameObject.SetActive (false);
 	}
+
+	public override void Init()
+	{
+		touchEvent.onTouchDown = null;
+		touchEvent.onTouchDrag = null;
+		touchEvent.onTouchUp = null;
+		touchEvent.gameObject.SetActive (false);
+	}
+
 	public override void Attack()
 	{
         Time.timeScale = 0.1f;
