@@ -25,6 +25,8 @@ public class Unit : MonoBehaviour {
 	public UnitSize size;
 	public Elemental elemental;
 	public UnitMove unitMove;
+	[HideInInspector]
+	public string targetTag;
     public UnitAttack passiveAttack;
     public UnitAttack activeAttack;
 	public UnitAnimation unitAnimation;

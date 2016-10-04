@@ -5,7 +5,7 @@ public class HeroUnit : Unit {
 	public class Info
 	{
 		public Sprite icon;
-		public int id;
+		public string id;
 		public string name;
 		public string description;
 		public int purchasePrice;
@@ -15,7 +15,7 @@ public class HeroUnit : Unit {
 	[System.Serializable]
 	public class SaveData
 	{
-		public int id;
+		public string id;
 		public int level;
 		public int slotIndex;
 		public bool purchased;
@@ -29,12 +29,16 @@ public class HeroUnit : Unit {
 	[ReadOnly] public bool	equiped;
 	[ReadOnly] public float height;
 
+	private EnemyUnit targetUnit;
 	private float coolTime;
 	public ProgressBar coolTimeBar;
 	public TouchEvent touch;
 
 	public override void Start() {
 		base.Start ();
+		targetTag = "Enemy";
+		targetUnit = null;
+
 		if (null != touch)
         {
 			touch.onTouchDown += (Vector3 position) => {
@@ -75,27 +79,37 @@ public class HeroUnit : Unit {
 		if (null != activeAttack) {
 			activeAttack.Upgrade(level);
 		}
+
+		unitAnimation.animator.SetTrigger ("idle");
+		unitAnimation.animator.speed = 1.0f;
+	}
+	public void SetActive(bool flag)
+	{
+		if (null != touch) 
+		{
+			touch.gameObject.SetActive (flag);
+		}
 	}
 	void Update () {
-		EnemyUnit target = null;
-		float minDistance = float.MaxValue;
+		if (null == targetUnit || 0 >= targetUnit.hp) {
+			float minDistance = float.MaxValue;
 
-		Transform enemyManager = GameManager.Instance.enemyManager.transform;
-		for (int i = 0; i < enemyManager.childCount; i++) {
-			EnemyUnit enemy = enemyManager.GetChild (i).GetComponent<EnemyUnit>();
-			if (null == enemy) {
-				continue;
-			}
-			float distance = Mathf.Abs(transform.position.x - enemy.transform.position.x);
-			if (distance > passiveAttack.data.minRange && distance < passiveAttack.data.maxRange && 0 < enemy.hp && minDistance > distance) {
-				target = enemy;
-				minDistance = distance;
+			Transform enemyManager = GameManager.Instance.enemyManager.transform;
+			for (int i = 0; i < enemyManager.childCount; i++) {
+				EnemyUnit enemy = enemyManager.GetChild (i).GetComponent<EnemyUnit> ();
+				if (null == enemy) {
+					continue;
+				}
+				float distance = Mathf.Abs (transform.position.x - enemy.transform.position.x);
+				if (distance > passiveAttack.data.minRange && distance < passiveAttack.data.maxRange && 0 < enemy.hp && minDistance > distance) {
+					targetUnit = enemy;
+					minDistance = distance;
+				}
 			}
 		}
-
-		if (null != target) {
+		if (null != targetUnit) {
 			unitAnimation.animator.SetTrigger ("attack");
-			passiveAttack.target = target;
+			passiveAttack.target = targetUnit;
 			unitAnimation.animator.speed = passiveAttack.data.speed;
 		} else {
 			unitAnimation.animator.SetTrigger ("idle");

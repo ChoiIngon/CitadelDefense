@@ -1,0 +1,204 @@
+fileFormatVersion: 2
+guid: 9692c8f255dbd46408e25cad84c3eff7
+timeCreated: 1474221683
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: citadel_003_0_front
+    21300002: citadel_003_0_back
+    21300004: citadel_003_3_front
+    21300006: citadel_003_3_back
+    21300008: citadel_003_4
+    21300010: citadel_003_4_front
+    21300012: citadel_003_4_back
+    21300014: citadel_003_1_front
+    21300016: citadel_003_8
+    21300018: citadel_003_1_back
+    21300020: citadel_003_2_front
+    21300022: citadel_003_11
+    21300024: citadel_003_2_back
+    21300026: citadel_003_13
+    21300028: citadel_003_14
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: citadel_003_0_front
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 185
+        width: 770
+        height: 3500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: citadel_003_0_back
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 185
+        width: 1500
+        height: 3500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: citadel_003_3_front
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 2880
+        width: 460
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: citadel_003_3_back
+      rect:
+        serializedVersion: 2
+        x: 3290
+        y: 2880
+        width: 460
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: citadel_003_4_front
+      rect:
+        serializedVersion: 2
+        x: 4880
+        y: 2880
+        width: 520
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: citadel_003_4_back
+      rect:
+        serializedVersion: 2
+        x: 4110
+        y: 2880
+        width: 520
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: citadel_003_1_front
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 800
+        width: 700
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: citadel_003_1_back
+      rect:
+        serializedVersion: 2
+        x: 3220
+        y: 800
+        width: 700
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: citadel_003_2_front
+      rect:
+        serializedVersion: 2
+        x: 3940
+        y: 800
+        width: 700
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: citadel_003_2_back
+      rect:
+        serializedVersion: 2
+        x: 4660
+        y: 800
+        width: 700
+        height: 2000
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: citadel
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

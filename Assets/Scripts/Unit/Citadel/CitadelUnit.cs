@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class CitadelUnit : Unit {
     public int level;
 	public int upgradeCost;
-
+	private int boughtUnitCount;
 	[System.Serializable]
 	public class UpgradeInfo
 	{
@@ -30,7 +30,7 @@ public class CitadelUnit : Unit {
 	public CitadelParts[] citadelParts;
 	public CitadelPartsSpriteInfo[] citadelPartsSpriteInfo;
 	public CitadelBuff[] citadelBuffs;
-	public Dictionary<int, HeroUnit> heros = new Dictionary<int, HeroUnit> ();
+	public Dictionary<string, HeroUnit> heros = new Dictionary<string, HeroUnit> ();
 
 	[ReadOnly] public AutoRecoveryInt health;
 	[ReadOnly] public AutoRecoveryInt mana;
@@ -55,6 +55,7 @@ public class CitadelUnit : Unit {
 				citadelParts [parts.slotIndex] = parts;
 			}
 		}
+		boughtUnitCount = 1;
 	}
 	public void Reset()
 	{
@@ -113,5 +114,16 @@ public class CitadelUnit : Unit {
 			citadelParts [level - 1].gameObject.SetActive (true);
 		}
 		GameManager.Instance.Save ();
+	}
+
+	public int GetActiveUnitCount() {
+		int count = 0;
+		foreach (var v in heros) {
+			HeroUnit unit = v.Value;
+			if (true == unit.equiped) {
+				count++;
+			}
+		}
+		return count;
 	}
 }

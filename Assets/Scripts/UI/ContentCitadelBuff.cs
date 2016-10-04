@@ -21,11 +21,11 @@ public class ContentCitadelBuff : MonoBehaviour {
 	{
 		panel.selectedBuff = this;
 		panel.description.text = string.Format(buff.info.description, Mathf.Abs(buff.value) * 100.0f);
-		Text text = panel.levelup.transform.FindChild("Text").GetComponent<Text>();
+		Text text = panel.upgrade.transform.FindChild("Text").GetComponent<Text>();
 		if (buff.maxLevel == buff.level) {
 			text.text = "Max Level";
 		} else {
-			text.text = "Level up\r\n(" + (buff.upgradeCost * (buff.level + 1)).ToString () + " G)";
+			text.text = "버프 업그레이드\r\n(" + (buff.upgradeCost * (buff.level + 1)).ToString () + " G)";
 		}
 	}
 
@@ -34,11 +34,11 @@ public class ContentCitadelBuff : MonoBehaviour {
 		buff.Upgrade ();
 		level.text = buff.level.ToString ();
 		panel.description.text = string.Format(buff.info.description, Mathf.Abs(buff.value) * 100.0f);
-		Text text = panel.levelup.transform.FindChild("Text").GetComponent<Text>();
+		Text text = panel.upgrade.transform.FindChild("Text").GetComponent<Text>();
 		if (buff.maxLevel == buff.level) {
 			text.text = "Max Level";
 		} else {
-			text.text = "Level up\r\n(" + (buff.upgradeCost * (buff.level + 1)).ToString () + " G)";
+			text.text = "버프 업그레이드\r\n(" + (buff.upgradeCost * (buff.level + 1)).ToString () + " G)";
 		}
 	}
 }

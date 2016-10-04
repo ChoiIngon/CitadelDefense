@@ -45,10 +45,9 @@ public class ContentHeroShop : MonoBehaviour {
 		unitLevel.text = "Lv." + unit.level.ToString ();
 
 		if (true == unit.purchased) {
-			unitPrice.gameObject.SetActive (false);
+			unitPrice.text = "구매 완료";
 		} else {
-			unitPrice.text = unit.info.purchasePrice.ToString();
-			unitPrice.gameObject.SetActive (true);
+			unitPrice.text = unit.info.purchasePrice.ToString() + " G";
 		}
 	}
 }

@@ -101,10 +101,10 @@ public class PanelHeroInfo : MonoBehaviour {
 		passiveSkill.Init (unit.passiveAttack);
 		activeSkill.Init (unit.activeAttack);
 		int upgradeGold = unit.info.upgradePrice * unit.level;
-		buttonLevelup.transform.FindChild ("Text").GetComponent<Text> ().text = "Level Up\r\n(" + upgradeGold.ToString () + " G)";
+		buttonLevelup.transform.FindChild ("Text").GetComponent<Text> ().text = "Upgrade\n<size=10>(" + upgradeGold.ToString()+ " G)</size>";
 
 		buttonBuy.gameObject.SetActive (false);
-		buttonBuy.transform.FindChild ("Text").GetComponent<Text> ().text = unit.info.purchasePrice.ToString();
+		buttonBuy.transform.FindChild ("Text").GetComponent<Text> ().text = "Buy\n<size=10>(" + unit.info.purchasePrice.ToString() + " G)</size>";
 		buttonEquip.gameObject.SetActive (false);
 		buttonLevelup.gameObject.SetActive (false);
 

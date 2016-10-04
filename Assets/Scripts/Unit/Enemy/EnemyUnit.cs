@@ -10,6 +10,7 @@ public class EnemyUnit : Unit {
 	}
     public enum ActionState
     {
+		Idle,
         Move,
         Attack,
         Dead
@@ -27,6 +28,8 @@ public class EnemyUnit : Unit {
 
 	public override void Start () {
 		base.Start ();
+		targetTag = "Player";
+
 		hp.max = (int)(hp.max + upgrade.health * (GameManager.Instance.waveLevel - 1));
 		hp.value = hp.max;
 	    
@@ -38,57 +41,81 @@ public class EnemyUnit : Unit {
             passiveAttack.self = this;
             passiveAttack.Upgrade(GameManager.Instance.waveLevel);
         }
+
+		StartCoroutine (Action ());
     }
 
-	void Update () {
-		if (0 < hp.max) {
+
+	IEnumerator Action()
+	{
+		actionState = ActionState.Idle;
+		while (ActionState.Dead != actionState) {
+			//if (0 < hp.max) {
 			healthBar.progress = (float)hp.GetValue () / (float)hp.max;
-		}
-		unitAnimation.spriteRenderer.sortingOrder = (int)(transform.position.y * -1000);
+			//}
+			unitAnimation.spriteRenderer.sortingOrder = (int)(transform.position.y * -1000);
 
-        if (0 < hp)
-        {
-            Debug.DrawRay(transform.position, Vector3.left * passiveAttack.data.maxRange, Color.red);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, passiveAttack.data.maxRange, 1 << LayerMask.NameToLayer("Citadel"));
-            if(null != hit.collider)
-            {
-                UnitColliderDamage colDamage = hit.collider.GetComponent<UnitColliderDamage>();
-                if (null != colDamage)
-                {
-                    passiveAttack.target = colDamage.unit;
-                }
-                unitAnimation.animator.SetTrigger("attack");
-                if (null != unitMove.buff)
-                {
+			RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, passiveAttack.data.maxRange, 1 << LayerMask.NameToLayer("Citadel"));
+			if(null != hit.collider)
+			{
+				actionState = ActionState.Attack;
+				unitAnimation.animator.SetTrigger("attack");
+
+				if (null != unitMove.buff)
+				{
 					unitAnimation.animator.speed = unitMove.speed;
-                }
-                else
-                {
-                    unitAnimation.animator.speed = passiveAttack.data.speed;
-                }
-                actionState = ActionState.Attack;
-            }
-            else
-            {
-                unitAnimation.animator.SetTrigger("move");
+				}
+				else
+				{
+					unitAnimation.animator.speed = passiveAttack.data.speed;
+				}
+
+				UnitColliderDamage colDamage = hit.collider.GetComponent<UnitColliderDamage>();
+				if (null != colDamage)
+				{
+					passiveAttack.target = colDamage.unit;
+				}
+				unitMove.enabled = false;
+			}
+			else
+			{
+				actionState = ActionState.Move;
+				unitAnimation.animator.SetTrigger("move");
 				unitAnimation.animator.speed = unitMove.speed;
-                actionState = ActionState.Move;
-            }
-        }
-        AnimatorStateInfo state = unitAnimation.animator.GetCurrentAnimatorStateInfo(0);
-		if (ActionState.Move == actionState) {
-			unitMove.enabled = true;
-			unitMove.Init (transform.position + Vector3.left, altitude);
-			//transform.Translate (direction * unitMove.speed * Time.deltaTime);
-		} else {
-			unitMove.enabled = false;
+				unitMove.enabled = true;
+				unitMove.Init (transform.position + Vector3.left, altitude);
+			}
+
+			yield return new WaitForSeconds(0.1f);
 		}
-			
-		if (state.IsName("dead") && state.normalizedTime >= 1.0f)
-		{
-			DestroyImmediate (gameObject, true);
+
+		unitMove.enabled = false;
+		unitAnimation.animator.SetTrigger ("dead");
+		unitAnimation.animator.speed = 1.0f;
+		healthBar.gameObject.SetActive (false);
+
+		int rewardGold = (int)gold + (int)(gold * GameManager.Instance.goldBonus);
+		GameManager.Instance.gold += rewardGold;
+
+		GameObject go = new GameObject ();
+		go.name = "Effect_GoldReward";
+		go.transform.position = transform.position;
+		go.AddComponent<UnityStandardAssets.Utility.TimedObjectDestructor> ();
+		GameObject effect = GameObject.Instantiate<GameObject>(GameManager.Instance.effectGoldReward);
+		effect.transform.position = transform.position;
+		effect.GetComponentInChildren<MeshRenderer> ().sortingLayerName = "Effect";
+		effect.GetComponentInChildren<TextMesh> ().text = rewardGold.ToString ();
+		effect.transform.SetParent (go.transform);
+
+		while (true) {
+			AnimatorStateInfo state = unitAnimation.animator.GetCurrentAnimatorStateInfo (0);
+			if (true == state.IsName ("dead") && 1.0f <= state.normalizedTime) {
+				DestroyImmediate (gameObject, true);
+				break;
+			}
+			yield return new WaitForSeconds(0.1f);
 		}
-    }
+	}
 
 	public override void Damage(int damage)
 	{
@@ -99,21 +126,6 @@ public class EnemyUnit : Unit {
 		hp -= damage;
 		if (0 >= hp) {
 			actionState = ActionState.Dead;
-			unitAnimation.animator.SetTrigger ("dead");
-			unitAnimation.animator.speed = 1.0f;
-			healthBar.gameObject.SetActive (false);
-			int rewardGold = (int)gold + (int)(gold * GameManager.Instance.goldBonus);
-			GameManager.Instance.gold += rewardGold;
-
-			GameObject go = new GameObject ();
-			go.name = "Effect_GoldReward";
-			go.transform.position = transform.position;
-			go.AddComponent<UnityStandardAssets.Utility.TimedObjectDestructor> ();
-			GameObject effect = GameObject.Instantiate<GameObject>(GameManager.Instance.effectGoldReward);
-			effect.transform.position = transform.position;
-			effect.GetComponentInChildren<MeshRenderer> ().sortingLayerName = "Effect";
-			effect.GetComponentInChildren<TextMesh> ().text = rewardGold.ToString ();
-			effect.transform.SetParent (go.transform);
 		}
 	}
 }
