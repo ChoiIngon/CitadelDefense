@@ -13,9 +13,7 @@ public class UnitAttack_Summon : UnitAttack {
             SummonedUnit creature = GameObject.Instantiate<SummonedUnit> (creaturePrefab);
 			creature.transform.SetParent (GameManager.Instance.creatures);
 			creature.transform.position = position;
-			creature.level = level;
-			creature.maxHealth = health + health * 0.2f * (level - 1);
-			creature.passiveAttack.Upgrade (level);
+			creature.Init (level);
 		}
 	}
 

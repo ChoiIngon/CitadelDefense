@@ -99,7 +99,7 @@ public class HeroUnit : Unit {
 		isActive = flag;
 	}
 	void Update () {
-		if (null == targetUnit || 0 >= targetUnit.hp) {
+		if (null == targetUnit || 0 >= targetUnit.health) {
 			float minDistance = float.MaxValue;
 
 			Transform enemyManager = GameManager.Instance.enemyManager.transform;
@@ -109,7 +109,11 @@ public class HeroUnit : Unit {
 					continue;
 				}
 				float distance = Mathf.Abs (transform.position.x - enemy.transform.position.x);
-				if (distance > passiveAttack.data.minRange && distance < passiveAttack.data.maxRange && 0 < enemy.hp && minDistance > distance) {
+				if (distance < minDistance &&
+					distance > passiveAttack.data.minRange && 
+					distance < passiveAttack.data.maxRange &&
+					0 < enemy.health
+				) {
 					targetUnit = enemy;
 					minDistance = distance;
 				}

@@ -28,13 +28,10 @@ public class Buff_Poison : Buff {
 			yield return new WaitForSeconds (interval);
 		}
         unit.unitAnimation.spriteRenderer.color = Color.white;
-        unit = null;
+		Destroy (gameObject);
 	}
 	// Update is called once per frame
 	void Update () {
-		if (null == unit) {
-			Destroy (gameObject);
-		}
 		deltaTime += Time.deltaTime;
 	}
     public override string Description(string text)

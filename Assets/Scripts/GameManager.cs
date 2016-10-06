@@ -53,9 +53,6 @@ public class GameManager : MonoBehaviour {
     public EnemyManager enemyManager;
 	public Transform creatures;
 
-	public Dictionary<Object, Object> enemies = new Dictionary<Object, Object>();
-	public Dictionary<Object, Object> player = new Dictionary<Object, Object>();
-
 	public PanelCitadel 	uiCitadelPanel;
 	public PanelCitadelBuff	uiCitadelBuffPanel;
 	public ProgressBar 		uiCitadelHealth;
@@ -90,7 +87,7 @@ public class GameManager : MonoBehaviour {
 	public UnitSlot selectedSlot;
 	[HideInInspector]
 	public HeroUnit selectedUnit;
-	private Wave wave = null;
+
 	private IEnumerator waveCoroutine = null;
 
 	void Start () {
@@ -139,7 +136,7 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-		wave = new Wave ();
+		Wave wave = new Wave ();
 		waveCoroutine = wave.WaveStart ();
 		StartCoroutine (waveCoroutine);
     }
@@ -161,7 +158,6 @@ public class GameManager : MonoBehaviour {
         if (null != waveCoroutine) {
 			StopCoroutine (waveCoroutine);
 		}
-		wave = null;
 
 		foreach (CitadelParts parts in citadel.citadelParts)
         {
@@ -181,6 +177,11 @@ public class GameManager : MonoBehaviour {
 		uiWaveProgress.transform.FindChild ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
 		uiWaveProgress.progress = 1.0f;
 
+		while (0 < enemyManager.transform.childCount) {
+			Transform child = enemyManager.transform.GetChild (0);
+			child.SetParent (null);
+			Object.Destroy (child.gameObject);
+		}
 		while (0 < creatures.childCount) {
 			Transform child = creatures.GetChild (0);
 			child.SetParent (null);
@@ -197,11 +198,6 @@ public class GameManager : MonoBehaviour {
 
 		uiCitadelMana.progress = (float)citadel.mana / (float)citadel.mana.max;
 		uiCitadelMana.transform.FindChild("Text").GetComponent<Text>().text = citadel.mana.value + "/" + citadel.mana.max;
-
-		if (null != wave) {
-			wave.Update ();
-			uiWaveProgress.progress = wave.remainTime / GameManager.WAVE_TIME;
-		}
 	}
 
 	public void Save()

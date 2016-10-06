@@ -18,7 +18,7 @@ public class EnemyUnit : Unit {
 
     public string id;
     public ActionState actionState = ActionState.Move;
-	public AutoRecoveryInt hp;
+	public AutoRecoveryInt health;
     public float gold;
     public float exp;    
 	public UpgradeInfo upgrade;
@@ -30,8 +30,8 @@ public class EnemyUnit : Unit {
 		base.Start ();
 		targetTag = "Player";
 
-		hp.max = (int)(hp.max + upgrade.health * (GameManager.Instance.waveLevel - 1));
-		hp.value = hp.max;
+		health.max = (int)(health.max + upgrade.health * (GameManager.Instance.waveLevel - 1));
+		health.value = health.max;
 	    
 		gold = gold + upgrade.gold * (GameManager.Instance.waveLevel - 1);
 
@@ -50,8 +50,8 @@ public class EnemyUnit : Unit {
 	{
 		actionState = ActionState.Idle;
 		while (ActionState.Dead != actionState) {
-			//if (0 < hp.max) {
-			healthBar.progress = (float)hp.GetValue () / (float)hp.max;
+			//if (0 < health.max) {
+			healthBar.progress = (float)health.GetValue () / (float)health.max;
 			//}
 			unitAnimation.spriteRenderer.sortingOrder = (int)(transform.position.y * -1000);
 
@@ -109,7 +109,7 @@ public class EnemyUnit : Unit {
 
 		while (true) {
 			AnimatorStateInfo state = unitAnimation.animator.GetCurrentAnimatorStateInfo (0);
-			if (true == state.IsName ("dead") && 1.0f <= state.normalizedTime) {
+			if (1.0f <= state.normalizedTime) {
 				DestroyImmediate (gameObject, true);
 				break;
 			}
@@ -119,12 +119,12 @@ public class EnemyUnit : Unit {
 
 	public override void Damage(int damage)
 	{
-		if (0 >= hp) {
+		if (0 >= health) {
 			return;
 		}
 
-		hp -= damage;
-		if (0 >= hp) {
+		health -= damage;
+		if (0 >= health) {
 			actionState = ActionState.Dead;
 		}
 	}

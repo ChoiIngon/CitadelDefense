@@ -5,23 +5,22 @@ public class SummonedUnit : Unit {
 	public int level;
 	public float maxHealth;
 	public float health;
+	public float aliveTime;
 	public ProgressBar healthBar;
 	
-	// Use this for initialization
-	public override void Start () {
-        base.Start();
-
+	public void Init(int level)
+	{
+		this.level = level;
 		maxHealth = maxHealth + (maxHealth * 0.1f * (level - 1));
 		health = maxHealth;
 		unitMove.Init(transform.position, altitude);
-        if (null != passiveAttack)
-        {
-            unitAnimation.animationEvents.Add("attack", passiveAttack.Attack);
-            passiveAttack.self = this;
-            passiveAttack.Upgrade(level);
-        }
-    }
-
+		if (null != passiveAttack)
+		{
+			unitAnimation.animationEvents.Add("attack", passiveAttack.Attack);
+			passiveAttack.self = this;
+			passiveAttack.Upgrade(level);
+		}
+	}
     void Update () {
 		unitAnimation.spriteRenderer.sortingOrder = (int)(transform.position.y * -1000);
 		EnemyUnit target = null;
@@ -34,7 +33,7 @@ public class SummonedUnit : Unit {
 				continue;
 			}
 			float distance = Vector3.Distance (transform.position, enemy.transform.position);
-			if (0 < enemy.hp && minDistance > distance) {
+			if (0 < enemy.health && minDistance > distance) {
 				target = enemy;
                 passiveAttack.target = target;
 				minDistance = distance;
@@ -62,6 +61,10 @@ public class SummonedUnit : Unit {
 			}
 		}
 		healthBar.progress = (float)health / (float)maxHealth;
+		aliveTime -= Time.deltaTime;
+		if (0.0f >= aliveTime) {
+			Destroy (gameObject);
+		}
 	}
 
 	public override void Damage(int damage)

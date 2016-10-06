@@ -12,6 +12,7 @@ public class EnemyManager : MonoBehaviour {
 		public int count;
 	}
 	public SpawnInfo [] spwan;
+	public EnemyUnit[] boss;
 
 	public void Clear()
 	{

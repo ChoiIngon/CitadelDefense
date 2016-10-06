@@ -211,8 +211,6 @@
      <Compile Include="Assets\Scripts\Unit\Citadel\CitadelBuff_ManaRecovery.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\CitadelParts.cs" />
      <Compile Include="Assets\Scripts\Unit\Citadel\CitadelUnit.cs" />
-     <Compile Include="Assets\Scripts\Unit\Enemy\EnemyCitadelUnit.cs" />
-     <Compile Include="Assets\Scripts\Unit\Enemy\EnemyHeroUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Enemy\EnemyUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Player\HeroUnit.cs" />
      <Compile Include="Assets\Scripts\Unit\Player\SummonedUnit.cs" />
@@ -250,7 +248,6 @@
      <Compile Include="Assets\Scripts\Util\ToggleButton.cs" />
      <Compile Include="Assets\Scripts\Util\TouchEvent.cs" />
      <Compile Include="Assets\Scripts\Wave.cs" />
-     <Compile Include="Assets\Scripts\Wave_Boss.cs" />
      <None Include="Assets\Devwinsoft\CharacterEngine\Texture\Package\armor\ancient-b\info.txt" />
      <None Include="Assets\Plugins\Android\unityads\res\layout\unityads_view_video_play.xml" />
      <None Include="Assets\2DxFX\Resources\_2dxFX_GrayScale.shader" />

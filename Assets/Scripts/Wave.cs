@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Wave {
 	public float remainTime = 0.0f;
 
-	public IEnumerator WaveStart()
+	public virtual IEnumerator WaveStart()
 	{
 		List<EnemyManager.SpawnInfo> infos = new List<EnemyManager.SpawnInfo> ();
 		foreach(EnemyManager.SpawnInfo info in GameManager.Instance.enemyManager.spwan)
@@ -20,7 +20,10 @@ public class Wave {
 		remainTime = GameManager.WAVE_TIME;
 
 		while (0.0f < remainTime) {
-			yield return new WaitForSeconds(Random.Range (1.0f, 1.5f));
+			GameManager.Instance.uiWaveProgress.progress = remainTime / GameManager.WAVE_TIME;
+			float waitTime = Random.Range (1.0f, 1.5f);
+			remainTime -= waitTime;
+			yield return new WaitForSeconds(waitTime);
 			EnemyManager.SpawnInfo info = infos [Random.Range (0, infos.Count)];
 			for(int i=0; i<info.count; i++) {
 				EnemyUnit unitEnemy = (EnemyUnit)GameObject.Instantiate<EnemyUnit> (info.enemy);
@@ -29,9 +32,15 @@ public class Wave {
 			}
 		}
 
-		while(0 < GameManager.Instance.enemyManager.transform.childCount) 
+		if (0 == GameManager.Instance.waveLevel % 5) {
+			EnemyUnit boss = GameObject.Instantiate<EnemyUnit>(GameManager.Instance.enemyManager.boss [Random.Range (0, GameManager.Instance.enemyManager.boss.Length - 1)]);
+			boss.transform.position = GameManager.Instance.enemyManager.transform.position;
+			boss.transform.SetParent (GameManager.Instance.enemyManager.transform);
+		}
+
+		while(0 < GameManager.Instance.citadel.health && 0 < GameManager.Instance.enemyManager.transform.childCount) 
 		{
-			yield return null;
+			yield return new WaitForSeconds(0.1f);
 		}
 
 		if (0 < GameManager.Instance.citadel.health) {
@@ -39,10 +48,5 @@ public class Wave {
 		} else {
 			GameManager.Instance.WaveEnd (GameManager.WaveResult.Lose);
 		}
-	}
-
-	public void Update()
-	{
-		remainTime -= Time.deltaTime;
 	}
 }
