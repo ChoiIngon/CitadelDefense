@@ -21,7 +21,7 @@ public class Wave {
 
 		while (0.0f < remainTime) {
 			GameManager.Instance.uiWaveProgress.progress = remainTime / GameManager.WAVE_TIME;
-			float waitTime = Random.Range (1.0f, 1.5f);
+			float waitTime = Random.Range (1.5f, 2.0f);
 			remainTime -= waitTime;
 			yield return new WaitForSeconds(waitTime);
 			EnemyManager.SpawnInfo info = infos [Random.Range (0, infos.Count)];

@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour {
     public PanelResult      uiResultPanel;
 
 	public GameObject 		effectGoldReward;
+	public GameObject 		effectDamage;
 	public long gold {
 		get { return _gold; }
 		set { 

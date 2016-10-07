@@ -1,10 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Unit/UnitHit.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/DialogBox.cs" Line="35" Column="1" />
-      <File FileName="Assets/Scripts/Unit/Citadel/CitadelUnit.cs" Line="50" Column="1" />
-      <File FileName="Assets/Scripts/Unit/UnitHit.cs" Line="42" Column="1" />
+      <File FileName="Assets/Scripts/Util/AutoRecoveryInt.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Unit/Player/SummonedUnit.cs" Line="11" Column="2" />
+      <File FileName="Assets/Scripts/Unit/UnitAttack/UnitAttack_Summon.cs" Line="13" Column="21" />
+      <File FileName="Assets/Scripts/Wave.cs" Line="41" Column="51" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="13" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -12,12 +14,14 @@
       <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Editor/AIEditor/AIEditorWindow.cs" line="291" column="1" />
       <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/Citadel/UnitHero.cs" line="43" column="1" />
       <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/Citadel/UnitHero.cs" line="31" column="1" />
-      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/UI/PanelHeroInfo.cs" line="69" column="1" />
-      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/UI/PanelHeroInfo.cs" line="76" column="4" />
-      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/UnitAttack/UnitAttack_SuicideBombing.cs" line="7" column="26" />
-      <Breakpoint conditionExpression="name == &quot;SuicideBomb&quot;" file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/UnitAttack/UnitAttack.cs" line="74" column="1" />
       <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/UserInputManager.cs" line="16" column="24" />
-      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/UI/DialogBox.cs" line="35" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/UnitMove_RandomZigzag.cs" line="22" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Wave.cs" line="20" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Buff/Buff.cs" line="18" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Buff/Buff.cs" line="30" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Buff/Buff.cs" line="25" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Unit/Enemy/EnemyUnit.cs" line="111" column="1" />
+      <Breakpoint file="/Users/kukuta/workspace/CitadelDefense/Assets/Scripts/Wave.cs" line="41" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

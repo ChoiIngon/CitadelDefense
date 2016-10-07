@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class UnitAttack_IceStorm : UnitAttack {
-	public float time;
 	float deltaTime;
 	public SpriteRenderer background;
 
@@ -16,7 +15,7 @@ public class UnitAttack_IceStorm : UnitAttack {
 
 	IEnumerator Damage()
 	{
-		while (deltaTime < time) {
+		while (deltaTime < data.time) {
 			for (int i = 0; i < GameManager.Instance.enemyManager.transform.childCount; i++) {
 				EnemyUnit enemy = GameManager.Instance.enemyManager.transform.GetChild (i).GetComponent<EnemyUnit> ();
 				Damage (enemy);
@@ -27,7 +26,7 @@ public class UnitAttack_IceStorm : UnitAttack {
 	void Update()
 	{
 		deltaTime += Time.deltaTime;
-		if (deltaTime >= time) {
+		if (deltaTime >= data.time) {
 			gameObject.SetActive (false);
 		}
 	}

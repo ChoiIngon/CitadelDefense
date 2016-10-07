@@ -97,15 +97,12 @@ public class EnemyUnit : Unit {
 		int rewardGold = (int)gold + (int)(gold * GameManager.Instance.goldBonus);
 		GameManager.Instance.gold += rewardGold;
 
-		GameObject go = new GameObject ();
-		go.name = "Effect_GoldReward";
-		go.transform.position = transform.position;
-		go.AddComponent<UnityStandardAssets.Utility.TimedObjectDestructor> ();
-		GameObject effect = GameObject.Instantiate<GameObject>(GameManager.Instance.effectGoldReward);
+		GameObject effect = GameObject.Instantiate<GameObject> (GameManager.Instance.effectGoldReward);
 		effect.transform.position = transform.position;
-		effect.GetComponentInChildren<MeshRenderer> ().sortingLayerName = "Effect";
-		effect.GetComponentInChildren<TextMesh> ().text = rewardGold.ToString ();
-		effect.transform.SetParent (go.transform);
+		Transform text = effect.transform.Find ("Animation/Text");
+		text.GetComponent<MeshRenderer>().sortingLayerName = "Effect";
+		text.GetComponent<MeshRenderer>().sortingOrder = 1;
+		text.GetComponent<TextMesh> ().text = rewardGold.ToString ();
 
 		while (true) {
 			AnimatorStateInfo state = unitAnimation.animator.GetCurrentAnimatorStateInfo (0);
@@ -122,6 +119,18 @@ public class EnemyUnit : Unit {
 		if (0 >= health) {
 			return;
 		}
+
+		GameObject effect = GameObject.Instantiate<GameObject> (GameManager.Instance.effectDamage);
+		effect.transform.position = new Vector3(
+			hitBox.bounds.center.x, 
+			hitBox.bounds.center.y + hitBox.bounds.size.y / 2,
+			transform.position.z
+		);
+
+		Transform text = effect.transform.Find ("Animation/Text");
+		text.GetComponent<MeshRenderer>().sortingLayerName = "Effect";
+		text.GetComponent<MeshRenderer>().sortingOrder = 0;
+		text.GetComponent<TextMesh> ().text = "-" + damage.ToString ();
 
 		health -= damage;
 		if (0 >= health) {

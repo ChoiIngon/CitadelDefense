@@ -16,7 +16,7 @@ public class AutoRecoveryInt
         float currentTime = Time.realtimeSinceStartup;
         if (max > value && 0 < interval)
         {
-            float deltaTime = currentTime - time;
+			float deltaTime = (currentTime - time) * Time.timeScale;
             int recoveryCount = (int)(deltaTime / interval);
             value = Math.Min(recoveryCount * recovery + value, max);
             if (value == max)
@@ -25,7 +25,7 @@ public class AutoRecoveryInt
             }
             else
             {
-                time = recoveryCount * interval + time;
+				time = recoveryCount * (1.0f / Time.timeScale) * interval + time;
             }
         }
         else
