@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>5.4.1f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -156,6 +154,14 @@
     <Compile Include="Assets\Devwinsoft\CharacterEngine\Script\DevPart.cs" />
     <Compile Include="Assets\Devwinsoft\CharacterEngine\Script\_Define.cs" />
     <Compile Include="Assets\Devwinsoft\CharacterEngine\Test\TestCharacter.cs" />
+    <Compile Include="Assets\MagicArsenal\InteractiveDemo\Scripts\ButtonScript.cs" />
+    <Compile Include="Assets\MagicArsenal\InteractiveDemo\Scripts\DragMouseOrbit.cs" />
+    <Compile Include="Assets\MagicArsenal\InteractiveDemo\Scripts\FireProjectile.cs" />
+    <Compile Include="Assets\MagicArsenal\InteractiveDemo\Scripts\LoadSceneOnClick.cs" />
+    <Compile Include="Assets\MagicArsenal\InteractiveDemo\Scripts\Projectile.cs" />
+    <Compile Include="Assets\MagicArsenal\InteractiveDemo\Scripts\ProjectileScript.cs" />
+    <Compile Include="Assets\MagicArsenal\InteractiveDemo\Scripts\loopScript.cs" />
+    <Compile Include="Assets\MagicArsenal\InteractiveDemo\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
     <Compile Include="Assets\MagicArsenal\KunaiEditor\KunaiRotation.cs" />
     <Compile Include="Assets\MagicArsenal\Scripts\lightScript.cs" />
     <Compile Include="Assets\MagicArsenal\Scripts\lightScriptLong.cs" />
@@ -194,7 +200,6 @@
     <Compile Include="Assets\Scripts\AI\Decorator\Selector.cs" />
     <Compile Include="Assets\Scripts\AI\Decorator\Sequence.cs" />
     <Compile Include="Assets\Scripts\AI\NodeManager.cs" />
-    <Compile Include="Assets\Scripts\Background\TiledSprite.cs" />
     <Compile Include="Assets\Scripts\Buff\Buff.cs" />
     <Compile Include="Assets\Scripts\Buff\Buff_AttackPower.cs" />
     <Compile Include="Assets\Scripts\Buff\Buff_AttackSpeed.cs" />
@@ -214,6 +219,7 @@
     <Compile Include="Assets\Scripts\UI\ContentCitadelBuff.cs" />
     <Compile Include="Assets\Scripts\UI\ContentHeroShop.cs" />
     <Compile Include="Assets\Scripts\UI\ContentSkillInfo.cs" />
+    <Compile Include="Assets\Scripts\UI\DialogBox.cs" />
     <Compile Include="Assets\Scripts\UI\MessageBox.cs" />
     <Compile Include="Assets\Scripts\UI\PanelCitadel.cs" />
     <Compile Include="Assets\Scripts\UI\PanelCitadelBuff.cs" />
@@ -229,46 +235,43 @@
     <Compile Include="Assets\Scripts\Unit\Citadel\CitadelBuff_ManaRecovery.cs" />
     <Compile Include="Assets\Scripts\Unit\Citadel\CitadelParts.cs" />
     <Compile Include="Assets\Scripts\Unit\Citadel\CitadelUnit.cs" />
-    <Compile Include="Assets\Scripts\Unit\Enemy\EnemyCitadelUnit.cs" />
-    <Compile Include="Assets\Scripts\Unit\Enemy\EnemyHeroUnit.cs" />
     <Compile Include="Assets\Scripts\Unit\Enemy\EnemyUnit.cs" />
-    <Compile Include="Assets\Scripts\Unit\Missile.cs" />
     <Compile Include="Assets\Scripts\Unit\Player\HeroUnit.cs" />
     <Compile Include="Assets\Scripts\Unit\Player\SummonedUnit.cs" />
-    <Compile Include="Assets\Scripts\Unit\ProceduralLightning.cs" />
     <Compile Include="Assets\Scripts\Unit\Unit.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitAI.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitAnimation.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitAttack.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitAttack_IceStorm.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitAttack_Lightning.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitAttack_LightningField.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitAttack_Melee.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitAttack_Meteor.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitAttack_PoisonCloud.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitAttack_Range.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitAttack_SuicideBombing.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitAttack_Summon.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitAttack_Target.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack\Missile\Lightning.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack\Missile\Missile.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_ArcaneShower.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_IceStorm.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_Lightning.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_LightningField.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_Melee.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_Meteor.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_Missile.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_PoisonCloud.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_SuicideBombing.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_Summon.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_Target.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitColliderDamage.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitHit.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitMove.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitMove_SinCurve.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitMove_Stright.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitMove\UnitMove.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitMove\UnitMove_RandomZigzag.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitMove\UnitMove_SinCurve.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitMove\UnitMove_Stright.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitSlot.cs" />
     <Compile Include="Assets\Scripts\UserInputManager.cs" />
     <Compile Include="Assets\Scripts\Util\AnimatorObjectDestructor.cs" />
     <Compile Include="Assets\Scripts\Util\AutoRecoveryInt.cs" />
     <Compile Include="Assets\Scripts\Util\CSVReader.cs" />
+    <Compile Include="Assets\Scripts\Util\RandomPath.cs" />
     <Compile Include="Assets\Scripts\Util\TextOutline.cs" />
+    <Compile Include="Assets\Scripts\Util\TiledSprite.cs" />
     <Compile Include="Assets\Scripts\Util\ToggleButton.cs" />
     <Compile Include="Assets\Scripts\Util\TouchEvent.cs" />
     <Compile Include="Assets\Scripts\Wave.cs" />
-    <Compile Include="Assets\Scripts\XXData.cs" />
-    <Compile Include="Assets\Scripts\XXError.cs" />
-    <Compile Include="Assets\Scripts\XXField.cs" />
-    <Compile Include="Assets\Scripts\XXItem.cs" />
-    <Compile Include="Assets\Scripts\XXMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\2DxFX\Resources\_2dxFX_4Gradients.shader" />
