@@ -7,7 +7,6 @@ public class Buff_Poison : Buff {
 	public float time;
 	private float deltaTime;
     // Use this for initialization
-    
     public override void Start () {
         base.Start();
 		deltaTime = 0.0f;

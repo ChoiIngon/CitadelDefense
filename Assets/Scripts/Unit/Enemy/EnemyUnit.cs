@@ -119,7 +119,7 @@ public class EnemyUnit : Unit {
 		if (0 >= health) {
 			return;
 		}
-
+		/*
 		GameObject effect = GameObject.Instantiate<GameObject> (GameManager.Instance.effectDamage);
 		effect.transform.position = new Vector3(
 			hitBox.bounds.center.x, 
@@ -131,7 +131,7 @@ public class EnemyUnit : Unit {
 		text.GetComponent<MeshRenderer>().sortingLayerName = "Effect";
 		text.GetComponent<MeshRenderer>().sortingOrder = 0;
 		text.GetComponent<TextMesh> ().text = "-" + damage.ToString ();
-
+		*/
 		health -= damage;
 		if (0 >= health) {
 			actionState = ActionState.Dead;

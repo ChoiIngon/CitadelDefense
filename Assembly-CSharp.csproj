@@ -227,6 +227,7 @@
      <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_Melee.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_Meteor.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_Missile.cs" />
+     <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_PoisionBolt.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_PoisonCloud.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_SuicideBombing.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_Summon.cs" />
