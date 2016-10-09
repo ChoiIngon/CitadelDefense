@@ -4,8 +4,7 @@ using System.Collections;
 public class UnitAttack_Summon : UnitAttack {
 	public SummonedUnit creaturePrefab;
 	public Vector3[] positions;
-	public float health;
-	public int level;
+	private int level;
 	public override void Attack()
 	{
 		foreach(Vector3 position in positions)

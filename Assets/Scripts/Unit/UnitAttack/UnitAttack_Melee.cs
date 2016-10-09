@@ -2,12 +2,14 @@
 using System.Collections;
 
 public class UnitAttack_Melee : UnitAttack {
-	//public string targetTag;
 	public override void Attack()
 	{
-        if (null != target)
-        {
-            Damage(target);
-        }
+		if (null == hitPrefab) {
+			if (null != target) {
+				Damage (target);
+			}
+		} else {
+			Hit (transform.position);
+		}
 	}
 }

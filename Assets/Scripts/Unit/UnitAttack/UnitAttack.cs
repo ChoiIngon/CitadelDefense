@@ -68,6 +68,7 @@ public abstract class UnitAttack : MonoBehaviour {
 	public BuffSpeed speedBuff;
 	public BuffCooltime cooltimeBuff;
 	public BuffMana manaBuff;
+
 	public abstract void Attack ();
 
 	public virtual void Init() {}

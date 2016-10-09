@@ -2,24 +2,28 @@
 using System.Collections;
 
 public class SummonedUnit : Unit {
-	public int level;
-	public float maxHealth;
-	public float health;
-	public float aliveTime;
+	[System.Serializable]
+	public class UpgradeInfo
+	{
+		public float health;
+	}
+	public UpgradeInfo upgrade;
+	public AutoRecoveryInt health;
 	public ProgressBar healthBar;
-	
+	public float aliveTime;
+
 	public void Init(int level)
 	{
-		this.level = level;
-		maxHealth = maxHealth + (maxHealth * 0.1f * (level - 1));
-		health = maxHealth;
-		unitMove.Init(transform.position, altitude);
+		health.max = (int)(health.max + upgrade.health * (level - 1));
+		health.value = health.max;
+
 		if (null != passiveAttack)
 		{
 			unitAnimation.animationEvents.Add("attack", passiveAttack.Attack);
 			passiveAttack.self = this;
 			passiveAttack.Upgrade(level);
 		}
+		unitMove.Init(transform.position, altitude);
 	}
     void Update () {
 		unitAnimation.spriteRenderer.sortingOrder = (int)(transform.position.y * -1000);
@@ -60,7 +64,7 @@ public class SummonedUnit : Unit {
 				unitAnimation.animator.speed = passiveAttack.data.speed;
 			}
 		}
-		healthBar.progress = (float)health / (float)maxHealth;
+		healthBar.progress = (float)health.GetValue() / (float)health.max;
 		aliveTime -= Time.deltaTime;
 		if (0.0f >= aliveTime) {
 			Destroy (gameObject);

@@ -55,8 +55,8 @@ public class EnemyUnit : Unit {
 			//}
 			unitAnimation.spriteRenderer.sortingOrder = (int)(transform.position.y * -1000);
 
-			RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, passiveAttack.data.maxRange, 1 << LayerMask.NameToLayer("Citadel"));
-			if(null != hit.collider)
+			RaycastHit2D ray = Physics2D.Raycast(transform.position, Vector2.left, passiveAttack.data.maxRange, 1 << LayerMask.NameToLayer("Citadel"));
+			if(null != ray.collider)
 			{
 				actionState = ActionState.Attack;
 				unitAnimation.animator.SetTrigger("attack");
@@ -70,7 +70,7 @@ public class EnemyUnit : Unit {
 					unitAnimation.animator.speed = passiveAttack.data.speed;
 				}
 
-				UnitColliderDamage colDamage = hit.collider.GetComponent<UnitColliderDamage>();
+				UnitColliderDamage colDamage = ray.collider.GetComponent<UnitColliderDamage>();
 				if (null != colDamage)
 				{
 					passiveAttack.target = colDamage.unit;

@@ -95,8 +95,8 @@ public class PanelHeroInfo : MonoBehaviour {
 		textAttackPower.gameObject.SetActive (true);
 		textAttackSpeed.gameObject.SetActive(true);
 		textCritical.gameObject.SetActive (true);	
-		textAttackPower.text = unit.passiveAttack.data.power.ToString();
-		textAttackSpeed.text = unit.passiveAttack.data.speed.ToString();
+		textAttackPower.text = (Mathf.Round(unit.passiveAttack.data.power * 10.0f) * 0.1f).ToString();
+		textAttackSpeed.text = (Mathf.Round(unit.passiveAttack.data.speed * 10.0f) * 0.1f).ToString();
 
 		passiveSkill.Init (unit.passiveAttack);
 		activeSkill.Init (unit.activeAttack);

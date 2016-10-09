@@ -183,7 +183,6 @@
      <Compile Include="Assets\Scripts\Buff\Buff_MoveSpeed.cs" />
      <Compile Include="Assets\Scripts\Buff\Buff_Poison.cs" />
      <Compile Include="Assets\Scripts\Buff\Buff_Stun.cs" />
-     <Compile Include="Assets\Scripts\Effect\Effect.cs" />
      <Compile Include="Assets\Scripts\EnemyManager.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Item\Item.cs" />
@@ -231,7 +230,6 @@
      <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_PoisonCloud.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_SuicideBombing.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_Summon.cs" />
-     <Compile Include="Assets\Scripts\Unit\UnitAttack\UnitAttack_Target.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitColliderDamage.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitHit.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitMove\UnitMove.cs" />
