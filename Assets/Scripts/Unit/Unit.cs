@@ -6,24 +6,17 @@ using UnityEditor;
 #endif
 
 //[RequireComponent(typeof(SpriteRenderer))]
-public class Unit : MonoBehaviour {
-	public enum Elemental
-	{
-		None,
-		Fire,
-		Ice,
-		Electricity,
-		Max
-	}
+public class Unit : MonoBehaviour
+{
 	public enum UnitSize
 	{
 		Small,
 		Middle,
 		Large
 	}
+
 	public float altitude;
 	public UnitSize size;
-	public Elemental elemental;
 	public UnitMove unitMove;
 	[HideInInspector]
 	public string targetTag;

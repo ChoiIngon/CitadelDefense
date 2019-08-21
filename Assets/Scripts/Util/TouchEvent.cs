@@ -5,12 +5,9 @@ using System.Collections;
 public class TouchEvent : MonoBehaviour {
     public string eventName;
     public GameObject holder;
-	public delegate void OnTouchDownDelegate(Vector3 position);
-    public delegate void OnTouchUpDelegate();
-    public delegate void OnTouchDragDelegate(Vector3 delta);
-    public OnTouchDownDelegate onTouchDown;
-    public OnTouchUpDelegate onTouchUp;
-    public OnTouchDragDelegate onTouchDrag;
+    public System.Action<Vector3> onTouchDown;
+    public System.Action<Vector3> onTouchUp;
+    public System.Action<Vector3> onTouchDrag;
     void Start()
     {
         gameObject.layer = LayerMask.NameToLayer("TouchEvent");

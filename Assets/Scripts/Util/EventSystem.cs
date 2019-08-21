@@ -5,6 +5,21 @@ namespace Util
 {
     public class EventSystem : Singleton<EventSystem>
     {
+        public static void Publish(string eventID, object eventParam)
+        {
+            EventSystem.Instance._Publish(eventID, eventParam);
+        }
+
+        public static void Subscribe<T>(string eventID, System.Action<T> handler) where T : new()
+        {
+            EventSystem.Instance._Subscribe<T>(eventID, handler);
+        }
+
+        public static void Unsubscribe<T>(string eventID, System.Action<T> handler = null) where T : new()
+        {
+            EventSystem.Instance._Unsubscribe<T>(eventID, handler);
+        }
+
         public abstract class IEventHandler
         {
             public abstract void OnEvent(object eventParam);
@@ -77,21 +92,6 @@ namespace Util
             }
 
             event_handlers[eventID].OnEvent(eventParam);
-        }
-
-        public static void Publish(string eventID, object eventParam)
-        {
-            EventSystem.Instance._Publish(eventID, eventParam);
-        }
-
-        public static void Subscribe<T>(string eventID, System.Action<T> handler) where T : new()
-        {
-            EventSystem.Instance._Subscribe<T>(eventID, handler);
-        }
-
-        public static void Unsubscribe<T>(string eventID, System.Action<T> handler = null) where T : new()
-        {
-            EventSystem.Instance._Unsubscribe<T>(eventID, handler);
         }
     }
 }

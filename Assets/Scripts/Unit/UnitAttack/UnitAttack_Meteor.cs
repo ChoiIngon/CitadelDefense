@@ -65,7 +65,7 @@ public class UnitAttack_Meteor : UnitAttack {
 	{
 		transform.position = new Vector3(transform.position.x + delta.x, transform.position.y, transform.position.z);
 	}
-    public void OnTouchUp()
+    public void OnTouchUp(Vector3 position)
     {
         if(false == gameObject.activeSelf)
         {

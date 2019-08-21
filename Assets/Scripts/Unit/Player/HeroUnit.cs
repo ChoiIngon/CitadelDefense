@@ -36,36 +36,44 @@ public class HeroUnit : Unit {
 	public TouchEvent touch;
 
 	public override void Start() {
-		base.Start ();
-		targetTag = "Enemy";
+        if (null == touch)
+        {
+            throw new System.Exception("hero touch event is null");
+        }
+
+        if (null == passiveAttack)
+        {
+            throw new System.Exception("hero passive attack data is null");
+        }
+
+        base.Start ();
+
+        touch.gameObject.SetActive(false);
+        touch.onTouchDown += (Vector3 position) => {
+            if (activeAttack.data.mana > GameManager.Instance.citadel.mana)
+            {
+                GameManager.Instance.uiMessageBox.message = "마나가 부족 합니다";
+                return;
+            }
+
+            if (0 < coolTime)
+            {
+                return;
+            }
+
+            GameManager.Instance.citadel.mana -= (int)activeAttack.data.mana;
+            activeAttack.self = this;
+            activeAttack.Attack();
+            coolTime = activeAttack.data.cooltime;
+
+            Util.EventSystem.Publish(EventID.ManaChanged, GameManager.Instance.citadel.mana);
+        };
+        
+        targetTag = "Enemy";
 		targetUnit = null;
 
-		if (null != touch)
-        {
-			touch.onTouchDown += (Vector3 position) => {
-				if (activeAttack.data.mana > GameManager.Instance.citadel.mana) {
-					GameManager.Instance.uiMessageBox.message = "마나가 부족 합니다";
-					return;
-				}
-
-				if(0 < coolTime)
-				{
-					return;
-				}
-
-				GameManager.Instance.citadel.mana -= (int)activeAttack.data.mana;
-                activeAttack.self = this;
-                activeAttack.Attack ();
-				coolTime = activeAttack.data.cooltime;
-			};
-			touch.gameObject.SetActive (false);
-        }
-
-        if (null != passiveAttack)
-        {
-            unitAnimation.animationEvents.Add("attack", PassiveAttack);
-            passiveAttack.self = this;
-        }
+        unitAnimation.animationEvents.Add("attack", PassiveAttack);
+        passiveAttack.self = this;
 			
 		Init ();
 	}

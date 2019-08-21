@@ -58,7 +58,7 @@ public class UnitAttack_LightningField : UnitAttack {
 	{
 		transform.position = new Vector3(transform.position.x + delta.x, transform.position.y, transform.position.z);
 	}
-	public void OnTouchUp()
+	public void OnTouchUp(Vector3 position)
 	{
 		Time.timeScale = GameManager.Instance.timeScale;
 		StartCoroutine(Lightning());
