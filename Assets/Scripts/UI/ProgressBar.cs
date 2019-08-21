@@ -24,6 +24,6 @@ public class ProgressBar : MonoBehaviour {
     Transform _progress;
 	// Use this for initialization
 	void Start () {
-        _progress = transform.FindChild("Progress");
+        _progress = transform.Find("Progress");
 	}
 }

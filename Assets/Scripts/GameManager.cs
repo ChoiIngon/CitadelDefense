@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour {
 		Load();
 
         uiCitadelPanel.OnEnable();
-		uiWaveProgress.transform.FindChild ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
+		uiWaveProgress.transform.Find ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
 		foreach(var itr in citadel.heros)
 		{
 			HeroUnit hero = itr.Value;
@@ -175,7 +175,7 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-		uiWaveProgress.transform.FindChild ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
+		uiWaveProgress.transform.Find ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
 		uiWaveProgress.progress = 1.0f;
 
 		while (0 < enemyManager.transform.childCount) {
@@ -195,10 +195,10 @@ public class GameManager : MonoBehaviour {
 	void Update()
 	{
 		uiCitadelHealth.progress = (float)citadel.health / (float)citadel.health.max;
-		uiCitadelHealth.transform.FindChild("Text").GetComponent<Text>().text = citadel.health.value + "/" + citadel.health.max;
+		uiCitadelHealth.transform.Find("Text").GetComponent<Text>().text = citadel.health.value + "/" + citadel.health.max;
 
 		uiCitadelMana.progress = (float)citadel.mana / (float)citadel.mana.max;
-		uiCitadelMana.transform.FindChild("Text").GetComponent<Text>().text = citadel.mana.value + "/" + citadel.mana.max;
+		uiCitadelMana.transform.Find("Text").GetComponent<Text>().text = citadel.mana.value + "/" + citadel.mana.max;
 	}
 
 	public void Save()

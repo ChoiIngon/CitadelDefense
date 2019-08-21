@@ -14,7 +14,7 @@ public class PanelCitadel : MonoBehaviour {
 		waveStart.onClick.AddListener(GameManager.Instance.WaveStart);
 		buttonUpgrade.onClick.AddListener (() => {
 			GameManager.Instance.citadel.Upgrade();
-			buttonUpgrade.transform.FindChild ("Text").GetComponent<Text> ().text = 
+			buttonUpgrade.transform.Find ("Text").GetComponent<Text> ().text = 
 				"요새 업그레이드" + "\r\n" +
 				"<size=14>(" + (GameManager.Instance.citadel.upgradeCost * GameManager.Instance.citadel.level).ToString() + " G)</size>";
 		});
@@ -52,7 +52,7 @@ public class PanelCitadel : MonoBehaviour {
 	}
 	public void OnEnable() {
 		StartCoroutine (DisplayTips ());
-		buttonUpgrade.transform.FindChild ("Text").GetComponent<Text> ().text = 
+		buttonUpgrade.transform.Find ("Text").GetComponent<Text> ().text = 
 			"요새 업그레이드" + "\r\n" +
 			"<size=14>(" + (GameManager.Instance.citadel.upgradeCost * GameManager.Instance.citadel.level).ToString() + " G)</size>";
 	}
