@@ -47,7 +47,11 @@ public class GameManager : MonoBehaviour {
 	}
 	public const int WAVE_TIME = 90;
 	public int waveLevel;
-	public float timeScale;
+    [SerializeField]
+    private long _gold;
+    public float goldBonus;
+
+    public float timeScale;
 	public GameState gameState;
     
     public EnemyManager enemyManager;
@@ -79,9 +83,7 @@ public class GameManager : MonoBehaviour {
 			uiGold.text = _gold.ToString ("N0");
 		}
 	}
-	[SerializeField]
-	private long _gold;
-	public float goldBonus;
+	
 	public CitadelUnit citadel;
 
 	[HideInInspector]
@@ -103,8 +105,9 @@ public class GameManager : MonoBehaviour {
         
 		Load();
 
-        uiCitadelPanel.OnEnable();
-		uiWaveProgress.transform.Find ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
+        Util.EventSystem.Publish(EventID.GameStart, this);
+        
+		uiWaveProgress.transform.Find("Text").GetComponent<Text>().text = "WAVE " + waveLevel;
 		foreach(var itr in citadel.heros)
 		{
 			HeroUnit hero = itr.Value;
@@ -120,7 +123,9 @@ public class GameManager : MonoBehaviour {
 			uiMessageBox.message = "마법사를 먼저 성에 배치 해주세요.";
 			return;
 		}
-		uiCitadelPanel.gameObject.SetActive(false);
+
+        Util.EventSystem.Publish(EventID.WaveStart, null);
+		
 		uiPlayPanel.gameObject.SetActive (true);
 		gameState = GameState.Play;
 
@@ -145,7 +150,7 @@ public class GameManager : MonoBehaviour {
 	public void WaveEnd(WaveResult result)
 	{
 		Time.timeScale = 1.0f;
-		uiCitadelPanel.gameObject.SetActive (true);
+        Util.EventSystem.Publish(EventID.WaveEnd, null);
 		uiPlayPanel.gameObject.SetActive (false);
 		gameState = GameState.Ready;
 		if (WaveResult.Win == result) {
@@ -195,10 +200,9 @@ public class GameManager : MonoBehaviour {
 	void Update()
 	{
 		uiCitadelHealth.progress = (float)citadel.health / (float)citadel.health.max;
-		uiCitadelHealth.transform.Find("Text").GetComponent<Text>().text = citadel.health.value + "/" + citadel.health.max;
-
+		uiCitadelHealth.text = citadel.health.value + "/" + citadel.health.max;
 		uiCitadelMana.progress = (float)citadel.mana / (float)citadel.mana.max;
-		uiCitadelMana.transform.Find("Text").GetComponent<Text>().text = citadel.mana.value + "/" + citadel.mana.max;
+		uiCitadelMana.text = citadel.mana.value + "/" + citadel.mana.max;
 	}
 
 	public void Save()

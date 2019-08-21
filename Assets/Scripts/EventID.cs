@@ -5,6 +5,9 @@ public class EventID
 {
     public const string HealthChanged   = "HealthChanged";
     public const string ManaChanged     = "ManaChanged";
-    public const string WaveWin =   "WaveStart";
-    public const string WaveLose = "WaveEnd";
+    public const string GameStart = "GameStart";
+    public const string WaveWin =   "WaveWin";
+    public const string WaveLose = "WaveLose";
+    public const string WaveStart = "WaveStart";
+    public const string WaveEnd = "WaveEnd";
 }
