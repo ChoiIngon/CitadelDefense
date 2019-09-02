@@ -28,7 +28,7 @@ public class PanelHeroShop : MonoBehaviour {
         {
             Transform child = content.GetChild(0);
             child.SetParent(null);
-            DestroyObject(child.gameObject);
+            Object.Destroy(child.gameObject);
         }
 		foreach(var itr in GameManager.Instance.citadel.heros)
         {

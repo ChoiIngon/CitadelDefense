@@ -20,7 +20,7 @@ public class EnemyManager : MonoBehaviour {
 			EnemyUnit unitEnemy = transform.GetChild (0).GetComponent<EnemyUnit> ();
 			if (null != unitEnemy) {
 				unitEnemy.transform.SetParent (null);
-				DestroyObject (unitEnemy.gameObject);
+				Object.Destroy(unitEnemy.gameObject);
 			}
 		}
 	}
