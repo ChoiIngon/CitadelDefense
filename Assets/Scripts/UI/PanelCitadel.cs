@@ -13,8 +13,8 @@ public class PanelCitadel : MonoBehaviour {
     private void Awake()
     {
         Util.EventSystem.Subscribe<GameManager>(EventID.GameStart, OnGameStart);
-        Util.EventSystem.Subscribe(EventID.WaveStart, OnWaveStart);
-        Util.EventSystem.Subscribe(EventID.WaveEnd, OnWaveEnd);
+        Util.EventSystem.Subscribe<object>(EventID.WaveStart, OnWaveStart);
+        Util.EventSystem.Subscribe<object>(EventID.WaveEnd, OnWaveEnd);
     }
     private void OnGameStart (GameManager gameManager) {
         if(null == waveStart)
@@ -43,12 +43,10 @@ public class PanelCitadel : MonoBehaviour {
         }
             
         waveStart.onClick.AddListener(GameManager.Instance.WaveStart);
-		OnWaveEnd();
-
 		buttonUpgrade.onClick.AddListener (() => {
 			GameManager.Instance.citadel.Upgrade();
 			buttonUpgrade.transform.Find ("Text").GetComponent<Text> ().text = 
-				GameText.Instance.GetText("UPGRADE_CITADEL") + "\r\n" +
+				"요새 업그레이드" + "\r\n" +
 				"<size=14>(" + (GameManager.Instance.citadel.upgradeCost * GameManager.Instance.citadel.level).ToString() + " G)</size>";
 		});
 		buttonBuff.onClick.AddListener (() => {
@@ -84,16 +82,16 @@ public class PanelCitadel : MonoBehaviour {
 			}
 		}
 	}
-	private void OnWaveStart()
+	private void OnWaveStart(object obj)
     {
         gameObject.SetActive(false);
     }
-    private void OnWaveEnd()
+    private void OnWaveEnd(object obj)
     {
         gameObject.SetActive(true);
         StartCoroutine(DisplayTips());
         buttonUpgrade.transform.Find("Text").GetComponent<Text>().text =
-			GameText.Instance.GetText("UPGRADE_CITADEL") + "\r\n" +
+            "요새 업그레이드" + "\r\n" +
             "<size=14>(" + (GameManager.Instance.citadel.upgradeCost * GameManager.Instance.citadel.level).ToString() + " G)</size>";
     }
 }
