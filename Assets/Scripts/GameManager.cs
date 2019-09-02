@@ -94,6 +94,8 @@ public class GameManager : MonoBehaviour {
 	private IEnumerator waveCoroutine = null;
 
 	void Start () {
+		GameText.Instance.SetLanguage(GameText.LanguageCode.English);
+
 		gold = DEFAULT_GOLD;
 		gameState = GameState.Ready;
 		selectedSlot = null;
@@ -107,7 +109,7 @@ public class GameManager : MonoBehaviour {
 
         Util.EventSystem.Publish(EventID.GameStart, this);
         
-		uiWaveProgress.transform.Find("Text").GetComponent<Text>().text = "WAVE " + waveLevel;
+		uiWaveProgress.transform.Find("Text").GetComponent<Text>().text = GameText.Instance.GetText("WAVE") + " " + waveLevel;
 		foreach(var itr in citadel.heros)
 		{
 			HeroUnit hero = itr.Value;
@@ -120,11 +122,11 @@ public class GameManager : MonoBehaviour {
     {
 		Time.timeScale = GameManager.Instance.timeScale;
 		if (0 == citadel.GetActiveUnitCount ()) {
-			uiMessageBox.message = "마법사를 먼저 성에 배치 해주세요.";
+			uiMessageBox.message = GameText.Instance.GetText("ERROR_HERO_UNIT_DEPLOY");
 			return;
 		}
 
-        Util.EventSystem.Publish(EventID.WaveStart, null);
+        Util.EventSystem.Publish(EventID.WaveStart);
 		
 		uiPlayPanel.gameObject.SetActive (true);
 		gameState = GameState.Play;
@@ -150,7 +152,7 @@ public class GameManager : MonoBehaviour {
 	public void WaveEnd(WaveResult result)
 	{
 		Time.timeScale = 1.0f;
-        Util.EventSystem.Publish(EventID.WaveEnd, null);
+        Util.EventSystem.Publish(EventID.WaveEnd);
 		uiPlayPanel.gameObject.SetActive (false);
 		gameState = GameState.Ready;
 		if (WaveResult.Win == result) {
@@ -180,7 +182,7 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-		uiWaveProgress.transform.Find ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
+		uiWaveProgress.transform.Find ("Text").GetComponent<Text> ().text = GameText.Instance.GetText("WAVE") + " " + waveLevel;
 		uiWaveProgress.progress = 1.0f;
 
 		while (0 < enemyManager.transform.childCount) {
