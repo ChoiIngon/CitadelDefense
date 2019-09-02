@@ -250,46 +250,49 @@ public class GameManager : MonoBehaviour {
 
 	public void Load()
 	{
-		Debug.Log (Application.persistentDataPath);
-		if (File.Exists (Application.persistentDataPath + "/playerdata.dat")) {
-			BinaryFormatter bf = new BinaryFormatter ();
-			FileStream file = File.Open (Application.persistentDataPath + "/playerdata.dat", FileMode.Open);
-			SaveData data = (SaveData)bf.Deserialize (file);
+		Debug.Log ("persistent data path:" + Application.persistentDataPath);
+		if (false == File.Exists(Application.persistentDataPath + "/playerdata.dat"))
+		{
+			return;
+		}
 
-			gold = data.gold;
-			citadel.level = data.citadelLevel;
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Open (Application.persistentDataPath + "/playerdata.dat", FileMode.Open);
+		SaveData data = (SaveData)bf.Deserialize (file);
 
-			if (data.version == SAVE_FORMAT_VERSION) {
-				waveLevel = data.waveLevel;
-				foreach (var itr in data.heros) {
-					HeroUnit.SaveData saveData = itr.Value;
-					HeroUnit hero = citadel.heros [saveData.id];
-					hero.level = saveData.level;
-					hero.purchased = saveData.purchased;
-					hero.slotIndex = saveData.slotIndex;
-					hero.equiped = saveData.equiped;
-					if (true == hero.equiped) {
-						citadel.citadelParts [hero.slotIndex].slot.EquipUnit (hero);
-					}
-				}
+		gold = data.gold;
+		citadel.level = data.citadelLevel;
 
-				if (null != data.citadelParts) {
-					for (int i = 0; i < citadel.citadelParts.Length; i++) {
-						if (null == data.citadelParts [i]) {
-							continue;
-						}
-						if (true == data.citadelParts [i].active) {
-							citadel.citadelParts [i].gameObject.SetActive (true);
-						}
-					}
-				}
-				for (int i = 0; i < data.citadelBuffs.Length; i++) {
-					CitadelBuff buff = citadel.citadelBuffs [i];
-					buff.level = data.citadelBuffs [i].level;
+		if (data.version == SAVE_FORMAT_VERSION) {
+			waveLevel = data.waveLevel;
+			foreach (var itr in data.heros) {
+				HeroUnit.SaveData saveData = itr.Value;
+				HeroUnit hero = citadel.heros [saveData.id];
+				hero.level = saveData.level;
+				hero.purchased = saveData.purchased;
+				hero.slotIndex = saveData.slotIndex;
+				hero.equiped = saveData.equiped;
+				if (true == hero.equiped) {
+					citadel.citadelParts [hero.slotIndex].slot.EquipUnit (hero);
 				}
 			}
-			file.Close ();
-		} 
+
+			if (null != data.citadelParts) {
+				for (int i = 0; i < citadel.citadelParts.Length; i++) {
+					if (null == data.citadelParts [i]) {
+						continue;
+					}
+					if (true == data.citadelParts [i].active) {
+						citadel.citadelParts [i].gameObject.SetActive (true);
+					}
+				}
+			}
+			for (int i = 0; i < data.citadelBuffs.Length; i++) {
+				CitadelBuff buff = citadel.citadelBuffs [i];
+				buff.level = data.citadelBuffs [i].level;
+			}
+		}
+		file.Close ();
 	}
 
 	public void Quit()
