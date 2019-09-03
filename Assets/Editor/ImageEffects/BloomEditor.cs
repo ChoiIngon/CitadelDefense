@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace UnityStandardAssets.ImageEffects
 {
+	/*
     [CustomEditor (typeof(Bloom))]
     class BloomEditor : Editor
     {
@@ -159,4 +160,5 @@ namespace UnityStandardAssets.ImageEffects
             serObj.ApplyModifiedProperties();
         }
     }
+	*/
 }
