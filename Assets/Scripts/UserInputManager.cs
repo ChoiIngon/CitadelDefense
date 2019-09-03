@@ -44,7 +44,7 @@ public class UserInputManager : MonoBehaviour {
                 TouchEvent touchEvent = v.Value;
                 if (null != touchEvent.onTouchUp)
                 {
-                    touchEvent.onTouchUp(Input.mousePosition);
+                    touchEvent.onTouchUp();
                 }
             }
             touchEvents.Clear();

@@ -10,45 +10,12 @@ public class PanelCitadel : MonoBehaviour {
 	public Button buttonExit;
 	public Text textTip;
 
-    private void Awake()
-    {
-        Util.EventSystem.Subscribe<GameManager>(EventID.GameStart, OnGameStart);
-        Util.EventSystem.Subscribe(EventID.WaveStart, OnWaveStart);
-        Util.EventSystem.Subscribe(EventID.WaveEnd, OnWaveEnd);
-    }
-    private void OnGameStart (GameManager gameManager) {
-        if(null == waveStart)
-        {
-            throw new System.Exception("can not find 'WaveStart' button");
-        }
-        if (null == buttonUpgrade)
-        {
-            throw new System.Exception("can not find 'Upgrade' button");
-        }
-        if (null == buttonBuff)
-        {
-            throw new System.Exception("can not find 'Buff' button");
-        }
-        if (null == buttonItem)
-        {
-            throw new System.Exception("can not find 'Item' button");
-        }
-        if (null == buttonExit)
-        {
-            throw new System.Exception("can not find 'Exit' button");
-        }
-        if (null == textTip)
-        {
-            throw new System.Exception("can not find 'Tip' Text");
-        }
-            
-        waveStart.onClick.AddListener(GameManager.Instance.WaveStart);
-		OnWaveEnd();
-
+	void Start () {
+		waveStart.onClick.AddListener(GameManager.Instance.WaveStart);
 		buttonUpgrade.onClick.AddListener (() => {
 			GameManager.Instance.citadel.Upgrade();
-			buttonUpgrade.transform.Find ("Text").GetComponent<Text> ().text = 
-				GameText.Instance.GetText("UPGRADE_CITADEL") + "\r\n" +
+			buttonUpgrade.transform.FindChild ("Text").GetComponent<Text> ().text = 
+				"요새 업그레이드" + "\r\n" +
 				"<size=14>(" + (GameManager.Instance.citadel.upgradeCost * GameManager.Instance.citadel.level).ToString() + " G)</size>";
 		});
 		buttonBuff.onClick.AddListener (() => {
@@ -62,12 +29,11 @@ public class PanelCitadel : MonoBehaviour {
 		buttonExit.onClick.AddListener(() => {
 			GameManager.Instance.Quit();
 		});
-        /*
+		/*
 		buttonItem.onClick.AddListener (() => {
 			GameManager.Instance.uiItemPanel.gameObject.SetActive(true);
 		});
 		*/
-        
 	}
 
 	IEnumerator DisplayTips()
@@ -84,16 +50,10 @@ public class PanelCitadel : MonoBehaviour {
 			}
 		}
 	}
-	private void OnWaveStart()
-    {
-        gameObject.SetActive(false);
-    }
-    private void OnWaveEnd()
-    {
-        gameObject.SetActive(true);
-        StartCoroutine(DisplayTips());
-        buttonUpgrade.transform.Find("Text").GetComponent<Text>().text =
-			GameText.Instance.GetText("UPGRADE_CITADEL") + "\r\n" +
-            "<size=14>(" + (GameManager.Instance.citadel.upgradeCost * GameManager.Instance.citadel.level).ToString() + " G)</size>";
-    }
+	public void OnEnable() {
+		StartCoroutine (DisplayTips ());
+		buttonUpgrade.transform.FindChild ("Text").GetComponent<Text> ().text = 
+			"요새 업그레이드" + "\r\n" +
+			"<size=14>(" + (GameManager.Instance.citadel.upgradeCost * GameManager.Instance.citadel.level).ToString() + " G)</size>";
+	}
 }

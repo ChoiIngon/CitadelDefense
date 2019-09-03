@@ -45,7 +45,7 @@ public class UnitAttack_ArcaneShower : UnitAttack {
 		transform.position = new Vector3(transform.position.x + delta.x, transform.position.y, transform.position.z);
 	}
 
-	public void OnTouchUp(Vector3 position)
+	public void OnTouchUp()
 	{
 		Time.timeScale = GameManager.Instance.timeScale;
 		StartCoroutine(Fire());

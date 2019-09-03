@@ -47,11 +47,7 @@ public class GameManager : MonoBehaviour {
 	}
 	public const int WAVE_TIME = 90;
 	public int waveLevel;
-    [SerializeField]
-    private long _gold;
-    public float goldBonus;
-
-    public float timeScale;
+	public float timeScale;
 	public GameState gameState;
     
     public EnemyManager enemyManager;
@@ -83,7 +79,9 @@ public class GameManager : MonoBehaviour {
 			uiGold.text = _gold.ToString ("N0");
 		}
 	}
-	
+	[SerializeField]
+	private long _gold;
+	public float goldBonus;
 	public CitadelUnit citadel;
 
 	[HideInInspector]
@@ -94,8 +92,6 @@ public class GameManager : MonoBehaviour {
 	private IEnumerator waveCoroutine = null;
 
 	void Start () {
-		GameText.Instance.SetLanguage(GameText.LanguageCode.English);
-
 		gold = DEFAULT_GOLD;
 		gameState = GameState.Ready;
 		selectedSlot = null;
@@ -107,9 +103,8 @@ public class GameManager : MonoBehaviour {
         
 		Load();
 
-        Util.EventSystem.Publish(EventID.GameStart, this);
-        
-		uiWaveProgress.transform.Find("Text").GetComponent<Text>().text = GameText.Instance.GetText("WAVE") + " " + waveLevel;
+        uiCitadelPanel.OnEnable();
+		uiWaveProgress.transform.FindChild ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
 		foreach(var itr in citadel.heros)
 		{
 			HeroUnit hero = itr.Value;
@@ -122,12 +117,10 @@ public class GameManager : MonoBehaviour {
     {
 		Time.timeScale = GameManager.Instance.timeScale;
 		if (0 == citadel.GetActiveUnitCount ()) {
-			uiMessageBox.message = GameText.Instance.GetText("ERROR_HERO_UNIT_DEPLOY");
+			uiMessageBox.message = "마법사를 먼저 성에 배치 해주세요.";
 			return;
 		}
-
-        Util.EventSystem.Publish(EventID.WaveStart);
-		
+		uiCitadelPanel.gameObject.SetActive(false);
 		uiPlayPanel.gameObject.SetActive (true);
 		gameState = GameState.Play;
 
@@ -152,7 +145,7 @@ public class GameManager : MonoBehaviour {
 	public void WaveEnd(WaveResult result)
 	{
 		Time.timeScale = 1.0f;
-        Util.EventSystem.Publish(EventID.WaveEnd);
+		uiCitadelPanel.gameObject.SetActive (true);
 		uiPlayPanel.gameObject.SetActive (false);
 		gameState = GameState.Ready;
 		if (WaveResult.Win == result) {
@@ -182,7 +175,7 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-		uiWaveProgress.transform.Find ("Text").GetComponent<Text> ().text = GameText.Instance.GetText("WAVE") + " " + waveLevel;
+		uiWaveProgress.transform.FindChild ("Text").GetComponent<Text> ().text = "WAVE " + waveLevel;
 		uiWaveProgress.progress = 1.0f;
 
 		while (0 < enemyManager.transform.childCount) {
@@ -202,9 +195,10 @@ public class GameManager : MonoBehaviour {
 	void Update()
 	{
 		uiCitadelHealth.progress = (float)citadel.health / (float)citadel.health.max;
-		uiCitadelHealth.text = citadel.health.value + "/" + citadel.health.max;
+		uiCitadelHealth.transform.FindChild("Text").GetComponent<Text>().text = citadel.health.value + "/" + citadel.health.max;
+
 		uiCitadelMana.progress = (float)citadel.mana / (float)citadel.mana.max;
-		uiCitadelMana.text = citadel.mana.value + "/" + citadel.mana.max;
+		uiCitadelMana.transform.FindChild("Text").GetComponent<Text>().text = citadel.mana.value + "/" + citadel.mana.max;
 	}
 
 	public void Save()
@@ -252,49 +246,46 @@ public class GameManager : MonoBehaviour {
 
 	public void Load()
 	{
-		Debug.Log ("persistent data path:" + Application.persistentDataPath);
-		if (false == File.Exists(Application.persistentDataPath + "/playerdata.dat"))
-		{
-			return;
-		}
+		Debug.Log (Application.persistentDataPath);
+		if (File.Exists (Application.persistentDataPath + "/playerdata.dat")) {
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Open (Application.persistentDataPath + "/playerdata.dat", FileMode.Open);
+			SaveData data = (SaveData)bf.Deserialize (file);
 
-		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream file = File.Open (Application.persistentDataPath + "/playerdata.dat", FileMode.Open);
-		SaveData data = (SaveData)bf.Deserialize (file);
+			gold = data.gold;
+			citadel.level = data.citadelLevel;
 
-		gold = data.gold;
-		citadel.level = data.citadelLevel;
-
-		if (data.version == SAVE_FORMAT_VERSION) {
-			waveLevel = data.waveLevel;
-			foreach (var itr in data.heros) {
-				HeroUnit.SaveData saveData = itr.Value;
-				HeroUnit hero = citadel.heros [saveData.id];
-				hero.level = saveData.level;
-				hero.purchased = saveData.purchased;
-				hero.slotIndex = saveData.slotIndex;
-				hero.equiped = saveData.equiped;
-				if (true == hero.equiped) {
-					citadel.citadelParts [hero.slotIndex].slot.EquipUnit (hero);
-				}
-			}
-
-			if (null != data.citadelParts) {
-				for (int i = 0; i < citadel.citadelParts.Length; i++) {
-					if (null == data.citadelParts [i]) {
-						continue;
-					}
-					if (true == data.citadelParts [i].active) {
-						citadel.citadelParts [i].gameObject.SetActive (true);
+			if (data.version == SAVE_FORMAT_VERSION) {
+				waveLevel = data.waveLevel;
+				foreach (var itr in data.heros) {
+					HeroUnit.SaveData saveData = itr.Value;
+					HeroUnit hero = citadel.heros [saveData.id];
+					hero.level = saveData.level;
+					hero.purchased = saveData.purchased;
+					hero.slotIndex = saveData.slotIndex;
+					hero.equiped = saveData.equiped;
+					if (true == hero.equiped) {
+						citadel.citadelParts [hero.slotIndex].slot.EquipUnit (hero);
 					}
 				}
+
+				if (null != data.citadelParts) {
+					for (int i = 0; i < citadel.citadelParts.Length; i++) {
+						if (null == data.citadelParts [i]) {
+							continue;
+						}
+						if (true == data.citadelParts [i].active) {
+							citadel.citadelParts [i].gameObject.SetActive (true);
+						}
+					}
+				}
+				for (int i = 0; i < data.citadelBuffs.Length; i++) {
+					CitadelBuff buff = citadel.citadelBuffs [i];
+					buff.level = data.citadelBuffs [i].level;
+				}
 			}
-			for (int i = 0; i < data.citadelBuffs.Length; i++) {
-				CitadelBuff buff = citadel.citadelBuffs [i];
-				buff.level = data.citadelBuffs [i].level;
-			}
-		}
-		file.Close ();
+			file.Close ();
+		} 
 	}
 
 	public void Quit()

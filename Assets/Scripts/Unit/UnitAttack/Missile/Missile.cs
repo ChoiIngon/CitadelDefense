@@ -23,7 +23,7 @@ public class Missile : MonoBehaviour {
 		if (1.0f <= move.interpolate)
 		{
 			attack.Hit (move.end);
-            Object.Destroy(gameObject);
+            DestroyObject (gameObject);
 		}
 	}
 }

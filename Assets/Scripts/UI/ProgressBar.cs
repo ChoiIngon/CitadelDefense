@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using System.Collections;
 
 public class ProgressBar : MonoBehaviour {
     public float progress
@@ -21,41 +21,9 @@ public class ProgressBar : MonoBehaviour {
             _progress.localScale = new Vector3(scale, _progress.localScale.y, _progress.localScale.z);
         }
     }
-    public string text
-    {
-        set
-        {
-            transform.Find("Text").GetComponent<Text>().text = value;
-        }
-    }
-
     Transform _progress;
-    Text _text;
-    // Use this for initialization
-    void Awake()
-    {
-        Util.EventSystem.Subscribe<GameManager>(EventID.GameStart, Init);
-    }
-
-    void Init(GameManager gameManager)
-    {
-        Debug.Log("init progress instance(name:" + gameObject.name + ")");
-        _progress = transform.Find("Progress");
-        if(null == _progress)
-        {
-            throw new System.Exception("can not find 'Progress' component");
-        }
-        /*
-        Transform t = transform.Find("Text");
-        if(null == t)
-        {
-            throw new System.Exception("can not find 'Text' component");
-        }
-        _text = t.GetComponent<Text>();
-        if (null == _text)
-        {
-            throw new System.Exception("can not find 'Text' component");
-        }
-        */
-    }
+	// Use this for initialization
+	void Start () {
+        _progress = transform.FindChild("Progress");
+	}
 }

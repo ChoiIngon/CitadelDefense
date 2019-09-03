@@ -37,7 +37,7 @@ public class CitadelUnit : Unit {
 	public void Init()
 	{
 		{
-			Transform t = transform.Find ("Heros");
+			Transform t = transform.FindChild ("Heros");
 			for (int i = 0; i < t.childCount; i++) {
 				HeroUnit hero = t.GetChild (i).GetComponent<HeroUnit> ();
 				hero.gameObject.SetActive (false);
@@ -46,7 +46,7 @@ public class CitadelUnit : Unit {
 		}
 
 		{
-			Transform t = transform.Find ("Animation/Parts");
+			Transform t = transform.FindChild ("Animation/Parts");
 			citadelParts = new CitadelParts[t.childCount];
 			for (int i = 0; i < t.childCount; i++) {
 				CitadelParts parts = t.GetChild (i).GetComponent<CitadelParts> ();

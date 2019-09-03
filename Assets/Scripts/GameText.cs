@@ -24,13 +24,12 @@ class GameText : Util.Singleton<GameText>
 
 	public string GetText(string textKey)
 	{
-		if(false == textByLanguageCode.ContainsKey(textKey))
+		if (false == textByLanguageCode.ContainsKey(textKey))
 		{
 			throw new System.Exception("invalid text key(text_key:" + textKey + ")");
 		}
 
 		return textByLanguageCode[textKey][(int)language_code];
 	}
-	
-}
 
+}

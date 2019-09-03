@@ -21,7 +21,7 @@ public class ContentCitadelBuff : MonoBehaviour {
 	{
 		panel.selectedBuff = this;
 		panel.description.text = string.Format(buff.info.description, Mathf.Abs(buff.value) * 100.0f);
-		Text text = panel.upgrade.transform.Find("Text").GetComponent<Text>();
+		Text text = panel.upgrade.transform.FindChild("Text").GetComponent<Text>();
 		if (buff.maxLevel == buff.level) {
 			text.text = "Max Level";
 		} else {
@@ -34,7 +34,7 @@ public class ContentCitadelBuff : MonoBehaviour {
 		buff.Upgrade ();
 		level.text = buff.level.ToString ();
 		panel.description.text = string.Format(buff.info.description, Mathf.Abs(buff.value) * 100.0f);
-		Text text = panel.upgrade.transform.Find("Text").GetComponent<Text>();
+		Text text = panel.upgrade.transform.FindChild("Text").GetComponent<Text>();
 		if (buff.maxLevel == buff.level) {
 			text.text = "Max Level";
 		} else {

@@ -89,7 +89,7 @@ public class Lightning : MonoBehaviour {
 			yield return new WaitForSeconds(sparkDuration);
 		}
 		transform.SetParent (null);
-		Object.Destroy(gameObject);
+		DestroyObject (gameObject);
 	}
 
 	private void SetVertices(int start, int end, Vector3 startPos, Vector3 endPos)
